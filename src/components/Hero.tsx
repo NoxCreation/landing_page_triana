@@ -4,92 +4,263 @@ import ButtonUi from "./Button";
 export default function Hero() {
     return (
         <Box as="section" position="relative" overflow="hidden" bg="gray.50" >
-            <Box
-                position="absolute"
-                bottom="30%"
-                left="-1%"
-                w="600px"
-                h="300px"
-                bg="purple.100"
-                opacity={0.4}
-                borderTopRadius="full"
-            />
-            <Box
-                position="absolute"
-                bottom="-30%"
-                left="-1%"
-                w="600px"
-                h="550px"
-                bg="purple.100"
-                opacity={0.8}
-                borderTopRadius="full"
-            />
-            <Flex m={"auto"} w={"1300px"} p={20} align={"center"}>
+            <Flex m={"auto"} maxWidth={"1440px"} h={"760px"} px={"160px"} py={"80px"} align={"center"}>
                 <Box flex={1} textAlign={{ base: "center", md: "left" }}>
-                    <Heading
-                        as="h1"
-                        fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-                        fontWeight="bold"
-                        color="gray.800"
-                        lineHeight="1.2"
-                        mb={6}
+                    <Flex
+                        direction="column"
+                        w="551px"
+                        gap="32px"
                     >
+                        <Box position="relative" w="541px" display="inline-block">
+                            <Heading
+                                as="h1"
+                                w="501px"
+                                h="70px"
+                                color="primary.500"
+                                fontFamily="Bricolage Grotesque"
+                                fontWeight="extrabold"
+                                fontSize="64px"
+                                lineHeight="70px"
+                            >
+                                Hola, somos 3ana
+                            </Heading>
+
+                            <Image
+                                src="/home/Vector.png"
+                                w="32px"
+                                h="32px"
+                                position="absolute"
+                                top="3px"
+                                right="30px"
+                            />
+                        </Box>
+                        <Heading
+                            as={"h2"}
+                            w="545px"
+                            h="22px"
+                            color="#3F3F3F"
+                            fontSize={"36px"}
+                            lineHeight={"40px"}
+                            letterSpacing={"0%"}
+                            fontWeight="extrabold"
+                            fontFamily="Bricolage Grotesque"
+                        >Marketing que mueve negocios</Heading>
                         <Text
-                            as="span"
-                            color={"#d222de"}
-                        >Marketing</Text>{" "}
-                        <Text
-                            as="span"
-                            color="brand.500"
-                        >que transforma tu negocio</Text>
-                    </Heading>
-                    <Text
-                        fontSize={{ base: "sm", md: "md" }}
-                        color="gray.600"
-                        mb={8}
-                        maxW="500px"
-                        mx={{ base: "auto", md: 0 }}
-                    >
-                        Estrategias prácticas, acompañamiento y resultados medibles.
-                    </Text>
+                            w="551px"
+                            h="66px"
+                            fontFamily="inter"
+                            fontWeight="400"
+                            fontSize="18px"
+                            lineHeight="22px"
+                            letterSpacing="0px"
+                            color="#717171"
+                        >
+                            Ayudo a emprendedores y restaurantes a transformar sus ideas en negocios
+                            exitosos con estrategias prácticas y acompañamiento constante
+                        </Text>
+                    </Flex>
                     <HStack
                         gap={4}
                         justify={{ base: "center", md: "flex-start" }}
                         direction={{ base: "column", sm: "row" }}
+                        w="517px"
+                        h="56px"
                     >
                         <ButtonUi
-                            text="Ver Servicios"
-                            bg="brand.500"
+                            h="56px"
+                            w="fit-content"
+                            borderRadius="30px"
+                            py="16px"
+                            px="24px"
+                            gap="16px"
+                            bg="primary.500"
                             color="white"
+                            boxShadow="0px 10px 20px rgba(178,35,207,0.24)"
                             size="lg"
-                            px={8}
                             _hover={{ bg: "brand.600" }}
-                        />
+                        >
+                            <Text
+                                fontFamily="Inter"
+                                fontWeight="semibold"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0"
+                                textAlign="center"
+                                color="#FFFFFF"
+                            >Agendar una Consulta</Text>
+                        </ButtonUi>
                         <ButtonUi
-                            text="Consulta Gratis"
-                            variant="outline"
-                            borderColor="brand.500"
-                            color="brand.500"
+                            w="fit-content"
+                            h="54px"
+                            borderRadius="30px"
+                            border="1px solid"
+                            py="16px"
+                            px="24px"
+                            gap="8px"
+                            borderColor="primary.500"
+                            color="primary.500"
+                            boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
                             size="lg"
-                            px={8}
                             _hover={{ bg: "purple.50" }}
-                        />
+                        >
+                            <Text
+                                fontFamily="Inter"
+                                fontWeight="semibold"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0"
+                                textAlign="center"
+                            >Conoce mi Trabajo</Text>
+                        </ButtonUi>
                     </HStack>
+                    <Flex w="576px" h="96px" bg="transparent" pt={10} align="center" gap={8}>
+                        <Box
+                            w="142.69px"
+                            h="64px"
+                            bg="transparent">
+                            <Box
+                                w="185.49px"
+                                h="40px"
+                                bg="transparent"
+                            >
+                                <Text
+                                    w="193.49px"
+                                    h="40px"
+                                    fontFamily="Bricolage Grotesque"
+                                    fontWeight="800"
+                                    fontSize="36px"
+                                    lineHeight="40px"
+                                    letterSpacing="0%"
+                                    color="primary.500"
+                                >
+                                    150+
+                                </Text>
+                            </Box>
+                            <Box
+                                w="142.69px"
+                                h="20px"
+                                bg="transparent"
+                            >
+                                <Text
+                                    color="#3F3F3F"
+                                    w="150.69px"
+                                    h="20px"
+                                    fontFamily="Inter"
+                                    fontWeight="400"
+                                    fontSize="14px"
+                                    lineHeight="20px"
+                                    letterSpacing="0px"
+                                >Negocios Impulsados</Text>
+                            </Box>
+                        </Box>
+                        <Box
+                            w="1px"
+                            h="64px"
+                            bg="#E5E7EB"
+                        />
+                        <Box
+                            w="135.61px"
+                            h="64px"
+                            bg="transparent"
+                        >
+                            <Box
+                                w="176.29px"
+                                h="40px"
+                                bg="transparent"
+                            >
+                                <Text
+                                    w="184.29px"
+                                    h="40px"
+                                    fontFamily="Bricolage Grotesque"
+                                    fontWeight="800"
+                                    fontSize="36px"
+                                    lineHeight="40px"
+                                    letterSpacing="0%"
+                                    color="primary.500"
+                                >
+                                    3+
+                                </Text>
+                            </Box>
+                            <Box
+                                w="135.61px"
+                                h="20px"
+                                bg="transparent"
+                            >
+                                <Text
+                                    w="143.61px"
+                                    h="20px"
+                                    fontFamily="Inter"
+                                    fontWeight="400"
+                                    fontSize="14px"
+                                    lineHeight="20px"
+                                    letterSpacing="0px"
+                                    color="#3F3F3F"
+                                >
+                                    Años de Experiencia
+                                </Text>
+                            </Box>
+                        </Box>
+                        <Box
+                            w="1px"
+                            h="64px"
+                            bg="#E5E7EB"
+                        />
+                        <Box
+                            w="134.58px"
+                            h="64px"
+                            bg="transparent"
+                        >
+                            <Box
+                                w="174.95px"
+                                h="40px"
+                                bg="transparent"
+                            >
+                                <Text
+                                    w="182.95px"
+                                    h="40px"
+                                    fontFamily="Bricolage Grotesque"
+                                    fontWeight="800"
+                                    fontSize="36px"
+                                    lineHeight="40px"
+                                    letterSpacing="0%"
+                                    color="primary.500"
+                                >
+                                    98%
+                                </Text>
+                            </Box>
+                            <Box
+                                w="134.58px"
+                                h="20px"
+                                bg="transparent"
+                            ><Text
+                                color="#3F3F3F"
+                                w="142.58px"
+                                h="20px"
+                                fontFamily="Inter"
+                                fontWeight="400"
+                                fontSize="14px"
+                                lineHeight="20px"
+                                letterSpacing="0px"
+                            >Clientes Satisfechos</Text></Box>
+                        </Box>
+                    </Flex>
                 </Box>
-                <Flex flex={1} align={"flex-end"} gap={4}>
+                <Box
+                    borderRadius="99px"
+                    bgGradient="radial(#FFFFFF 0%, #F9D0FF 100%)"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                >
                     <Image
-                        src="/imgP.webp"
-                        alt="Mujer trabajando"
-                        maxW={{ base: "100%", md: "500px" }}
-                        borderRadius="2xl"
-                        boxShadow="xl"
+                        src="/home/Hero.png"
+                        alt="mujer sonriente"
+                        w="100%"
+                        h="100%"
+                        borderRadius="99px"
+                        objectFit="cover"
                     />
-                    <ButtonUi
-                        text="Contáctame"
-                        color={"white"}
-                        bg={"#25D366"}
-                    />
-                </Flex>
+                </Box>
             </Flex>
         </Box>
     )

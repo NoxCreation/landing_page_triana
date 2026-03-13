@@ -1,54 +1,28 @@
 import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import SpaIcon from '@mui/icons-material/Spa';
-import GrassIcon from '@mui/icons-material/Grass';
-
-const services = [
-    {
-        title: "Estoy empezando desde cero",
-        subtitle: "(Asesoría y permisos)",
-        isActive: true,
-        icon: GrassIcon
-    },
-    {
-        title: "Ya empecé pero necesito crecer",
-        subtitle: "(Asesoría y permisos)",
-        isActive: false,
-        icon: SpaIcon
-    },
-    {
-        title: "Tengo un restaurante o cafetería",
-        subtitle: "(Asesoría y ventas)",
-        isActive: false,
-        icon: RestaurantMenuIcon
-    },
-    {
-        title: "Quiero vender productos online",
-        subtitle: "(Seller Center / TikTok Shop)",
-        isActive: false,
-        icon: StorefrontIcon
-    },
-];
-
-const ServiceIcon = ({ isActive }: { isActive: boolean }) => (
-    <Box width="40px" height="40px" position="relative">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="18" fill={isActive ? "#8B5CF6" : "#E2E8F0"} />
-            <path d="M20 12L20 28M12 20L28 20" stroke="white" strokeWidth="3" strokeLinecap="round" />
-        </svg>
-    </Box>
-);
+import { services } from "@/constants/home/nedd"
 
 export default function Need() {
     return (
-        <Box w="100%" bg="#FDF2F8" py={16} px={4}>
+        <Box w="100%" bg="#FDF2FF" py={16} px={4}>
             <Box maxW="1000px" mx="auto">
                 <Box textAlign="center" mb={10}>
-                    <Heading as="h2" color="gray.600" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="700" mb={4}>
+                    <Heading
+                        as="h1"
+                        color="#3F3F3F"
+                        lineHeight={"70px"}
+                        letterSpacing={"0%"}
+                        fontSize={{ base: "3xl", md: "5xl" }}
+                        fontWeight="800"
+                        fontFamily="Bricolage Grotesque">
                         ¿Qué servicio necesitas?
                     </Heading>
-                    <Text fontSize="lg" color="gray.600">
+                    <Text
+                        fontSize="18px"
+                        fontFamily="inter"
+                        fontWeight={400}
+                        color="#717171"
+                        letterSpacing="0px"
+                        lineHeight="22px">
                         Responda 3 preguntas y te recomendamos el servicio ideal
                     </Text>
                 </Box>
@@ -61,10 +35,14 @@ export default function Need() {
                     mb={8}
                 >
                     <Text
+                        as="h3"
                         textAlign="center"
-                        fontWeight="600"
+                        fontWeight="extrabold"
+                        fontFamily="inter"
                         fontSize={{ base: "md", md: "lg" }}
-                        color="gray.700"
+                        color="#3F3F3F"
+                        lineHeight="32px"
+                        letterSpacing={"0"}
                         mb={8}
                     >
                         ¿En qué etapa está tu negocio?
@@ -92,15 +70,22 @@ export default function Need() {
                                 <Flex direction="column" align="center" gap={3}>
                                     {service.icon && <service.icon style={{ color: service.isActive ? "#8B5CF6" : "#4A5568" }} />}
                                     <Text
-                                        fontWeight="600"
-                                        fontSize="sm"
+                                        fontWeight={400}
+                                        fontSize="18px"
                                         textAlign="center"
+                                        fontFamily="inter"
+                                        lineHeight="22px"
+                                        letterSpacing="0px"
                                         color={service.isActive ? "#8B5CF6" : "gray.700"}
                                     >
                                         {service.title}
                                     </Text>
                                     <Text
-                                        fontSize="xs"
+                                        fontSize="14"
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                        fontFamily="inter"
+                                        fontWeight={400}
                                         color="gray.300"
                                         textAlign="center"
                                     >
@@ -111,6 +96,11 @@ export default function Need() {
                         ))}
                     </Grid>
                 </Box>
+                <Flex justify="center" gap={2} >
+                    <Box w="40px" h="2px" bg="gray.400" background="primary.500" />
+                    <Box w="40px" h="2px" bg="gray.400" background="#E5E7EB" />
+                    <Box w="40px" h="2px" bg="gray.400" background="#E5E7EB" />
+                </Flex>
             </Box>
         </Box>
     );

@@ -9,16 +9,20 @@ export default function Navbar() {
 
   return (
     <>
-      <Box as="header" w="100%" bg="#FDF0FE" boxShadow="sm" position="sticky" top={0} zIndex={10}>
-        <Flex h={16} alignItems="center" justify="space-between" maxW="1200px" mx="auto" px={6}>
-          <Image src="/window.svg" alt="Logo" boxSize="40px" objectFit="contain" />
-          <HStack as="nav" gap={8} display={{ base: "none", md: "flex" }}>
+      <Box as="header" maxWidth="1440px" bg="secondary.500/10" boxShadow="0px 0px 24px rgba(97,17,97,0.24)" position="sticky" top={0} zIndex={10}>
+        <Flex alignItems="center" h={"80px"}  justify="space-between" mx="auto" px={{ base: "24px", lg: "160px" }}>
+          <Image src="/home/LOGO_PRINCIPAL.svg" alt="Logo" width={"96px"} height={"48px"} objectFit="contain" />
+          <HStack as="nav" gap={"24px"} w={"472px"} display={{ base: "none", md: "flex" }}>
             {items.map((label) => (
               <Link
                 key={label}
                 href={`/${label.toLowerCase().replace(/\s+/g, '-')}`}
-                fontWeight="semibold"
-                color="brand.500"
+                fontWeight="600"
+                fontFamily="Roboto"
+                fontSize="18px"
+                lineHeight="22px"
+                letterSpacing="0"
+                color="primary.500"
               >
                 {label}
               </Link>

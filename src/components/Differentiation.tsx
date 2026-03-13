@@ -1,19 +1,7 @@
-import { Box, Card, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Card, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
+import { dataCard } from "@/constants/home/differentiation"
 
 export default function Differentiation() {
-
-    const dataCard = [
-        {
-            title: "Guía Estratégica",
-            description: "No estás solo. Te acompaño en cada decición de tu negocio."
-        }, {
-            title: "Resultados Reales",
-            description: "Nos enfocamos en movimiento y acción, no solo en teoría."
-        }, {
-            title: "Inversión Clara",
-            description: "Precios transparentes. Solo pagas por lo que necesitas."
-        }
-    ]
 
     return (
         <Box w={"100%"} bg="gray.50" color="black">
@@ -26,35 +14,53 @@ export default function Differentiation() {
                 color="white"
                 fontWeight="bold"
                 fontSize={{ base: "sm", md: "md" }}
-                bg="linear-gradient(to right, #6D28D9, #8B5CF6 50%, #EC4899)"
+                background="linear-gradient(to right, #611161, #E63CFF)"
+                boxShadow="0px 0px 24px rgba(97, 17, 97, 0.24)"
             >
                 <Box as="span" display="inline-flex" width="22px" height="22px" alignItems="center" justifyContent="center" mr={2} aria-label="bubble-left">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="6" width="12" height="12" rx="6" fill="white" />
-                        <path d="M14 11 L18 9 L14 13 Z" fill="white" />
-                    </svg>
+                    <Image src="/home/Vector-1.png" w="20px" h="20px"></Image>
                 </Box>
-                Crecimiento promedio de hasta un 45% con resultados en menos de 30 días, dejame ayudarte a crecer
+                <Text
+                    fontFamily="Bricolage Grotesque"
+                    fontWeight="700"
+                    fontSize="18px"
+                    lineHeight="20px"
+                    letterSpacing="0px"
+                >
+                    Crecimiento promedio de hasta un 45% con resultados en menos de 30 días,
+                    dejame ayudarte a crecer
+                </Text>
                 <Box as="span" display="inline-flex" width="22px" height="22px" alignItems="center" justifyContent="center" ml={2} aria-label="bubble-right" style={{ transform: 'scaleX(-1)' }}>
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="6" width="12" height="12" rx="6" fill="white" />
-                        <path d="M14 11 L18 9 L14 13 Z" fill="white" />
-                    </svg>
+                    <Image src="/home/Vector-2.png" w="20px" h="20px" transform="scaleX(-1)"></Image>
                 </Box>
             </Flex>
 
             <Box p={20}>
-                <Box m={"auto"} maxW={"1000px"} textAlign="center" mb={12}>
-                    <Heading fontSize={"4xl"} fontWeight="700" mb={4}>
+                <Flex m={"auto"} w="1100px" gap="8px" textAlign="center" mb={12} direction="column">
+                    <Heading
+                        textAlign="center"
+                        fontFamily="Bricolage Grotesque"
+                        fontWeight="800"
+                        fontSize="64px"
+                        lineHeight="70px"
+                        letterSpacing="0%"
+                        color="#3F3F3F">
                         ¿Por qué elegir 3ana Marqueting?
                     </Heading>
 
-                    <Text fontSize="lg" color="gray.600">
+                    <Text
+                        textAlign="center"
+                        fontFamily="Inter"
+                        fontWeight="400"
+                        fontSize="18px"
+                        lineHeight="22px"
+                        letterSpacing="0px"
+                        color="#717171">
                         Te adelantamos algunos de los servicios que podemos ofrecerte
                     </Text>
-                </Box>
-                <Box>
-                    <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="6" justifyItems="center">
+                </Flex>
+                <Flex direction="column" alignItems="center" justify="center" gap={10}>
+                    <Grid maxW="1120px" templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="24px" justifyItems="center">
                         {dataCard.map((data, index) => (
                             <Card.Root
                                 key={index}
@@ -74,18 +80,42 @@ export default function Differentiation() {
                                     color="black"
                                     p="8"
                                 >
-                                    <Card.Title mt="2">
+                                    <Card.Title
+                                        fontFamily="Inter"
+                                        fontWeight="800"
+                                        fontSize="24px"
+                                        lineHeight="32px"
+                                        letterSpacing="0%"
+                                        textAlign="center"
+                                        color="#3F3F3F">
                                         {data.title}
                                     </Card.Title>
 
-                                    <Card.Description>
+                                    <Card.Description
+                                        fontFamily="Inter"
+                                        fontWeight="400"
+                                        fontSize="18px"
+                                        lineHeight="22px"
+                                        letterSpacing="0px"
+                                        textAlign="center"
+                                        color="#717171">
                                         {data.description}
                                     </Card.Description>
                                 </Card.Body>
                             </Card.Root>
                         ))}
                     </Grid>
-                </Box>
+                    <Button
+                        px="24px"
+                        py="16px"
+                        gap="8px"
+                        borderRadius="99px"
+                        border="1px solid"
+                        borderColor="primary.500"
+                        bg="primary.500"
+                        color="#ffff"
+                    >Comenzar ahora</Button>
+                </Flex>
             </Box>
         </Box>
     )

@@ -2,11 +2,11 @@ import { Button, ButtonProps } from "@chakra-ui/react"
 import { ReactNode } from "react"
 
 interface ButtonUiProps extends ButtonProps {
-    text: string
+    children: ReactNode
     icon?: ReactNode
 }
 
-export default function ButtonUi({ text, icon, ...props }: ButtonUiProps) {
+export default function ButtonUi({ children, icon, ...props }: ButtonUiProps) {
     return (
         <Button
             {...props}
@@ -17,7 +17,7 @@ export default function ButtonUi({ text, icon, ...props }: ButtonUiProps) {
             p={3}
         >
             {icon && icon}
-            {text}
+            {children}
         </Button>
     )
 }
