@@ -16,7 +16,7 @@ export const services = [
         ]
     },
     {
-        title: "Asesoría para Restaurantes + Activación digital",
+        title: "Asesoría para Restaurantes + Activación Digital",
         yes: "Incluye:",
         price: "$300",
         payment: "pago único",

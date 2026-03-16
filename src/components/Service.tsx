@@ -1,6 +1,6 @@
 import { Box, Flex, Grid, Heading, Text, Button, Separator, Icon } from "@chakra-ui/react";
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { services } from "@/constants/home/services";
 
 export default function Service() {
@@ -45,7 +45,7 @@ export default function Service() {
                                     as="h3"
                                     fontFamily="inter"
                                     color="#3F3F3F"
-                                    fontSize="24px"
+                                    fontSize="26px"
                                     lineHeight="32px"
                                     letterSpacing="0px"
                                     fontWeight={800}
@@ -107,7 +107,7 @@ export default function Service() {
                                         <Flex key={i} align="center" mb={2}>
                                             <Icon
                                                 w={"10"}
-                                                as={TaskAltIcon}
+                                                as={HighlightOffIcon}
                                                 color="terciary.500"
                                                 flexShrink={0}
                                             />
@@ -150,16 +150,22 @@ export default function Service() {
                                         {service.price}{service.frequency ? (
                                             <Text
                                                 as="span"
-                                                fontWeight="400"
-                                                fontSize="sm"
-                                                color="gray.600">
+                                                fontSize="18px"
+                                                fontFamily="inter"
+                                                fontWeight={400}
+                                                lineHeight="22px"
+                                                letterSpacing="0px"
+                                                color="#717171">
                                                 {service.frequency}
                                             </Text>
                                         ) : (
                                             <Text
-                                                fontWeight="400"
-                                                fontSize="sm"
-                                                color="gray.600">
+                                                fontSize="18px"
+                                                fontFamily="inter"
+                                                fontWeight={400}
+                                                lineHeight="22px"
+                                                letterSpacing="0px"
+                                                color="#717171">
                                                 {service.payment}
                                             </Text>
                                         )}
@@ -168,13 +174,16 @@ export default function Service() {
 
                                 <Button
                                     w="100%"
-                                    bg="brand.500"
+                                    bg="primary.500"
                                     color="white"
                                     rounded={"4xl"}
                                     _hover={{
                                         bg: "#7C3AED"
                                     }}
                                     fontWeight="600"
+                                    fontSize="18px"
+                                    lineHeight="22px"
+                                    letterSpacing="0px"
                                 >
                                     Ver servicio
                                 </Button>
@@ -183,22 +192,34 @@ export default function Service() {
                     ))}
                 </Grid>
 
-                <Flex direction={"column"} align={"center"}>
+                <Button
+                    color="primary.500"
+                    bg="transparent"
+                    w="246px"
+                    h="54px"
+                    borderBottom="1px solid"
+                    borderTop="none"
+                    borderRight="none"
+                    borderLeft="none"
+                    borderRadius="none"
+                    borderColor="primary.500"
+                    pt="16px"
+                    pr="24px"
+                    pb="16px"
+                    pl="24px"
+                    cursor="pointer"
+                    mx="auto"
+                    display="block"
+                >
                     <Text
-                        color="brand.500"
-                        fontWeight="600"
-                        cursor="pointer"
-                        _hover={{ textDecor: "underline" }}
+                    fontWeight={600}
+                    fontSize="18px"
+                    lineHeight="22px"
+                    letterSpacing="0px"
                     >
                         Ver todos los servicios
                     </Text>
-                    <Box
-                        h="3px"
-                        bg="brand.500"
-                        w="20%"
-                        borderRadius="full"
-                    />
-                </Flex>
+                </Button>
             </Box>
         </Box>
     );

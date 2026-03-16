@@ -1,5 +1,4 @@
 import Differentiation from "@/components/Differentiation";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HowWeWork from "@/components/HowWeWork";
 import LeadForm from "@/components/LeadForm";
@@ -17,7 +16,6 @@ export default function Home() {
       <HowWeWork />
       <Testimonials />
       <LeadForm />
-      <Footer />
     </div>
   );
 }

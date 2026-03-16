@@ -59,7 +59,7 @@ export default function Need() {
                                 borderRadius="3xl"
                                 border="2px solid"
                                 borderColor={service.isActive ? "#fff" : "#E2E8F0"}
-                                bg={service.isActive ? "#F5F3FF" : "white"}
+                                bg={service.isActive ? "#F9D0FF" : "white"}
                                 cursor="pointer"
                                 transition="all 0.2s"
                                 _hover={{
@@ -68,7 +68,11 @@ export default function Need() {
                                 }}
                             >
                                 <Flex direction="column" align="center" gap={3}>
-                                    {service.icon && <service.icon style={{ color: service.isActive ? "#8B5CF6" : "#4A5568" }} />}
+                                    {service.icon && (
+                                        <service.icon
+                                            sx={{ color: service.isActive ? "#611161" : "#4A5568" }}
+                                        />
+                                    )}
                                     <Text
                                         fontWeight={400}
                                         fontSize="18px"
@@ -76,7 +80,7 @@ export default function Need() {
                                         fontFamily="inter"
                                         lineHeight="22px"
                                         letterSpacing="0px"
-                                        color={service.isActive ? "#8B5CF6" : "gray.700"}
+                                        color={service.isActive ? "primary.500" : "gray.700"}
                                     >
                                         {service.title}
                                     </Text>
@@ -86,7 +90,7 @@ export default function Need() {
                                         letterSpacing="0px"
                                         fontFamily="inter"
                                         fontWeight={400}
-                                        color="gray.300"
+                                        color={service.isActive ? "#803882" : "gray.300"}
                                         textAlign="center"
                                     >
                                         {service.subtitle}

@@ -8,7 +8,7 @@ const config = defineConfig({
                     500: { value: "#780f7f" },
                 },
                 primary: {
-                    500: { value: "#611161" } 
+                    500: { value: "#611161" }
                 },
                 secondary: {
                     500: { value: "#F3A0FF" }
@@ -16,6 +16,10 @@ const config = defineConfig({
                 terciary: {
                     500: { value: "#B223CF" }
                 }
+            },
+            fonts: {
+                heading: { value: "var(--font-bricolage)" },
+                body: { value: "var(--font-inter)" },
             },
         },
     },

@@ -3,45 +3,106 @@ import { items } from "@/constants/home/HowWeWork";
 
 export default function HowWeWork() {
     return (
-        <Box bg={"gray.50"} py={16} px={4}>
-            <Flex direction="column" align="center" maxW="1100px" mx="auto">
-                <Heading textAlign="center" pb="16" color={"gray.600"} mb={4} fontSize={{ base: "3xl", md: "5xl" }} fontWeight={700}>
+        <Flex py="80px" px="160px" align="center" maxW="1440px" justify="space-between" mx="auto">
+            <Box flex="1" minW={0} maxW="551px" alignItems="start">
+                <Heading
+                    as="h1"
+                    fontFamily="Bricolage Grotesque"
+                    color="#3F3F3F"
+                    mb={4}
+                    fontSize={{ base: "3xl", md: "5xl" }}
+                    fontWeight={800}
+                    lineHeight="70px"
+                    letterSpacing="0px"
+                >
                     Cómo trabajamos juntos
                 </Heading>
+                <List.Root gap={6}>
+                    {items.map((it) => (
+                        <ListItem direction="row"
+                            w="550px"
+                            h="80px"
+                            borderRadius="48px"
+                            gap="16px"
+                            key={it.id}
+                            display="flex"
+                            alignItems="flex-start"
+                        >
+                            <Box
+                                w="80px"
+                                h="80px"
+                                p="3px"
+                                borderRadius="full"
+                                background="linear-gradient(to bottom, #E63CFF, #611161)"
+                            >
+                                <Flex
+                                    w="100%"
+                                    h="100%"
+                                    bg="#FFFFFF"
+                                    borderRadius="full"
+                                    align="center"
+                                    justify="center"
+                                    color="primary.500"
+                                    boxShadow="0px 10px 20px rgba(178,35,207,0.24)"
+                                >
+                                    {it.icono && <it.icono />}
+                                </Flex>
+                            </Box>
+                            <Box w="420px" gap="8px">
+                                <Text
+                                    as="h3"
+                                    fontWeight={800}
+                                    fontFamily="inter"
+                                    color="#3F3F3F"
+                                    mb={1}
+                                    fontSize="26px"
+                                    lineHeight="32px"
+                                    letterSpacing="0px"
+                                >
+                                    {it.title}
+                                </Text>
+                                <Text
+                                    color="#717171"
+                                    fontSize="14px"
+                                    fontWeight={400}
+                                    fontFamily="inter"
+                                >
+                                    {it.description}
+                                </Text>
+                            </Box>
+                        </ListItem>
+                    ))}
+                </List.Root>
+            </Box>
 
-                <Box w="100%" display="flex" flexDirection={{ base: "column", md: "row" }} gap={10} alignItems="center">
-                    <Box flex="1" minW={0} maxW="560px">
-                        <List.Root gap={6}>
-                            {items.map((it) => (
-                                <ListItem key={it.id} display="flex" alignItems="flex-start" gap={4}>
-                                    <Box
-                                        w="48px"
-                                        h="48px"
-                                        borderRadius="full"
-                                        border="2px solid"
-                                        borderColor={"#7C3AED"}
-                                        color="#7C3AED"
-                                        display="grid"
-                                        placeItems="center"
-                                        fontWeight="bold"
-                                        flexShrink={0}
-                                    >
-                                        {it.icono && <it.icono />}
-                                    </Box>
-                                    <Box>
-                                        <Text fontWeight="700" color={"gray.600"} mb={1}>{it.title}</Text>
-                                        <Text color="gray.600" fontSize="sm">{it.description}</Text>
-                                    </Box>
-                                </ListItem>
-                            ))}
-                        </List.Root>
-                    </Box>
-
-                    <Box flex="1" minW={0} textAlign="center">
-                        <Image src="/sistR.webp" alt="Foto derecha" maxW="420px" w="100%" borderRadius="2xl" />
-                    </Box>
-                </Box>
-            </Flex>
-        </Box>
+            <Box
+                w="400px"
+                h="600px"
+                borderRadius="99px"
+                background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
+                position="relative"
+                overflow="hidden"
+            >
+                <Image
+                    src="/home/proces.png"
+                    alt="Foto derecha"
+                    maxW="420px"
+                    w="100%"
+                    left="-100px"
+                    borderRadius="2xl"
+                    position="absolute"
+                    bottom="0"
+                    transform="translateX(100px)"
+                    zIndex="1"
+                />
+                <Image
+                    src="/home/VectorCh.png"
+                    position="absolute"
+                    top="56"
+                    right="10"
+                    zIndex="2"
+                />
+            </Box>
+        </Flex>
     );
 }

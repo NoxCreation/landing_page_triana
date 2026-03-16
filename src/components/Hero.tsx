@@ -9,7 +9,7 @@ export default function Hero() {
                     <Flex
                         direction="column"
                         w="551px"
-                        gap="32px"
+                        gap="30px"
                     >
                         <Box position="relative" w="541px" display="inline-block">
                             <Heading
@@ -19,7 +19,7 @@ export default function Hero() {
                                 color="primary.500"
                                 fontFamily="Bricolage Grotesque"
                                 fontWeight="extrabold"
-                                fontSize="64px"
+                                fontSize="54px"
                                 lineHeight="70px"
                             >
                                 Hola, somos 3ana
@@ -39,7 +39,7 @@ export default function Hero() {
                             w="545px"
                             h="22px"
                             color="#3F3F3F"
-                            fontSize={"36px"}
+                            fontSize={"32px"}
                             lineHeight={"40px"}
                             letterSpacing={"0%"}
                             fontWeight="extrabold"
@@ -65,19 +65,18 @@ export default function Hero() {
                         direction={{ base: "column", sm: "row" }}
                         w="517px"
                         h="56px"
+                        pt="14"
                     >
                         <ButtonUi
                             h="56px"
                             w="fit-content"
                             borderRadius="30px"
-                            py="16px"
                             px="24px"
                             gap="16px"
                             bg="primary.500"
                             color="white"
                             boxShadow="0px 10px 20px rgba(178,35,207,0.24)"
                             size="lg"
-                            _hover={{ bg: "brand.600" }}
                         >
                             <Text
                                 fontFamily="Inter"
@@ -113,7 +112,7 @@ export default function Hero() {
                             >Conoce mi Trabajo</Text>
                         </ButtonUi>
                     </HStack>
-                    <Flex w="576px" h="96px" bg="transparent" pt={10} align="center" gap={8}>
+                    <Flex w="576px" h="96px" bg="transparent" pt={20} align="center" gap={8}>
                         <Box
                             w="142.69px"
                             h="64px"

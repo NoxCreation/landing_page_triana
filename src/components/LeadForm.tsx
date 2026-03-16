@@ -1,25 +1,9 @@
 "use client"
 
-import { Box, Flex, Grid, Heading, Text, Input, Textarea, InputGroup } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, Input, Textarea, Field } from "@chakra-ui/react";
 import ButtonUi from "./Button";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
-const countryFlags: Record<string, string> = {
-    "1": "🇺🇸",
-    "52": "🇲🇽",
-    "34": "🇪🇸",
-    "44": "🇬🇧",
-    "57": "🇨🇴",
-    "54": "🇦🇷",
-    "55": "🇧🇷",
-    "51": "🇵🇪",
-    "593": "🇪🇨",
-    "505": "🇳🇮",
-    "503": "🇸🇻",
-    "502": "🇬🇹",
-    "507": "🇵🇦",
-    "506": "🇨🇷",
-};
+import { countryFlags } from "@/constants/home/form"
 
 function getCountryCode(number: string): string {
     const cleaned = number.replace(/\D/g, "");
@@ -65,56 +49,99 @@ export default function LeadForm() {
         <Box w="100%" bg="gray.50" py={16} px={4}>
             <Box maxW="1200px" mx="auto">
                 <Box textAlign="center">
-                    <Heading as="h2" color="gray.600" fontSize={{ base: "3xl", md: "5xl" }} fontWeight="700" mb={4}>
+                    <Heading
+                        as="h1"
+                        color="#3F3F3F"
+                        fontSize={{ base: "3xl", md: "5xl" }}
+                        fontWeight="800"
+                        lineHeight="70px"
+                        letterSpacing="0px"
+                        mb={4}
+                    >
                         ¿Listo para transformar tu negocio?
                     </Heading>
-                    <Text fontSize="md" color="gray.600">
+                    <Text
+                        fontSize="18px"
+                        color="#717171"
+                        lineHeight="22px"
+                        letterSpacing="0px"
+                        fontWeight={400}
+                    >
                         Completa el formulario y recibe una respuesta personalizada en menos de 24 horas
                     </Text>
                 </Box>
 
-                <Box p={{ base: 6, md: 10 }} maxW="900px" mx="auto">
-                    <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
-                        <Box>
-                            <Text fontWeight="600" mb={2} color="gray.700">Nombre*</Text>
+                <Box
+                    p={{ base: 6, md: 10 }}
+                    maxW="900px"
+                    mx="auto"
+                >
+                    <Grid
+                        templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+                        gap={4}
+                        mb={4}
+                    >
+                        <Field.Root>
+                            <Field.Label
+                                fontWeight="600"
+                                fontFamily="inter"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0px"
+                                color="#3F3F3F"
+                            >
+                                Nombre Completo*
+                            </Field.Label>
+
                             <Input
                                 placeholder="Juan"
-                                border="2px solid"
-                                borderColor="gray.200"
+                                border="1px solid"
+                                borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
                                 borderBottomRightRadius="3xl"
-                                _focus={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
                                 h="50px"
                                 p="3"
                             />
-                        </Box>
-                        <Box>
-                            <Text fontWeight="600" mb={2} color="gray.700">Apellido*</Text>
+                        </Field.Root>
+
+                        <Field.Root>
+                            <Field.Label visibility="hidden">
+                                Apellido*
+                            </Field.Label>
+
                             <Input
                                 placeholder="Pérez"
-                                border="2px solid"
-                                borderColor="gray.200"
+                                border="1px solid"
+                                borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
                                 borderBottomRightRadius="3xl"
-                                _focus={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
                                 h="50px"
                                 p="3"
                             />
-                        </Box>
+                        </Field.Root>
                     </Grid>
 
                     <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
-                        <Box>
-                            <Text fontWeight="600" mb={2} color="gray.700">Correo electrónico*</Text>
+                        <Field.Root>
+                            <Field.Label
+                                fontWeight="600"
+                                fontFamily="inter"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0px"
+                                color="#3F3F3F"
+                            >
+                                Correo electrónico*
+                            </Field.Label>
                             <Input
                                 type="email"
                                 placeholder="juan@ejemplo.com"
-                                border="2px solid"
-                                borderColor="gray.200"
+                                border="1px solid"
+                                borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
@@ -123,19 +150,30 @@ export default function LeadForm() {
                                 h="50px"
                                 p="3"
                             />
-                        </Box>
+                        </Field.Root>
 
-                        <Box>
-                            <Text fontWeight="600" mb={2} color="gray.700">Número de teléfono*</Text>
+                        <Field.Root>
+                            <Field.Label
+                                fontWeight="600"
+                                fontFamily="inter"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0px"
+                                color="#3F3F3F"
+                            >
+                                Número de teléfono*
+                            </Field.Label>
                             <Box
+                                w="full"
                                 position="relative"
-                                border="2px solid"
-                                borderColor="gray.200"
+                                border="1px solid"
+                                borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
                                 borderBottomRightRadius="3xl"
-                                bg="white"
+                                bg="transparent"
+                                h="50px"
                                 _focusWithin={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
                             >
                                 <Flex align="center" px={4}>
@@ -177,16 +215,25 @@ export default function LeadForm() {
                                     />
                                 </Flex>
                             </Box>
-                        </Box>
+                        </Field.Root>
                     </Grid>
 
                     <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
-                        <Box>
-                            <Text fontWeight="600" mb={2} color="gray.700">Tipo de Negocio*</Text>
+                        <Field.Root>
+                            <Field.Label
+                                fontWeight="600"
+                                fontFamily="inter"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0px"
+                                color="#3F3F3F"
+                            >
+                                Tipo de Negocio*
+                            </Field.Label>
                             <Input
                                 placeholder="Escribe tu tipo de negocio"
-                                border="2px solid"
-                                borderColor="gray.200"
+                                border="1px solid"
+                                borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
@@ -195,19 +242,28 @@ export default function LeadForm() {
                                 h="50px"
                                 p="3"
                             />
-                        </Box>
-                        <Box>
-                            <Text fontWeight="600" mb={2} color="gray.700">Servicios de interés*</Text>
+                        </Field.Root>
+                        <Field.Root>
+                            <Field.Label
+                                fontWeight="600"
+                                fontFamily="inter"
+                                fontSize="18px"
+                                lineHeight="22px"
+                                letterSpacing="0px"
+                                color="#3F3F3F"
+                            >
+                                Servicios de interés*
+                            </Field.Label>
                             <Box
                                 as="select"
-                                border="2px solid"
-                                borderColor="gray.200"
+                                border="1px solid"
+                                borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
                                 borderBottomRightRadius="3xl" _focus={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
                                 h="50px"
-                                bg="white"
+                                bg="transparent"
                                 cursor="pointer"
                                 w="100%"
                                 p="3"
@@ -219,14 +275,22 @@ export default function LeadForm() {
                                 <option value="tienda">Tienda en línea</option>
                                 <option value="otro">Otro</option>
                             </Box>
-                        </Box>
+                        </Field.Root>
                     </Grid>
 
                     <Box mb={6}>
-                        <Text fontWeight="600" mb={2} color="gray.700">Descipción de tu negocio*</Text>
+                        <Text fontWeight="600"
+                            fontFamily="inter"
+                            fontSize="18px"
+                            lineHeight="22px"
+                            letterSpacing="0px"
+                            color="#3F3F3F"
+                        >
+                            Descipción de tu negocio*
+                        </Text>
                         <Textarea
-                            border="2px solid"
-                            borderColor="gray.200"
+                            border="1px solid"
+                            borderColor="#E5E7EB"
                             borderTopLeftRadius="3xl"
                             borderTopRightRadius="3xl"
                             borderBottomLeftRadius="0"
@@ -239,10 +303,18 @@ export default function LeadForm() {
                     </Box>
 
                     <Box mb={6}>
-                        <Text fontWeight="600" mb={2} color="gray.700">¿En qué podemos ayudarte?</Text>
+                        <Text fontWeight="600"
+                            fontFamily="inter"
+                            fontSize="18px"
+                            lineHeight="22px"
+                            letterSpacing="0px"
+                            color="#3F3F3F"
+                        >
+                            ¿En qué podemos ayudarte?
+                        </Text>
                         <Textarea
-                            border="2px solid"
-                            borderColor="gray.200"
+                            border="1px solid"
+                            borderColor="#E5E7EB"
                             borderTopLeftRadius="3xl"
                             borderTopRightRadius="3xl"
                             borderBottomLeftRadius="0"
@@ -256,12 +328,16 @@ export default function LeadForm() {
 
                     <Flex>
                         <ButtonUi
-                            text="Enviar propuesta por WhatsApp"
                             icon={<WhatsAppIcon />}
                             color="white"
-                            bg="brand.500"
+                            bg="primary.500"
                             ml="auto"
-                        />
+                            boxShadow="0px 10px 20px 0px rgba(178, 35, 207, 0.24)"
+                        >
+                            <Text>
+                                Enviar propuesta por WhatsApp
+                            </Text>
+                        </ButtonUi>
                     </Flex>
                 </Box>
             </Box>

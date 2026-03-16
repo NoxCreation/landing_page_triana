@@ -4,12 +4,26 @@ import { testimonials } from "@/constants/home/testimonials";
 export default function Testimonials() {
     return (
         <Box w="100%" bg="#FDF2F8" py={16} px={4}>
-            <Box maxW="1200px" mx="auto">
+            <Box maxW="1440px" mx="auto">
                 <Box textAlign="center" mb={12}>
-                    <Heading as="h2" color="gray.600" fontSize={{ base: "3xl", md: "5xl" }} fontWeight="700" mb={4}>
+                    <Heading
+                        as="h1"
+                        color="#3F3F3F"
+                        fontSize={{ base: "3xl", md: "5xl" }}
+                        fontWeight="800"
+                        lineHeight="70px"
+                        letterSpacing="0px"
+                        mb={4}
+                    >
                         Lo que dicen nuestros clientes
                     </Heading>
-                    <Text fontSize="md" color="gray.900">
+                    <Text
+                        fontSize="18px"
+                        fontWeight={400}
+                        lineHeight="22px"
+                        letterSpacing="0px"
+                        color="#717171"
+                    >
                         Testimonios de clientes que hablan por nuestro trabajo
                     </Text>
                 </Box>
@@ -17,23 +31,30 @@ export default function Testimonials() {
                 <Grid
                     templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
                     gap={6}
-                    mb={10}
+                    m="auto"
+                    w="1120px"
                 >
                     {testimonials.map((testimonial, index) => (
                         <Box
                             key={index}
-                            bg="white"
+                            w="357px"
                             borderTopLeftRadius="3xl"
                             borderTopRightRadius="3xl"
                             borderBottomLeftRadius="0"
                             borderBottomRightRadius="3xl"
-                            p={6}
-                            boxShadow="sm"
-                            border="1px solid"
-                            borderColor="gray.100"
+                            border="2px solid"
+                            bg="white"
+                            py="48px"
+                            px="24px"
                         >
                             <Box gap={3} mb={4}>
-                                <Text color="gray.600" fontSize="sm" fontStyle="italic">
+                                <Text
+                                    color="#717171"
+                                    fontSize="18px"
+                                    fontWeight={400}
+                                    lineHeight="22px"
+                                    letterSpacing="0px"
+                                >
                                     {testimonial.text}
                                 </Text>
                             </Box>
@@ -50,10 +71,22 @@ export default function Testimonials() {
                                 >
                                 </Box>
                                 <Box px="2">
-                                    <Text fontWeight="700" color="gray.800">
+                                    <Text
+                                        fontWeight={600}
+                                        color="#3F3F3F"
+                                        fontSize="18px"
+                                        lineHeight="22px"
+                                        letterSpacing="0px"
+                                    >
                                         {testimonial.name}
                                     </Text>
-                                    <Text fontSize="sm" color="gray.500">
+                                    <Text
+                                        fontSize="14px"
+                                        color="#717171"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
                                         {testimonial.role}
                                     </Text>
                                 </Box>
@@ -62,21 +95,19 @@ export default function Testimonials() {
                     ))}
                 </Grid>
 
-                <Flex justify="center" gap={4}>
+                <Flex justify="center" gap={4} mt={8}>
                     <Box
                         w="40px"
                         h="40px"
+                        bg="#E5E7EB"
                         borderRadius="full"
-                        border="2px solid"
-                        borderColor="brand.500"
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
                         cursor="pointer"
-                        _hover={{ bg: "#8B5CF6", border: "none" }}
                         transition="all 0.2s"
                     >
-                        <Text color="brand.500" fontWeight="bold" _hover={{ color: "white" }}>
+                        <Text fontWeight="bold" color="black">
                             ←
                         </Text>
                     </Box>
@@ -84,14 +115,11 @@ export default function Testimonials() {
                         w="40px"
                         h="40px"
                         borderRadius="full"
-                        border="2px solid"
-                        borderColor="brand.500"
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
                         cursor="pointer"
-                        bg="brand.500"
-                        _hover={{ bg: "#7C3AED", border: "none" }}
+                        bg="primary.500"
                         transition="all 0.2s"
                     >
                         <Text color="white" fontWeight="bold">
