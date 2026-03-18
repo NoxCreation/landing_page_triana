@@ -1,10 +1,10 @@
-import Differentiation from "@/components/Differentiation";
-import Hero from "@/components/Hero";
-import HowWeWork from "@/components/HowWeWork";
-import LeadForm from "@/components/LeadForm";
-import Need from "@/components/Need";
-import Service from "@/components/Service";
-import Testimonials from "@/components/Testimonials";
+import Differentiation from "@/components/home/Differentiation";
+import Hero from "@/components/home/Hero";
+import HowWeWork from "@/components/home/HowWeWork";
+import LeadForm from "@/components/home/LeadForm";
+import Need from "@/components/home/Need";
+import Service from "@/components/home/Service";
+import Testimonials from "@/components/home/Testimonials";
 
 export default function Home() {
   return (

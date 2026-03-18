@@ -1,7 +1,7 @@
 "use client"
 
 import { Box, Flex, Grid, Heading, Text, Input, Textarea, Field } from "@chakra-ui/react";
-import ButtonUi from "./Button";
+import ButtonUi from "@/components/Button";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { countryFlags } from "@/constants/home/form"
 

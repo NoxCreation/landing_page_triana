@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, HStack, Image, Text } from "@chakra-ui/react";
-import ButtonUi from "./Button";
+import ButtonUi from "@/components/Button";
 
 export default function Hero() {
     return (
