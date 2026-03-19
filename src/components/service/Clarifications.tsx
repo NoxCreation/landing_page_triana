@@ -2,7 +2,7 @@ import { Box, Heading, List } from "@chakra-ui/react";
 
 export default function Clarifications() {
     return (
-        <Box w="100%" bg="#FDF2FF" py={8} px={4}>
+        <Box w="100%" bg="#FDF2FF" py={20} px={4}>
             <Box maxW="1440px" mx="auto" textAlign="center">
                 <Heading
                     as="h2"

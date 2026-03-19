@@ -1,3 +1,5 @@
+"use client"
+
 import Differentiation from "@/components/home/Differentiation";
 import Hero from "@/components/home/Hero";
 import HowWeWork from "@/components/home/HowWeWork";
@@ -7,9 +9,10 @@ import Service from "@/components/home/Service";
 import Testimonials from "@/components/home/Testimonials";
 
 export default function Home() {
+
   return (
     <div>
-      <Hero/>
+      <Hero />
       <Differentiation />
       <Need />
       <Service />
