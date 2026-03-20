@@ -11,10 +11,9 @@ export default function Hero() {
                         w="551px"
                         gap="30px"
                     >
-                        <Box position="relative" w="541px" display="inline-block">
+                        <Flex>
                             <Heading
                                 as="h1"
-                                w="501px"
                                 h="70px"
                                 color="primary.500"
                                 fontFamily="Bricolage Grotesque"
@@ -29,11 +28,8 @@ export default function Hero() {
                                 src="/home/Vector.png"
                                 w="32px"
                                 h="32px"
-                                position="absolute"
-                                top="3px"
-                                right="30px"
                             />
-                        </Box>
+                        </Flex>
                         <Heading
                             as={"h2"}
                             w="545px"
