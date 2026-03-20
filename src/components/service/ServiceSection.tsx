@@ -1,5 +1,5 @@
 import { Box, Flex, Grid, Heading, Text, Button, Icon, Image } from "@chakra-ui/react";
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import CategorySelector from "./CategoryFilter";
@@ -10,13 +10,13 @@ export default function ServiceSection() {
         <Box w="100%" bg="gray.50" py={16} px={4}>
             <Box maxW="1440px" mx="auto">
                 <Box textAlign="center" mb={10}>
-                    <Box position="relative" w="1174px" display="inline-block">
+                    <Box position="relative" maxW="1174px" mx="auto" display="inline-block">
                         <Heading
                             as="h1"
                             color="primary.500"
                             fontWeight={800}
-                            fontSize="54px"
-                            lineHeight="70px"
+                            fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                            lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             letterSpacing="0px"
                         >
                             Servicios de Marketing y Consultoría
@@ -24,19 +24,20 @@ export default function ServiceSection() {
 
                         <Image
                             src="/home/Vector.png"
-                            w="32px"
-                            h="32px"
+                            w={{ base: "24px", lg: "32px" }}
+                            h={{ base: "24px", lg: "32px" }}
                             position="absolute"
-                            top="3px"
-                            right="50px"
+                            top={{ base: "-5px", lg: "3px" }}
+                            right={{ base: "-10px", lg: "-40px" }}
                         />
                     </Box>
                     <Text
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         lineHeight="22px"
                         letterSpacing="0px"
-                        w="1000px"
-                        m="auto"
+                        maxW="1000px"
+                        mx="auto"
+                        px={4}
                         color="#3F3F3F"
                         fontWeight={400}
                     >
@@ -54,11 +55,12 @@ export default function ServiceSection() {
                 </Box>
 
                 <Grid
-                    w="1120px"
+                    maxW="1120px"
                     templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
                     gap={6}
                     mb={10}
-                    m="auto"
+                    mx="auto"
+                    px={{ base: 4, md: 0 }}
                 >
                     {services.map((service, index) => (
                         <Box
@@ -182,7 +184,7 @@ export default function ServiceSection() {
                                                 <Flex key={i} align="center" mb={2}>
                                                     <Icon
                                                         w={"10"}
-                                                        as={TaskAltIcon}
+                                                        as={CheckCircleIcon}
                                                         color="terciary.500"
                                                         flexShrink={0}
                                                     />

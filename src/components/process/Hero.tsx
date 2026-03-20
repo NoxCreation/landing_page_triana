@@ -7,27 +7,26 @@ export default function Hero() {
     return (
         <Box w={"100%"} bg="#F3A0FF0D" color="black">
             <Box p={20}>
-                <Flex m={"auto"} w="1100px" gap="8px" textAlign="center" mb={12} direction="column">
-                    <Box position="relative" w="650px" display="inline-block" m="auto">
+                <Flex m={"auto"} maxW="1100px" gap="8px" textAlign="center" mb={12} direction="column" px={4}>
+                    <Box position="relative" maxW="650px" display="inline-block" m="auto">
                         <Heading
                             as="h1"
-                            h="70px"
                             color="primary.500"
                             fontFamily="Bricolage Grotesque"
                             fontWeight="extrabold"
-                            fontSize="54px"
-                            lineHeight="70px"
+                            fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                            lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         >
                             Metodología Triana
                         </Heading>
 
                         <Image
                             src="/home/Vector.png"
-                            w="32px"
-                            h="32px"
+                            w={{ base: "24px", lg: "32px" }}
+                            h={{ base: "24px", lg: "32px" }}
                             position="absolute"
-                            top="3px"
-                            right="30px"
+                            top={{ base: "-5px", lg: "3px" }}
+                            right={{ base: "-10px", lg: "-40px" }}
                         />
                     </Box>
 
@@ -35,10 +34,11 @@ export default function Hero() {
                         textAlign="center"
                         fontFamily="Inter"
                         fontWeight="400"
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         lineHeight="22px"
                         letterSpacing="0px"
-                        color="#717171">
+                        color="#717171"
+                        px={4}>
                         Creemos en el marketing práctico, medible y ajustable. No nos quedamos en
                         teoría; nos involucramos en tu proyecto para asegurar que cada paso se dé
                         correctamente

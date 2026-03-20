@@ -92,6 +92,7 @@ export default function Hero() {
                             w="fit-content"
                             h="54px"
                             borderRadius="30px"
+                            bg="#ffff"
                             border="1px solid"
                             py="16px"
                             px="24px"
@@ -100,7 +101,6 @@ export default function Hero() {
                             color="primary.500"
                             boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
                             size="lg"
-                            _hover={{ bg: "purple.50" }}
                         >
                             <Text
                                 fontFamily="Inter"

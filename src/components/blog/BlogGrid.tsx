@@ -9,11 +9,9 @@ export default function BlogGrid() {
             <Box maxW="1440px" mx="auto">
                 <Box maxW="1120px" m="auto">
                     <Box textAlign="center" mb={8}>
-                        <Box position="relative" w="541px" display="inline-block">
+                        <Box position="relative" display="inline-block">
                             <Heading
                                 as="h1"
-                                w="501px"
-                                h="70px"
                                 color="primary.500"
                                 fontFamily="Bricolage Grotesque"
                                 fontWeight="extrabold"
@@ -29,7 +27,7 @@ export default function BlogGrid() {
                                 h="32px"
                                 position="absolute"
                                 top="3px"
-                                right="110px"
+                                right="-50px"
                             />
                         </Box>
 
