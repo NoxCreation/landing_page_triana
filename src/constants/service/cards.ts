@@ -27,7 +27,7 @@ export const services = [
         ],
         yes: "Incluye:",
         price: "$300",
-        payment: "pago único",
+        frequency: "pago único",
         include: [
             "Estrategia del restaurante",
             "Activación digital inicial",
@@ -47,7 +47,7 @@ export const services = [
         ],
         yes: "Incluye:",
         price: "$50",
-        payment: "sesión",
+        frequency: "sesión",
         include: [
             "Sesión de 30 minutos 1:1",
             "Desde crear LLC hasta organizar tu idea",
@@ -63,7 +63,7 @@ export const services = [
         no: "No incluye:",
         before: "Desde",
         price: "$120",
-        frequency: "/mes",
+        frequency: "mes",
         include: [
             "Revisión de dudas semanales",
             "Correciones estratégicas",
@@ -82,7 +82,7 @@ export const services = [
         ],
         yes: "Incluye:",
         price: "$50",
-        payment: "por sesión",
+        frequency: "por sesión",
         include: [
             "Diagnóstico rápido del negocio",
             "Recomendaciones claras y prácticas",
@@ -102,7 +102,7 @@ export const services = [
         ],
         yes: "Incluye:",
         price: "$250",
-        payment: "pago único",
+        frequency: "pago único",
         include: [
             "Creación completa de la tienda en TikTok Shop",
         ],
@@ -121,7 +121,7 @@ export const services = [
             "Contenido real y auténtico"
         ],
         price: "$400",
-        payment: "paquete completo",
+        frequency: "pago único",
     },
     {
         title: "Asesoría para Restaurantes + Activación Digital",
@@ -131,7 +131,7 @@ export const services = [
         ],
         yes: "Incluye:",
         price: "$75",
-        payment: "pago único",
+        frequency: "pago único",
         include: [
             "Revisión completa de la cuenta",
             "Optimización de la bio/descripción",
@@ -149,7 +149,7 @@ export const services = [
         ],
         yes: "Incluye:",
         price: "$200",
-        payment: "sesión",
+        frequency: "sesión",
         include: [
             "Creación de perfiles en redes sociales",
             "De 5 a 10 publicaciones iniciales",
