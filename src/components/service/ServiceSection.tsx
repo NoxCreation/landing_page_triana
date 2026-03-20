@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading, Text, Button, Icon, Image } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, Button, Icon, Image, Stack } from "@chakra-ui/react";
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
@@ -7,10 +7,10 @@ import { services } from "@/constants/service/cards";
 
 export default function ServiceSection() {
     return (
-        <Box w="100%" bg="gray.50" py={16} px={4}>
+        <Box w="100%" bg="gray.50" py={28} px={4}>
             <Box maxW="1440px" mx="auto">
-                <Box textAlign="center" mb={10}>
-                    <Box position="relative" w="1174px" display="inline-block">
+                <Box justifyItems="center" mb={10}>
+                    <Flex w={'fit-content'}>
                         <Heading
                             as="h1"
                             color="primary.500"
@@ -18,6 +18,7 @@ export default function ServiceSection() {
                             fontSize="54px"
                             lineHeight="70px"
                             letterSpacing="0px"
+                            w={'fit-content'}
                         >
                             Servicios de Marketing y Consultoría
                         </Heading>
@@ -26,11 +27,8 @@ export default function ServiceSection() {
                             src="/home/Vector.png"
                             w="32px"
                             h="32px"
-                            position="absolute"
-                            top="3px"
-                            right="50px"
                         />
-                    </Box>
+                    </Flex>
                     <Text
                         fontSize="18px"
                         lineHeight="22px"
@@ -39,6 +37,7 @@ export default function ServiceSection() {
                         m="auto"
                         color="#3F3F3F"
                         fontWeight={400}
+                        textAlign={'center'}
                     >
                         Nos hacemos cargo desde que se abre el proyecto hasta que hacemos entrega de
                         las llaves del local, además te ayudamos a crecer tu negocio desde lo digital
@@ -260,15 +259,18 @@ export default function ServiceSection() {
                                     >
                                         {service.before}
                                     </Text>
-                                    <Text
-                                        as="h2"
-                                        fontSize="36px"
-                                        fontWeight="800"
-                                        color="black"
-                                        lineHeight="40px"
-                                        letterSpacing="0px"
-                                    >
-                                        {service.price}
+                                    <Stack>
+                                        <Text
+                                            as="h2"
+                                            fontSize="36px"
+                                            fontWeight="800"
+                                            color="black"
+                                            lineHeight="40px"
+                                            letterSpacing="0px"
+                                        >
+                                            {service.price}
+                                        </Text>
+
                                         {service.frequency && (
                                             <Text
                                                 as="span"
@@ -295,7 +297,7 @@ export default function ServiceSection() {
                                                 {service.payment}
                                             </Text>
                                         )}
-                                    </Text>
+                                    </Stack>
                                 </Box>
 
                                 <Button

@@ -142,11 +142,7 @@ export default function Service() {
                                     >
                                         {service.before}
                                     </Text>
-                                    <Text
-                                        fontSize="34px"
-                                        fontWeight="800"
-                                        color="black"
-                                    >
+                                    <>
                                         {service.price}{service.frequency ? (
                                             <Text
                                                 as="span"
@@ -169,7 +165,7 @@ export default function Service() {
                                                 {service.payment}
                                             </Text>
                                         )}
-                                    </Text>
+                                    </>
                                 </Box>
 
                                 <Button
