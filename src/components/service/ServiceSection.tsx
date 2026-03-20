@@ -1,5 +1,5 @@
-import { Box, Flex, Grid, Heading, Text, Button, Icon, Image } from "@chakra-ui/react";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Box, Flex, Grid, Heading, Text, Button, Icon, Image, Stack } from "@chakra-ui/react";
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import CategorySelector from "./CategoryFilter";
@@ -7,10 +7,10 @@ import { services } from "@/constants/service/cards";
 
 export default function ServiceSection() {
     return (
-        <Box w="100%" bg="gray.50" py={16} px={4}>
+        <Box w="100%" bg="gray.50" py={28} px={4}>
             <Box maxW="1440px" mx="auto">
-                <Box textAlign="center" mb={10}>
-                    <Box position="relative" maxW="1174px" mx="auto" display="inline-block">
+                <Box justifyItems="center" mb={10}>
+                    <Flex w={'fit-content'}>
                         <Heading
                             as="h1"
                             color="primary.500"
@@ -18,19 +18,17 @@ export default function ServiceSection() {
                             fontSize={{ base: "28px", md: "40px", lg: "54px" }}
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             letterSpacing="0px"
+                            w={'fit-content'}
                         >
                             Servicios de Marketing y Consultoría
                         </Heading>
 
                         <Image
                             src="/home/Vector.png"
-                            w={{ base: "24px", lg: "32px" }}
-                            h={{ base: "24px", lg: "32px" }}
-                            position="absolute"
-                            top={{ base: "-5px", lg: "3px" }}
-                            right={{ base: "-10px", lg: "-40px" }}
+                            w="32px"
+                            h="32px"
                         />
-                    </Box>
+                    </Flex>
                     <Text
                         fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         lineHeight="22px"
@@ -40,6 +38,7 @@ export default function ServiceSection() {
                         px={4}
                         color="#3F3F3F"
                         fontWeight={400}
+                        textAlign={'center'}
                     >
                         Nos hacemos cargo desde que se abre el proyecto hasta que hacemos entrega de
                         las llaves del local, además te ayudamos a crecer tu negocio desde lo digital
@@ -184,7 +183,7 @@ export default function ServiceSection() {
                                                 <Flex key={i} align="center" mb={2}>
                                                     <Icon
                                                         w={"10"}
-                                                        as={CheckCircleIcon}
+                                                        as={TaskAltIcon}
                                                         color="terciary.500"
                                                         flexShrink={0}
                                                     />
@@ -262,15 +261,18 @@ export default function ServiceSection() {
                                     >
                                         {service.before}
                                     </Text>
-                                    <Text
-                                        as="h2"
-                                        fontSize="36px"
-                                        fontWeight="800"
-                                        color="black"
-                                        lineHeight="40px"
-                                        letterSpacing="0px"
-                                    >
-                                        {service.price}
+                                    <Stack>
+                                        <Text
+                                            as="h2"
+                                            fontSize="36px"
+                                            fontWeight="800"
+                                            color="black"
+                                            lineHeight="40px"
+                                            letterSpacing="0px"
+                                        >
+                                            {service.price}
+                                        </Text>
+
                                         {service.frequency && (
                                             <Text
                                                 as="span"
@@ -297,7 +299,7 @@ export default function ServiceSection() {
                                                 {service.payment}
                                             </Text>
                                         )}
-                                    </Text>
+                                    </Stack>
                                 </Box>
 
                                 <Button

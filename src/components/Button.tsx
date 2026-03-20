@@ -14,7 +14,8 @@ export default function ButtonUi({ children, icon, ...props }: ButtonUiProps) {
             borderTopRightRadius="3xl"
             borderBottomLeftRadius="0"
             borderBottomRightRadius="3xl"
-            p={3}
+            p={4}
+            px={8}
         >
             {icon && icon}
             {children}
