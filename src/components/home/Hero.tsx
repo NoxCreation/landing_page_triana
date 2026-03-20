@@ -93,7 +93,6 @@ export default function Hero() {
                             py="16px"
                             px="24px"
                             gap="8px"
-                            bg={'white'}
                             borderColor="primary.500"
                             color="primary.500"
                             boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
