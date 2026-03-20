@@ -15,8 +15,8 @@ export default function ServiceSection() {
                             as="h1"
                             color="primary.500"
                             fontWeight={800}
-                            fontSize="54px"
-                            lineHeight="70px"
+                            fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                            lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             letterSpacing="0px"
                             w={'fit-content'}
                         >
@@ -30,11 +30,12 @@ export default function ServiceSection() {
                         />
                     </Flex>
                     <Text
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         lineHeight="22px"
                         letterSpacing="0px"
-                        w="1000px"
-                        m="auto"
+                        maxW="1000px"
+                        mx="auto"
+                        px={4}
                         color="#3F3F3F"
                         fontWeight={400}
                         textAlign={'center'}
@@ -53,11 +54,12 @@ export default function ServiceSection() {
                 </Box>
 
                 <Grid
-                    w="1120px"
+                    maxW="1120px"
                     templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
                     gap={6}
                     mb={10}
-                    m="auto"
+                    mx="auto"
+                    px={{ base: 4, md: 0 }}
                 >
                     {services.map((service, index) => (
                         <Box

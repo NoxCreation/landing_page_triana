@@ -8,20 +8,21 @@ export default function ToolsUsed() {
                 <Box textAlign="center" mb={10}>
                     <Heading
                         as="h2"
-                        fontSize={{ base: "3xl", md: "64px" }}
+                        fontSize={{ base: "28px", md: "40px", lg: "64px" }}
                         fontWeight="800"
                         color="#3F3F3F"
-                        lineHeight="70px"
+                        lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         letterSpacing="0px"
                         mb={4}
                     >
                         Herramientas que Utilizamos
                     </Heading>
                     <Text
-                        fontSize={{ base: "md", md: "lg" }}
+                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         color="gray.600"
                         maxW="600px"
                         mx="auto"
+                        px={4}
                     >
                         Responda 3 preguntas y te recomendamos el servicio ideal
                     </Text>

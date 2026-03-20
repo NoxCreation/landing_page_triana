@@ -7,13 +7,13 @@ export default function ProcessSteps() {
     return (
         <Box w="100%" bg="#F3A0FF0D" py={16} px={4}>
             <Box maxW="1440px" mx="auto" textAlign="center">
-                <Flex m={"auto"} w="1100px" gap="8px" textAlign="center" mb={12} direction="column">
+                <Flex m={"auto"} maxW="1100px" gap="8px" textAlign="center" mb={12} direction="column" px={4}>
                     <Heading
                         textAlign="center"
                         fontFamily="Bricolage Grotesque"
                         fontWeight="800"
-                        fontSize="64px"
-                        lineHeight="70px"
+                        fontSize={{ base: "28px", md: "40px", lg: "64px" }}
+                        lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         letterSpacing="0%"
                         color="#3F3F3F">
                         Fases de Nuestro Trabajo
@@ -23,7 +23,7 @@ export default function ProcessSteps() {
                         textAlign="center"
                         fontFamily="Inter"
                         fontWeight="400"
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         lineHeight="22px"
                         letterSpacing="0px"
                         color="#717171">
