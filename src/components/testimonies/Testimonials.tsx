@@ -29,7 +29,7 @@ export default function Testimonials() {
                         />
                     </Box>
                     <Text
-                    fontWeight={400}
+                        fontWeight={400}
                         fontSize="18px"
                         color="#717171"
                         lineHeight="22px"
@@ -80,6 +80,12 @@ export default function Testimonials() {
                                     justifyContent="center"
                                     flexShrink={0}
                                 >
+                                    <Image
+                                        w="40px"
+                                        h="40px"
+                                        src="/home/Hero.png"
+                                        borderRadius="full"
+                                    />
                                 </Box>
                                 <Box px="2">
                                     <Text

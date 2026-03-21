@@ -64,12 +64,17 @@ export default function Testimonials() {
                                     w="40px"
                                     h="40px"
                                     borderRadius="full"
-                                    bg="brand.500"
                                     display="flex"
                                     alignItems="center"
                                     justifyContent="center"
                                     flexShrink={0}
                                 >
+                                    <Image
+                                        w="40px"
+                                        h="40px"
+                                        src="/home/Hero.png"
+                                        borderRadius="full"
+                                    />
                                 </Box>
                                 <Box px="2">
                                     <Text

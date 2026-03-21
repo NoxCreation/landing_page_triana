@@ -173,7 +173,7 @@ export default function Hero() {
                     <Image
                         src="/home/VectorCh.png"
                         position="absolute"
-                        top="80"
+                        top="56"
                         right="-1"
                         zIndex="2"
                     />

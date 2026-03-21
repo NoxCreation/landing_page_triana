@@ -1,5 +1,7 @@
 import { Box, Flex, Heading, HStack, Image, Text } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
+import NumberFlow from '@number-flow/react'
+import AnimatedStat from "./numberAnimate";
 
 export default function Hero() {
     return (
@@ -106,7 +108,7 @@ export default function Hero() {
                             boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
                             size="lg"
                             _hover={{
-                                bg: "#F3E8FF", 
+                                bg: "#F3E8FF",
                                 borderColor: "#6B21A8",
                                 color: "#6B21A8",
                                 transform: "translateY(-2px)",
@@ -133,18 +135,17 @@ export default function Hero() {
                                 h="40px"
                                 bg="transparent"
                             >
-                                <Text
+                                <AnimatedStat
+                                    suffix="+"
+                                    value={150}
                                     w="193.49px"
-                                    h="40px"
                                     fontFamily="Bricolage Grotesque"
                                     fontWeight="800"
                                     fontSize="36px"
                                     lineHeight="40px"
                                     letterSpacing="0%"
                                     color="primary.500"
-                                >
-                                    150+
-                                </Text>
+                                />
                             </Box>
                             <Box
                                 w="142.69px"
@@ -154,7 +155,7 @@ export default function Hero() {
                                 <Text
                                     color="#3F3F3F"
                                     w="150.69px"
-                                    h="20px"
+                                    mt={2}
                                     fontFamily="Inter"
                                     fontWeight="400"
                                     fontSize="14px"
@@ -178,18 +179,17 @@ export default function Hero() {
                                 h="40px"
                                 bg="transparent"
                             >
-                                <Text
-                                    w="184.29px"
-                                    h="40px"
+                                <AnimatedStat
+                                    suffix="+"
+                                    value={3}
+                                    w="193.49px"
                                     fontFamily="Bricolage Grotesque"
                                     fontWeight="800"
                                     fontSize="36px"
                                     lineHeight="40px"
                                     letterSpacing="0%"
                                     color="primary.500"
-                                >
-                                    3+
-                                </Text>
+                                />
                             </Box>
                             <Box
                                 w="135.61px"
@@ -198,7 +198,7 @@ export default function Hero() {
                             >
                                 <Text
                                     w="143.61px"
-                                    h="20px"
+                                    mt={2}
                                     fontFamily="Inter"
                                     fontWeight="400"
                                     fontSize="14px"
@@ -225,18 +225,17 @@ export default function Hero() {
                                 h="40px"
                                 bg="transparent"
                             >
-                                <Text
-                                    w="182.95px"
-                                    h="40px"
+                                <AnimatedStat
+                                    suffix="%"
+                                    value={98}
+                                    w="193.49px"
                                     fontFamily="Bricolage Grotesque"
                                     fontWeight="800"
                                     fontSize="36px"
                                     lineHeight="40px"
                                     letterSpacing="0%"
                                     color="primary.500"
-                                >
-                                    98%
-                                </Text>
+                                />
                             </Box>
                             <Box
                                 w="134.58px"
@@ -245,7 +244,7 @@ export default function Hero() {
                             ><Text
                                 color="#3F3F3F"
                                 w="142.58px"
-                                h="20px"
+                                mt={2}
                                 fontFamily="Inter"
                                 fontWeight="400"
                                 fontSize="14px"
