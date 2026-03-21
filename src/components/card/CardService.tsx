@@ -268,9 +268,13 @@ export const CardService = ({
                         lineHeight="22px"
                         letterSpacing="0px"
                         _hover={{
-                            bg: "#7C3AED"
+                            bg: "#5A0F6E",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
                         }}
-                        fontWeight="600"
+                        _active={{
+                            transform: "scale(0.98)",
+                        }}
                     >
                         Ver servicio
                     </Button>

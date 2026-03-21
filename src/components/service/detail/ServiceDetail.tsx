@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ServiceDetail() {
     return (
-        <Box bg="gray.50" w="100%" pt={2} pb={16} px={4}>
+        <Box bg="gray.50" w="100%" pt={24} pb={16} px={4}>
             <Box maxW="1440px">
                 <Box maxW="1120px" mx="auto">
                     <Link href="/service">
@@ -33,6 +33,7 @@ export default function ServiceDetail() {
                             fontSize={{ base: "24px", lg: "36px" }}
                             lineHeight="40px"
                             fontWeight="800"
+                            fontFamily="Bricolage Grotesque"
                             letterSpacing="0px"
                             color="primary.500"
                             mb={4}
@@ -267,6 +268,13 @@ export default function ServiceDetail() {
                                 borderColor="primary.500"
                                 color="primary.500"
                                 w="100%"
+                                _hover={{
+                                    bg: "#F3E8FF",
+                                    borderColor: "#6B21A8",
+                                    color: "#6B21A8",
+                                    transform: "translateY(-2px)",
+                                    boxShadow: "0 8px 20px rgba(109, 40, 217, 0.15)",
+                                }}
                             >
                                 Solicitar Cotización
                             </Button>
@@ -277,6 +285,14 @@ export default function ServiceDetail() {
                                 borderRadius="full"
                                 w="100%"
                                 boxShadow="0px 10px 20px 0px rgba(178, 35, 207, 0.24)"
+                                _hover={{
+                                    bg: "#5A0F6E",
+                                    transform: "translateY(-2px)",
+                                    boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                                }}
+                                _active={{
+                                    transform: "scale(0.98)",
+                                }}
                             >
                                 Contratar Ahora
                             </Button>

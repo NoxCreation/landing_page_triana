@@ -54,6 +54,7 @@ export default function LeadForm() {
                         color="#3F3F3F"
                         fontSize={{ base: "3xl", md: "5xl" }}
                         fontWeight="800"
+                        fontFamily="Bricolage Grotesque"
                         lineHeight="70px"
                         letterSpacing="0px"
                         mb={4}
@@ -333,6 +334,14 @@ export default function LeadForm() {
                             bg="primary.500"
                             ml="auto"
                             boxShadow="0px 10px 20px 0px rgba(178, 35, 207, 0.24)"
+                            _hover={{
+                                bg: "#5A0F6E",
+                                transform: "translateY(-2px)",
+                                boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                            }}
+                            _active={{
+                                transform: "scale(0.98)",
+                            }}
                         >
                             <Text>
                                 Enviar propuesta por WhatsApp

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function BlogDetail() {
     return (
-        <Box w="100%" bg="gray.50" pt={2} pb={16} px={4}>
+        <Box w="100%" bg="gray.50" pt={24} pb={16} px={4}>
             <Box maxW="1440px" m="auto">
                 <Box maxW="1120px" mx="auto">
                     <Link
@@ -35,6 +35,7 @@ export default function BlogDetail() {
                             as="h1"
                             fontSize={{ base: "2xl", md: "36px" }}
                             fontWeight="800"
+                            fontFamily="Bricolage Grotesque"
                             lineHeight="40px"
                             letterSpacing="0px"
                             color="primary.500"
@@ -123,6 +124,7 @@ export default function BlogDetail() {
                         color="#3F3F3F"
                         fontWeight={800}
                         fontSize="36px"
+                        fontFamily="Bricolage Grotesque"
                         lineHeight="40px"
                         letterSpacing="0px"
                         mt={16}

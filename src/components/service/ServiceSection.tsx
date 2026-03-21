@@ -16,6 +16,7 @@ export default function ServiceSection() {
                             as="h1"
                             color="primary.500"
                             fontWeight={800}
+                            fontFamily="Bricolage Grotesque"
                             fontSize={{ base: "28px", md: "40px", lg: "54px" }}
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             letterSpacing="0px"

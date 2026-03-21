@@ -13,6 +13,7 @@ export default function FormTestimonies() {
                         color="#3F3F3F"
                         fontSize={{ base: "2xl", md: "4xl" }}
                         fontWeight="800"
+                        fontFamily="Bricolage Grotesque"
                         lineHeight="40px"
                         letterSpacing="0px"
                         mb={4}
@@ -26,7 +27,7 @@ export default function FormTestimonies() {
                         letterSpacing="0px"
                         fontWeight={400}
                     >
-                        Complleta el formulario y recibe una respuesta personalizada en menos de 24 horas.
+                        Completa el formulario y recibe una respuesta personalizada en menos de 24 horas.
                     </Text>
                 </Box>
 
@@ -166,6 +167,14 @@ export default function FormTestimonies() {
                             bg="primary.500"
                             ml="auto"
                             boxShadow="0px 10px 20px 0px rgba(178, 35, 207, 0.24)"
+                            _hover={{
+                                bg: "#5A0F6E",
+                                transform: "translateY(-2px)",
+                                boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                            }}
+                            _active={{
+                                transform: "scale(0.98)",
+                            }}
                         >
                             <Text>
                                 Publicar testimonio

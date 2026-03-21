@@ -58,20 +58,29 @@ export default function Need() {
                                 p={5}
                                 borderRadius="3xl"
                                 border="2px solid"
-                                borderColor={service.isActive ? "#fff" : "#E2E8F0"}
-                                bg={service.isActive ? "#F9D0FF" : "white"}
+                                borderColor="#E2E8F0"
+                                bg="white"
                                 cursor="pointer"
                                 transition="all 0.2s"
                                 _hover={{
-                                    borderColor: "#8B5CF6",
+                                    borderColor: "#fff",
+                                    bg: "#F9D0FF",
                                     transform: "translateY(-2px)",
+                                    "& svg": {
+                                        color: "primary.500",
+                                    },
+                                    "& p": {
+                                        color: "primary.500",
+                                    }
                                 }}
                             >
                                 <Flex direction="column" align="center" gap={3}>
                                     {service.icon && (
-                                        <service.icon
-                                            sx={{ color: service.isActive ? "#611161" : "#4A5568" }}
-                                        />
+                                        <Box
+                                            color="#4A5568"
+                                        >
+                                            <service.icon />
+                                        </Box>
                                     )}
                                     <Text
                                         fontWeight={400}
@@ -80,7 +89,7 @@ export default function Need() {
                                         fontFamily="inter"
                                         lineHeight="22px"
                                         letterSpacing="0px"
-                                        color={service.isActive ? "primary.500" : "gray.700"}
+                                        color="gray.700"
                                     >
                                         {service.title}
                                     </Text>
@@ -90,7 +99,7 @@ export default function Need() {
                                         letterSpacing="0px"
                                         fontFamily="inter"
                                         fontWeight={400}
-                                        color={service.isActive ? "#803882" : "gray.300"}
+                                        color="gray.300"
                                         textAlign="center"
                                     >
                                         {service.subtitle}

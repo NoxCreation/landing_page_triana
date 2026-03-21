@@ -10,6 +10,7 @@ export default function Cases() {
                         textAlign="center"
                         fontWeight="800"
                         fontSize={{ base: "28px", md: "40px", lg: "64px" }}
+                        fontFamily="Bricolage Grotesque"
                         lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         letterSpacing="0%"
                         color="#3F3F3F">
@@ -24,7 +25,7 @@ export default function Cases() {
                         lineHeight="22px"
                         letterSpacing="0px"
                         color="#717171">
-                        Demostramos que es posible crecer y obtener resultados favorables 
+                        Demostramos que es posible crecer y obtener resultados favorables
                         a través de nuestros servicios
                     </Text>
                 </Flex>

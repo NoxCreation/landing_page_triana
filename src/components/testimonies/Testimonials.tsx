@@ -3,7 +3,7 @@ import { testimonials } from "@/constants/testimonies/testimonies"
 
 export default function Testimonials() {
     return (
-        <Box w="100%" bg="gray.50" py={16} px={4}>
+        <Box w="100%" bg="gray.50" py={20} px={4}>
             <Box maxW="1200px" mx="auto">
                 <Box textAlign="center" mb={12}>
                     <Box position="relative" w="1174px" display="inline-block">

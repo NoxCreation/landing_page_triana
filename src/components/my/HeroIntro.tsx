@@ -83,6 +83,7 @@ export default function HeroIntro() {
                         as="h2"
                         fontSize={{ base: "2xl", md: "36px" }}
                         fontWeight={800}
+                        fontFamily="Bricolage Grotesque"
                         lineHeight="40px"
                         letterSpacing="0px"
                         color="#3F3F3F"

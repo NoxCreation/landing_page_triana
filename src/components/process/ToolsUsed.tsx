@@ -10,6 +10,7 @@ export default function ToolsUsed() {
                         as="h2"
                         fontSize={{ base: "28px", md: "40px", lg: "64px" }}
                         fontWeight="800"
+                        fontFamily="Bricolage Grotesque"
                         color="#3F3F3F"
                         lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         letterSpacing="0px"
@@ -41,13 +42,27 @@ export default function ToolsUsed() {
                     {tools.map((tool, index) => (
                         <Box
                             key={index}
-                            bg={tool.star ? "#F9D0FF" : "#ffff"}
+                            bg="#ffff"
                             borderRadius="4xl"
                             p={6}
-                            border={tool.star ? "" : "2px solid"}
+                            border="2px solid"
                             borderColor="gray.100"
                             maxW="450px"
                             textAlign="center"
+                            _hover={{
+                                borderColor: "#fff",
+                                bg: "#F9D0FF",
+                                transform: "translateY(-2px)",
+                                "& svg": {
+                                    color: "primary.500",
+                                },
+                                "& p": {
+                                    color: "primary.500",
+                                },
+                                "& h3": {
+                                    color: "primary.500",
+                                }
+                            }}
                         >
                             <Heading
                                 as="h3"
@@ -55,7 +70,7 @@ export default function ToolsUsed() {
                                 lineHeight="32px"
                                 letterSpacing="0px"
                                 fontWeight="800"
-                                color={tool.star ? "primary.500" : "#3F3F3F"}
+                                color="#3F3F3F"
                                 mb={2}
                             >
                                 {tool.title}
@@ -65,7 +80,7 @@ export default function ToolsUsed() {
                                 fontWeight={400}
                                 lineHeight="22px"
                                 letterSpacing="0px"
-                                color={tool.star ? "primary.500" : "#3F3F3F"}
+                                color="#3F3F3F"
                             >
                                 {tool.description}
                             </Text>

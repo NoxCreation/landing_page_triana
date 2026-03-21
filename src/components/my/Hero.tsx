@@ -39,6 +39,7 @@ export default function Hero() {
                                 color="primary.500"
                                 fontWeight="800"
                                 fontSize="54px"
+                                fontFamily="Bricolage Grotesque"
                                 lineHeight="70px"
                             >
                                 Triana Apellido

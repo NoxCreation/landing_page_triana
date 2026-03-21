@@ -11,6 +11,7 @@ export default function Testimonials() {
                         color="#3F3F3F"
                         fontSize={{ base: "3xl", md: "5xl" }}
                         fontWeight="800"
+                        fontFamily="Bricolage Grotesque"
                         lineHeight="70px"
                         letterSpacing="0px"
                         mb={4}

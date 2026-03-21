@@ -5,7 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function BlogGrid() {
     return (
-        <Box w="100%" bg="gray.50" py={12} px={4}>
+        <Box w="100%" bg="gray.50" py={24} px={4}>
             <Box maxW="1440px" mx="auto">
                 <Box maxW="1120px" m="auto">
                     <Box textAlign="center" mb={8}>
@@ -35,6 +35,7 @@ export default function BlogGrid() {
                             color="#717171"
                             fontWeight={400}
                             fontSize="18px"
+                            fontFamily="inter"
                             lineHeight="22px"
                             letterSpacing="0px"
                         >

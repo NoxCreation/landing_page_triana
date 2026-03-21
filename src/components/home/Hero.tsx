@@ -73,6 +73,14 @@ export default function Hero() {
                             color="white"
                             boxShadow="0px 10px 20px rgba(178,35,207,0.24)"
                             size="lg"
+                            _hover={{
+                                bg: "#5A0F6E",
+                                transform: "translateY(-2px)",
+                                boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                            }}
+                            _active={{
+                                transform: "scale(0.98)",
+                            }}
                         >
                             <Text
                                 fontFamily="Inter"
@@ -97,6 +105,13 @@ export default function Hero() {
                             color="primary.500"
                             boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
                             size="lg"
+                            _hover={{
+                                bg: "#F3E8FF", 
+                                borderColor: "#6B21A8",
+                                color: "#6B21A8",
+                                transform: "translateY(-2px)",
+                                boxShadow: "0 8px 20px rgba(109, 40, 217, 0.15)",
+                            }}
                         >
                             <Text
                                 fontFamily="Inter"

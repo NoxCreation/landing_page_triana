@@ -11,6 +11,7 @@ export default function Clarifications() {
                     lineHeight="70px"
                     letterSpacing="0px"
                     fontWeight={800}
+                    fontFamily="Bricolage Grotesque"
                     color="primary.500"
                 >
                     Aclaraciones Importantes

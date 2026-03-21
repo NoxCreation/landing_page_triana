@@ -114,7 +114,17 @@ export default function Differentiation() {
                         borderColor="primary.500"
                         bg="primary.500"
                         color="#ffff"
-                    >Comenzar ahora</Button>
+                        _hover={{
+                            bg: "#5A0F6E",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                        }}
+                        _active={{
+                            transform: "scale(0.98)",
+                        }}
+                    >
+                        Comenzar ahora
+                    </Button>
                 </Flex>
             </Box>
         </Box>

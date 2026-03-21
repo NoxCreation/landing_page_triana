@@ -12,6 +12,7 @@ export default function ExtraServices() {
                     color="primary.500"
                     fontWeight={800}
                     fontSize={{ base: "24px", lg: "36px" }}
+                    fontFamily="Bricolage Grotesque"
                     lineHeight="40px"
                     letterSpacing="0px"
                     mb={2}

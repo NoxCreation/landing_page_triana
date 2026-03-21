@@ -74,6 +74,7 @@ export default function Work() {
                             as="h2"
                             fontSize={{ base: "2xl", md: "36px" }}
                             fontWeight={800}
+                            fontFamily="Bricolage Grotesque"
                             lineHeight="40px"
                             letterSpacing="0px"
                             color="#3F3F3F"
@@ -103,6 +104,14 @@ export default function Work() {
                         color="#ffff"
                         border="1px solid primary.500"
                         boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
+                        _hover={{
+                            bg: "#5A0F6E",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                        }}
+                        _active={{
+                            transform: "scale(0.98)",
+                        }}
                     >
                         <Icon as={WhatsAppIcon} />
                         Hablame de tu proyecto
