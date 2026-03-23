@@ -4,7 +4,7 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import CategorySelector from "./CategoryFilter";
 import { services } from "@/constants/service/cards";
-import { CardService } from "../card/CardService";
+import { CardService } from "../cards/CardService";
 
 export default function ServiceSection() {
     return (

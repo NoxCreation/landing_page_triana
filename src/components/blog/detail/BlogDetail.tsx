@@ -1,8 +1,8 @@
-import { Box, Heading, Text, Image, Flex, Icon, Grid, HStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Icon, Grid } from "@chakra-ui/react";
 import { posts } from "@/constants/blog/detail/detailBlog";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Link from "next/link";
+import CardBlog from "@/components/cards/CardBlog";
 
 export default function BlogDetail() {
     return (
@@ -137,64 +137,15 @@ export default function BlogDetail() {
                         gap="30px"
                     >
                         {posts.map((p) => (
-                            <Box
+                            <CardBlog
                                 key={p.id}
-                                bg="white"
-                                border="2px solid"
-                                borderColor="#E5E7EB"
-                                overflow="hidden"
-                                borderTopLeftRadius="3xl"
-                                borderTopRightRadius="3xl"
-                                borderBottomLeftRadius="0"
-                                borderBottomRightRadius="3xl"
-                            >
-                                <Image src={p.image} alt={p.title} objectFit="cover" w="100%" h="180px" />
-                                <Box p={4}>
-                                    <HStack
-                                        gap={2}
-                                        fontSize="14px"
-                                        fontWeight={400}
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                        color="#949494"
-                                    >
-                                        <Text>{p.author}</Text>
-
-                                        <Icon as={CalendarTodayIcon} fontSize="xs" />
-
-                                        <Text>{p.date}</Text>
-                                    </HStack>
-                                    <Heading
-                                        as="h3"
-                                        fontSize="24px"
-                                        fontWeight={800}
-                                        fontFamily="inter"
-                                        lineHeight="32px"
-                                        letterSpacing="0px"
-                                        mt={1}
-                                        mb={2}
-                                        color="#3F3F3F"
-                                    >
-                                        {p.title}
-                                    </Heading>
-                                    <Text
-                                        color="#717171"
-                                        fontSize="18px"
-                                        fontWeight={400}
-                                        lineHeight="22px"
-                                        letterSpacing="0px"
-                                        mb={3}
-                                    >
-                                        {p.excerpt}
-                                    </Text>
-                                    <Link
-                                        href="#"
-                                    >
-                                        Leer más
-                                        <Icon as={ArrowForwardIcon} />
-                                    </Link>
-                                </Box>
-                            </Box>
+                                image={p.image}
+                                title={p.title}
+                                excerpt={p.excerpt}
+                                author={p.author}
+                                date={p.date}
+                                href="#"
+                            />
                         ))}
                     </Grid>
                 </Box>

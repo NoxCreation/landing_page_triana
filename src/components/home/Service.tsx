@@ -1,5 +1,5 @@
 import { Box, Grid, Heading, Text, Button } from "@chakra-ui/react";
-import { CardService } from "../card/CardService";
+import { CardService } from "../cards/CardService";
 import { services } from "@/constants/service/cards";
 
 export default function Service() {

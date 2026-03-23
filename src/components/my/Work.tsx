@@ -1,6 +1,7 @@
 import { Box, Button, Card, Flex, Grid, Heading, Icon, Text } from "@chakra-ui/react";
 import { dataCard } from "@/constants/my/work"
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import InfoCard from "../cards/InfoCard";
 
 export default function Work() {
 
@@ -22,51 +23,11 @@ export default function Work() {
                 <Flex direction="column" alignItems="center" justify="center" gap={10}>
                     <Grid maxW="1120px" templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="24px" justifyItems="center">
                         {dataCard.map((data, index) => (
-                            <Card.Root
+                            <InfoCard
                                 key={index}
-                                h="190px"
-                                w="330px"
-                                borderRadius="48px"
-                                border="2px solid"
-                                borderColor="#E5E7EB"
-                                gap="16px"
-                                bg="white"
-                                borderTopLeftRadius="4xl"
-                                borderTopRightRadius="4xl"
-                                borderBottomLeftRadius="0"
-                                borderBottomRightRadius="4xl"
-                            >
-                                <Card.Body
-                                    gap="2"
-                                    textAlign="center"
-                                    alignItems="center"
-                                    color="black"
-                                    p="8"
-                                >
-                                    <Card.Title
-                                        fontFamily="Inter"
-                                        fontWeight="800"
-                                        fontSize="24px"
-                                        lineHeight="32px"
-                                        letterSpacing="0%"
-                                        textAlign="center"
-                                        color="#3F3F3F">
-                                        {data.title}
-                                    </Card.Title>
-
-                                    <Card.Description
-                                        fontFamily="Inter"
-                                        fontWeight="400"
-                                        fontSize="18px"
-                                        w="266px"
-                                        lineHeight="22px"
-                                        letterSpacing="0px"
-                                        textAlign="center"
-                                        color="#717171">
-                                        {data.description}
-                                    </Card.Description>
-                                </Card.Body>
-                            </Card.Root>
+                                title={data.title}
+                                description={data.description}
+                            />
                         ))}
                     </Grid>
                     <Box textAlign="center" mt={8}>

@@ -1,5 +1,6 @@
 import { Box, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
 import { testimonials } from "@/constants/testimonies/testimonies"
+import TestimonialCard from "../cards/CardTestimonies";
 
 export default function Testimonials() {
     return (
@@ -46,69 +47,13 @@ export default function Testimonials() {
                     m="auto"
                 >
                     {testimonials.map((testimonial, index) => (
-                        <Box
+                        <TestimonialCard
                             key={index}
-                            w="357px"
-                            borderTopLeftRadius="3xl"
-                            borderTopRightRadius="3xl"
-                            borderBottomLeftRadius="0"
-                            borderBottomRightRadius="3xl"
-                            border="2px solid"
-                            bg="white"
-                            py="48px"
-                            px="24px"
-                        >
-                            <Box gap={3} mb={4}>
-                                <Text
-                                    color="#717171"
-                                    fontSize="18px"
-                                    fontWeight={400}
-                                    lineHeight="22px"
-                                    letterSpacing="0px"
-                                >
-                                    {testimonial.text}
-                                </Text>
-                            </Box>
-                            <Flex align="flex-start">
-                                <Box
-                                    w="40px"
-                                    h="40px"
-                                    borderRadius="full"
-                                    bg="brand.500"
-                                    display="flex"
-                                    alignItems="center"
-                                    justifyContent="center"
-                                    flexShrink={0}
-                                >
-                                    <Image
-                                        w="40px"
-                                        h="40px"
-                                        src="/home/Hero.png"
-                                        borderRadius="full"
-                                    />
-                                </Box>
-                                <Box px="2">
-                                    <Text
-                                        fontWeight={600}
-                                        color="#3F3F3F"
-                                        fontSize="18px"
-                                        lineHeight="22px"
-                                        letterSpacing="0px"
-                                    >
-                                        {testimonial.name}
-                                    </Text>
-                                    <Text
-                                        fontSize="14px"
-                                        color="#717171"
-                                        fontWeight={400}
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                    >
-                                        {testimonial.role}
-                                    </Text>
-                                </Box>
-                            </Flex>
-                        </Box>
+                            text={testimonial.text}
+                            name={testimonial.name}
+                            role={testimonial.role}
+                            image="/home/Hero.png"
+                        />
                     ))}
                 </Grid>
             </Box>
