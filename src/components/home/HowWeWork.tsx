@@ -3,16 +3,16 @@ import { items } from "@/constants/home/HowWeWork";
 
 export default function HowWeWork() {
     return (
-        <Flex py="80px" px="160px" align="center" maxW="1440px" justify="space-between" mx="auto">
+        <Flex py={{ base: 10, md: 12, lg: "80px" }} px={{ base: 4, md: 8, lg: "160px" }} align="center" maxW="1440px" justify="space-between" mx="auto" flexDirection={{ base: "column", lg: "row" }} gap={{ base: 8, lg: 0 }}>
             <Box flex="1" minW={0} maxW="551px" alignItems="start">
                 <Heading
                     as="h1"
                     fontFamily="Bricolage Grotesque"
                     color="#3F3F3F"
                     mb={4}
-                    fontSize={{ base: "3xl", md: "5xl" }}
+                    fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
                     fontWeight={800}
-                    lineHeight="70px"
+                    lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                     letterSpacing="0px"
                 >
                     Cómo trabajamos juntos
@@ -20,8 +20,9 @@ export default function HowWeWork() {
                 <List.Root gap={6}>
                     {items.map((it) => (
                         <ListItem direction="row"
-                            w="550px"
-                            h="80px"
+                            maxW="550px"
+                            w="100%"
+                            py={3}
                             borderRadius="48px"
                             gap="16px"
                             key={it.id}
@@ -29,11 +30,12 @@ export default function HowWeWork() {
                             alignItems="flex-start"
                         >
                             <Box
-                                w="80px"
-                                h="80px"
+                                w={{ base: "50px", lg: "80px" }}
+                                h={{ base: "50px", lg: "80px" }}
                                 p="3px"
                                 borderRadius="full"
                                 background="linear-gradient(to bottom, #E63CFF, #611161)"
+                                flexShrink={0}
                             >
                                 <Flex
                                     w="100%"
@@ -48,15 +50,15 @@ export default function HowWeWork() {
                                     {it.icono && <it.icono />}
                                 </Flex>
                             </Box>
-                            <Box w="420px" gap="8px">
+                            <Box maxW="420px" w="100%" gap="8px">
                                 <Text
                                     as="h3"
                                     fontWeight={800}
                                     fontFamily="inter"
                                     color="#3F3F3F"
                                     mb={1}
-                                    fontSize="26px"
-                                    lineHeight="32px"
+                                    fontSize={{ base: "18px", lg: "26px" }}
+                                    lineHeight={{ base: "24px", lg: "32px" }}
                                     letterSpacing="0px"
                                 >
                                     {it.title}
@@ -76,12 +78,14 @@ export default function HowWeWork() {
             </Box>
 
             <Box
-                w="400px"
-                h="600px"
+                maxW="400px"
+                w={{ base: "100%", lg: "400px" }}
+                h={{ base: "400px", lg: "600px" }}
                 borderRadius="99px"
                 background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
                 position="relative"
                 overflow="hidden"
+                mx={{ base: "auto", lg: "0" }}
             >
                 <Image
                     src="/home/proces.png"

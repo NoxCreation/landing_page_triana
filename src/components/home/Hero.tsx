@@ -1,27 +1,26 @@
 import { Box, Flex, Heading, HStack, Image, Text } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
-import NumberFlow from '@number-flow/react'
-import AnimatedStat from "./numberAnimate";
+import AnimatedStat from "./NumberAnimate";
 
 export default function Hero() {
     return (
-        <Box as="section" position="relative" overflow="hidden" bg="gray.50" >
-            <Flex m={"auto"} maxWidth={"1440px"} h={"760px"} px={"160px"} py={"80px"} align={"center"}>
+        <Box as="section" position="relative" overflow="hidden" bg="gray.50" pt={16} >
+            <Flex m={"auto"} maxWidth={"1440px"} flexDirection={{ base: "column", lg: "row" }} h={{ base: "auto", lg: "760px" }} px={{ base: 4, md: 8, lg: "160px" }} py={{ base: 8, md: 12, lg: "80px" }} align={"center"} gap={{ base: 8, lg: 0 }}>
                 <Box flex={1} textAlign={{ base: "center", md: "left" }}>
                     <Flex
                         direction="column"
-                        w="551px"
+                        maxW="551px"
+                        w="100%"
                         gap="30px"
                     >
-                        <Flex>
+                        <Flex justifyContent={{ base: "center", md: "flex-start" }}>
                             <Heading
                                 as="h1"
-                                h="70px"
                                 color="primary.500"
                                 fontFamily="Bricolage Grotesque"
                                 fontWeight="extrabold"
-                                fontSize="54px"
-                                lineHeight="70px"
+                                fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             >
                                 Hola, somos 3ana
                             </Heading>
@@ -34,21 +33,21 @@ export default function Hero() {
                         </Flex>
                         <Heading
                             as={"h2"}
-                            w="545px"
-                            h="22px"
+                            maxW="545px"
+                            w="100%"
                             color="#3F3F3F"
-                            fontSize={"32px"}
-                            lineHeight={"40px"}
+                            fontSize={{ base: "22px", md: "28px", lg: "32px" }}
+                            lineHeight={{ base: "28px", md: "34px", lg: "40px" }}
                             letterSpacing={"0%"}
                             fontWeight="extrabold"
                             fontFamily="Bricolage Grotesque"
                         >Marketing que mueve negocios</Heading>
                         <Text
-                            w="551px"
-                            h="66px"
+                            maxW="551px"
+                            w="100%"
                             fontFamily="inter"
                             fontWeight="400"
-                            fontSize="18px"
+                            fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                             lineHeight="22px"
                             letterSpacing="0px"
                             color="#717171"
@@ -60,10 +59,10 @@ export default function Hero() {
                     <HStack
                         gap={4}
                         justify={{ base: "center", md: "flex-start" }}
-                        direction={{ base: "column", sm: "row" }}
-                        w="517px"
-                        h="56px"
+                        maxW="517px"
+                        w="100%"
                         pt="14"
+                        flexWrap="wrap"
                     >
                         <ButtonUi
                             h="56px"
@@ -125,7 +124,7 @@ export default function Hero() {
                             >Conoce mi Trabajo</Text>
                         </ButtonUi>
                     </HStack>
-                    <Flex w="576px" h="96px" bg="transparent" pt={20} align="center" gap={8}>
+                    <Flex maxW="576px" w="100%" h={{ base: "auto", lg: "96px" }} bg="transparent" pt={{ base: 10, lg: 20 }} align="center" gap={8} flexWrap={{ base: "wrap", lg: "nowrap" }} justify={{ base: "center", lg: "flex-start" }}>
                         <Box
                             w="142.69px"
                             h="64px"
@@ -168,6 +167,7 @@ export default function Hero() {
                             w="1px"
                             h="64px"
                             bg="#E5E7EB"
+                            display={{ base: "none", md: "block" }}
                         />
                         <Box
                             w="135.61px"
@@ -214,6 +214,7 @@ export default function Hero() {
                             w="1px"
                             h="64px"
                             bg="#E5E7EB"
+                            display={{ base: "none", md: "block" }}
                         />
                         <Box
                             w="134.58px"
@@ -260,6 +261,9 @@ export default function Hero() {
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
+                    maxW={{ base: "300px", md: "400px", lg: "auto" }}
+                    w={{ base: "100%", lg: "auto" }}
+                    mx={{ base: "auto", lg: "0" }}
                 >
                     <Image
                         src="/home/Hero.png"

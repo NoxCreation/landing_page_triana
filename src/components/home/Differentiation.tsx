@@ -11,39 +11,41 @@ export default function Differentiation() {
                 py={3}
                 align="center"
                 justify="center"
-                gap={3}
+                gap={{ base: 1, md: 3 }}
                 color="white"
                 fontWeight="bold"
                 fontSize={{ base: "sm", md: "md" }}
                 background="linear-gradient(to right, #611161, #E63CFF)"
                 boxShadow="0px 0px 24px rgba(97, 17, 97, 0.24)"
+                px={2}
             >
-                <Box as="span" display="inline-flex" width="22px" height="22px" alignItems="center" justifyContent="center" mr={2} aria-label="bubble-left">
-                    <Image src="/home/Vector-1.png" w="20px" h="20px"></Image>
+                <Box as="span" display="inline-flex" width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" mr={{ base: 1, lg: 2 }} aria-label="bubble-left">
+                    <Image src="/home/Vector-1.png" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }}></Image>
                 </Box>
                 <Text
                     fontFamily="Bricolage Grotesque"
                     fontWeight="700"
-                    fontSize="18px"
+                    fontSize={{ base: "12px", md: "14px", lg: "18px" }}
                     lineHeight="20px"
                     letterSpacing="0px"
+                    px={{ base: 1, md: 4 }}
                 >
                     Crecimiento promedio de hasta un 45% con resultados en menos de 30 días,
                     dejame ayudarte a crecer
                 </Text>
-                <Box as="span" display="inline-flex" width="22px" height="22px" alignItems="center" justifyContent="center" ml={2} aria-label="bubble-right" style={{ transform: 'scaleX(-1)' }}>
-                    <Image src="/home/Vector-2.png" w="20px" h="20px" transform="scaleX(-1)"></Image>
+                <Box as="span" display="inline-flex" width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" ml={{ base: 1, lg: 2 }} aria-label="bubble-right" style={{ transform: 'scaleX(-1)' }}>
+                    <Image src="/home/Vector-2.png" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }} transform="scaleX(-1)"></Image>
                 </Box>
             </Flex>
 
-            <Box p={20}>
-                <Flex m={"auto"} w="1100px" gap="8px" textAlign="center" mb={12} direction="column">
+            <Box p={{ base: 8, md: 12, lg: 20 }}>
+                <Flex m={"auto"} maxW="1100px" w="100%" gap="8px" textAlign="center" mb={12} direction="column" px={4}>
                     <Heading
                         textAlign="center"
                         fontFamily="Bricolage Grotesque"
                         fontWeight="800"
-                        fontSize="64px"
-                        lineHeight="70px"
+                        fontSize={{ base: "28px", md: "40px", lg: "64px" }}
+                        lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         letterSpacing="0%"
                         color="#3F3F3F">
                         ¿Por qué elegir 3ana Marqueting?
@@ -53,7 +55,7 @@ export default function Differentiation() {
                         textAlign="center"
                         fontFamily="Inter"
                         fontWeight="400"
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                         lineHeight="22px"
                         letterSpacing="0px"
                         color="#717171">

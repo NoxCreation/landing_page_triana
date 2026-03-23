@@ -61,21 +61,23 @@ export default function HeroIntro() {
                     >
                         perdido fueron mi motivación para crear Triana Marketing.
                     </Text>
-                    <Text
-                        color="#A0A0A0"
-                        fontWeight={500}
-                        fontSize="18px"
-                        lineHeight="22px"
-                        letterSpacing="-0.5px"
-                        fontStyle="italic"
-                        mt={4}
-                    >
-                        — Triana Apellido, CEO of 3ana
-                        <HStack justify="end" gap={2} mb={4}>
+                    <Box mt={4}>
+                        <Text
+                            color="#A0A0A0"
+                            fontWeight={500}
+                            fontSize="18px"
+                            lineHeight="22px"
+                            letterSpacing="-0.5px"
+                            fontStyle="italic"
+                        >
+                            — Triana Apellido, CEO of 3ana
+                        </Text>
+
+                        <HStack justify="end" gap={2} mt={2}>
                             <Image src="/my/Vector-w.svg" />
                             <Image src="/my/Vector-w.svg" />
                         </HStack>
-                    </Text>
+                    </Box>
                 </Box>
 
                 <Box textAlign="center" mt={8}>

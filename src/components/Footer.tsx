@@ -33,6 +33,7 @@ export default function Footer() {
                 opacity={0.4}
                 zIndex={0}
                 filter="brightness(0.6)"
+                display={{ base: "none", md: "block" }}
             />
 
             {/* Círculo pequeño */}
@@ -47,6 +48,7 @@ export default function Footer() {
                 opacity={0.5}
                 zIndex={0}
                 filter="brightness(0.7)"
+                display={{ base: "none", md: "block" }}
             />
             <Box
                 maxW="1440px"
@@ -60,7 +62,7 @@ export default function Footer() {
                         gap={8}
                         mb={3}
                     >
-                        <Box w="400px">
+                        <Box maxW="400px">
                             <Image src="/Home/LOGO_FOOTER.png" />
                             <Text
                                 fontSize="18px"
@@ -107,7 +109,7 @@ export default function Footer() {
                             </Flex>
                         </Box>
 
-                        <Box>
+                        <Box textAlign={{ base: "center", md: "left" }}>
                             <Heading
                                 color="#FFFFFF"
                                 fontSize="18px"
@@ -119,7 +121,7 @@ export default function Footer() {
                             >
                                 Servicios
                             </Heading>
-                            <Flex direction="column" gap={2} w="261.5px">
+                            <Flex direction="column" alignItems={{ base: "center", md: "flex-start" }} gap={2} maxW="261.5px" mx={{ base: "auto", md: "0" }}>
                                 <Link
                                     href="#"
                                     fontSize="14px"
@@ -159,7 +161,7 @@ export default function Footer() {
                             </Flex>
                         </Box>
 
-                        <Box>
+                        <Box textAlign={{ base: "center", md: "left" }}>
                             <Heading
                                 color="#FFFFFF"
                                 fontSize="18px"
@@ -171,7 +173,7 @@ export default function Footer() {
                             >
                                 Enlaces rápidos
                             </Heading>
-                            <Flex direction="column" gap={2} w="261.5px">
+                            <Flex direction="column" alignItems={{ base: "center", md: "flex-start" }} gap={2} maxW="261.5px" mx={{ base: "auto", md: "0" }}>
                                 <Link
                                     href="#"
                                     fontSize="14px"
@@ -223,7 +225,7 @@ export default function Footer() {
                         >
                             Contacto
                         </Heading>
-                        <Flex gap={"16"} pb={"6"}>
+                        <Flex flexWrap="wrap" gap={4} pb={"6"}>
                             <Flex>
                                 <PhoneInTalkIcon />
                                 <Text
