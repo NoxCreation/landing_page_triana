@@ -140,7 +140,7 @@ export default function LeadForm() {
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
                                 borderBottomRightRadius="3xl"
-                                bg="white"
+                                bg="transparent"
                                 h="50px"
                                 overflow="hidden"
                                 _focusWithin={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
