@@ -6,12 +6,12 @@ import Footer from "@/components/Footer";
 import { Inter, Bricolage_Grotesque } from 'next/font/google';
 import ButtonUp from "@/components/buttonUp";
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
 
-export const bricolage = Bricolage_Grotesque({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage',
 });
