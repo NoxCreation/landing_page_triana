@@ -17,7 +17,8 @@ export default function Footer() {
             overflow="hidden"
             bg="primary.500"
             color="white"
-            py={12}
+            pt={12}
+            pb={4}
             px={4}
             position="relative"
         >
@@ -51,21 +52,21 @@ export default function Footer() {
                 display={{ base: "none", md: "block" }}
             />
             <Box
-                maxW="1440px"
-                mx="auto"
+                maxW="100vw"
                 position="relative"
                 zIndex={1}
+                px={{ base: "24px", lg: "160px" }}
             >
-                <Box maxW="1000px" mx="auto">
+                <Box maxW="100vw" >
                     <Grid
-                        templateColumns={{ base: "1fr", md: "repeat(4, 1fr)" }}
+                        templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
                         gap={8}
                         mb={3}
                     >
                         <Box maxW="400px">
                             <Image src="/Home/LOGO_FOOTER.png" />
                             <Text
-                                fontSize="18px"
+                                fontSize="16px"
                                 fontWeight={400}
                                 lineHeight="22px"
                                 letterSpacing="0px"
@@ -73,11 +74,10 @@ export default function Footer() {
                             >
                                 No solo creamos la estrategia, te ayudamos a ponerla en movimiento.
                             </Text>
-                            <Flex mt={5}>
+                            <Flex mt={5} gap={2}>
                                 <Box
                                     rounded="full"
                                     bg="rgba(255, 255, 255, 0.1)"
-                                    mx="2"
                                     p="1"
                                 >
                                     <LinkedInIcon />
@@ -85,7 +85,6 @@ export default function Footer() {
                                 <Box
                                     rounded="full"
                                     bg="rgba(255, 255, 255, 0.1)"
-                                    mx="2"
                                     p="1"
                                 >
                                     <FacebookIcon />
@@ -93,7 +92,6 @@ export default function Footer() {
                                 <Box
                                     rounded="full"
                                     bg="rgba(255, 255, 255, 0.1)"
-                                    mx="2"
                                     p="1"
                                 >
                                     <YouTubeIcon />
@@ -101,7 +99,6 @@ export default function Footer() {
                                 <Box
                                     rounded="full"
                                     bg="rgba(255, 255, 255, 0.1)"
-                                    mx="2"
                                     p="1"
                                 >
                                     <InstagramIcon />
@@ -109,7 +106,7 @@ export default function Footer() {
                             </Flex>
                         </Box>
 
-                        <Box textAlign={{ base: "center", md: "left" }}>
+                        <Box textAlign={{ base: "left", md: "left" }}>
                             <Heading
                                 color="#FFFFFF"
                                 fontSize="18px"
@@ -121,7 +118,7 @@ export default function Footer() {
                             >
                                 Servicios
                             </Heading>
-                            <Flex direction="column" alignItems={{ base: "center", md: "flex-start" }} gap={2} maxW="261.5px" mx={{ base: "auto", md: "0" }}>
+                            <Flex direction="column" alignItems={{ base: "left", md: "flex-start" }} gap={2} mx={{ base: "auto", md: "0" }}>
                                 <Link
                                     href="#"
                                     fontSize="14px"
@@ -161,7 +158,7 @@ export default function Footer() {
                             </Flex>
                         </Box>
 
-                        <Box textAlign={{ base: "center", md: "left" }}>
+                        <Box textAlign={{ base: "left", md: "left" }}>
                             <Heading
                                 color="#FFFFFF"
                                 fontSize="18px"
@@ -173,7 +170,7 @@ export default function Footer() {
                             >
                                 Enlaces rápidos
                             </Heading>
-                            <Flex direction="column" alignItems={{ base: "center", md: "flex-start" }} gap={2} maxW="261.5px" mx={{ base: "auto", md: "0" }}>
+                            <Flex direction="column" alignItems={{ base: "left", md: "flex-start" }} gap={2} mx={{ base: "auto", md: "0" }}>
                                 <Link
                                     href="#"
                                     fontSize="14px"
@@ -226,43 +223,52 @@ export default function Footer() {
                             Contacto
                         </Heading>
                         <Flex flexWrap="wrap" gap={4} pb={"6"}>
-                            <Flex>
-                                <PhoneInTalkIcon />
-                                <Text
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
-                                    fontFamily="inter"
-                                >
-                                    +1 (xxx) xxx - xxx
-                                </Text>
-                            </Flex>
-                            <Flex>
-                                <EmailIcon />
-                                <Text
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
-                                    fontFamily="inter"
-                                >
-                                    trianamarketing@mail.com
-                                </Text>
-                            </Flex>
-                            <Flex>
-                                <LocationOnIcon />
-                                <Text
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
-                                    fontFamily="inter"
-                                >
-                                    Houston, Tx
-                                </Text>
-                            </Flex>
-                            <Flex>
+                            <Link>
+                                <Flex gap={2}>
+                                    <PhoneInTalkIcon />
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                        fontFamily="inter"
+                                    >
+                                        {process.env.NEXT_PUBLIC_PHONE_CONTACT}
+                                    </Text>
+                                </Flex>
+                            </Link>
+
+                            <Link>
+                                <Flex gap={2}>
+                                    <EmailIcon />
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                        fontFamily="inter"
+                                    >
+                                        trianamarketing@mail.com
+                                    </Text>
+                                </Flex>
+                            </Link>
+
+                            <Link>
+                                <Flex gap={2}>
+                                    <LocationOnIcon />
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                        fontFamily="inter"
+                                    >
+                                        Houston, Tx
+                                    </Text>
+                                </Flex>
+                            </Link>
+
+                            <Flex gap={2}>
                                 <WatchLaterIcon />
                                 <Text
                                     fontSize="14px"
@@ -278,6 +284,7 @@ export default function Footer() {
                     </Box>
 
                     <Box borderTop="1px solid" borderColor="terciary.500" pt={6} />
+                    
                     <Flex
                         direction={{ base: "column", md: "row" }}
                         justify="space-between"
@@ -285,15 +292,17 @@ export default function Footer() {
                         gap={4}
                     >
                         <Text
-                            fontSize="14px"
+                            fontSize="12px"
                             fontWeight={400}
                             lineHeight="20px"
                             letterSpacing="0px"
-                            color="#FFFFFF"
+                            color="pink.200"
+                            w={"100%"}
+                            textAlign={"center"}
                         >
-                            © 2024 Nox Creations. All rights reserved
+                            © 2026 Triana Marketing & Consulting. Diseñado y creado por <a style={{ color: "#d781fc" }} href="https://noxcreation.dev/" target="_blank">NOX Creation</a>
                         </Text>
-                        <Flex gap={4}>
+                        {/* <Flex gap={4}>
                             <Link
                                 href="#"
                                 fontSize="14px"
@@ -314,7 +323,7 @@ export default function Footer() {
                             >
                                 Términos y Condiciones
                             </Link>
-                        </Flex>
+                        </Flex> */}
                     </Flex>
                 </Box>
             </Box>
