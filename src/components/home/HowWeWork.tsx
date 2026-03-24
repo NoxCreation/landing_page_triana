@@ -16,6 +16,7 @@ export default function HowWeWork() {
                         fontWeight={800}
                         lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                         letterSpacing="0px"
+                        textAlign={'center'}
                     >
                         Cómo trabajamos juntos
                     </Heading>

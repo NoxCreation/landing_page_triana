@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Stack, Text } from "@chakra-ui/react";
 import { services } from "@/constants/home/nedd"
 import { Transition } from "../Transition";
 
@@ -7,12 +7,11 @@ export default function Need() {
         <Box w="100%" bg="#FDF2FF" py={16} px={4}>
             <Box maxW="1000px" mx="auto">
                 <Transition type="bootom" velocity="slow">
-                    <Box textAlign="center" mb={10}>
+                    <Stack textAlign="center" mb={10} gap={4}>
                         <Heading
                             as="h1"
                             color="#3F3F3F"
-                            lineHeight={"70px"}
-                            letterSpacing={"0%"}
+                            letterSpacing={"0px"}
                             fontSize={{ base: "3xl", md: "5xl" }}
                             fontWeight="800"
                             fontFamily="Bricolage Grotesque">
@@ -22,12 +21,12 @@ export default function Need() {
                             fontSize="18px"
                             fontFamily="inter"
                             fontWeight={400}
-                            color="#717171"
+                            color="gray.500"
                             letterSpacing="0px"
                             lineHeight="22px">
                             Responda 3 preguntas y te recomendamos el servicio ideal
                         </Text>
-                    </Box>
+                    </Stack>
                 </Transition>
 
                 <Transition type="top" velocity="slow">
@@ -43,7 +42,7 @@ export default function Need() {
                             textAlign="center"
                             fontWeight="extrabold"
                             fontFamily="inter"
-                            fontSize={{ base: "md", md: "lg" }}
+                            fontSize={{ base: "lg", md: "lg" }}
                             color="#3F3F3F"
                             lineHeight="32px"
                             letterSpacing={"0"}
@@ -62,7 +61,7 @@ export default function Need() {
                                     p={5}
                                     borderRadius="3xl"
                                     border="2px solid"
-                                    borderColor="#E2E8F0"
+                                    borderColor="gray.100"
                                     bg="white"
                                     cursor="pointer"
                                     transition="all 0.2s"
@@ -103,7 +102,7 @@ export default function Need() {
                                             letterSpacing="0px"
                                             fontFamily="inter"
                                             fontWeight={400}
-                                            color="gray.300"
+                                            color="gray.400"
                                             textAlign="center"
                                         >
                                             {service.subtitle}
