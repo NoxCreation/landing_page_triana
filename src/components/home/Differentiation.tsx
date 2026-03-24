@@ -4,10 +4,8 @@ import InfoCard from "../cards/InfoCard";
 import { Transition } from "../Transition";
 
 export default function Differentiation() {
-
     return (
-
-        <Box w={"100%"} bg="gray.50" color="black" h={"100vh"}>
+        <Box w={"100%"} bg="gray.50" color="black" minH={"100vh"}>
             <Transition type="top" velocity="slow" index={1}>
                 <Flex
                     w="100%"
@@ -22,7 +20,7 @@ export default function Differentiation() {
                     boxShadow="0px 0px 24px rgba(97, 17, 97, 0.24)"
                     px={2}
                 >
-                    <Box as="span" display="inline-flex" width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" mr={{ base: 1, lg: 2 }} aria-label="bubble-left">
+                    <Box as="span" display={{ base: 'none', md: "inline-flex" }} width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" mr={{ base: 1, lg: 2 }} aria-label="bubble-left">
                         <Image src="/home/Vector-1.png" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }}></Image>
                     </Box>
                     <Text
@@ -32,17 +30,18 @@ export default function Differentiation() {
                         lineHeight="20px"
                         letterSpacing="0px"
                         px={{ base: 1, md: 4 }}
+                        textAlign={'center'}
                     >
                         Crecimiento promedio de hasta un 45% con resultados en menos de 30 días,
                         dejame ayudarte a crecer
                     </Text>
-                    <Box as="span" display="inline-flex" width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" ml={{ base: 1, lg: 2 }} aria-label="bubble-right" style={{ transform: 'scaleX(-1)' }}>
+                    <Box as="span" display={{ base: 'none', md: "inline-flex" }} width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" ml={{ base: 1, lg: 2 }} aria-label="bubble-right" style={{ transform: 'scaleX(-1)' }}>
                         <Image src="/home/Vector-2.png" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }} transform="scaleX(-1)"></Image>
                     </Box>
                 </Flex>
             </Transition>
 
-            <Box p={{ base: 8, md: 12, lg: 20 }} alignItems="center" justifyContent="center" gap={10} display="flex" flexDirection="column">
+            <Box p={{ base: 8, md: 12, lg: 20 }} alignItems="center" justifyContent="center" gap={{ base: 0, md: 10 }} display="flex" flexDirection="column">
                 <Flex m={"auto"} maxW="1100px" w="100%" gap="8px" textAlign="center" mb={12} direction="column" px={4}>
                     <Transition type="bootom" velocity="slow" index={1}>
                         <Heading
@@ -76,8 +75,8 @@ export default function Differentiation() {
                         justifyItems="center"
                     >
                         {dataCard.map((data, index) => (
-                            <Transition type="left" velocity="slow" key={index} index={index*2}>
-                                <InfoCard                                    
+                            <Transition type="left" velocity="slow" key={index} index={index * 2}>
+                                <InfoCard
                                     title={data.title}
                                     description={data.description}
                                 />

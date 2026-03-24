@@ -1,18 +1,21 @@
-import { Box, Flex, Heading, HStack, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
 import AnimatedStat from "./NumberAnimate";
 import { WhatsApp } from '@mui/icons-material';
 import { Transition } from "../Transition";
+import { useRouter } from "next/navigation";
+import { StatAnimate } from "../StatAnimate";
 
 export default function Hero() {
+    const router = useRouter()
     return (
         <Box as="section" position="relative" overflow="hidden" bg="gray.50" pt={{ base: 16, md: 0 }} >
-            <Flex m={"auto"} maxWidth={"full"} flexDirection={{ base: "column", lg: "row" }} h={"100vh"} px={{ base: 4, md: 8, lg: "160px" }} py={{ base: 8, md: 12, lg: "80px" }} align={"center"} gap={{ base: 8, lg: 0 }}>
+            <Flex
+                gap={20}
+                flexDirection={{ base: "column", lg: "row" }} minH={"100vh"} px={{ base: "24px", lg: "160px" }} py={{ base: 8, md: 12 }} align={"center"}>
                 <Box flex={1} textAlign={{ base: "center", md: "left" }}>
                     <Flex
                         direction="column"
-                        maxW="551px"
-                        w="100%"
                         gap="8px"
                     >
                         <Transition type="top" velocity="slow">
@@ -30,8 +33,8 @@ export default function Hero() {
 
                                 <Image
                                     src="/home/Vector.png"
-                                    w="32px"
-                                    h="32px"
+                                    w={{ base: "15px", md: '32px' }}
+                                    h={{ base: "15px", md: '32px' }}
                                 />
                             </Flex>
                         </Transition>
@@ -75,52 +78,50 @@ export default function Hero() {
                             pt={4}
                             direction={{ base: 'column', md: 'row' }}
                         >
-                            <Link target="_blank" href={`https://api.whatsapp.com/send/?phone=${process.env.NEXT_PUBLIC_PHONE_CONTACT}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`}>
-                                <ButtonUi
-                                    h="56px"
-                                    flex={1}
-                                    borderRadius="30px"
-                                    px="24px"
-                                    gap="8px"
-                                    bg="primary.500"
-                                    color="white"
-                                    boxShadow="0px 10px 50px rgba(178,35,207,0.24)"
-                                    size="lg"
-                                    _hover={{
-                                        bg: "#5A0F6E",
-                                        transform: "translateY(-2px)",
-                                        boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
-                                    }}
-                                    _active={{
-                                        transform: "scale(0.98)",
-                                    }}
-                                >
-                                    <WhatsApp />
-                                    <Text
-                                        fontFamily="Inter"
-                                        fontWeight="semibold"
-                                        fontSize="18px"
-                                        lineHeight="22px"
-                                        letterSpacing="0"
-                                        textAlign="center"
-                                        color="#FFFFFF"
-                                    >Agendar una Consulta</Text>
-                                </ButtonUi>
-                            </Link>
-
                             <ButtonUi
-                                flex={1}
-                                h="54px"
+                                flex={{ base: 'none', md: 1 }}
                                 borderRadius="30px"
-                                bg="#ffff"
-                                border="1px solid"
-                                py="16px"
+                                h={{ base: "45px", md: "50px" }}
                                 px="24px"
                                 gap="8px"
+                                bg="primary.500"
+                                color="white"
+                                boxShadow="0px 10px 50px rgba(178,35,207,0.24)"
+                                _hover={{
+                                    bg: "#5A0F6E",
+                                    transform: "translateY(-2px)",
+                                    boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                                }}
+                                _active={{
+                                    transform: "scale(0.98)",
+                                }}
+                                onClick={() => {
+                                    router.push(`https://api.whatsapp.com/send/?phone=${process.env.NEXT_PUBLIC_PHONE_CONTACT}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`)
+                                }}
+                            >
+                                <WhatsApp />
+                                <Text
+                                    fontFamily="Inter"
+                                    fontWeight="semibold"
+                                    fontSize={{ base: "14px", md: '18px' }}
+                                    lineHeight="22px"
+                                    letterSpacing="0"
+                                    textAlign="center"
+                                    color="#FFFFFF"
+                                >Agendar una Consulta</Text>
+                            </ButtonUi>
+
+                            <ButtonUi
+                                flex={{ base: 'none', md: 1 }}
+                                borderRadius="30px"
+                                h={{ base: "45px", md: "50px" }}
+                                px="24px"
+                                bg="#ffff"
+                                gap="8px"
+                                border="1px solid"
                                 borderColor="primary.500"
                                 color="primary.500"
                                 boxShadow="0px 10px 50px rgba(178, 35, 207, 0.15)"
-                                size="lg"
                                 _hover={{
                                     bg: "#F3E8FF",
                                     borderColor: "#6B21A8",
@@ -132,7 +133,7 @@ export default function Hero() {
                                 <Text
                                     fontFamily="Inter"
                                     fontWeight="semibold"
-                                    fontSize="18px"
+                                    fontSize={{ base: "14px", md: '18px' }}
                                     lineHeight="22px"
                                     letterSpacing="0"
                                     textAlign="center"
@@ -142,148 +143,32 @@ export default function Hero() {
                     </Transition>
                     <Transition type="top" velocity="slow" index={1}>
                         <Flex maxW="576px" w="100%" h={{ base: "auto", lg: "96px" }} bg="transparent" pt={{ base: 10, lg: 20 }} align="center" gap={8} flexWrap={{ base: "wrap", lg: "nowrap" }} justify={{ base: "center", lg: "flex-start" }}>
-                            <Box
-                                w="142.69px"
-                                h="64px"
-                                bg="transparent">
-                                <Box
-                                    w="185.49px"
-                                    h="40px"
-                                    bg="transparent"
-                                >
-                                    <AnimatedStat
-                                        suffix="+"
-                                        value={150}
-                                        w="193.49px"
-                                        fontFamily="Bricolage Grotesque"
-                                        fontWeight="800"
-                                        fontSize="36px"
-                                        lineHeight="40px"
-                                        letterSpacing="0%"
-                                        color="primary.500"
-                                    />
-                                </Box>
-                                <Box
-                                    w="142.69px"
-                                    h="20px"
-                                    bg="transparent"
-                                >
-                                    <Text
-                                        color="#3F3F3F"
-                                        w="150.69px"
-                                        mt={2}
-                                        fontFamily="Inter"
-                                        fontWeight="400"
-                                        fontSize="14px"
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                    >Negocios Impulsados</Text>
-                                </Box>
-                            </Box>
-                            <Box
-                                w="1px"
-                                h="64px"
-                                bg="#E5E7EB"
-                                display={{ base: "none", md: "block" }}
+
+                            <StatAnimate
+                                value={150}
+                                label="Negocios Impulsados"
                             />
-                            <Box
-                                w="135.61px"
-                                h="64px"
-                                bg="transparent"
-                            >
-                                <Box
-                                    w="176.29px"
-                                    h="40px"
-                                    bg="transparent"
-                                >
-                                    <AnimatedStat
-                                        suffix="+"
-                                        value={3}
-                                        w="193.49px"
-                                        fontFamily="Bricolage Grotesque"
-                                        fontWeight="800"
-                                        fontSize="36px"
-                                        lineHeight="40px"
-                                        letterSpacing="0%"
-                                        color="primary.500"
-                                    />
-                                </Box>
-                                <Box
-                                    w="135.61px"
-                                    h="20px"
-                                    bg="transparent"
-                                >
-                                    <Text
-                                        w="143.61px"
-                                        mt={2}
-                                        fontFamily="Inter"
-                                        fontWeight="400"
-                                        fontSize="14px"
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                        color="#3F3F3F"
-                                    >
-                                        Años de Experiencia
-                                    </Text>
-                                </Box>
-                            </Box>
-                            <Box
-                                w="1px"
-                                h="64px"
-                                bg="#E5E7EB"
-                                display={{ base: "none", md: "block" }}
+
+                            <StatAnimate
+                                value={3}
+                                label="Años de Experiencia"
                             />
-                            <Box
-                                w="134.58px"
-                                h="64px"
-                                bg="transparent"
-                            >
-                                <Box
-                                    w="174.95px"
-                                    h="40px"
-                                    bg="transparent"
-                                >
-                                    <AnimatedStat
-                                        suffix="%"
-                                        value={98}
-                                        w="193.49px"
-                                        fontFamily="Bricolage Grotesque"
-                                        fontWeight="800"
-                                        fontSize="36px"
-                                        lineHeight="40px"
-                                        letterSpacing="0%"
-                                        color="primary.500"
-                                    />
-                                </Box>
-                                <Box
-                                    w="134.58px"
-                                    h="20px"
-                                    bg="transparent"
-                                ><Text
-                                    color="#3F3F3F"
-                                    w="142.58px"
-                                    mt={2}
-                                    fontFamily="Inter"
-                                    fontWeight="400"
-                                    fontSize="14px"
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
-                                >Clientes Satisfechos</Text></Box>
-                            </Box>
+
+                            <StatAnimate
+                                value={98}
+                                label="Clientes Satisfechos"
+                            />
+
                         </Flex>
                     </Transition>
                 </Box>
-                <Transition type="rigth" velocity="slow" index={1}>
-                    <Box
-                        borderRadius="99px"
-                        bgGradient="radial(#FFFFFF 0%, #F9D0FF 100%)"
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        maxW={{ base: "300px", md: "480px", lg: "auto" }}
-                        w={{ base: "100%", lg: "auto" }}
-                        mx={{ base: "auto", lg: "0" }}
-                    >
+
+                <Box
+                    flex={1}
+                    borderRadius="99px"
+                    px={{ base: "0", md: '90px' }}
+                >
+                    <Transition type="rigth" velocity="slow" index={1}>
                         <Image
                             src="/home/Hero.png"
                             alt="mujer sonriente"
@@ -292,8 +177,8 @@ export default function Hero() {
                             borderRadius="99px"
                             objectFit="cover"
                         />
-                    </Box>
-                </Transition>
+                    </Transition>
+                </Box>
             </Flex >
         </Box >
     )

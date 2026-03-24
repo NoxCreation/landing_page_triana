@@ -15,7 +15,6 @@ export default function Service() {
                             fontFamily="Bricolage Grotesque"
                             fontSize={{ base: "3xl", md: "5xl" }}
                             fontWeight={800}
-                            lineHeight="70px"
                             letterSpacing="0px"
                             mb={4}>
                             Servicios más solicitados
