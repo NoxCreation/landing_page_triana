@@ -180,13 +180,13 @@ export default function Navbar() {
                 </Button>
               </Flex>
 
-              <Box mt={2} flex="1">
+              <Box mt={2} flex="1" px={10}>
                 {items.map((item, idx) => (
                   <motion.div
                     key={item.label}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
+                    transition={{ delay: idx * 0.1 }}
                     onClick={closeMobileMenu}
                   >
                     <Link href={item.url}>
