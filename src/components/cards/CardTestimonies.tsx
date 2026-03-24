@@ -21,6 +21,7 @@ export default function TestimonialCard({
             borderBottomLeftRadius="0"
             borderBottomRightRadius="3xl"
             border="2px solid"
+            borderColor={'gray.100'}
             bg="white"
             py={{ base: 6, lg: "48px" }}
             px={{ base: 4, lg: "24px" }}

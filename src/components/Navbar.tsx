@@ -94,29 +94,31 @@ export default function Navbar() {
       </Box>
 
       {/* Menú móvil */}
-      {mobileOpen && (
-        <Box position="fixed" top={0} left={0} w="100%" bg="white" zIndex={20} p={4} display={{ base: "block", md: "none" }}>
-          <Flex justify="flex-end">
-            <Button size="sm" onClick={closeMobileMenu}><CloseIcon /></Button>
-          </Flex>
-          <Box mt={2}>
-            {items.map((item) => (
-              <Box key={item.label} mb={2} onClick={closeMobileMenu}>
-                <Link href={item.url}>
-                  <Text
-                    fontWeight={isActive(item.url) ? "bold" : "semibold"}
-                    color={isActive(item.url) ? "primary.500" : "gray.700"}
-                    display="block"
-                    py={1}
-                  >
-                    {item.label}
-                  </Text>
-                </Link>
-              </Box>
-            ))}
+      {
+        mobileOpen && (
+          <Box position="fixed" top={0} left={0} w="100%" bg="white" zIndex={20} p={4} display={{ base: "block", md: "none" }}>
+            <Flex justify="flex-end">
+              <Button size="sm" onClick={closeMobileMenu}><CloseIcon /></Button>
+            </Flex>
+            <Box mt={2}>
+              {items.map((item) => (
+                <Box key={item.label} mb={2} onClick={closeMobileMenu}>
+                  <Link href={item.url}>
+                    <Text
+                      fontWeight={isActive(item.url) ? "bold" : "semibold"}
+                      color={isActive(item.url) ? "primary.500" : "gray.700"}
+                      display="block"
+                      py={1}
+                    >
+                      {item.label}
+                    </Text>
+                  </Link>
+                </Box>
+              ))}
+            </Box>
           </Box>
-        </Box>
-      )}
+        )
+      }
     </>
   );
 }
