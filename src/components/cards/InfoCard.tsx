@@ -14,7 +14,7 @@ export default function InfoCard({
         <Card.Root
             bg="white"
             border="2px solid"
-            borderColor="gray.200"
+            borderColor="gray.100"
             borderTopLeftRadius="3xl"
             borderTopRightRadius="3xl"
             borderBottomLeftRadius="0"
