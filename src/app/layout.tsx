@@ -4,6 +4,7 @@ import { Provider } from "@/ui/provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Inter, Bricolage_Grotesque } from 'next/font/google';
+import ButtonUp from "@/components/buttonUp";
 
 export const inter = Inter({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <ButtonUp />
         </Provider>
       </body>
     </html>
