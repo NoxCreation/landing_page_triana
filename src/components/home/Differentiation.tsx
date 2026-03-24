@@ -63,7 +63,12 @@ export default function Differentiation() {
                     </Text>
                 </Flex>
                 <Flex direction="column" alignItems="center" justify="center" gap={10}>
-                    <Grid maxW="1120px" templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="24px" justifyItems="center">
+                    <Grid
+                        maxW="1120px"
+                        templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+                        gap="24px"
+                        justifyItems="center"
+                    >
                         {dataCard.map((data, index) => (
                             <InfoCard
                                 key={index}

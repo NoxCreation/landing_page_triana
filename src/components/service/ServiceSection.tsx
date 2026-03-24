@@ -57,7 +57,7 @@ export default function ServiceSection() {
 
                 <Grid
                     maxW="1120px"
-                    templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
                     gap={6}
                     mb={10}
                     mx="auto"
@@ -75,7 +75,7 @@ export default function ServiceSection() {
                             payment={{
                                 label: service.before,
                                 price: service.price,
-                                frequency: service.frequency 
+                                frequency: service.frequency
                             } as any}
                             href={"/service/detail"}
                         />

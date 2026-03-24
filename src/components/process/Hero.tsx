@@ -7,7 +7,7 @@ export default function Hero() {
 
     return (
         <Box w={"100%"} bg="#F3A0FF0D" color="black">
-            <Box p={20}>
+            <Box pt={20} px={5}>
                 <Flex m={"auto"} maxW="1100px" gap="8px" textAlign="center" mb={12} direction="column" px={4}>
                     <Box position="relative" maxW="650px" display="inline-block" m="auto">
                         <Heading
@@ -27,7 +27,7 @@ export default function Hero() {
                             h={{ base: "24px", lg: "32px" }}
                             position="absolute"
                             top={{ base: "-5px", lg: "3px" }}
-                            right={{ base: "-10px", lg: "-40px" }}
+                            right={{ base: "-24px", lg: "-40px" }}
                         />
                     </Box>
 
@@ -46,7 +46,12 @@ export default function Hero() {
                     </Text>
                 </Flex>
                 <Flex direction="column" alignItems="center" justify="center" gap={10}>
-                    <Grid maxW="1120px" templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="24px" justifyItems="center">
+                    <Grid
+                        maxW="1120px"
+                        templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+                        gap="24px"
+                        justifyItems="center"
+                    >
                         {dataCard.map((data, index) => (
                             <InfoCard
                                 key={index}

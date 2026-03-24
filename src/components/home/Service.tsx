@@ -21,7 +21,7 @@ export default function Service() {
                 </Box>
 
                 <Grid
-                    templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
                     gap={6}
                     mb={10}
                 >

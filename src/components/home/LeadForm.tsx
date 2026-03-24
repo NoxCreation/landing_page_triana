@@ -3,48 +3,15 @@
 import { Box, Flex, Grid, Heading, Text, Input, Textarea, Field } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { countryFlags } from "@/constants/home/form"
-
-function getCountryCode(number: string): string {
-    const cleaned = number.replace(/\D/g, "");
-    if (cleaned.startsWith("1") && cleaned.length >= 1) return "1";
-    if (cleaned.startsWith("52") && cleaned.length >= 2) return "52";
-    if (cleaned.startsWith("34") && cleaned.length >= 2) return "34";
-    if (cleaned.startsWith("44") && cleaned.length >= 2) return "44";
-    if (cleaned.startsWith("57") && cleaned.length >= 2) return "57";
-    if (cleaned.startsWith("54") && cleaned.length >= 2) return "54";
-    if (cleaned.startsWith("55") && cleaned.length >= 2) return "55";
-    if (cleaned.startsWith("51") && cleaned.length >= 2) return "51";
-    if (cleaned.startsWith("593") && cleaned.length >= 3) return "593";
-    if (cleaned.startsWith("505") && cleaned.length >= 3) return "505";
-    if (cleaned.startsWith("503") && cleaned.length >= 3) return "503";
-    if (cleaned.startsWith("502") && cleaned.length >= 3) return "502";
-    if (cleaned.startsWith("507") && cleaned.length >= 3) return "507";
-    if (cleaned.startsWith("506") && cleaned.length >= 3) return "506";
-    return "1";
-}
-
-function getCountryPrefix(code: string): string {
-    const prefixMap: Record<string, string> = {
-        "1": "+1",
-        "52": "+52",
-        "34": "+34",
-        "44": "+44",
-        "57": "+57",
-        "54": "+54",
-        "55": "+55",
-        "51": "+51",
-        "593": "+593",
-        "505": "+505",
-        "503": "+503",
-        "502": "+502",
-        "507": "+507",
-        "506": "+506",
-    };
-    return prefixMap[code] || "+1";
-}
+import PhoneInput from 'react-phone-number-input'
+import flags from 'react-phone-number-input/flags'
+import 'react-phone-number-input/style.css'
+import { useState } from "react";
 
 export default function LeadForm() {
+
+    const [phone, setPhone] = useState<string>()
+
     return (
         <Box w="100%" bg="gray.50" py={16} px={4}>
             <Box maxW="1200px" mx="auto">
@@ -55,7 +22,7 @@ export default function LeadForm() {
                         fontSize={{ base: "3xl", md: "5xl" }}
                         fontWeight="800"
                         fontFamily="Bricolage Grotesque"
-                        lineHeight="70px"
+                        lineHeight={{ base: "1.3", md: "70px" }}
                         letterSpacing="0px"
                         mb={4}
                     >
@@ -173,48 +140,61 @@ export default function LeadForm() {
                                 borderTopRightRadius="3xl"
                                 borderBottomLeftRadius="0"
                                 borderBottomRightRadius="3xl"
-                                bg="transparent"
+                                bg="white"
                                 h="50px"
+                                overflow="hidden"
                                 _focusWithin={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
+                                css={{
+                                    '& .PhoneInput': {
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        height: '100%',
+                                        padding: '0 16px',
+                                        gap: '10px',
+                                    },
+                                    '& .PhoneInputInput': {
+                                        border: 'none !important',
+                                        outline: 'none !important',
+                                        background: 'transparent !important',
+                                        backgroundColor: 'transparent !important',
+                                        flex: 1,
+                                        height: '100%',
+                                        fontSize: '16px',
+                                        padding: '0 !important',
+                                        margin: '0 !important',
+                                        boxShadow: 'none !important',
+                                    },
+                                    '& .PhoneInputCountry': {
+                                        flexShrink: 0,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '6px',
+                                    },
+
+                                    '& .PhoneInputCountryFlag': {
+                                        width: '20px',
+                                        height: '14px',
+                                        borderRadius: '2px',
+                                        overflow: 'hidden',
+                                    },
+                                    '& .PhoneInputCountrySelectArrow': {
+                                        display: 'none !important',
+                                    },
+                                    '& .PhoneInputCountrySelect': {
+                                        border: 'none !important',
+                                        outline: 'none !important',
+                                        background: 'transparent !important',
+                                        backgroundColor: 'transparent !important',
+                                    },
+                                }}
                             >
-                                <Flex align="center" px={4}>
-                                    <Box
-                                        as="span"
-                                        fontSize="xl"
-                                        mr={1}
-                                        id="country-flag"
-                                    >
-                                        🇺🇸
-                                    </Box>
-                                    <Box
-                                        as="span"
-                                        color="gray.500"
-                                        fontWeight="600"
-                                        mr={2}
-                                        id="country-prefix"
-                                    >
-                                        +1
-                                    </Box>
-                                    <Input
-                                        id="phone-input"
-                                        type="tel"
-                                        placeholder="555 555 555"
-                                        border="none"
-                                        _focus={{ boxShadow: "none" }}
-                                        h="45px"
-                                        p="3"
-                                        onChange={(e) => {
-                                            const input = e.target.value;
-                                            const code = getCountryCode(input);
-                                            const flag = countryFlags[code] || "🇺🇸";
-                                            const prefix = getCountryPrefix(code);
-                                            const flagEl = document.getElementById("country-flag");
-                                            const prefixEl = document.getElementById("country-prefix");
-                                            if (flagEl) flagEl.textContent = flag;
-                                            if (prefixEl) prefixEl.textContent = prefix;
-                                        }}
-                                    />
-                                </Flex>
+                                <PhoneInput
+                                    placeholder="Enter phone number"
+                                    value={phone}
+                                    onChange={setPhone}
+                                    defaultCountry="US"
+                                    flags={flags}
+                                />
                             </Box>
                         </Field.Root>
                     </Grid>
@@ -350,6 +330,6 @@ export default function LeadForm() {
                     </Flex>
                 </Box>
             </Box>
-        </Box>
+        </Box >
     );
 }

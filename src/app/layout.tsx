@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body style={{ background: "#ffffff" }} className={`${inter.variable} ${bricolage.variable}`}>
-        <Provider>
+        <Provider attribute="class" defaultTheme="light">
           <Navbar />
           {children}
           <Footer />

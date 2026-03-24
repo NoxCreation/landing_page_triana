@@ -13,7 +13,7 @@ export default function Testimonials() {
                         fontSize={{ base: "3xl", md: "5xl" }}
                         fontWeight="800"
                         fontFamily="Bricolage Grotesque"
-                        lineHeight="70px"
+                        lineHeight={{ base: "1.3", md: "70px" }}
                         letterSpacing="0px"
                         mb={4}
                     >
@@ -33,8 +33,8 @@ export default function Testimonials() {
                 <Grid
                     templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
                     gap={6}
+                    maxW="1120px"
                     m="auto"
-                    w="1120px"
                 >
                     {testimonials.map((testimonial, index) => (
                         <TestimonialCard

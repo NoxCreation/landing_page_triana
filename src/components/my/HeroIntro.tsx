@@ -5,18 +5,10 @@ export default function HeroIntro() {
         <Box w="100%" py={16} px={4} bg="#F3A0FF0D">
             <Box maxW="1440px" mx="auto">
                 <Box textAlign="center" position="relative" maxW="1004px" m="auto" mb={8}>
-                    <Image
-                        src="/my/Vector-w2.svg"
-                        position="absolute"
-                        left="0"
-                        top="0"
-                    />
-                    <Image
-                        src="/my/Vector-w2.svg"
-                        position="absolute"
-                        left="7"
-                        top="0"
-                    />
+                    <HStack justify="start" gap={2} mt={2}>
+                        <Image src="/my/Vector-w2.svg" />
+                        <Image src="/my/Vector-w2.svg" />
+                    </HStack>
                     <Text
                         fontSize={{ base: "md", md: "30px" }}
                         color="#3F3F3F"

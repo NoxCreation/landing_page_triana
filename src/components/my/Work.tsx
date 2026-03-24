@@ -7,13 +7,13 @@ export default function Work() {
 
     return (
         <Box w={"100%"} color="black" bg="#F3A0FF0D">
-            <Box p={20}>
-                <Box m={"auto"} w="1100px" textAlign="center" mb={12}>
+            <Box py={20} px={5}>
+                <Box m={"auto"} maxW="1100px" textAlign="center" mb={12}>
                     <Heading
                         textAlign="center"
                         fontFamily="Bricolage Grotesque"
                         fontWeight="800"
-                        fontSize="64px"
+                        fontSize={{ base: "46px", lg: "64px" }}
                         lineHeight="70px"
                         letterSpacing="0%"
                         color="#3F3F3F">

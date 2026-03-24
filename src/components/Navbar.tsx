@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Box, Flex, HStack, Image, IconButton, Button, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -61,9 +62,8 @@ export default function Navbar() {
           {/* Menú desktop */}
           <HStack as="nav" gap="24px" display={{ base: "none", md: "flex" }}>
             {items.map((item) => (
-              <Link key={item.label} href={item.url} passHref legacyBehavior>
+              <Link key={item.label} href={item.url}>
                 <Text
-                  as="a"
                   fontWeight="600"
                   fontFamily="Roboto"
                   fontSize="14px"
@@ -97,14 +97,13 @@ export default function Navbar() {
       {mobileOpen && (
         <Box position="fixed" top={0} left={0} w="100%" bg="white" zIndex={20} p={4} display={{ base: "block", md: "none" }}>
           <Flex justify="flex-end">
-            <Button size="sm" onClick={closeMobileMenu}>Cerrar</Button>
+            <Button size="sm" onClick={closeMobileMenu}><CloseIcon /></Button>
           </Flex>
           <Box mt={2}>
             {items.map((item) => (
               <Box key={item.label} mb={2} onClick={closeMobileMenu}>
-                <Link href={item.url} passHref legacyBehavior>
+                <Link href={item.url}>
                   <Text
-                    as="a"
                     fontWeight={isActive(item.url) ? "bold" : "semibold"}
                     color={isActive(item.url) ? "primary.500" : "gray.700"}
                     display="block"

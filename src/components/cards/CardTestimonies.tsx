@@ -22,16 +22,20 @@ export default function TestimonialCard({
             borderBottomRightRadius="3xl"
             border="2px solid"
             bg="white"
-            py="48px"
-            px="24px"
+            py={{ base: 6, lg: "48px" }}
+            px={{ base: 4, lg: "24px" }}
+            w="100%"
+            maxW="100%"
+            overflow="hidden"
             {...props}
         >
             <Box mb={4}>
                 <Text
                     color="#717171"
-                    fontSize="18px"
+                    fontSize={{ base: "14px", lg: "18px" }}
                     fontWeight={400}
-                    lineHeight="22px"
+                    lineHeight={{ base: "20px", lg: "22px" }}
+                    wordBreak="break-word"
                 >
                     {text}
                 </Text>
@@ -39,8 +43,8 @@ export default function TestimonialCard({
 
             <Flex align="flex-start" gap={3}>
                 <Box
-                    w="40px"
-                    h="40px"
+                    w={{ base: "32px", lg: "40px" }}
+                    h={{ base: "32px", lg: "40px" }}
                     borderRadius="full"
                     overflow="hidden"
                     flexShrink={0}
@@ -57,7 +61,7 @@ export default function TestimonialCard({
                     <Text
                         fontWeight={600}
                         color="#3F3F3F"
-                        fontSize="18px"
+                        fontSize={{ base: "16px", lg: "18px" }}
                         lineHeight="22px"
                     >
                         {name}

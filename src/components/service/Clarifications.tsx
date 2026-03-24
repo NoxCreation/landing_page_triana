@@ -6,9 +6,9 @@ export default function Clarifications() {
             <Box maxW="1440px" mx="auto" textAlign="center">
                 <Heading
                     as="h2"
-                    fontSize="64px"
+                    fontSize={{ base: "34px", lg: "64px" }}
                     mb={4}
-                    lineHeight="70px"
+                    lineHeight={{ base: "1.2", lg: "70px" }}
                     letterSpacing="0px"
                     fontWeight={800}
                     fontFamily="Bricolage Grotesque"

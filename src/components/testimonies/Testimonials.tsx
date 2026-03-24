@@ -7,13 +7,13 @@ export default function Testimonials() {
         <Box w="100%" bg="gray.50" py={20} px={4}>
             <Box maxW="1200px" mx="auto">
                 <Box textAlign="center" mb={12}>
-                    <Box position="relative" w="1174px" display="inline-block">
+                    <Box position="relative" maxW="1174px" display="inline-block">
                         <Heading
                             as="h1"
                             color="primary.500"
                             fontFamily="Bricolage Grotesque"
                             fontWeight="extrabold"
-                            fontSize="64px"
+                            fontSize={{ base: "40px", lg: "64px" }}
                             lineHeight="70px"
                             letterSpacing="0px"
                         >
@@ -26,7 +26,7 @@ export default function Testimonials() {
                             h="32px"
                             position="absolute"
                             top="3px"
-                            right="60px"
+                            right={{ base: "5px", md: "-34px", lg: "-34px" }}
                         />
                     </Box>
                     <Text
