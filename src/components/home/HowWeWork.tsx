@@ -24,7 +24,6 @@ export default function HowWeWork() {
                     <List.Root gap={6}>
                         {items.map((it) => (
                             <ListItem direction="row"
-                                maxW="550px"
                                 w="100%"
                                 py={3}
                                 borderRadius="48px"
@@ -32,6 +31,11 @@ export default function HowWeWork() {
                                 key={it.id}
                                 display="flex"
                                 alignItems="flex-start"
+                                _hover={{
+                                    bg: '#b223cf13'
+                                }}
+                                px={4}
+                                cursor={'pointer'}
                             >
                                 <Box
                                     w={{ base: "50px", lg: "80px" }}
