@@ -1,7 +1,7 @@
-import { Box, Flex, Grid, Heading, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { testimonials } from "@/constants/home/testimonials";
-import TestimonialCard from "../cards/CardTestimonies";
 import { Transition } from "../Transition";
+import TestimonialsCarousel from "../Carrusel";
 
 export default function Testimonials() {
     return (
@@ -33,56 +33,13 @@ export default function Testimonials() {
                     </Box>
                 </Transition>
 
-                <Grid
-                    templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
-                    gap={6}
-                    maxW="1120px"
-                    m="auto"
-                >
-                    {testimonials.map((testimonial, index) => (
-                        <Transition type="rigth" velocity="slow" key={index} index={index*2}>
-                            <TestimonialCard
-                                text={testimonial.text}
-                                name={testimonial.name}
-                                role={testimonial.role}
-                                image={testimonial.image}
-                            />
+                <Box maxW="1120px" m="auto" >
+                        <Transition type="rigth" velocity="slow" >
+                            <TestimonialsCarousel
+                            testimonials={ testimonials }
+                             />
                         </Transition>
-                    ))}
-                </Grid>
-
-                <Flex justify="center" gap={4} mt={8}>
-                    <Box
-                        w="40px"
-                        h="40px"
-                        bg="#E5E7EB"
-                        borderRadius="full"
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        cursor="pointer"
-                        transition="all 0.2s"
-                    >
-                        <Text fontWeight="bold" color="black">
-                            ←
-                        </Text>
-                    </Box>
-                    <Box
-                        w="40px"
-                        h="40px"
-                        borderRadius="full"
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        cursor="pointer"
-                        bg="primary.500"
-                        transition="all 0.2s"
-                    >
-                        <Text color="white" fontWeight="bold">
-                            →
-                        </Text>
-                    </Box>
-                </Flex>
+                </Box>
             </Box>
         </Box>
     );

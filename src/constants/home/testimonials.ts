@@ -17,4 +17,22 @@ export const testimonials = [
         role: "Dueña del restaurante La Terraza",
         text: "Estamos muy satisfechos con el trabajo realizado por el equipo de nox. Desde un inicio se evidencia un equipo muy profesional y comprometidos con lo que hacen.",
     },
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/2b/2bc18c424f78bbf8eb83e251b8b953f6a8e41ab9_full.jpg",
+        name: "María González",
+        role: "Dueña del restaurante La Terraza",
+        text: "Estamos muy satisfechos con el trabajo realizado por el equipo de nox. Desde un inicio se evidencia un equipo muy profesional y comprometidos con lo que hacen.",
+    },
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/2b/2bc18c424f78bbf8eb83e251b8b953f6a8e41ab9_full.jpg",
+        name: "María González",
+        role: "Dueña del restaurante La Terraza",
+        text: "Estamos muy satisfechos con el trabajo realizado por el equipo de nox. Desde un inicio se evidencia un equipo muy profesional y comprometidos con lo que hacen.",
+    },
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/2b/2bc18c424f78bbf8eb83e251b8b953f6a8e41ab9_full.jpg",
+        name: "María González",
+        role: "Dueña del restaurante La Terraza",
+        text: "Estamos muy satisfechos con el trabajo realizado por el equipo de nox. Desde un inicio se evidencia un equipo muy profesional y comprometidos con lo que hacen.",
+    }
 ];
