@@ -20,7 +20,6 @@ export default function TestimonialsCarousel({ testimonials }) {
 
     return (
         <>
-            {/* CARRUSEL */}
             <Box overflow="hidden" ref={emblaRef}>
                 <Flex>
                     {testimonials.map((testimonial, index) => (
