@@ -3246,7 +3246,7 @@ formdata-polyfill@^4.0.10:
 
 framer-motion@^12.38.0:
   version "12.38.0"
-  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-12.38.0.tgz#cf28e072a95942881ca4e33fd33be41192fd146b"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.38.0.tgz#cf28e072a95942881ca4e33fd33be41192fd146b"
   integrity sha512-rFYkY/pigbcswl1XQSb7q424kSTQ8q6eAC+YUsSKooHQYuLdzdHjrt6uxUC+PRAO++q5IS7+TamgIw1AphxR+g==
   dependencies:
     motion-dom "^12.38.0"

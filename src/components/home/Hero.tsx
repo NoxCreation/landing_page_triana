@@ -1,6 +1,5 @@
-import { Box, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
-import AnimatedStat from "./NumberAnimate";
 import { WhatsApp } from '@mui/icons-material';
 import { Transition } from "../Transition";
 import { useRouter } from "next/navigation";
