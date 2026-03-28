@@ -4,8 +4,29 @@ import CategorySelector from "./CategoryFilter";
 import { services } from "@/constants/service/cards";
 import { CardService } from "../cards/CardService";
 import { Transition } from "../Transition";
+import { useEffect, useState } from "react";
 
 export default function ServiceSection() {
+
+    const [category, setCategory] = useState("all");
+    const [servicesFil, setServicesFil] = useState([])
+
+    const handleCategoryChange = (value) => {
+        setCategory(value.value);
+    };
+
+    useEffect(() => {
+        const filteredServices = services.filter(service => {
+            if (category === "all") return true;
+
+            return service.tiquet.some(t =>
+                t.value.toLowerCase() === category.toLowerCase()
+            );
+        });
+        setServicesFil(filteredServices)
+        console.log(category)
+    }, [category])
+
     return (
         <Box w="100%" bg="gray.50" py={28} px={4}>
             <Box maxW="1440px" mx="auto">
@@ -53,7 +74,7 @@ export default function ServiceSection() {
                     w="fit-content"
                     pb={10}
                 >
-                    <CategorySelector />
+                    <CategorySelector onChange={handleCategoryChange} />
                 </Box>
 
                 <Grid
@@ -64,8 +85,8 @@ export default function ServiceSection() {
                     mx="auto"
                     px={{ base: 4, md: 0 }}
                 >
-                    {services.map((service, index) => (
-                        <Transition key={index} type="bootom" velocity="slow" index={index}>
+                    {servicesFil.map((service, index) => (
+                        <Transition key={service.id} type="bootom" velocity="slow" index={index}>
                             <CardService
                                 title={service.title}
                                 tiquets={service.tiquet as any}

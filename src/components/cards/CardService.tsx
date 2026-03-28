@@ -8,7 +8,8 @@ type Props = {
     title: string;
     tiquets: Array<{
         label: string;
-        variant: 'primary' | 'outline'
+        variant: 'primary' | 'outline',
+        value: string
     }>;
     require?: string;
     requirements?: Array<string>;
@@ -69,9 +70,9 @@ export const CardService = ({
                             mb={5}
                             justifyContent={{ base: "center", md: "start" }}
                         >
-                            {tiquets.map((tag, i) => (
+                            {tiquets.map((tag) => (
                                 <Text
-                                    key={i}
+                                    key={tag.value}
                                     px={4}
                                     py={2}
                                     borderRadius="full"

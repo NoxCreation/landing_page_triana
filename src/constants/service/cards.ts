@@ -1,9 +1,10 @@
 export const services = [
     {
+        id: 1,
         title: "Asesoría Integral Semanal",
         tiquet: [
-            { label: "Más popular", variant: "primary" },
-            { label: "Emprendedores", variant: "outline" }
+            { label: "Más popular", variant: "primary", value: "maspopular" },
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" }
         ],
         yes: "Incluye:",
         no: "No incluye:",
@@ -20,10 +21,11 @@ export const services = [
         ]
     },
     {
+        id: 2,
         title: "Asesoría para Restaurantes + Activación Digital",
         tiquet: [
-            { label: "Más vendido", variant: "primary" },
-            { label: "Restaurante", variant: "outline" }
+            { label: "Más vendido", variant: "primary", value: "masvendido" },
+            { label: "Restaurante", variant: "outline", value: "restaurantes" }
         ],
         yes: "Incluye:",
         price: "$300",
@@ -36,10 +38,11 @@ export const services = [
         ],
     },
     {
+        id: 3,
         title: 'Consultoría "Start From Zero"',
         tiquet: [
-            { label: "Emprendedores", variant: "outline" },
-            { label: "Negocio digital", variant: "outline" }
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" },
+            { label: "Negocio digital", variant: "outline", value: "negociodigital" }
         ],
         require: "Requisito obligatorio",
         requirement: [
@@ -55,9 +58,10 @@ export const services = [
         ],
     },
     {
+        id: 4,
         title: "Acompañamiento mensual",
         tiquet: [
-            { label: "Emprendedores", variant: "outline" }
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" }
         ],
         yes: "Incluye:",
         no: "No incluye:",
@@ -75,10 +79,11 @@ export const services = [
         ]
     },
     {
+        id: 5,
         title: "Consultoría estratégica 1:1",
         tiquet: [
-            { label: "Emprendedores", variant: "outline" },
-            { label: "Negocio digital", variant: "outline" }
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" },
+            { label: "Negocio digital", variant: "outline", value: "negociodigital" }
         ],
         yes: "Incluye:",
         price: "$50",
@@ -90,9 +95,10 @@ export const services = [
         ],
     },
     {
+        id: 6,
         title: 'Configuración de Tiendas en TikTok Shop',
         tiquet: [
-            { label: "Negocio digital", variant: "outline" }
+            { label: "Negocio digital", variant: "outline", value: "negociodigital" }
         ],
         require: "Requisito para EE.UU.:",
         requirement: [
@@ -108,10 +114,11 @@ export const services = [
         ],
     },
     {
+        id: 7,
         title: "Paquetes de promoción con Influercers",
         tiquet: [
-            { label: "Emprendedores", variant: "outline" },
-            { label: "Restaurantes", variant: "outline" }
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" },
+            { label: "Restaurantes", variant: "outline", value: "restaurantes" }
         ],
         require: "Entregable",
         requirement: [
@@ -124,10 +131,11 @@ export const services = [
         frequency: "pago único",
     },
     {
+        id: 8,
         title: "Asesoría para Restaurantes + Activación Digital",
         tiquet: [
-            { label: "Emprendedores", variant: "outline" },
-            { label: "Restaurante", variant: "outline" }
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" },
+            { label: "Restaurante", variant: "outline", value: "restaurantes" }
         ],
         yes: "Incluye:",
         price: "$75",
@@ -141,11 +149,12 @@ export const services = [
         ],
     },
     {
+        id: 9,
         title: 'Consultoría "Start From Zero"',
         tiquet: [
-            { label: "Emprendedores", variant: "outline" },
-            { label: "Restaurantes", variant: "outline" },
-            { label: "Negocio digital", variant: "outline" }
+            { label: "Emprendedores", variant: "outline", value: "emprendedores" },
+            { label: "Restaurantes", variant: "outline", value: "restaurantes" },
+            { label: "Negocio digital", variant: "outline", value: "negociodigital" }
         ],
         yes: "Incluye:",
         price: "$200",
@@ -157,9 +166,10 @@ export const services = [
         ],
     },
     {
+        id: 10,
         title: 'Paquete de Permisos y Apertura de Local',
         tiquet: [
-            { label: "Proceso legal", variant: "outline" }
+            { label: "Proceso legal", variant: "outline", value: "procesolegal" }
         ],
         before: "Desde",
         yes: "Incluye:",

@@ -3,9 +3,9 @@ import { Flex, Grid, RadioGroup, Icon, Text } from "@chakra-ui/react"
 import { FaBriefcase, FaUtensils, FaStore, FaCalendarAlt } from "react-icons/fa"
 import { Transition } from "../Transition"
 
-export default function CategorySelector() {
+export default function CategorySelector({ onChange }) {
     return (
-        <RadioGroup.Root defaultValue="all">
+        <RadioGroup.Root defaultValue="all" onValueChange={onChange} >
             <Transition type="top" velocity="slow">
                 {/* Desktop: pill shape */}
                 <Flex
@@ -35,7 +35,7 @@ export default function CategorySelector() {
                         </Text>
                     </RadioGroup.Item>
 
-                    <RadioGroup.Item value="entre">
+                    <RadioGroup.Item value="emprendedores">
                         <RadioGroup.ItemHiddenInput />
                         <Flex align="center" gap={2} px={5} py={3} cursor="pointer">
                             <Icon as={FaBriefcase} color="#A0A0A0" />
@@ -45,7 +45,7 @@ export default function CategorySelector() {
                         </Flex>
                     </RadioGroup.Item>
 
-                    <RadioGroup.Item value="rest">
+                    <RadioGroup.Item value="restaurantes">
                         <RadioGroup.ItemHiddenInput />
                         <Flex align="center" gap={2} px={5} py={3} cursor="pointer">
                             <Icon as={FaUtensils} color="#A0A0A0" />
@@ -55,7 +55,7 @@ export default function CategorySelector() {
                         </Flex>
                     </RadioGroup.Item>
 
-                    <RadioGroup.Item value="digital">
+                    <RadioGroup.Item value="negociodigital">
                         <RadioGroup.ItemHiddenInput />
                         <Flex align="center" gap={2} px={5} py={3} cursor="pointer">
                             <Icon as={FaStore} color="#A0A0A0" />
@@ -65,7 +65,7 @@ export default function CategorySelector() {
                         </Flex>
                     </RadioGroup.Item>
 
-                    <RadioGroup.Item value="legal">
+                    <RadioGroup.Item value="procesolegal">
                         <RadioGroup.ItemHiddenInput />
                         <Flex align="center" gap={2} px={5} py={3} cursor="pointer">
                             <Icon as={FaCalendarAlt} color="#A0A0A0" />
