@@ -42,7 +42,6 @@ export const CardService = ({
                 borderTopRightRadius="3xl"
                 borderBottomLeftRadius="0"
                 borderBottomRightRadius="3xl"
-
                 border="2px solid"
                 borderColor="gray.100"
                 overflow="hidden"

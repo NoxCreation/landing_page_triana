@@ -18,7 +18,7 @@ type Case = {
 export const cases: Case[] = [
     {
         id: 1,
-        title: "Servicio usado: Asesoría para Restaurantes",
+        title: "El Pesquerito",
         iconOk: TaskAltIcon,
         iconNo: HighlightOffIcon,
         colorNo: "#ED4C5C",
@@ -38,7 +38,7 @@ export const cases: Case[] = [
     },
     {
         id: 2,
-        title: "Servicio usado: Acompañamiento Mensual + Consultoría",
+        title: "La Herminia",
         iconOk: TaskAltIcon,
         iconNo: HighlightOffIcon,
         colorNo: "#ED4C5C",
@@ -55,5 +55,25 @@ export const cases: Case[] = [
             "Estrategia de redes implementada",
             "Clientes recurrentes"
         ],
+    },
+    {
+        id: 3,
+        title: "Gasapos de Internet",
+        iconOk: TaskAltIcon,
+        iconNo: HighlightOffIcon,
+        colorNo: "#ED4C5C",
+        colorOk: "#22C869",
+        that: "Antes",
+        items: [
+            "Sin presencia en redes",
+            "10 reservas semanales promedio",
+            "Sin estrategia digital",
+        ],
+        important: "Después:",
+        itemsI: [
+            "+ 200 seguidores en Instagram",
+            "50 reservas semanales",
+            "6 videos profesionales creados"
+        ]
     }
 ];
