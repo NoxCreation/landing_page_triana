@@ -34,11 +34,11 @@ export default function Testimonials() {
                 </Transition>
 
                 <Box maxW="1120px" m="auto" >
-                        <Transition type="rigth" velocity="slow" >
-                            <TestimonialsCarousel
-                            testimonials={ testimonials }
-                             />
-                        </Transition>
+                    <Transition type="rigth" velocity="slow" >
+                        <TestimonialsCarousel
+                            testimonials={testimonials}
+                        />
+                    </Transition>
                 </Box>
             </Box>
         </Box>

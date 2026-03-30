@@ -9,7 +9,7 @@ export default function Work() {
 
     return (
         <Box w={"100%"} color="black" bg="#F3A0FF0D">
-            <Box py={20} px={5}>
+            <Box pb={20} px={5}>
                 <Box m={"auto"} maxW="1100px" textAlign="center" mb={12}>
                     <Transition type="top" velocity="slow">
                         <Heading

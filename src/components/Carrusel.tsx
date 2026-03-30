@@ -53,6 +53,10 @@ export default function TestimonialsCarousel({ testimonials }) {
                     transition="all 0.2s"
                     fontWeight="extrabold"
                     color="black"
+                    _hover={{
+                        bg: 'primary.500',
+                        color: 'white'
+                    }}
                 >
                     ←
                 </IconButton>
@@ -61,11 +65,15 @@ export default function TestimonialsCarousel({ testimonials }) {
                     aria-label="next"
                     onClick={scrollNext}
                     borderRadius="full"
-                    color="white"
+                    bg="#E5E7EB"
                     cursor="pointer"
-                    bg="primary.500"
                     transition="all 0.2s"
-                    fontWeight="bold"
+                    fontWeight="extrabold"
+                    color="black"
+                    _hover={{
+                        bg: 'primary.500',
+                        color: 'white'
+                    }}
                 >
                     →
                 </IconButton>
