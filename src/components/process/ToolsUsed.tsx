@@ -1,5 +1,5 @@
 "use client"
-import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, Heading, Stack, Text } from "@chakra-ui/react";
 import { tools } from "@/constants/process/Tools";
 import { Transition } from "../Transition";
 
@@ -7,17 +7,16 @@ export default function ToolsUsed() {
     return (
         <Box w="100%" bg="#FDF2FF" py={16} px={4}>
             <Box maxW="1440px" mx="auto">
-                <Box textAlign="center" mb={10}>
+                <Stack textAlign="center" mb={10}>
                     <Transition type="top" velocity="slow">
                         <Heading
                             as="h2"
-                            fontSize={{ base: "28px", md: "40px", lg: "64px" }}
+                            fontSize={{ base: "28px", md: "36px", lg: "40px" }}
                             fontWeight="800"
                             fontFamily="Bricolage Grotesque"
                             color="#3F3F3F"
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             letterSpacing="0px"
-                            mb={4}
                         >
                             Herramientas que Utilizamos
                         </Heading>
@@ -33,7 +32,7 @@ export default function ToolsUsed() {
                             Responda 3 preguntas y te recomendamos el servicio ideal
                         </Text>
                     </Transition>
-                </Box>
+                </Stack>
 
                 <Grid
                     templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
@@ -52,12 +51,12 @@ export default function ToolsUsed() {
                                 borderRadius="4xl"
                                 p={6}
                                 border="2px solid"
-                                borderColor="gray.100"
+                                borderColor="gray.50"
                                 maxW="450px"
                                 textAlign="center"
                                 _hover={{
                                     borderColor: "#fff",
-                                    bg: "#F9D0FF",
+                                    bg: "#fdf2ff",
                                     transform: "translateY(-2px)",
                                     "& svg": {
                                         color: "primary.500",

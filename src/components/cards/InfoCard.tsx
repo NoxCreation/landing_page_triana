@@ -31,7 +31,7 @@ export default function InfoCard({
                 <Card.Title
                     fontFamily="Inter"
                     fontWeight="800"
-                    fontSize="24px"
+                    fontSize="22px"
                     lineHeight="32px"
                     letterSpacing="0%"
                     textAlign="center"

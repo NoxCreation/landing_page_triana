@@ -1,12 +1,12 @@
 "use client"
 import { Box, Grid, Heading, Image, Text } from "@chakra-ui/react";
-import { testimonials } from "@/constants/testimonies/testimonies"
 import TestimonialCard from "../cards/CardTestimonies";
 import { Transition } from "../Transition";
+import { testimonials } from "@/constants/home/testimonials";
 
 export default function Testimonials() {
     return (
-        <Box w="100%" bg="gray.50" py={20} px={4}>
+        <Box w="100%" bg="gray.50" py={32} px={4}>
             <Box maxW="1200px" mx="auto">
                 <Box textAlign="center" mb={12}>
                     <Transition type="top" velocity="slow">
@@ -58,7 +58,7 @@ export default function Testimonials() {
                                 text={testimonial.text}
                                 name={testimonial.name}
                                 role={testimonial.role}
-                                image="/home/Hero.png"
+                                image={testimonial.image}
                             />
                         </Transition>
                     ))}
