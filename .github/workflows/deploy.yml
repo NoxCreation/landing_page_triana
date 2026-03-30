@@ -37,7 +37,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /opt/noxcreation_projects/landing_page_triana
-            git pull https://NoxCreation:${{ secrets.GIT_TOKEN }}@github.com/NoxCreation/landing_page_triana.git main
+            git pull https://NoxCreation:${{ secrets.GIT_TOKEN }}@github.com/NoxCreation/landing_page_triana.git master
             docker system prune -a -f
             docker compose up -d --build
             docker system prune -a -f
