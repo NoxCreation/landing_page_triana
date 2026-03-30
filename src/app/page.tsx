@@ -11,7 +11,7 @@ import Testimonials from "@/components/home/Testimonials";
 export default function Home() {
 
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <Hero />
       <Differentiation />
       <Need />
