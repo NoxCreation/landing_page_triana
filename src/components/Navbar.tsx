@@ -164,7 +164,7 @@ export default function Navbar() {
                 width: "100%",
                 height: "100vh",
                 background: "white",
-                zIndex: 20,
+                zIndex: 200,
                 padding: "1rem",
                 display: "flex",
                 flexDirection: "column",
@@ -180,7 +180,7 @@ export default function Navbar() {
                 </Button>
               </Flex>
 
-              <Box mt={2} flex="1" px={10}>
+              <Box mt={2} flex="1" px={10} zIndex={200}>
                 {items.map((item, idx) => (
                   <motion.div
                     key={item.label}

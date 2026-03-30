@@ -5,10 +5,31 @@ import EmailIcon from '@mui/icons-material/Email';
 import { Transition } from "../Transition";
 import { ElementType } from "react";
 import { FaTiktok } from "react-icons/fa";
+import { SparklesText } from "../Sparkle";
+import { DotPattern } from "../DotPattern";
 
 export default function Hero() {
     return (
         <Box as="section" position="relative" bg="#F3A0FF0D" >
+            <Stack
+                position={"absolute"}
+                top={0}
+                left={0}
+                w={'100vw'}
+                h={'100vh'}
+                zIndex={0}
+            >
+                <DotPattern
+                    width={20}
+                    height={20}
+                    cx={2}
+                    cy={2}
+                    cr={1.5}
+                    color="gray.400"
+                    opacity={0.2}
+                />
+            </Stack>
+
             <Flex
                 direction={{ base: "column", lg: "row" }}
                 gap={12}
@@ -24,6 +45,7 @@ export default function Hero() {
                         gap={6}
                     >
                         <Transition type="top" velocity="slow">
+
                             <Text
                                 maxW="249px"
                                 px={4}
@@ -45,16 +67,18 @@ export default function Hero() {
                         </Transition>
                         <Transition type="top" velocity="slow">
                             <Flex gap={2} justifyContent={{ base: "center", lg: "flex-start" }} alignItems="center">
-                                <Heading
-                                    as="h1"
-                                    color="primary.500"
-                                    fontWeight="800"
-                                    fontSize={{ base: "28px", md: "40px", lg: "54px" }}
-                                    fontFamily="Bricolage Grotesque"
-                                    lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                                >
-                                    Leyanis Triana Cevila
-                                </Heading>
+                                <SparklesText>
+                                    <Heading
+                                        as="h1"
+                                        color="primary.500"
+                                        fontWeight="800"
+                                        fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                        fontFamily="Bricolage Grotesque"
+                                        lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                                    >
+                                        Leyanis Triana Cevila
+                                    </Heading>
+                                </SparklesText>
 
                                 <Image
                                     src="/home/Vector.png"
@@ -101,21 +125,21 @@ export default function Hero() {
                 <Transition type="rigth" velocity="slow">
                     <Box
                         flex={1}
-                        w={{ base: "300px", lg: "450px" }}
-                        h={{ base: "350px", md: "420px", lg: "550px" }}
-                        borderRadius="99px"
-                        /* background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)" */
+                        w={{ base: "300px", lg: "540px" }}
+                        h={{ base: "350px", md: "380px" }}
+                        borderRadius="140px"
+                        background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
                         position="relative"
                         mx={{ base: "auto", lg: "0" }}
                     >
                         <Image
                             src="/my/heroMy.png"
                             alt="Foto derecha"
-                            w="100%"
-                            h="100%"
+
+                            h="105%"
                             objectFit="cover"
                             objectPosition={{ base: "center top", md: "center top", lg: "center" }}
-                            borderRadius="99px"
+                            /* borderRadius="99px" */
                             position="absolute"
                             bottom="0"
                             left="0"
