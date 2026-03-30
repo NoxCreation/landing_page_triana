@@ -1,62 +1,32 @@
 "use client"
-import { Box, Heading, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import { Transition } from "../Transition";
 
 export default function HeroIntro() {
     return (
-        <Box w="100%" py={16} px={4} bg="#F3A0FF0D">
-            <Box maxW="1440px" mx="auto">
-                <Box textAlign="center" position="relative" maxW="1004px" m="auto" mb={8}>
-                    <Transition type="top" velocity="slow">
-                        <HStack justify="start" gap={2} mt={2}>
-                            <Image src="/my/Vector-w2.svg" />
-                            <Image src="/my/Vector-w2.svg" />
+        <Box w="100%" py={16} px={4} bg="#F3A0FF0D" minH={{ base: 'auto', md: '100vh' }} display={'flex'} alignItems={'center'}>
+            <Box mx="auto">
+
+                <Transition type="top" velocity="slow">
+                    <Stack textAlign="center" gap={6}>
+                        <HStack justify="start" gap={{ base: 0, md: 2 }}>
+                            <Image src="/my/Vector-w2.svg" w={'20px'} />
+                            <Image src="/my/Vector-w2.svg" w={'20px'} />
                         </HStack>
                         <Text
-                            fontSize={{ base: "md", md: "30px" }}
+                            fontSize={{ base: "22px", md: "30px" }}
                             color="#3F3F3F"
                             maxW="926px"
                             fontWeight={500}
-                            lineHeight="36px"
                             letterSpacing="-0.5px"
                             mx="auto"
                         >
                             Todo comenzó cuando abrí mi primer negocio y me di cuenta de lo
-                        </Text>
-                        <Text
-                            fontSize={{ base: "md", md: "30px" }}
-                            color="#3F3F3F"
-                            maxW="900px"
-                            fontWeight={500}
-                            lineHeight="36px"
-                            letterSpacing="-0.5px"
-                            mx="auto"
-                        >
                             difícil que era navegar el mundo del emprendimiento solo. Los
-                        </Text>
-                        <Text
-                            fontSize={{ base: "md", md: "30px" }}
-                            color="#3F3F3F"
-                            maxW="880px"
-                            fontWeight={500}
-                            lineHeight="36px"
-                            letterSpacing="-0.5px"
-                            mx="auto"
-                        >
                             errores costosos, la falta de claridad y la sensación de estar
-                        </Text>
-                        <Text
-                            fontSize={{ base: "md", md: "30px" }}
-                            color="#3F3F3F"
-                            maxW="840px"
-                            fontWeight={500}
-                            lineHeight="36px"
-                            letterSpacing="-0.5px"
-                            mx="auto"
-                        >
                             perdido fueron mi motivación para crear Triana Marketing.
                         </Text>
-                        <Box mt={4}>
+                        <Box>
                             <Text
                                 color="#A0A0A0"
                                 fontWeight={500}
@@ -67,20 +37,19 @@ export default function HeroIntro() {
                             >
                                 — Triana Apellido, CEO of 3ana
                             </Text>
-
-                            <HStack justify="end" gap={2} mt={2}>
-                                <Image src="/my/Vector-w.svg" />
-                                <Image src="/my/Vector-w.svg" />
-                            </HStack>
                         </Box>
-                    </Transition>
-                </Box>
+                        <HStack justify="end" gap={{ base: 0, md: 2 }}>
+                            <Image src="/my/Vector-w.svg" w={'20px'} />
+                            <Image src="/my/Vector-w.svg" w={'20px'} />
+                        </HStack>
+                    </Stack>
+                </Transition>
 
                 <Box textAlign="center" mt={8}>
                     <Transition type="top" velocity="slow">
                         <Heading
                             as="h2"
-                            fontSize={{ base: "2xl", md: "36px" }}
+                            fontSize={{ base: "4xl", md: "36px" }}
                             fontWeight={800}
                             fontFamily="Bricolage Grotesque"
                             lineHeight="40px"
@@ -93,10 +62,9 @@ export default function HeroIntro() {
                     </Transition>
                     <Transition type="left" velocity="slow">
                         <Text
-                            fontSize={{ base: "md", md: "18px" }}
+                            fontSize={{ base: "18px", md: "18px" }}
                             color="#717171"
                             fontWeight={400}
-                            lineHeight="22px"
                             letterSpacing="0px"
                             maxW="1120px"
                             mx="auto"

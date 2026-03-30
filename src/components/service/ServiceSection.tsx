@@ -12,7 +12,7 @@ export default function ServiceSection() {
     const [servicesFil, setServicesFil] = useState([])
 
     const handleCategoryChange = (value) => {
-        setCategory(value.value);
+        setCategory(value);
     };
 
     useEffect(() => {

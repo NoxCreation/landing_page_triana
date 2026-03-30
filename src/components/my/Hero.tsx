@@ -1,79 +1,74 @@
 "use client"
-import { Box, Flex, Heading, HStack, Icon, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, HStack, Icon, Image, Stack, Text } from "@chakra-ui/react";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import { Transition } from "../Transition";
+import { ElementType } from "react";
+import { FaTiktok } from "react-icons/fa";
 
 export default function Hero() {
     return (
-        <Box as="section" position="relative" overflow="hidden" bg="#F3A0FF0D" >
+        <Box as="section" position="relative" bg="#F3A0FF0D" >
             <Flex
-                m={"auto"}
-                maxWidth={"1440px"}
                 direction={{ base: "column", lg: "row" }}
-                gap={{ base: 10, lg: 0 }} 
-                px={{ base: 6, md: 10, lg: "160px" }}
+                gap={12}
+                px={{ base: "24px", lg: "160px" }}
                 py={{ base: 24, md: 16, lg: "80px" }}
-                align={"center"}
+                alignItems={"center"}
+                alignContent={'center'}
+                minH={"100vh"}
             >
-                <Box flex={1} textAlign={{ base: "center", lg: "left" }} pr={3}>
-                    <Transition type="top" velocity="slow">
-                        <Text
-                            maxW="249px"
-                            px={4}
-                            py={2}
-                            borderRadius="full"
-                            fontSize="14px"
-                            fontWeight="400"
-                            lineHeight="20px"
-                            letterSpacing="0px"
-                            bg="#F5F3FF"
-                            color="primary.500"
-                            border="1px solid"
-                            borderColor="primary.500"
-                            textAlign="center"
-                            whiteSpace="nowrap"
-                        >
-                            CEO & Estrategia de Marketing
-                        </Text>
-                    </Transition>
-                    <Flex
-                        direction="column"
-                        maxW="551px"
+                <Box flex={1} textAlign={{ base: "center", lg: "left" }}>
+                    <Stack
                         w="100%"
-                        gap="30px"
+                        gap={6}
                     >
                         <Transition type="top" velocity="slow">
-                            <Box position="relative" maxW="541px" display="inline-block">
+                            <Text
+                                maxW="249px"
+                                px={4}
+                                py={2}
+                                borderRadius="full"
+                                fontSize="14px"
+                                fontWeight="400"
+                                lineHeight="20px"
+                                letterSpacing="0px"
+                                bg="#F5F3FF"
+                                color="primary.500"
+                                border="1px solid"
+                                borderColor="primary.500"
+                                textAlign="center"
+                                whiteSpace="nowrap"
+                            >
+                                CEO & Estrategia de Marketing
+                            </Text>
+                        </Transition>
+                        <Transition type="top" velocity="slow">
+                            <Flex gap={2} justifyContent={{ base: "center", lg: "flex-start" }} alignItems="center">
                                 <Heading
                                     as="h1"
-                                    maxW="501px"
                                     color="primary.500"
                                     fontWeight="800"
                                     fontSize={{ base: "28px", md: "40px", lg: "54px" }}
                                     fontFamily="Bricolage Grotesque"
                                     lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                                 >
-                                    Triana Apellido
+                                    Leyanis Triana Cevila
                                 </Heading>
 
                                 <Image
                                     src="/home/Vector.png"
                                     w={{ base: "24px", lg: "32px" }}
                                     h={{ base: "24px", lg: "32px" }}
-                                    position="absolute"
-                                    top={{ base: "-5px", lg: "3px" }}
-                                    right={{ base: "30px", lg: "-40px" }}
                                 />
-                            </Box>
+                            </Flex>
                         </Transition>
                         <Transition type="left" velocity="slow">
                             <Text
-                                maxW="551px"
                                 w="100%"
                                 fontFamily="inter"
                                 fontWeight="400"
-                                fontSize={{ base: "14px", md: "16px", lg: "18px" }}
+                                fontSize={{ base: "18px", md: "16px", lg: "18px" }}
                                 lineHeight="22px"
                                 letterSpacing="0px"
                                 color="#717171"
@@ -85,97 +80,32 @@ export default function Hero() {
                                 y memorable
                             </Text>
                         </Transition>
-                    </Flex>
+                    </Stack>
                     <Transition type="bootom" velocity="slow">
-                        <HStack
-                            gap={4}
-                            justify="center"
-                            flexWrap={{ base: "wrap", md: "nowrap" }}
-                            maxW="517px"
-                            mx="auto"
-                            pt="14"
-                        >
-                            <Box
-                                display="flex"
-                                alignItems="center"
-                                w="fit-content"
-                                h={{ base: "auto", lg: "54px" }}
-                                bg="#F9D0FF"
-                                borderRadius="30px"
-                                py={{ base: 3, lg: "16px" }}
-                                px="24px"
-                                gap="8px"
-                                color="terciary.500"
-                            >
-                                <Icon as={LinkedInIcon} />
-                                <Text
-                                    as="span"
-                                    fontFamily="Inter"
-                                    fontWeight="semibold"
-                                    fontSize={{ base: "14px", lg: "18px" }}
-                                    lineHeight="22px"
-                                    letterSpacing="0"
-                                    textAlign="center"
-                                >Linkedln</Text>
-                            </Box>
-                            <Box
-                                display="flex"
-                                bg="#F9D0FF"
-                                alignItems="center"
-                                w="fit-content"
-                                h={{ base: "auto", lg: "54px" }}
-                                borderRadius="30px"
-                                py={{ base: 3, lg: "16px" }}
-                                px="24px"
-                                gap="8px"
-                                color="terciary.500"
-                            >
-                                <Image src="/my/ic_baseline-tiktok.svg" />
-                                <Text
-                                    as="span"
-                                    fontFamily="Inter"
-                                    fontWeight="semibold"
-                                    fontSize={{ base: "14px", lg: "18px" }}
-                                    lineHeight="22px"
-                                    letterSpacing="0"
-                                    textAlign="center"
-                                >TikTok</Text>
-                            </Box>
-                            <Box
-                                display="flex"
-                                bg="#F9D0FF"
-                                alignItems="center"
-                                w="fit-content"
-                                h={{ base: "auto", lg: "54px" }}
-                                borderRadius="30px"
-                                py={{ base: 3, lg: "16px" }}
-                                px="24px"
-                                gap="8px"
-                                color="terciary.500"
-                            >
-                                <Icon as={EmailIcon} />
-                                <Text
-                                    as="span"
-                                    fontFamily="Inter"
-                                    fontWeight="semibold"
-                                    fontSize={{ base: "14px", lg: "18px" }}
-                                    lineHeight="22px"
-                                    letterSpacing="0"
-                                    textAlign="center"
-                                >Contacto</Text>
-                            </Box>
-                        </HStack>
+                        <Flex flexDir={{ base: 'column', md: 'row' }} gap={4}>
+                            <ButtonSocial
+                                icon={LinkedInIcon}
+                                label="LinkedIn"
+                            />
+                            <ButtonSocial
+                                icon={FaTiktok}
+                                label="TikTok"
+                            />
+                            <ButtonSocial
+                                icon={EmailIcon}
+                                label="Contacto"
+                            />
+                        </Flex>
                     </Transition>
                 </Box>
                 <Transition type="rigth" velocity="slow">
                     <Box
-                        maxW="479px"
-                        w={{ base: "80%", md: "60%", lg: "479px" }}
-                        h={{ base: "350px", md: "420px", lg: "500px" }}
+                        flex={1}
+                        w={{ base: "300px", lg: "450px" }}
+                        h={{ base: "350px", md: "420px", lg: "550px" }}
                         borderRadius="99px"
-                        background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
+                        /* background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)" */
                         position="relative"
-                        overflow="hidden"
                         mx={{ base: "auto", lg: "0" }}
                     >
                         <Image
@@ -191,17 +121,53 @@ export default function Hero() {
                             left="0"
                             zIndex="1"
                         />
-                        <Image
+                        {/* <Image
                             src="/home/VectorCh.png"
                             position="absolute"
                             top="56"
                             right="-1"
                             zIndex="2"
                             display={{ base: "none", md: "block" }}
-                        />
+                        /> */}
                     </Box>
                 </Transition>
             </Flex>
         </Box>
     )
 }
+
+const ButtonSocial = ({
+    icon,
+    label
+}: {
+    icon: ElementType,
+    label: string
+}) => (
+    <Flex
+        alignItems={'center'}
+        justifyContent={'center'}
+        w="100%"
+        h={{ base: "auto", lg: "48px" }}
+        bg="#F9D0FF"
+        borderRadius="30px"
+        py={{ base: 3, lg: "16px" }}
+        px="24px"
+        gap="8px"
+        color="terciary.500"
+        cursor={'pointer'}
+        _hover={{
+            bg: "#f5c1fc"
+        }}
+    >
+        <Icon as={icon} />
+        <Text
+            as="span"
+            fontFamily="Inter"
+            fontWeight="semibold"
+            fontSize={{ base: "14px", lg: "18px" }}
+            lineHeight="22px"
+            letterSpacing="0"
+            textAlign="center"
+        >{label}</Text>
+    </Flex>
+)
