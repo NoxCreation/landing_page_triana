@@ -1,0 +1,43 @@
+name: Deploy STG
+
+on:
+  push:
+    branches: ['master']
+
+env:
+  EXTRA_HOSTS: 'triana.noxcreation.dev'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 22.8.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.8.0
+          cache: 'yarn'
+      - name: Clean Yarn Cache 
+        run: yarn cache clean
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2.5.1
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Deploy
+        timeout-minutes: 30
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /opt/noxcreation_projects/landing_page_triana
+            git pull https://NoxCreation:${{ secrets.GIT_TOKEN }}@github.com/NoxCreation/landing_page_triana.git main
+            docker system prune -a -f
+            docker compose up -d --build
+            docker system prune -a -f
