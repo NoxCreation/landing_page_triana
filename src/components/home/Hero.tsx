@@ -56,7 +56,7 @@ export default function Hero() {
                                 </SparklesText>
 
                                 <Image
-                                    src="/home/Vector.png"
+                                    src="/home/Vector.ico"
                                     w={{ base: "15px", md: '32px' }}
                                     h={{ base: "15px", md: '32px' }}
                                 />
@@ -247,7 +247,7 @@ export default function Hero() {
                         <Stack zIndex={5}>
                             <Image
                                 zIndex={5}
-                                src="/home/Hero.png"
+                                src="/home/Hero.webp"
                                 alt="mujer sonriente"
                                 w="100%"
                                 h="100%"

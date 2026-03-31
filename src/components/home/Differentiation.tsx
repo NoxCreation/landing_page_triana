@@ -21,7 +21,7 @@ export default function Differentiation() {
                     px={2}
                 >
                     <Box as="span" display={{ base: 'none', md: "inline-flex" }} width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" mr={{ base: 1, lg: 2 }} aria-label="bubble-left">
-                        <Image src="/home/Vector-1.png" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }}></Image>
+                        <Image src="/home/Vector-1.ico" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }}></Image>
                     </Box>
                     <Text
                         fontFamily="Bricolage Grotesque"
@@ -36,7 +36,7 @@ export default function Differentiation() {
                         dejame ayudarte a crecer
                     </Text>
                     <Box as="span" display={{ base: 'none', md: "inline-flex" }} width={{ base: "18px", lg: "22px" }} height={{ base: "18px", lg: "22px" }} alignItems="center" justifyContent="center" ml={{ base: 1, lg: 2 }} aria-label="bubble-right" style={{ transform: 'scaleX(-1)' }}>
-                        <Image src="/home/Vector-2.png" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }} transform="scaleX(-1)"></Image>
+                        <Image src="/home/Vector-2.ico" w={{ base: "16px", lg: "20px" }} h={{ base: "16px", lg: "20px" }} transform="scaleX(-1)"></Image>
                     </Box>
                 </Flex>
             </Transition>

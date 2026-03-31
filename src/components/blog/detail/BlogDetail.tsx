@@ -29,7 +29,7 @@ export default function BlogDetail() {
                     <Box mb={8} mt={16}>
                         <Transition type="top" velocity="slow">
                             <Image
-                                src="/blog/blog-detail.png"
+                                src="/blog/blog-detail.webp"
                                 alt="Nos expandimos a Instagram"
                                 w="100%"
                                 objectFit="cover"

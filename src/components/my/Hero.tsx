@@ -81,7 +81,7 @@ export default function Hero() {
                                 </SparklesText>
 
                                 <Image
-                                    src="/home/Vector.png"
+                                    src="/home/Vector.ico"
                                     w={{ base: "24px", lg: "32px" }}
                                     h={{ base: "24px", lg: "32px" }}
                                 />
@@ -133,7 +133,7 @@ export default function Hero() {
                         mx={{ base: "auto", lg: "0" }}
                     >
                         <Image
-                            src="/my/heroMy.png"
+                            src="/my/heroMy.webp"
                             alt="Foto derecha"
 
                             h="105%"

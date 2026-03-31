@@ -64,7 +64,7 @@ export default function Footer() {
                         mb={3}
                     >
                         <Box maxW="400px">
-                            <Image src="/home/LOGO_FOOTER.png" />
+                            <Image src="/home/LOGO_FOOTER.webp" />
                             <Text
                                 fontSize="16px"
                                 fontWeight={400}

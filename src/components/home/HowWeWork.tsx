@@ -98,7 +98,7 @@ export default function HowWeWork() {
                     mx={{ base: "auto", lg: "0" }}
                 >
                     <Image
-                        src="/home/proces.png"
+                        src="/home/proces.webp"
                         alt="Foto derecha"
                         maxW="420px"
                         w="100%"

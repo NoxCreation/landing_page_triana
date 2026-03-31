@@ -14,7 +14,7 @@ export const posts: Post[] = [
         excerpt: "How do you create compelling presentations that wow your colleagues and impress your managers?",
         author: "Olivia Rye",
         date: "7 abr 2025",
-        image: "/blog/marketing.png"
+        image: "/blog/marketing.webp"
     },
     {
         id: 2,
@@ -22,7 +22,7 @@ export const posts: Post[] = [
         excerpt: "How do you create compelling presentations that wow your colleagues and impress your managers?",
         author: "Olivia Rye",
         date: "7 abr 2025",
-        image: "/blog/mujer marketing.png"
+        image: "/blog/mujer marketing.webp"
     },
     {
         id: 3,
@@ -30,6 +30,6 @@ export const posts: Post[] = [
         excerpt: "How do you create compelling presentations that wow your colleagues and impress your managers?",
         author: "Olivia Rye",
         date: "7 abr 2025",
-        image: "/blog/chica marketing.png"
+        image: "/blog/chica marketing.webp"
     }
 ];

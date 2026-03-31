@@ -25,7 +25,7 @@ export default function Hero() {
                             </Heading>
 
                             <Image
-                                src="/home/Vector.png"
+                                src="/home/Vector.ico"
                                 w={{ base: "24px", lg: "32px" }}
                                 h={{ base: "24px", lg: "32px" }}
                                 position="absolute"

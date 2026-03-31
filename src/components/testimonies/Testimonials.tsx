@@ -24,7 +24,7 @@ export default function Testimonials() {
                             </Heading>
 
                             <Image
-                                src="/home/Vector.png"
+                                src="/home/Vector.ico"
                                 w="32px"
                                 h="32px"
                                 position="absolute"
