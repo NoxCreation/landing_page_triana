@@ -64,7 +64,7 @@ export default function Footer() {
                         mb={3}
                     >
                         <Box maxW="400px">
-                            <Image src="/Home/LOGO_FOOTER.png" />
+                            <Image src="/home/LOGO_FOOTER.png" />
                             <Text
                                 fontSize="16px"
                                 fontWeight={400}
@@ -172,7 +172,7 @@ export default function Footer() {
                             </Heading>
                             <Flex direction="column" alignItems={{ base: "left", md: "flex-start" }} gap={2} mx={{ base: "auto", md: "0" }}>
                                 <Link
-                                    href="#"
+                                    href="/process"
                                     fontSize="14px"
                                     fontWeight={400}
                                     lineHeight="20px"
@@ -181,7 +181,7 @@ export default function Footer() {
                                     Proceso de trabajo
                                 </Link>
                                 <Link
-                                    href="#"
+                                    href="/my"
                                     fontSize="14px"
                                     fontWeight={400}
                                     lineHeight="20px"
@@ -190,7 +190,7 @@ export default function Footer() {
                                     Sobre mí
                                 </Link>
                                 <Link
-                                    href="#"
+                                    href="/service"
                                     fontSize="14px"
                                     fontWeight={400}
                                     lineHeight="20px"
@@ -199,7 +199,7 @@ export default function Footer() {
                                     Consultoría Express
                                 </Link>
                                 <Link
-                                    href="#"
+                                    href="/testimonies"
                                     fontSize="14px"
                                     fontWeight={400}
                                     lineHeight="20px"
