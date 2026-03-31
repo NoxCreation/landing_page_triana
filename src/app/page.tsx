@@ -21,6 +21,8 @@ export default async function Home() {
     redirect('/500');
   }
 
+  console.log("TESTING", content['home'])
+
   return (
     <div style={{ overflow: "hidden" }}>
       <Hero content={content['home']}/>
