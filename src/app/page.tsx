@@ -8,6 +8,8 @@ import Testimonials from "@/components/home/Testimonials";
 import { queryDb2 } from "@/lib/db2";
 import { redirect } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const query = `SELECT * FROM public.landing`;
   let content = {} as any;
@@ -20,8 +22,6 @@ export default async function Home() {
   } catch (err) {
     redirect('/500');
   }
-
-  console.log("TESTING", content['home'])
 
   return (
     <div style={{ overflow: "hidden" }}>
