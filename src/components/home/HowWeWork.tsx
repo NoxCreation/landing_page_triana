@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Flex, List, ListItem, Text, Heading, Image } from "@chakra-ui/react";
 import { items } from "@/constants/home/HowWeWork";
 import { Transition } from "../Transition";

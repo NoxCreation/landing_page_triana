@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
 import { WhatsApp } from '@mui/icons-material';
@@ -9,7 +11,14 @@ import { DotPattern } from "../DotPattern";
 import { OrbitingCircles } from "../OrbitingCircle";
 import { FaArrowUp, FaBrain, FaBullhorn, FaChartLine, FaChartPie, FaCogs, FaGlobe, FaHandshake, FaLightbulb, FaMegaport, FaRocket, FaSearch, FaUsers } from "react-icons/fa";
 
-export default function Hero() {
+export default function Hero({
+    content
+}: {
+    content: {
+        main_title: string,
+        main_subtitle: string
+    }
+}) {
     const router = useRouter()
     return (
         <Box as="section" position="relative" overflow="hidden" bg="gray.50" pt={{ base: 16, md: 0 }} >
@@ -51,7 +60,7 @@ export default function Hero() {
                                         fontSize={{ base: "28px", md: "40px", lg: "54px" }}
                                         lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                                     >
-                                        Hola, somos 3ana
+                                        {content.main_title}
                                     </Heading>
                                 </SparklesText>
 
@@ -73,7 +82,7 @@ export default function Hero() {
                                 letterSpacing={"0%"}
                                 fontWeight="extrabold"
                                 fontFamily="Bricolage Grotesque"
-                            >Marketing & Consultoría que mueve negocios</Heading>
+                            >{content.main_subtitle}</Heading>
                         </Transition>
 
                         <Transition type="left" velocity="slow" index={1}>

@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Button, Card, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
 import { dataCard } from "@/constants/home/differentiation"
 import InfoCard from "../cards/InfoCard";
