@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Flex, Grid, Heading, Stack, Text } from "@chakra-ui/react";
 import { services } from "@/constants/home/nedd"
 import { Transition } from "../Transition";
