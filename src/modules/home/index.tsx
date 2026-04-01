@@ -16,7 +16,7 @@ export default async function HomeIndex({
     return (
         <div style={{ overflow: "hidden" }}>
             <Hero content={content} />
-            <Differentiation />
+            <Differentiation content={content}/>
             <Need />
             <Service />
             <HowWeWork />

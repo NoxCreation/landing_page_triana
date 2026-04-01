@@ -1,12 +1,16 @@
 'use client'
 
 import { Box, Button, Center, Flex, Grid, Heading, Image, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
-import { dataCard } from "@/constants/home/differentiation"
 import { Transition } from "@/components/Transition";
 import InfoCard from "@/components/cards/InfoCard";
 import { FaArrowRight } from "react-icons/fa";
+import { ContentType } from "@/types/ContentType";
 
-export default function Differentiation() {
+export default function Differentiation({
+    content
+}: {
+    content: ContentType
+}) {
     const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
 
     return (
@@ -88,7 +92,7 @@ export default function Differentiation() {
                         w="100%"
                         px={{ base: 2, md: 0 }}
                     >
-                        {dataCard.map((card, index) => (
+                        {content.home.why_choose_me.map((card, index) => (
                             <Transition
                                 key={index}
                                 type="bootom"
@@ -99,7 +103,6 @@ export default function Differentiation() {
                                     title={card.title}
                                     description={card.description}
                                     icon={card.icon}
-                                // Podrías pasar más props como bgHover, etc.
                                 />
                             </Transition>
                         ))}
