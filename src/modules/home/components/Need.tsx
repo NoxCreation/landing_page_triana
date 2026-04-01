@@ -1,127 +1,118 @@
 'use client'
 
-import { Box, Flex, Grid, Heading, Stack, Text } from "@chakra-ui/react";
-import { services } from "@/constants/home/nedd"
 import { Transition } from "@/components/Transition";
+import { Box, Heading, Text, VStack, Grid, GridItem, Button, Image, List } from "@chakra-ui/react";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function Need() {
     return (
-        <Box w="100%" bg="#FDF2FF" py={16} px={4}>
-            <Box maxW="1000px" mx="auto">
-                <Transition type="bootom" velocity="slow">
-                    <Stack textAlign="center" mb={10} gap={4}>
-                        <Heading
-                            as="h1"
-                            color="#3F3F3F"
-                            letterSpacing={"0px"}
-                            fontSize={{ base: "3xl", md: "5xl" }}
-                            fontWeight="800"
-                            fontFamily="Bricolage Grotesque">
-                            ¿Qué servicio necesitas?
-                        </Heading>
-                        <Text
-                            fontSize="18px"
-                            fontFamily="inter"
-                            fontWeight={400}
-                            color="gray.500"
-                            letterSpacing="0px"
-                            lineHeight="22px">
-                            Responda 3 preguntas y te recomendamos el servicio ideal
-                        </Text>
-                    </Stack>
-                </Transition>
+        <Box bg="terciary.500" py={{ base: 16, md: 24 }} px={{ base: 4, md: 8 }} position={"relative"} overflow={"hidden"}>
 
-                <Transition type="top" velocity="slow">
-                    <Box
-                        bg="white"
-                        borderRadius="2xl"
-                        boxShadow="0px 10px 50px rgba(178,35,207,0.05)"
-                        p={{ base: 6, md: 10 }}
-                        mb={8}
-                    >
-                        <Text
-                            as="h3"
-                            textAlign="center"
-                            fontWeight="extrabold"
-                            fontFamily="inter"
-                            fontSize={{ base: "lg", md: "lg" }}
-                            color="#3F3F3F"
-                            lineHeight="32px"
-                            letterSpacing={"0"}
-                            mb={8}
-                        >
-                            ¿En qué etapa está tu negocio?
-                        </Text>
+            {/* Círculo grande */}
+            <Box
+                position="absolute"
+                bottom="-430px"
+                left="-400px"
+                w="1200px"
+                h="1200px"
+                background="linear-gradient(to right, #611161, #E63CFF)"
+                borderRadius="50%"
+                opacity={0.4}
+                zIndex={0}
+                filter="brightness(0.6)"
+                display={{ base: "none", md: "block" }}
+            />
 
-                        <Grid
-                            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }}
-                            gap={4}
-                        >
-                            {services.map((service, index) => (
-                                <Box
-                                    key={index}
-                                    p={5}
-                                    borderRadius="3xl"
-                                    border="2px solid"
-                                    borderColor="gray.100"
-                                    bg="white"
-                                    cursor="pointer"
-                                    transition="all 0.2s"
-                                    _hover={{
-                                        borderColor: "#fff",
-                                        bg: "#F9D0FF",
-                                        transform: "translateY(-2px)",
-                                        "& svg": {
-                                            color: "primary.500",
-                                        },
-                                        "& p": {
-                                            color: "primary.500",
-                                        }
-                                    }}
-                                >
-                                    <Flex direction="column" align="center" gap={3}>
-                                        {service.icon && (
-                                            <Box
-                                                color="#4A5568"
-                                            >
-                                                <service.icon />
-                                            </Box>
-                                        )}
-                                        <Text
-                                            fontWeight={400}
-                                            fontSize="18px"
-                                            textAlign="center"
-                                            fontFamily="inter"
-                                            lineHeight="22px"
-                                            letterSpacing="0px"
-                                            color="gray.700"
-                                        >
-                                            {service.title}
-                                        </Text>
-                                        <Text
-                                            fontSize="14"
-                                            lineHeight="20px"
-                                            letterSpacing="0px"
-                                            fontFamily="inter"
-                                            fontWeight={400}
-                                            color="gray.400"
-                                            textAlign="center"
-                                        >
-                                            {service.subtitle}
-                                        </Text>
-                                    </Flex>
-                                </Box>
-                            ))}
-                        </Grid>
-                    </Box>
-                </Transition>
+            {/* Círculo pequeño */}
+            <Box
+                position="absolute"
+                bottom="-400px"
+                left="20px"
+                w="700px"
+                h="700px"
+                background="linear-gradient(to right, #7B1FA2, #F062FF)"
+                borderRadius="50%"
+                opacity={0.5}
+                zIndex={0}
+                filter="brightness(0.7)"
+                display={{ base: "none", md: "block" }}
+            />
 
-                {/* <Flex justify="center" gap={2} >
-                    <Box w="40px" h="2px" bg="gray.400" background="primary.500" />
-                    <Box w="40px" h="2px" bg="gray.400" background="#E5E7EB" />
-                    <Box w="40px" h="2px" bg="gray.400" background="#E5E7EB" />
-                </Flex> */}
-            </Box>
+            <Grid
+                maxW="1200px"
+                mx="auto"
+                templateColumns={{ base: "1fr", md: "1fr 1fr" }}
+                gap={{ base: 12, md: 16 }}
+                alignItems="center"
+
+            >
+                {/* Columna izquierda: Imagen */}
+                <GridItem order={{ base: 2, md: 1 }} zIndex={2}>
+                    <Transition type="left" velocity="slow" index={1}>
+                        <Image
+                            src="/home/women.png"
+                            alt="Asesora de marketing con teléfono"
+                            objectFit="contain"
+                            maxH="500px"
+                            w="full"
+                        />
+                    </Transition>
+                </GridItem>
+
+                {/* Columna derecha: Contenido informativo */}
+                <GridItem order={{ base: 1, md: 2 }} zIndex={2}>
+                    <Transition type="rigth" velocity="slow" index={1}>
+                        <VStack align="flex-start" gap={6} color="white">
+                            <Heading
+                                as="h2"
+                                fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+                                fontWeight="extrabold"
+                                fontFamily="Bricolage Grotesque"
+                                lineHeight="1.2"
+                            >
+                                Estrategias que conectan con tus clientes
+                            </Heading>
+
+                            <Text fontSize={{ base: "md", md: "lg" }} opacity={0.9} fontFamily="Bricolage Grotesque">
+                                En 3ana Marketing & Consulting no solo creamos campañas, construimos
+                                relaciones duraderas. Nuestro enfoque combina análisis de datos,
+                                creatividad y tecnología para potenciar tu marca.
+                            </Text>
+
+                            <List.Root gap={3} fontSize={{ base: "sm", md: "md" }}>
+                                <List.Item display="flex" alignItems="center">
+                                    <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
+                                    Análisis de mercado a tu medida
+                                </List.Item>
+                                <List.Item display="flex" alignItems="center">
+                                    <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
+                                    Estrategias omnicanal con resultados medibles
+                                </List.Item>
+                                <List.Item display="flex" alignItems="center">
+                                    <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
+                                    Consultoría personalizada para cada etapa de tu negocio
+                                </List.Item>
+                            </List.Root>
+
+                            <Button
+                                bg="white"
+                                fontSize={"16px"}
+                                color={"primary.500"}
+                                borderTopLeftRadius="3xl"
+                                borderTopRightRadius="3xl"
+                                borderBottomLeftRadius="0"
+                                borderBottomRightRadius="3xl"
+                                p={4}
+                                px={8}
+                                _hover={{ bg: "secondary.500", color: "white", transform: "translateY(-2px)" }}
+                                transition="all 0.2s"
+                            >
+                                Solicita una consultoría gratuita
+                            </Button>
+                        </VStack>
+                    </Transition>
+                </GridItem>
+            </Grid>
         </Box>
     );
 }
