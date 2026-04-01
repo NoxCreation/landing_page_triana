@@ -19,6 +19,9 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "Triana Marketing & Consulting",
   description: "",
+  icons: {
+    icon: '/home/VectorCh.ico'
+  }
 };
 
 export default function RootLayout({
