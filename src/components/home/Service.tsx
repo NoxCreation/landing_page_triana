@@ -2,6 +2,7 @@ import { Box, Grid, Heading, Text, Button } from "@chakra-ui/react";
 import { CardService } from "../cards/CardService";
 import { services } from "@/constants/service/cards";
 import { Transition } from "../Transition";
+import Link from "next/link";
 
 export default function Service() {
     return (
@@ -28,7 +29,7 @@ export default function Service() {
                     mb={10}
                 >
                     {services.slice(0, 3).map((service, index) => (
-                        <Transition type="left" velocity="slow" key={index} index={index*2}>
+                        <Transition type="left" velocity="slow" key={index} index={index * 2}>
                             <CardService
                                 title={service.title}
                                 tiquets={service.tiquet as any}
@@ -47,35 +48,39 @@ export default function Service() {
                     ))}
                 </Grid>
 
-                <Button
-                    color="primary.500"
-                    bg="transparent"
-                    w="246px"
-                    h="54px"
-                    borderBottom="1px solid"
-                    borderTop="none"
-                    borderRight="none"
-                    borderLeft="none"
-                    borderRadius="none"
-                    borderColor="primary.500"
-                    pt="16px"
-                    pr="24px"
-                    pb="16px"
-                    pl="24px"
-                    cursor="pointer"
-                    mx="auto"
-                    display="block"
+                <Link
+                    href="/service"
                 >
-                    <Text
-                        fontWeight={600}
-                        fontSize="18px"
-                        lineHeight="22px"
-                        letterSpacing="0px"
+                    <Box
+                        color="primary.500"
+                        bg="transparent"
+                        w="246px"
+                        h="54px"
+                        borderBottom="1px solid"
+                        borderTop="none"
+                        borderRight="none"
+                        borderLeft="none"
+                        borderRadius="none"
+                        borderColor="primary.500"
+                        pt="16px"
+                        pr="24px"
+                        pb="16px"
+                        pl="24px"
+                        cursor="pointer"
+                        mx="auto"
+                        display="block"
                     >
-                        Ver todos los servicios
-                    </Text>
-                </Button>
+                        <Text
+                            fontWeight={600}
+                            fontSize="18px"
+                            lineHeight="22px"
+                            letterSpacing="0px"
+                        >
+                            Ver todos los servicios
+                        </Text>
+                    </Box>
+                </Link>
             </Box>
-        </Box>
+        </Box >
     );
 }

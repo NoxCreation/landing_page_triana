@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Flex, Grid, Heading, Text, Link, Image } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, Image } from "@chakra-ui/react";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -9,6 +9,7 @@ import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -121,39 +122,51 @@ export default function Footer() {
                             <Flex direction="column" alignItems={{ base: "left", md: "flex-start" }} gap={2} mx={{ base: "auto", md: "0" }}>
                                 <Link
                                     href="#"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Acompañamiento mensual
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Acompañamiento mensual
+                                    </Text>
                                 </Link>
                                 <Link
                                     href="#"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Asesoría para restaurantes
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Asesoría para restaurantes
+                                    </Text>
                                 </Link>
                                 <Link
                                     href="#"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Blog y recursos
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Blog y recursos
+                                    </Text>
                                 </Link>
                                 <Link
                                     href="#"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Tiktok Shop
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Tiktok Shop
+                                    </Text>
                                 </Link>
                             </Flex>
                         </Box>
@@ -173,39 +186,51 @@ export default function Footer() {
                             <Flex direction="column" alignItems={{ base: "left", md: "flex-start" }} gap={2} mx={{ base: "auto", md: "0" }}>
                                 <Link
                                     href="/process"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Proceso de trabajo
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Proceso de trabajo
+                                    </Text>
                                 </Link>
                                 <Link
                                     href="/my"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Sobre mí
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Sobre mí
+                                    </Text>
                                 </Link>
                                 <Link
                                     href="/service"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Consultoría Express
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Consultoría Express
+                                    </Text>
                                 </Link>
                                 <Link
                                     href="/testimonies"
-                                    fontSize="14px"
-                                    fontWeight={400}
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
                                 >
-                                    Testimonios
+                                    <Text
+                                        fontSize="14px"
+                                        fontWeight={400}
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        Testimonios
+                                    </Text>
                                 </Link>
                             </Flex>
                         </Box>
@@ -223,7 +248,9 @@ export default function Footer() {
                             Contacto
                         </Heading>
                         <Flex flexWrap="wrap" gap={4} pb={"6"}>
-                            <Link>
+                            <Link
+                                href="#"
+                            >
                                 <Flex gap={2}>
                                     <PhoneInTalkIcon />
                                     <Text
@@ -238,7 +265,9 @@ export default function Footer() {
                                 </Flex>
                             </Link>
 
-                            <Link>
+                            <Link
+                                href="#"
+                            >
                                 <Flex gap={2}>
                                     <EmailIcon />
                                     <Text
@@ -253,7 +282,9 @@ export default function Footer() {
                                 </Flex>
                             </Link>
 
-                            <Link>
+                            <Link
+                                href="#"
+                            >
                                 <Flex gap={2}>
                                     <LocationOnIcon />
                                     <Text
@@ -284,7 +315,7 @@ export default function Footer() {
                     </Box>
 
                     <Box borderTop="1px solid" borderColor="terciary.500" pt={6} />
-                    
+
                     <Flex
                         direction={{ base: "column", md: "row" }}
                         justify="space-between"
