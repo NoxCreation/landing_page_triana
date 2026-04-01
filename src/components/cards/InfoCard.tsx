@@ -1,20 +1,21 @@
-'use client'
-
 import { BoxProps, Card, Icon } from "@chakra-ui/react";
-import { IconType } from "react-icons";
+import * as FeatherIcons from "react-icons/fi";
 
-type TestimonialCardProps = {
+type InfoCardProps = {
     title: string;
     description: string;
-    icon?: IconType;
+    icon?: string;
 } & BoxProps;
 
 export default function InfoCard({
     title,
     description,
-    icon: IconComponent,
+    icon,
     ...props
-}: TestimonialCardProps) {
+}: InfoCardProps) {
+    // Obtener el componente del ícono si existe
+    const IconComponent = icon && FeatherIcons[icon as keyof typeof FeatherIcons];
+
     return (
         <Card.Root
             bg="white"
@@ -24,16 +25,10 @@ export default function InfoCard({
             borderTopRightRadius="3xl"
             borderBottomLeftRadius="0"
             borderBottomRightRadius="3xl"
-            transition="all 0.2s ease"
-            _hover={{
-                transform: "translateY(-4px)",
-                boxShadow: "0 12px 28px rgba(0,0,0,0.08)",
-                borderColor: "primary.200",
-            }}
             {...props}
         >
             <Card.Body
-                gap="4"
+                gap="2"
                 textAlign="center"
                 alignItems="center"
                 color="black"
@@ -47,7 +42,6 @@ export default function InfoCard({
                         mb={2}
                     />
                 )}
-
                 <Card.Title
                     fontFamily="Inter"
                     fontWeight="800"
@@ -59,7 +53,6 @@ export default function InfoCard({
                 >
                     {title}
                 </Card.Title>
-
                 <Card.Description
                     fontFamily="Inter"
                     fontWeight="400"
