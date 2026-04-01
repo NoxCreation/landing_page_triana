@@ -95,8 +95,7 @@ export default function Hero({
                                 color="#717171"
                                 py={4}
                             >
-                                Ayudo a emprendedores y restaurantes a transformar sus ideas en negocios
-                                exitosos con estrategias prácticas y acompañamiento constante
+                                {content.home.main_label}
                             </Text>
                         </Transition>
 
@@ -139,7 +138,7 @@ export default function Hero({
                                     letterSpacing="0"
                                     textAlign="center"
                                     color="#FFFFFF"
-                                >Agendar una Consulta</Text>
+                                >{content.home.btn_cta_to_schedule}</Text>
                             </ButtonUi>
 
                             <ButtonUi
@@ -168,7 +167,7 @@ export default function Hero({
                                     lineHeight="22px"
                                     letterSpacing="0"
                                     textAlign="center"
-                                >Conoce mi Trabajo</Text>
+                                >{content.home.btn_cta_my_work}</Text>
                             </ButtonUi>
                         </Flex>
                     </Transition>
@@ -176,17 +175,17 @@ export default function Hero({
                         <Flex maxW="576px" w="100%" h={{ base: "auto", lg: "96px" }} bg="transparent" pt={{ base: 10, lg: 20 }} align="center" gap={8} flexWrap={{ base: "wrap", lg: "nowrap" }} justify={{ base: "center", lg: "flex-start" }}>
 
                             <StatAnimate
-                                value={150}
+                                value={content.home.stats.driven_businesses}
                                 label="Negocios Impulsados"
                             />
 
                             <StatAnimate
-                                value={3}
+                                value={content.home.stats.years_of_experience}
                                 label="Años de Experiencia"
                             />
 
                             <StatAnimate
-                                value={98}
+                                value={content.home.stats.years_of_experience}
                                 label="Clientes Satisfechos"
                             />
 

@@ -1,11 +1,14 @@
 'use client'
 
-import { Box, Button, Card, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Grid, Heading, Image, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { dataCard } from "@/constants/home/differentiation"
 import { Transition } from "@/components/Transition";
 import InfoCard from "@/components/cards/InfoCard";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Differentiation() {
+    const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
+
     return (
         <Box w={"100%"} bg="gray.50" color="black" minH={"100vh"}>
             <Transition type="top" velocity="slow" index={1}>
@@ -43,69 +46,90 @@ export default function Differentiation() {
                 </Flex>
             </Transition>
 
-            <Box p={{ base: 8, md: 12, lg: 20 }} alignItems="center" justifyContent="center" gap={{ base: 0, md: 10 }} display="flex" flexDirection="column">
-                <Flex m={"auto"} maxW="1100px" w="100%" gap="8px" textAlign="center" mb={12} direction="column" px={4}>
-                    <Transition type="bootom" velocity="slow" index={1}>
-                        <Heading
-                            textAlign="center"
-                            fontFamily="Bricolage Grotesque"
-                            fontWeight="800"
-                            fontSize={{ base: "28px", md: "40px", lg: "64px" }}
-                            lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                            letterSpacing="0%"
-                            color="#3F3F3F">
-                            ¿Por qué elegir 3ana Marqueting?
-                        </Heading>
-
-                        <Text
-                            textAlign="center"
-                            fontFamily="Inter"
-                            fontWeight="400"
-                            fontSize={{ base: "14px", md: "16px", lg: "18px" }}
-                            lineHeight="22px"
-                            letterSpacing="0px"
-                            color="#717171">
-                            Te adelantamos algunos de los servicios que podemos ofrecerte
-                        </Text>
+            <Box
+                as="section"
+                py={{ base: 12, md: 16, lg: 24 }}
+                px={{ base: 4, md: 6, lg: 8 }}
+                bg="white"
+            >
+                <VStack gap={{ base: 10, md: 12 }} maxW="1200px" mx="auto">
+                    {/* Encabezado */}
+                    <Transition type="bootom" velocity={animationVelocity as any} index={1}>
+                        <VStack gap={4} textAlign="center">
+                            <Heading
+                                as="h2"
+                                color="primary.500"
+                                fontFamily="Bricolage Grotesque"
+                                fontWeight="extrabold"
+                                fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                            >
+                                ¿Por qué elegir 3ana Marqueting?
+                            </Heading>
+                            <Text
+                                as="h3"
+                                fontFamily="Inter"
+                                fontWeight="400"
+                                fontSize={{ base: "14px", md: "16px", lg: "18px" }}
+                                lineHeight="1.5"
+                                color="gray.400"
+                                maxW="600px"
+                                mx="auto"
+                            >
+                                Te adelantamos algunos de los servicios que podemos ofrecerte
+                            </Text>
+                        </VStack>
                     </Transition>
-                </Flex>
-                <Flex direction="column" alignItems="center" justify="center" gap={10}>
+
+                    {/* Grid de tarjetas */}
                     <Grid
-                        maxW="1120px"
                         templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
-                        gap="24px"
-                        justifyItems="center"
+                        gap={{ base: 6, md: 8 }}
+                        w="100%"
+                        px={{ base: 2, md: 0 }}
                     >
-                        {dataCard.map((data, index) => (
-                            <Transition type="left" velocity="slow" key={index} index={index * 2}>
+                        {dataCard.map((card, index) => (
+                            <Transition
+                                key={index}
+                                type="bootom"
+                                velocity={animationVelocity as any}
+                                index={index*2}
+                            >
                                 <InfoCard
-                                    title={data.title}
-                                    description={data.description}
+                                    title={card.title}
+                                    description={card.description}
+                                    icon={card.icon}
+                                // Podrías pasar más props como bgHover, etc.
                                 />
                             </Transition>
                         ))}
                     </Grid>
-                    <Button
-                        px="24px"
-                        py="16px"
-                        gap="8px"
-                        borderRadius="99px"
-                        border="1px solid"
-                        borderColor="primary.500"
-                        bg="primary.500"
-                        color="#ffff"
-                        _hover={{
-                            bg: "#5A0F6E",
-                            transform: "translateY(-2px)",
-                            boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
-                        }}
-                        _active={{
-                            transform: "scale(0.98)",
-                        }}
-                    >
-                        Comenzar ahora
-                    </Button>
-                </Flex>
+
+                    {/* Botón CTA */}
+                    <Center>
+                        <Button
+                            /* rightIcon={<FaArrowRight />} */
+                            px="24px"
+                            py="16px"
+                            borderRadius="99px"
+                            bg="primary.500"
+                            color="white"
+                            _hover={{
+                                bg: "primary.600",
+                                transform: "translateY(-2px)",
+                                boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                            }}
+                            _active={{
+                                transform: "scale(0.98)",
+                            }}
+                            transition="all 0.2s ease"
+                            aria-label="Comenzar ahora"
+                        >
+                            <FaArrowRight />
+                            Comenzar ahora
+                        </Button>
+                    </Center>
+                </VStack>
             </Box>
         </Box>
     )
