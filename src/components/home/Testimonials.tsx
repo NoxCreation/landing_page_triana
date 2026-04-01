@@ -1,4 +1,6 @@
-import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+'use client'
+
+import { Box, Heading, Text } from "@chakra-ui/react";
 import { testimonials } from "@/constants/home/testimonials";
 import { Transition } from "../Transition";
 import TestimonialsCarousel from "../Carrusel";

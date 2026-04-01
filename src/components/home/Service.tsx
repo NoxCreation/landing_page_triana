@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Grid, Heading, Text, Button } from "@chakra-ui/react";
 import { CardService } from "../cards/CardService";
 import { services } from "@/constants/service/cards";
