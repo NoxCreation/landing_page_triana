@@ -18,6 +18,7 @@ export default function Hero({
     content: ContentType
 }) {
     const router = useRouter()
+    console.log("content home", content.home)
     return (
         <Box as="section" position="relative" overflow="hidden" bg="gray.50" pt={{ base: 16, md: 0 }} >
             <Stack
