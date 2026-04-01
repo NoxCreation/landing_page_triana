@@ -10,14 +10,12 @@ import { OrbitingCircles } from "@/components/OrbitingCircle";
 import { SparklesText } from "@/components/Sparkle";
 import { StatAnimate } from "@/components/StatAnimate";
 import { Transition } from "@/components/Transition";
+import { ContentType } from "@/types/ContentType";
 
 export default function Hero({
     content
 }: {
-    content: {
-        main_title: string,
-        main_subtitle: string
-    }
+    content: ContentType
 }) {
     const router = useRouter()
     return (
@@ -60,7 +58,7 @@ export default function Hero({
                                         fontSize={{ base: "28px", md: "40px", lg: "54px" }}
                                         lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                                     >
-                                        {content.main_title}
+                                        {content.home.main_title}
                                     </Heading>
                                 </SparklesText>
 
@@ -82,7 +80,7 @@ export default function Hero({
                                 letterSpacing={"0%"}
                                 fontWeight="extrabold"
                                 fontFamily="Bricolage Grotesque"
-                            >{content.main_subtitle}</Heading>
+                            >{content.home.main_subtitle}</Heading>
                         </Transition>
 
                         <Transition type="left" velocity="slow" index={1}>
