@@ -19,7 +19,7 @@ export default async function HomeIndex({
             <Differentiation content={content}/>
             <Need />
             <Service />
-            <HowWeWork />
+            <HowWeWork content={content}/>
             <Testimonials />
             <LeadForm />
         </div>
