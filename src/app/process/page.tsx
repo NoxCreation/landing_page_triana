@@ -1,15 +1,7 @@
-import Cases from "@/components/process/Cases";
-import Hero from "@/components/process/Hero";
-import ProcessSteps from "@/components/process/ProcessSteps";
-import ToolsUsed from "@/components/process/ToolsUsed";
+import ProcessIndex from "@/modules/process";
 
-export default function () {
+export default function Process() {
     return (
-        <>
-            <Hero />
-            <ProcessSteps />
-            <ToolsUsed />
-            <Cases />
-        </>
+        <ProcessIndex/>
     )
 }

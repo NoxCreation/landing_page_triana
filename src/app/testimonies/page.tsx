@@ -1,11 +1,7 @@
-import FormTestimonies from "@/components/testimonies/FormTestimonies";
-import Testimonials from "@/components/testimonies/Testimonials";
+import TestimoniesIndex from "@/modules/testimonies";
 
 export default function Testimonies() {
     return (
-        <>
-            <Testimonials />
-            <FormTestimonies />
-        </>
+        <TestimoniesIndex />
     )
 }

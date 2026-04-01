@@ -1,11 +1,5 @@
-import Differentiation from "@/components/home/Differentiation";
-import Hero from "@/components/home/Hero";
-import HowWeWork from "@/components/home/HowWeWork";
-import LeadForm from "@/components/home/LeadForm";
-import Need from "@/components/home/Need";
-import Service from "@/components/home/Service";
-import Testimonials from "@/components/home/Testimonials";
 import { queryDb2 } from "@/lib/db2";
+import HomeIndex from "@/modules/home";
 import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
@@ -16,7 +10,7 @@ export default async function Home() {
 
   try {
     const result = await queryDb2(query, []);
-    if(result.length > 0){
+    if (result.length > 0) {
       content = result[0].content
     }
   } catch (err) {
@@ -24,14 +18,6 @@ export default async function Home() {
   }
 
   return (
-    <div style={{ overflow: "hidden" }}>
-      <Hero content={content['home']}/>
-      <Differentiation />
-      <Need />
-      <Service />
-      <HowWeWork />
-      <Testimonials />
-      <LeadForm />
-    </div>
+    <HomeIndex content={content} />
   );
 }
