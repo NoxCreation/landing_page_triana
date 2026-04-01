@@ -1,7 +1,7 @@
 'use client'
 
 import { Stack, Text } from "@chakra-ui/react"
-import AnimatedStat from "../home/NumberAnimate"
+import AnimatedStat from "../NumberAnimate"
 
 export const StatAnimate = ({
     value,
