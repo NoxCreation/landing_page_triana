@@ -109,16 +109,15 @@ const Point = ({
                         h="100%"
                         bg="#FFFFFF"
                         borderRadius="full"
-                        align="center"
-                        justify="center"
+                        alignItems="center"
+                        justifyContent="center"
                         color="primary.500"
                         boxShadow="0px 10px 20px rgba(178,35,207,0.24)"
                     >
                         <Icon
                             as={IconComponent}
-                            boxSize={10}
-                            color="primary.500"
-                            mb={2}
+                            boxSize={6}
+                            color="terciary.500"
                         />
                     </Flex>
                 )}
