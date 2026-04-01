@@ -3,8 +3,13 @@
 import { Transition } from "@/components/Transition";
 import { Box, Heading, Text, VStack, Grid, GridItem, Button, Image, List } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
+import { ContentType } from "@/types/ContentType";
 
-export default function Need() {
+export default function Need({
+    content
+}: {
+    content: ContentType
+}) {
     return (
         <Box bg="terciary.500" py={{ base: 16, md: 24 }} px={{ base: 4, md: 8 }} position={"relative"} overflow={"hidden"}>
 
@@ -70,28 +75,20 @@ export default function Need() {
                                 fontFamily="Bricolage Grotesque"
                                 lineHeight="1.2"
                             >
-                                Estrategias que conectan con tus clientes
+                                {content.home.strategic_section.title}
                             </Heading>
 
                             <Text fontSize={{ base: "md", md: "lg" }} opacity={0.9} fontFamily="Bricolage Grotesque">
-                                En 3ana Marketing & Consulting no solo creamos campañas, construimos
-                                relaciones duraderas. Nuestro enfoque combina análisis de datos,
-                                creatividad y tecnología para potenciar tu marca.
+                                {content.home.strategic_section.description}
                             </Text>
 
                             <List.Root gap={3} fontSize={{ base: "sm", md: "md" }}>
-                                <List.Item display="flex" alignItems="center">
-                                    <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
-                                    Análisis de mercado a tu medida
-                                </List.Item>
-                                <List.Item display="flex" alignItems="center">
-                                    <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
-                                    Estrategias omnicanal con resultados medibles
-                                </List.Item>
-                                <List.Item display="flex" alignItems="center">
-                                    <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
-                                    Consultoría personalizada para cada etapa de tu negocio
-                                </List.Item>
+                                {content.home.strategic_section.items.map((item, index) => (
+                                    <List.Item display="flex" alignItems="center" key={index}>
+                                        <List.Indicator as={FaCheckCircle} color="secondary.500" boxSize={5} mr={2} />
+                                        {item.title}
+                                    </List.Item>
+                                ))}
                             </List.Root>
 
                             <Button

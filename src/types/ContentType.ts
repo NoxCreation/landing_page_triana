@@ -15,6 +15,13 @@ export type ContentType = {
             title: string;
             description: string;
         }>,
+        strategic_section: {
+            title: string;
+            description: string,
+            items: Array<{
+                title: string
+            }>
+        },
         how_we_work: Array<{
             icon: any;
             title: string;
