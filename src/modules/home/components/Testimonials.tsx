@@ -1,11 +1,15 @@
 'use client'
 
 import { Box, Heading, Text } from "@chakra-ui/react";
-import { testimonials } from "@/constants/home/testimonials";
 import TestimonialsCarousel from "@/components/Carrusel";
 import { Transition } from "@/components/Transition";
+import { ContentType } from "@/types/ContentType";
 
-export default function Testimonials() {
+export default function Testimonials({
+    content
+}: {
+    content: ContentType
+}) {
     return (
         <Box w="100%" bg="gray.50" py={16} px={4}>
             <Box maxW="1440px" mx="auto">
@@ -38,7 +42,7 @@ export default function Testimonials() {
                 <Box maxW="1120px" m="auto" >
                     <Transition type="rigth" velocity="slow" >
                         <TestimonialsCarousel
-                            testimonials={testimonials}
+                            testimonials={content.testimonies.testimonies}
                         />
                     </Transition>
                 </Box>

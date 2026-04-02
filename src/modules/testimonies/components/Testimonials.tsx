@@ -1,11 +1,16 @@
 "use client"
 
 import { Box, Grid, Heading, Image, Text } from "@chakra-ui/react";
-import { testimonials } from "@/constants/home/testimonials";
 import TestimonialCard from "@/components/cards/CardTestimonies";
 import { Transition } from "@/components/Transition";
+import { ContentType } from "@/types/ContentType";
 
-export default function Testimonials() {
+export default function Testimonials({
+    content
+}: {
+    content: ContentType
+}) {
+
     return (
         <Box w="100%" bg="gray.50" py={32} px={4}>
             <Box maxW="1200px" mx="auto">
@@ -21,7 +26,7 @@ export default function Testimonials() {
                                 lineHeight="70px"
                                 letterSpacing="0px"
                             >
-                                Lo que dicen nuestros clientes
+                                {content.testimonies.main_title}
                             </Heading>
 
                             <Image
@@ -42,7 +47,7 @@ export default function Testimonials() {
                             lineHeight="22px"
                             letterSpacing="0px"
                         >
-                            Testimonios de clientes que hablan por nuestro trabajo
+                            {content.testimonies.main_subtitle}
                         </Text>
                     </Transition>
                 </Box>
@@ -53,13 +58,13 @@ export default function Testimonials() {
                     maxW="1120px"
                     m="auto"
                 >
-                    {testimonials.map((testimonial, index) => (
+                    {content.testimonies.testimonies.filter(e => e.publish).map((testimonial, index) => (
                         <Transition key={index} type="bootom" velocity="slow" index={index}>
                             <TestimonialCard
-                                text={testimonial.text}
                                 name={testimonial.name}
-                                role={testimonial.role}
-                                image={testimonial.image}
+                                role={testimonial.position}
+                                text={testimonial.comment}
+                                image={"/avatar.svg"}
                             />
                         </Transition>
                     ))}

@@ -20,7 +20,7 @@ export default async function HomeIndex({
             <Need content={content} />
             <Service content={content}/>
             <HowWeWork content={content}/>
-            <Testimonials />
+            <Testimonials content={content}/>
             <LeadForm />
         </div>
     );
