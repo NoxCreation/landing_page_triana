@@ -1,11 +1,28 @@
 "use client"
+import HtmlRenderer from "@/components/htmlRenderer";
 import { Transition } from "@/components/Transition";
-import { Box, Grid, Heading, Text, Badge, VStack, HStack, Button, Separator, Icon } from "@chakra-ui/react";
+import { ServiceType } from "@/types/ServiceType";
+import { Box, Grid, Heading, Text, VStack, HStack, Button, Separator, Icon, Stack } from "@chakra-ui/react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import Link from "next/link";
 
-export default function ServiceDetail() {
+export default function ServiceDetail({
+    service
+}: {
+    service: ServiceType
+}) {
+
+    const getFrequenzy = () => {
+        switch (service.type) {
+            case "weekly": return "Semanal";
+            case "diary": return "Diario";
+            case "monthly": return "Mensual";
+            case "session": return "Por Sesión";
+            case "single_payment": return "Pago Único";
+        }
+    }
+
     return (
         <Box bg="gray.50" w="100%" pt={24} pb={16} px={4}>
             <Box maxW="1440px">
@@ -43,52 +60,38 @@ export default function ServiceDetail() {
                                 color="primary.500"
                                 mb={4}
                             >
-                                Asesoramiento para la creación de Tienda en TikTok Shop
+                                {service.title}
                             </Heading>
                         </Transition>
 
                         <Transition type="bootom" velocity="slow">
-                            <HStack gap={3} mb={6}>
-                                <Box
-                                    px={3}
-                                    py={1}
-                                    borderRadius="full"
-                                    bg="#F6F1FF"
-                                    border="1px solid "
-                                    borderColor="primary.500"
-                                    color="purple.600"
-                                >
+                            <Grid
+                                templateColumns={{ base: "1fr", md: "repeat(2, auto)" }}
+                                gap={2}
+                                mb={5}
+                                justifyContent={{ base: "center", md: "start" }}
+                            >
+                                {service.tiquet.map((tag, index) => (
                                     <Text
-                                        color="primary.500"
-                                        fontWeight={400}
+                                        key={index}
+                                        px={4}
+                                        py={2}
+                                        borderRadius="full"
                                         fontSize="14px"
+                                        fontWeight="400"
                                         lineHeight="20px"
                                         letterSpacing="0px"
+                                        bg={tag.variant === "primary" ? "terciary.500" : "#F5F3FF"}
+                                        color={tag.variant === "primary" ? "white" : "primary.500"}
+                                        border={tag.variant === "outline" ? "1px solid" : "none"}
+                                        borderColor="primary.500"
+                                        textAlign="center"
+                                        whiteSpace="nowrap"
                                     >
-                                        Emprendedores
+                                        {tag.label}
                                     </Text>
-                                </Box>
-
-                                <Box
-                                    px={3}
-                                    py={1}
-                                    borderRadius="full"
-                                    bg="#F6F1FF"
-                                    border="1px solid "
-                                    borderColor="primary.500"
-                                    color="purple.600"
-                                >
-                                    <Text
-                                        color="primary.500"
-                                        fontWeight={400}
-                                        fontSize="14px"
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                    >
-                                        Negocio digital
-                                    </Text>
-                                </Box>
-                            </HStack>
+                                ))}
+                            </Grid>
                         </Transition>
 
                         <Transition type="left" velocity="slow">
@@ -100,76 +103,29 @@ export default function ServiceDetail() {
                                 letterSpacing="0px"
                                 mb={6}
                             >
-                                Este Servicio está enfocado en personas y marcas que quieren vender
-                                productos físicos en TikTok Shop, solo en Estados Unidos.
+                                <HtmlRenderer>
+                                    {service.description}
+                                </HtmlRenderer>
                             </Text>
                         </Transition>
 
-                        <Transition type="top" velocity="slow">
-                            <Heading
-                                color="primary.500"
-                                fontFamily="inter"
-                                fontSize="20px"
-                                lineHeight="24px"
-                                letterSpacing="-0.2px"
-                                fontWeight="700"
-                                mb={3}
-                            >
-                                A quienes va dirigido
-                            </Heading>
-                        </Transition>
+                        <Stack gap={8}>
+                            <Points
+                                items={service.include}
+                                label={"Incluye"}
+                            />
 
-                        <Transition type="left" velocity="slow">
-                            <Text
-                                color="#717171"
-                                fontWeight={400}
-                                fontSize="14px"
-                                lineHeight="20px"
-                                letterSpacing="0px"
-                                mb={6}
-                            >
-                                Este Servicio NO es para restaurantes ni negocios de comida. Está
-                                dirigido a la venta de productos físicos como ropa, zapatos,
-                                accesorios u otros artículos permitidos por TikTok Shop.
-                            </Text>
-                        </Transition>
+                            <Points
+                                items={service.notInclude}
+                                label={"No Incluye"}
+                            />
 
-                        <Transition type="top" velocity="slow">
-                            <Heading
-                                color="primary.500"
-                                fontFamily="inter"
-                                fontSize="20px"
-                                lineHeight="24px"
-                                letterSpacing="-0.2px"
-                                fontWeight="700"
-                                mb={3}
-                            >
-                                Requisitos para EE.UU.
-                            </Heading>
-                        </Transition>
+                            <Points
+                                items={service.requirement}
+                                label={service.requireLabel}
+                            />
+                        </Stack>
 
-                        <Transition type="bootom" velocity="slow">
-                            <VStack align="start" gap={3}>
-                                {[
-                                    "Dirección válida en Estados Unidos",
-                                    "Documentos legales (licencia, SSN, etc.)",
-                                    "Cuenta personal o empresa (LLC)"
-                                ].map((item, i) => (
-                                    <HStack key={i}>
-                                        <Icon as={TripOriginIcon} color="terciary.500" />
-                                        <Text
-                                            color="#717171"
-                                            fontWeight={400}
-                                            fontSize="14px"
-                                            lineHeight="20px"
-                                            letterSpacing="0px"
-                                        >
-                                            {item}
-                                        </Text>
-                                    </HStack>
-                                ))}
-                            </VStack>
-                        </Transition>
                     </Box>
 
                     <Transition type="rigth" velocity="slow">
@@ -192,7 +148,7 @@ export default function ServiceDetail() {
                                 letterSpacing="0px"
                                 mb={1}
                             >
-                                $250
+                                ${service.price}
                             </Heading>
 
                             <Text
@@ -204,81 +160,34 @@ export default function ServiceDetail() {
                                 letterSpacing="0px"
                                 mb={4}
                             >
-                                pago único
+                                {getFrequenzy()}
                             </Text>
 
-                            <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} />
 
-                            <Text
-                                fontWeight="600"
-                                color="#3F3F3F"
-                                fontSize="18px"
-                                lineHeight="22px"
-                                letterSpacing="0px"
-                                mb={3}
-                            >
-                                Incluye:
-                            </Text>
+                            {service.include.length > 0 && <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} />}
 
-                            <VStack align="start" gap={3} mb={4}>
-                                <HStack>
-                                    <Icon as={CheckCircleIcon} color="terciary.500" />
-                                    <Text
-                                        color="#717171"
-                                        fontWeight={400}
-                                        fontSize="14px"
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                    >
-                                        Creación completa de la tienda TikTok Shop.
-                                    </Text>
-                                </HStack>
+                            <Points
+                                items={service.include}
+                                label={"Incluye"}
+                            />
 
-                                <HStack>
-                                    <Icon as={CheckCircleIcon} color="terciary.500" />
-                                    <Text
-                                        color="#717171"
-                                        fontWeight={400}
-                                        fontSize="14px"
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                    >
-                                        No importa si no tienes TikTok Shop, yo la creo desde cero
-                                    </Text>
-                                </HStack>
-                            </VStack>
+                            {service.notInclude.length > 0 && <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} mt={4} />}
 
-                            <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} />
+                            <Points
+                                items={service.notInclude}
+                                label={"No Incluye"}
+                            />
 
-                            <Text
-                                fontWeight="600"
-                                color="#3F3F3F"
-                                fontSize="18px"
-                                lineHeight="22px"
-                                letterSpacing="0px"
-                            >Asesoría para empezar a vender</Text>
-                            <Text
-                                fontWeight={700}
-                                fontSize="20px"
-                                lineHeight="24px"
-                                letterSpacing="0px"
-                                color="#3F3F3F"
-                                mb={4}
-                            >
-                                $50
-                                <Text
-                                    as="span"
-                                    color="#717171"
-                                    fontWeight={400}
-                                    fontSize="14px"
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
-                                    mb={4}
-                                >
-                                    {" "}se añade al precio del servicio
-                                </Text>
-                            </Text>
+                            {service.requirement.length > 0 && <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} mt={4} />}
 
+                            <Points
+                                items={service.requirement}
+                                label={service.requireLabel}
+                            />
+
+                            <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} mt={4} />
+
+                            {/* TODO: Hay que realizar la funcionalidad de pago y la validacion de cuando se hace cotizacion y cuando no */}
                             <Transition type="bootom" velocity="slow">
                                 <VStack gap={3}>
                                     <Button
@@ -324,4 +233,51 @@ export default function ServiceDetail() {
             </Box>
         </Box>
     );
+}
+
+const Points = ({
+    items,
+    label
+}: {
+    items: Array<string>
+    label: string
+}) => {
+    return (
+        <>
+            {items.length > 0 && <Stack>
+                <Transition type="top" velocity="slow">
+                    <Heading
+                        color="primary.500"
+                        fontFamily="inter"
+                        fontSize="20px"
+                        lineHeight="24px"
+                        letterSpacing="-0.2px"
+                        fontWeight="700"
+                        mb={3}
+                    >
+                        {label}
+                    </Heading>
+                </Transition>
+
+                <Transition type="bootom" velocity="slow">
+                    <VStack align="start" gap={3}>
+                        {items.map((item, i) => (
+                            <HStack key={i}>
+                                <Icon as={TripOriginIcon} color="terciary.500" />
+                                <Text
+                                    color="#717171"
+                                    fontWeight={400}
+                                    fontSize="14px"
+                                    lineHeight="20px"
+                                    letterSpacing="0px"
+                                >
+                                    {item}
+                                </Text>
+                            </HStack>
+                        ))}
+                    </VStack>
+                </Transition>
+            </Stack>}
+        </>
+    )
 }

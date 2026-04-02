@@ -2,30 +2,41 @@
 
 import { Box, Flex, Grid, Heading, Text, Image } from "@chakra-ui/react";
 import CategorySelector from "./CategoryFilter";
-import { services } from "@/constants/service/cards";
 import { useEffect, useState } from "react";
 import { CardService } from "@/components/cards/CardService";
 import { Transition } from "@/components/Transition";
+import { ContentType } from "@/types/ContentType";
 
-export default function ServiceSection() {
+export default function ServiceSection({
+    content
+}: {
+    content: ContentType
+}) {
 
-    const [category, setCategory] = useState("all");
+    const [category, setCategory] = useState("Todos");
     const [servicesFil, setServicesFil] = useState([])
+
+    const getTabs = () => {
+        const labels = content.services.services
+            .map(e => e.tiquet.map(a => a.label))
+            .reduce((p, c) => [...p, ...c], []);
+
+        return ["Todos", ...new Set(labels)];        
+    }
 
     const handleCategoryChange = (value) => {
         setCategory(value);
     };
 
     useEffect(() => {
-        const filteredServices = services.filter(service => {
-            if (category === "all") return true;
+        const filteredServices = content.services.services.filter(service => {
+            if (category === "Todos") return true;
 
             return service.tiquet.some(t =>
-                t.value.toLowerCase() === category.toLowerCase()
+                t.label.toLowerCase() === category.toLowerCase()
             );
         });
         setServicesFil(filteredServices)
-        console.log(category)
     }, [category])
 
     return (
@@ -44,7 +55,7 @@ export default function ServiceSection() {
                                 letterSpacing="0px"
                                 w={'fit-content'}
                             >
-                                Servicios de Marketing y Consultoría
+                                {content.services.main_title}
                             </Heading>
 
                             <Image
@@ -64,8 +75,7 @@ export default function ServiceSection() {
                             fontWeight={400}
                             textAlign={'center'}
                         >
-                            Nos hacemos cargo desde que se abre el proyecto hasta que hacemos entrega de
-                            las llaves del local, además te ayudamos a crecer tu negocio desde lo digital
+                            {content.services.main_subtitle}
                         </Text>
                     </Transition>
                 </Box>
@@ -75,7 +85,7 @@ export default function ServiceSection() {
                     w="fit-content"
                     pb={10}
                 >
-                    <CategorySelector onChange={handleCategoryChange} />
+                    <CategorySelector tabs={getTabs()} onChange={handleCategoryChange} />
                 </Box>
 
                 <Grid
@@ -91,16 +101,16 @@ export default function ServiceSection() {
                             <CardService
                                 title={service.title}
                                 tiquets={service.tiquet as any}
-                                require={service.require}
+                                require={service.requireLabel}
                                 requirements={service.requirement}
                                 includes={service.include}
                                 notIncludes={service.notInclude}
                                 payment={{
-                                    label: service.before,
+                                    label: "",
                                     price: service.price,
-                                    frequency: service.frequency
+                                    frequency: service.type
                                 } as any}
-                                href={"/service/detail"}
+                                href={`/service/detail/${service.id}`}
                             />
                         </Transition>
                     ))}

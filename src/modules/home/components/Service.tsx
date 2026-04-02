@@ -1,12 +1,16 @@
 'use client'
 
 import { Box, Grid, Heading, Text } from "@chakra-ui/react";
-import { services } from "@/constants/service/cards";
 import Link from "next/link";
 import { Transition } from "@/components/Transition";
 import { CardService } from "@/components/cards/CardService";
+import { ContentType } from "@/types/ContentType";
 
-export default function Service() {
+export default function Service({
+    content
+}: {
+    content: ContentType
+}) {
     return (
         <Box w="100%" bg="gray.50" py={16} px={4}>
             <Box maxW="1200px" mx="auto">
@@ -30,19 +34,19 @@ export default function Service() {
                     gap={6}
                     mb={10}
                 >
-                    {services.slice(0, 3).map((service, index) => (
+                    {content.services.services.slice(0, 3).map((service, index) => (
                         <Transition type="left" velocity="slow" key={index} index={index * 2}>
                             <CardService
                                 title={service.title}
                                 tiquets={service.tiquet as any}
-                                require={service.require}
+                                require={service.requireLabel}
                                 requirements={service.requirement}
                                 includes={service.include}
                                 notIncludes={service.notInclude}
                                 payment={{
-                                    label: service.before,
+                                    label: "",
                                     price: service.price,
-                                    frequency: service.frequency
+                                    frequency: service.type
                                 } as any}
                                 href={"/service/detail"}
                             />
