@@ -14,7 +14,7 @@ export default function Service({
 }) {
     return (
         <ContainerLanding bg="gray.50">
-            <Stack gap={4}>
+            <Stack gap={4} py={10}>
                 <Transition type="top" velocity="slow">
                     <Box textAlign="center">
                         <Heading
