@@ -11,7 +11,7 @@ export default function Need({
     content: ContentType
 }) {
     return (
-        <Box bg="terciary.500" px={{ base: 4, md: 8 }} position={"relative"} overflow={"hidden"} h={'100vh'} alignContent={'center'}>
+        <Box bg="terciary.500" px={{ base: 6, md: 8 }} position={"relative"} overflow={"hidden"} minH={'100vh'} pt={{ base: 12, md: 0 }} alignContent={'center'}>
 
             {/* Círculo grande */}
             <Box
@@ -60,6 +60,7 @@ export default function Need({
                             objectFit="contain"
                             maxH="500px"
                             w="full"
+                            borderRadius={{ base: 'inherit', md: 'full' }}
                         />
                     </Transition>
                 </GridItem>

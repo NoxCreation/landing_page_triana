@@ -185,7 +185,7 @@ export default function Hero({
                             />
 
                             <StatAnimate
-                                value={content.home.stats.years_of_experience}
+                                value={content.home.stats.satisfied_customers}
                                 label="Clientes Satisfechos"
                             />
 
@@ -250,14 +250,14 @@ export default function Hero({
                     </Stack>
 
                     <Transition type="rigth" velocity="slow" index={1}>
-                        <Stack zIndex={5}>
+                        <Stack zIndex={5} p={4}>
                             <Image
                                 zIndex={5}
                                 src="/home/Hero.webp"
                                 alt="mujer sonriente"
                                 w="100%"
                                 h="100%"
-                                borderRadius="99px"
+                                borderRadius="full"
                                 objectFit="cover"
                             />
                         </Stack>
