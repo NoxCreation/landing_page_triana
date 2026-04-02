@@ -10,8 +10,8 @@ export default function ServiceIndex({
 }) {
     return (
         <Stack gap={0}>
-            <ServiceSection content={content}/>
-            <Clarifications />
+            <ServiceSection content={content} />
+            <Clarifications content={content} />
         </Stack>
     )
 }

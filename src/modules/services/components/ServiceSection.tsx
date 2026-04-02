@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { CardService } from "@/components/cards/CardService";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
+import { SparklesText } from "@/components/Sparkle";
 
 export default function ServiceSection({
     content
@@ -21,7 +22,7 @@ export default function ServiceSection({
             .map(e => e.tiquet.map(a => a.label))
             .reduce((p, c) => [...p, ...c], []);
 
-        return ["Todos", ...new Set(labels)];        
+        return ["Todos", ...new Set(labels)];
     }
 
     const handleCategoryChange = (value) => {
@@ -45,18 +46,21 @@ export default function ServiceSection({
                 <Box justifyItems="center" mb={10}>
                     <Transition type="top" velocity="slow">
                         <Flex w={'fit-content'}>
-                            <Heading
-                                as="h1"
-                                color="primary.500"
-                                fontWeight={800}
-                                fontFamily="Bricolage Grotesque"
-                                fontSize={{ base: "28px", md: "40px", lg: "54px" }}
-                                lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                                letterSpacing="0px"
-                                w={'fit-content'}
-                            >
-                                {content.services.main_title}
-                            </Heading>
+                            <SparklesText sparklesCount={15}>
+                                <Heading
+                                    as="h1"
+                                    color="primary.500"
+                                    fontWeight={800}
+                                    fontFamily="Bricolage Grotesque"
+                                    fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                    lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                                    letterSpacing="0px"
+                                    w={'fit-content'}
+                                    textAlign={'center'}
+                                >
+                                    {content.services.main_title}
+                                </Heading>
+                            </SparklesText>
 
                             <Image
                                 src="/home/Vector.ico"
