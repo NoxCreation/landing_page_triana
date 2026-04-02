@@ -1,10 +1,11 @@
 'use client'
 
-import { Box, Button, Center, Flex, Grid, Heading, Image, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Grid, Heading, Image, Stack, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { Transition } from "@/components/Transition";
 import InfoCard from "@/components/cards/InfoCard";
 import { FaArrowRight } from "react-icons/fa";
 import { ContentType } from "@/types/ContentType";
+import { ContainerLanding } from "@/components/container";
 
 export default function Differentiation({
     content
@@ -14,7 +15,7 @@ export default function Differentiation({
     const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
 
     return (
-        <Box w={"100%"} bg="white" color="black" minH={"100vh"}>
+        <Stack gap={0} minH={"100vh"}>
             <Transition type="top" velocity="slow" index={1}>
                 <Flex
                     w="100%"
@@ -50,90 +51,92 @@ export default function Differentiation({
                 </Flex>
             </Transition>
 
-            <Box
-                as="section"
-                py={{ base: 12, md: 16, lg: 24 }}
-                px={{ base: 4, md: 6, lg: 8 }}
-                bg="white"
-            >
-                <VStack gap={{ base: 10, md: 12 }} maxW="1200px" mx="auto">
-                    {/* Encabezado */}
-                    <Transition type="bootom" velocity={animationVelocity as any} index={1}>
-                        <VStack gap={4} textAlign="center">
-                            <Heading
-                                as="h2"
-                                color="primary.500"
-                                fontFamily="Bricolage Grotesque"
-                                fontWeight="extrabold"
-                                fontSize={{ base: "28px", md: "40px", lg: "54px" }}
-                                lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                            >
-                                ¿Por qué elegir 3ana Marqueting?
-                            </Heading>
-                            <Text
-                                as="h3"
-                                fontFamily="Inter"
-                                fontWeight="400"
-                                fontSize={{ base: "14px", md: "16px", lg: "18px" }}
-                                lineHeight="1.5"
-                                color="gray.400"
-                                maxW="600px"
-                                mx="auto"
-                            >
-                                Te adelantamos algunos de los servicios que podemos ofrecerte
-                            </Text>
-                        </VStack>
-                    </Transition>
+            <ContainerLanding bg="white" color="black">
+                <Box
+                    as="section"
+                    py={{ base: 12, md: 16, lg: 24 }}
+                    px={{ base: 4, md: 6, lg: 8 }}
+                    bg="white"
+                >
+                    <VStack gap={{ base: 10, md: 12 }} maxW="1200px" mx="auto">
+                        {/* Encabezado */}
+                        <Transition type="bootom" velocity={animationVelocity as any} index={1}>
+                            <VStack gap={0} textAlign="center">
+                                <Heading
+                                    as="h2"
+                                    color="primary.500"
+                                    fontFamily="Bricolage Grotesque"
+                                    fontWeight="extrabold"
+                                    fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                    lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                                >
+                                    ¿Por qué elegir 3ana Marqueting?
+                                </Heading>
+                                <Text
+                                    as="h3"
+                                    fontFamily="Inter"
+                                    fontWeight="400"
+                                    fontSize={{ base: "14px", md: "16px", lg: "18px" }}
+                                    lineHeight="1.5"
+                                    color="gray.400"
+                                    maxW="600px"
+                                    mx="auto"
+                                >
+                                    Te adelantamos algunos de los servicios que podemos ofrecerte
+                                </Text>
+                            </VStack>
+                        </Transition>
 
-                    {/* Grid de tarjetas */}
-                    <Grid
-                        templateColumns={{ base: "1fr", md: `repeat(${content.home.why_choose_me.length}, 1fr)` }}
-                        gap={{ base: 6, md: 8 }}
-                        w="100%"
-                        px={{ base: 2, md: 0 }}
-                    >
-                        {content.home.why_choose_me.map((card, index) => (
-                            <Transition
-                                key={index}
-                                type="bootom"
-                                velocity={animationVelocity as any}
-                                index={index*2}
-                            >
-                                <InfoCard
-                                    title={card.title}
-                                    description={card.description}
-                                    icon={card.icon}
-                                />
-                            </Transition>
-                        ))}
-                    </Grid>
-
-                    {/* Botón CTA */}
-                    <Center>
-                        <Button
-                            /* rightIcon={<FaArrowRight />} */
-                            px="24px"
-                            py="16px"
-                            borderRadius="99px"
-                            bg="primary.500"
-                            color="white"
-                            _hover={{
-                                bg: "primary.600",
-                                transform: "translateY(-2px)",
-                                boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
-                            }}
-                            _active={{
-                                transform: "scale(0.98)",
-                            }}
-                            transition="all 0.2s ease"
-                            aria-label="Comenzar ahora"
+                        {/* Grid de tarjetas */}
+                        <Grid
+                            templateColumns={{ base: "1fr", md: `repeat(${content.home.why_choose_me.length}, 1fr)` }}
+                            gap={{ base: 6, md: 8 }}
+                            w="100%"
+                            px={{ base: 2, md: 0 }}
                         >
-                            <FaArrowRight />
-                            Comenzar ahora
-                        </Button>
-                    </Center>
-                </VStack>
-            </Box>
-        </Box>
+                            {content.home.why_choose_me.map((card, index) => (
+                                <Transition
+                                    key={index}
+                                    type="bootom"
+                                    velocity={animationVelocity as any}
+                                    index={index * 2}
+                                >
+                                    <InfoCard
+                                        title={card.title}
+                                        description={card.description}
+                                        icon={card.icon}
+                                    />
+                                </Transition>
+                            ))}
+                        </Grid>
+
+                        {/* Botón CTA */}
+                        <Center>
+                            <Button
+                                /* rightIcon={<FaArrowRight />} */
+                                px="24px"
+                                py="16px"
+                                borderRadius="99px"
+                                bg="primary.500"
+                                color="white"
+                                _hover={{
+                                    bg: "primary.600",
+                                    transform: "translateY(-2px)",
+                                    boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                                }}
+                                _active={{
+                                    transform: "scale(0.98)",
+                                }}
+                                transition="all 0.2s ease"
+                                aria-label="Comenzar ahora"
+                            >
+                                <FaArrowRight />
+                                Comenzar ahora
+                            </Button>
+                        </Center>
+                    </VStack>
+                </Box>
+            </ContainerLanding>
+        </Stack>
     )
 }
