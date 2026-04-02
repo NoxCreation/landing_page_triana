@@ -1,9 +1,9 @@
 "use client"
+
 import HtmlRenderer from "@/components/htmlRenderer";
 import { Transition } from "@/components/Transition";
 import { ServiceType } from "@/types/ServiceType";
 import { Box, Grid, Heading, Text, VStack, HStack, Button, Separator, Icon, Stack } from "@chakra-ui/react";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import Link from "next/link";
 
