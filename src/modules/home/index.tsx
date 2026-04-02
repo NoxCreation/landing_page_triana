@@ -18,7 +18,7 @@ export default async function HomeIndex({
             <Hero content={content} />
             <Differentiation content={content}/>
             <Need content={content} />
-            <Service />
+            <Service content={content}/>
             <HowWeWork content={content}/>
             <Testimonials />
             <LeadForm />

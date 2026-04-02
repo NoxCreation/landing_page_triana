@@ -1,3 +1,5 @@
+import { ServiceType } from "./ServiceType";
+
 export type ContentType = {
     home: {
         main_title: string;
@@ -27,5 +29,10 @@ export type ContentType = {
             title: string;
             description: string;
         }>
+    },
+    services: {
+        main_title: string;
+        main_subtitle: string;
+        services: Array<ServiceType>
     }
 }

@@ -18,7 +18,7 @@ type Props = {
     payment: {
         label?: string;
         price: string,
-        frequency?: 'mes' | 'por sesión' | 'pago único'
+        frequency?: "weekly" | "diary" | "single_payment" | "session" | "monthly";
     }
     href: string
 }
@@ -33,6 +33,16 @@ export const CardService = ({
     payment,
     href
 }: Props) => {
+
+    const getFrequenzy = () => {
+        switch (payment.frequency) {
+            case "weekly": return "Semanal";
+            case "diary": return "Diario";
+            case "monthly": return "Mensual";
+            case "session": return "Por Sesión";
+            case "single_payment": return "Pago Único";
+        }
+    }
 
     return (
         <Link href={href}>
@@ -222,7 +232,7 @@ export const CardService = ({
                         {payment && <Text
                             as="h3"
                             fontSize="20px"
-                            color="gray.600"
+                            color="gray.400"
                             fontWeight={800}
                             fontFamily="inter"
                             lineHeight="32px"
@@ -247,13 +257,13 @@ export const CardService = ({
                                 <Text
                                     as="span"
                                     fontSize="20px"
-                                    color="gray.600"
+                                    color="gray.400"
                                     fontWeight={800}
                                     fontFamily="inter"
                                     lineHeight="32px"
                                     letterSpacing="0px"
                                 >
-                                    {payment.frequency}
+                                    {getFrequenzy()}
                                 </Text>
                             )}
                         </Stack>

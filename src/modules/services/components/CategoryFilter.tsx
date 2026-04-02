@@ -5,11 +5,15 @@ import { useState } from "react";
 import { Transition } from "@/components/Transition";
 
 interface CategorySelectorProps {
+    tabs: Array<string>;
     onChange?: (value: string) => void;
     defaultValue?: string;
 }
 
-export default function CategorySelector({ onChange, defaultValue = "all" }: CategorySelectorProps) {
+export default function CategorySelector({
+    tabs,
+    onChange, defaultValue = "Todos"
+}: CategorySelectorProps) {
     const [selected, setSelected] = useState(defaultValue);
 
     const handleChange = (value: string) => {
@@ -48,7 +52,12 @@ export default function CategorySelector({ onChange, defaultValue = "all" }: Cat
                     gap={0}
                 >
                     <Tabs.List display="flex" gap={0}>
-                        <Tabs.Trigger value="all" {...triggerStyles} px={5} py={3}>
+                        {tabs.map((tab, index) => (
+                            <Tabs.Trigger value={tab} {...triggerStyles} px={5} py={3}>
+                                <Text fontWeight="600">{tab}</Text>
+                            </Tabs.Trigger>
+                        ))}
+                        {/* <Tabs.Trigger value="all" {...triggerStyles} px={5} py={3}>
                             <Text fontWeight="600">Todos</Text>
                         </Tabs.Trigger>
 
@@ -78,7 +87,7 @@ export default function CategorySelector({ onChange, defaultValue = "all" }: Cat
                                 <Icon as={FaCalendarAlt} color="#A0A0A0" />
                                 <Text>Procesos legales</Text>
                             </Flex>
-                        </Tabs.Trigger>
+                        </Tabs.Trigger> */}
                     </Tabs.List>
                 </Flex>
             </Transition>
