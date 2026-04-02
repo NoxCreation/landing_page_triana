@@ -11,7 +11,7 @@ export default function Need({
     content: ContentType
 }) {
     return (
-        <Box bg="terciary.500" px={{ base: 4, md: 8 }} position={"relative"} overflow={"hidden"}>
+        <Box bg="terciary.500" px={{ base: 4, md: 8 }} position={"relative"} overflow={"hidden"} h={'100vh'} alignContent={'center'}>
 
             {/* Círculo grande */}
             <Box

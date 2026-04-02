@@ -14,7 +14,7 @@ export default function Differentiation({
     const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
 
     return (
-        <Box w={"100%"} bg="gray.50" color="black" minH={"100vh"}>
+        <Box w={"100%"} bg="white" color="black" minH={"100vh"}>
             <Transition type="top" velocity="slow" index={1}>
                 <Flex
                     w="100%"
