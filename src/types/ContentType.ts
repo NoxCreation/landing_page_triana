@@ -33,6 +33,7 @@ export type ContentType = {
     services: {
         main_title: string;
         main_subtitle: string;
-        services: Array<ServiceType>
+        services: Array<ServiceType>;
+        important_clarification: string;
     }
 }

@@ -1,9 +1,14 @@
 "use client"
 
 import { Transition } from "@/components/Transition";
-import { Box, Heading, List } from "@chakra-ui/react";
+import { ContentType } from "@/types/ContentType";
+import { Box, Heading } from "@chakra-ui/react";
 
-export default function Clarifications() {
+export default function Clarifications({
+    content
+}: {
+    content: ContentType
+}) {
     return (
         <Box w="100%" bg="#FDF2FF" py={20} px={4}>
             <Box maxW="1440px" mx="auto" textAlign="center">
@@ -26,38 +31,13 @@ export default function Clarifications() {
                         maxW="720px"
                         mx="auto"
                         textAlign="center"
+                        fontWeight={400}
+                        color="primary.500"
+                        fontSize="18px"
+                        lineHeight="22px"
+                        letterSpacing="0px"
                     >
-                        <List.Root
-                            gap={3}
-                            listStyleType="disc"
-                            textAlign="center"
-                            mx="auto"
-                            listStylePosition="inside"
-                            css={{
-                                "& li::marker": {
-                                    color: "var(--chakra-colors-primary-500)",
-                                },
-                            }}
-                        >
-                            <List.Item
-                                fontWeight={400}
-                                color="primary.500"
-                                fontSize="18px"
-                                lineHeight="22px"
-                                letterSpacing="0px"
-                            >
-                                Todos los servicios pueden contratarse de forma individual o combinada
-                            </List.Item>
-                            <List.Item
-                                fontWeight={400}
-                                color="primary.500"
-                                fontSize="18px"
-                                lineHeight="22px"
-                                letterSpacing="0px"
-                            >
-                                Los precios pueden ajustarse según alcance y complejidad
-                            </List.Item>
-                        </List.Root>
+                        {content.services.important_clarification}
                     </Box>
                 </Transition>
             </Box>
