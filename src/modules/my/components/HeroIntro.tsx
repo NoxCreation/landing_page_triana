@@ -1,12 +1,20 @@
 "use client"
 
+import { ContainerLanding } from "@/components/container";
+import HtmlRenderer from "@/components/htmlRenderer";
 import { Transition } from "@/components/Transition";
-import { Box, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
+import { ContentType } from "@/types/ContentType";
+import { Box, HStack, Stack, Text, Image } from "@chakra-ui/react";
 
-export default function HeroIntro() {
+export default function HeroIntro({
+    content
+}: {
+    content: ContentType
+}) {
+
     return (
-        <Box w="100%" py={16} px={4} bg="#F3A0FF0D" minH={{ base: 'auto', md: '100vh' }} display={'flex'} alignItems={'center'}>
-            <Box mx="auto">
+        <ContainerLanding>
+            <Stack gap={16}>
 
                 <Transition type="top" velocity="slow">
                     <Stack textAlign="center" gap={6}>
@@ -17,15 +25,11 @@ export default function HeroIntro() {
                         <Text
                             fontSize={{ base: "22px", md: "30px" }}
                             color="#3F3F3F"
-                            maxW="926px"
                             fontWeight={500}
                             letterSpacing="-0.5px"
                             mx="auto"
                         >
-                            Todo comenzó cuando abrí mi primer negocio y me di cuenta de lo
-                            difícil que era navegar el mundo del emprendimiento solo. Los
-                            errores costosos, la falta de claridad y la sensación de estar
-                            perdido fueron mi motivación para crear Triana Marketing.
+                            {content.my.quote}
                         </Text>
                         <Box>
                             <Text
@@ -36,7 +40,7 @@ export default function HeroIntro() {
                                 letterSpacing="-0.5px"
                                 fontStyle="italic"
                             >
-                                — Triana Apellido, CEO of 3ana
+                                — {content.my.fullname}, CEO of 3ana
                             </Text>
                         </Box>
                         <HStack justify="end" gap={{ base: 0, md: 2 }}>
@@ -46,37 +50,21 @@ export default function HeroIntro() {
                     </Stack>
                 </Transition>
 
-                <Box textAlign="center" mt={8}>
-                    <Transition type="top" velocity="slow">
-                        <Heading
-                            as="h2"
-                            fontSize={{ base: "4xl", md: "36px" }}
-                            fontWeight={800}
-                            fontFamily="Bricolage Grotesque"
-                            lineHeight="40px"
-                            letterSpacing="0px"
-                            color="#3F3F3F"
-                            mb={4}
-                        >
-                            Y ahora...
-                        </Heading>
-                    </Transition>
-                    <Transition type="left" velocity="slow">
-                        <Text
-                            fontSize={{ base: "18px", md: "18px" }}
-                            color="#717171"
-                            fontWeight={400}
-                            letterSpacing="0px"
-                            maxW="1120px"
-                            mx="auto"
-                        >
-                            Despúes de años ayudando a negocios a crecer, desarrollé una metodología
-                            única: estrategias + acción + acompañamiento. No creo en la teoria sin
-                            práctica, ni en los planes que se queden en el papel
-                        </Text>
-                    </Transition>
-                </Box>
-            </Box>
-        </Box>
+                <Transition type="left" velocity="slow">
+                    <Text
+                        fontSize={{ base: "18px", md: "18px" }}
+                        color="#717171"
+                        fontWeight={400}
+                        letterSpacing="0px"
+                        mx="auto"
+                        textAlign={'justify'}
+                    >
+                        <HtmlRenderer>
+                            {content.my.full_description}
+                        </HtmlRenderer>
+                    </Text>
+                </Transition>
+            </Stack>
+        </ContainerLanding>
     );
 }

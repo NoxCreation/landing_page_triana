@@ -1,10 +1,11 @@
 'use client'
 
-import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, Heading, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { Transition } from "@/components/Transition";
 import { CardService } from "@/components/cards/CardService";
 import { ContentType } from "@/types/ContentType";
+import { ContainerLanding } from "@/components/container";
 
 export default function Service({
     content
@@ -12,10 +13,10 @@ export default function Service({
     content: ContentType
 }) {
     return (
-        <Box w="100%" bg="gray.50" py={16} px={4}>
-            <Box maxW="1200px" mx="auto">
+        <ContainerLanding bg="gray.50">
+            <Stack gap={4}>
                 <Transition type="top" velocity="slow">
-                    <Box textAlign="center" mb={10}>
+                    <Box textAlign="center">
                         <Heading
                             as="h1"
                             color="gray.600"
@@ -86,7 +87,7 @@ export default function Service({
                         </Text>
                     </Box>
                 </Link>
-            </Box>
-        </Box >
+            </Stack>
+        </ContainerLanding>
     );
 }

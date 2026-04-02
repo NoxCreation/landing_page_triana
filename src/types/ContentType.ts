@@ -37,6 +37,23 @@ export type ContentType = {
         services: Array<ServiceType>;
         important_clarification: string;
     },
+    my: {
+        label: string;
+        fullname: string;
+        mini_description: string;
+        contact: {
+            linkedln: string;
+            tittok: string;
+            email: string;
+        },
+        quote: string;
+        full_description: string;
+        philosophy: Array<{
+            icon: any;
+            title: string;
+            description: string;
+        }>
+    },
     testimonies: {
         main_title: string;
         main_subtitle: string;

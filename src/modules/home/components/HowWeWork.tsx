@@ -1,9 +1,10 @@
 'use client'
 
-import { Box, Flex, List, ListItem, Text, Heading, Image, Icon } from "@chakra-ui/react";
+import { Box, Flex, List, ListItem, Text, Heading, Image, Icon, Stack } from "@chakra-ui/react";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
 import * as FeatherIcons from "react-icons/fi";
+import { ContainerLanding } from "@/components/container";
 
 export default function HowWeWork({
     content
@@ -11,63 +12,57 @@ export default function HowWeWork({
     content: ContentType
 }) {
     return (
-        <Flex py={{ base: 10, md: 12, lg: "80px" }} px={{ base: 4, md: 8, lg: "160px" }} align="center" h={"100vh"} justify="space-between" mx="auto" flexDirection={{ base: "column", lg: "row" }} gap={{ base: 8, lg: 0 }}>
-            <Transition type="left" velocity="slow">
-                <Box flex="1" minW={0} alignItems="start">
-                    <Heading
-                        as="h1"
-                        fontFamily="Bricolage Grotesque"
-                        color="#3F3F3F"
-                        mb={4}
-                        fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
-                        fontWeight={800}
-                        lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                        letterSpacing="0px"
-                        textAlign={'center'}
-                    >
-                        Cómo trabajamos juntos
-                    </Heading>
+        <ContainerLanding bg="white">
+            <Flex align="center" flexDirection={{ base: "column", lg: "row" }} gap={{ base: 8, lg: 0 }}>
+                <Transition type="left" velocity="slow">
+                    <Box flex="1" alignItems="start">
+                        <Heading
+                            as="h1"
+                            fontFamily="Bricolage Grotesque"
+                            color="#3F3F3F"
+                            mb={4}
+                            fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
+                            fontWeight={800}
+                            lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                            letterSpacing="0px"
+                            textAlign={'center'}
+                        >
+                            Cómo trabajamos juntos
+                        </Heading>
 
-                    <List.Root gap={6}>
-                        {content.home.how_we_work.map((it, index) => (
-                            <Point
-                                key={index}
-                                icon={it.icon}
-                                title={it.title}
-                                description={it.description}
-                            />
-                        ))}
-                    </List.Root>
-                </Box>
-            </Transition>
+                        <List.Root gap={6}>
+                            {content.home.how_we_work.map((it, index) => (
+                                <Point
+                                    key={index}
+                                    icon={it.icon}
+                                    title={it.title}
+                                    description={it.description}
+                                />
+                            ))}
+                        </List.Root>
+                    </Box>
+                </Transition>
 
-            <Transition type="rigth" velocity="slow">
-                <Box
+                <Stack
                     flex={1}
-                    w={{ base: "100%", lg: "400px" }}
-                    h={{ base: "400px", lg: "600px" }}
-                    borderRadius="99px"
-                    background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
-                    position="relative"
-                    overflow="hidden"
-                    mx={{ base: "auto", lg: "0" }}
+                    w={'100%'}
+                    alignItems={'end'}
                 >
-                    <Image
-                        src="/home/proces.webp"
-                        alt="Foto derecha"
-                        maxW="420px"
-                        w="100%"
-                        left="-100px"
-                        borderRadius="2xl"
-                        position="absolute"
-                        bottom="0"
-                        transform="translateX(100px)"
-                        zIndex="1"
-                    />
-                </Box>
-            </Transition>
+                    <Transition type="rigth" velocity="slow">
+                        <Image
+                            src="/home/proces.webp"
+                            alt="Foto derecha"
+                            maxW="420px"
+                            w="100%"
+                            borderRadius="2xl"
+                            bottom="0"
+                            zIndex="1"
+                        />
+                    </Transition>
+                </Stack>
 
-        </Flex>
+            </Flex>
+        </ContainerLanding>
     );
 }
 

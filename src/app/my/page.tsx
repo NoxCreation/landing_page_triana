@@ -1,7 +1,14 @@
+import { getContent } from "@/lib/content";
 import MyIndex from "@/modules/my";
+import { redirect } from 'next/navigation';
 
-export default function My() {
+export const dynamic = 'force-dynamic';
+
+export default async function My() {
+    let content = await getContent()
+    if (!content) redirect("/500")
+
     return (
-        <MyIndex />
+        <MyIndex content={content} />
     )
 }
