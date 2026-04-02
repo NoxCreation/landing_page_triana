@@ -7,7 +7,7 @@ import { Transition } from "@/components/Transition";
 
 export default function Testimonials() {
     return (
-        <Box w="100%" bg="#FDF2F8" py={16} px={4}>
+        <Box w="100%" bg="gray.50" py={16} px={4}>
             <Box maxW="1440px" mx="auto">
                 <Transition type="top" velocity="slow">
                     <Box textAlign="center" mb={12}>
