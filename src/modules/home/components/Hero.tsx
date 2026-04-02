@@ -40,10 +40,10 @@ export default function Hero({
                 />
             </Stack>
 
-            <ContainerLanding>
+            <ContainerLanding zIndex={2}>
                 <Flex
                     gap={20}
-                    flexDirection={{ base: "column", lg: "row" }} minH={"100vh"} align={"center"}>
+                    flexDirection={{ base: "column", lg: "row" }} align={"center"}>
                     <Box flex={1} textAlign={{ base: "center", md: "left" }}>
                         <Flex
                             direction="column"

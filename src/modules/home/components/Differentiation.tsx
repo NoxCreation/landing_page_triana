@@ -15,7 +15,7 @@ export default function Differentiation({
     const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
 
     return (
-        <Stack gap={0} minH={"100vh"}>
+        <Stack gap={0} minH={"100vh"} position={'relative'}>
             <Transition type="top" velocity="slow" index={1}>
                 <Flex
                     w="100%"
@@ -51,10 +51,9 @@ export default function Differentiation({
                 </Flex>
             </Transition>
 
-            <ContainerLanding bg="white" color="black">
+            <ContainerLanding bg="white" color="black" py={20}>
                 <Box
                     as="section"
-                    py={{ base: 12, md: 16, lg: 24 }}
                     px={{ base: 4, md: 6, lg: 8 }}
                     bg="white"
                 >
