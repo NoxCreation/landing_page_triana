@@ -89,10 +89,9 @@ export default function Differentiation({
 
                         {/* Grid de tarjetas */}
                         <Grid
-                            templateColumns={{ base: "1fr", md: `repeat(${content.home.why_choose_me.length}, 1fr)` }}
+                            templateColumns={{ base: "1fr", md: "repeat(4, 1fr)" }}
                             gap={{ base: 6, md: 8 }}
                             w="100%"
-                            px={{ base: 2, md: 0 }}
                         >
                             {content.home.why_choose_me.map((card, index) => (
                                 <Transition

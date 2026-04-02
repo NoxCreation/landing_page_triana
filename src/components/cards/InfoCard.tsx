@@ -1,5 +1,6 @@
-import { BoxProps, Card, Icon } from "@chakra-ui/react";
+import { BoxProps, Card, Icon, Circle } from "@chakra-ui/react";
 import * as FeatherIcons from "react-icons/fi";
+import { useMemo } from "react";
 
 type InfoCardProps = {
     title: string;
@@ -13,11 +14,17 @@ export default function InfoCard({
     icon,
     ...props
 }: InfoCardProps) {
-    // Obtener el componente del ícono si existe
     const IconComponent = icon && FeatherIcons[icon as keyof typeof FeatherIcons];
+
+    // Generar un color aleatorio (HSL) al montar el componente
+    const randomColor = useMemo(() => {
+        const hue = Math.floor(Math.random() * 360);
+        return `hsl(${hue}, 70%, 60%)`;
+    }, []);
 
     return (
         <Card.Root
+            position="relative"
             bg="white"
             border="2px solid"
             borderColor="gray.100"
@@ -25,23 +32,31 @@ export default function InfoCard({
             borderTopRightRadius="3xl"
             borderBottomLeftRadius="0"
             borderBottomRightRadius="3xl"
+            overflow="visible"
             {...props}
         >
+            {IconComponent && (
+                <Circle
+                    position="absolute"
+                    top="-25px"
+                    left="50%"
+                    transform="translateX(-50%)"
+                    size="50px"
+                    bg={randomColor}
+                    color="white"
+                    zIndex={1}
+                >
+                    <Icon as={IconComponent} boxSize={5} />
+                </Circle>
+            )}
             <Card.Body
                 gap="2"
                 textAlign="center"
                 alignItems="center"
                 color="black"
                 p="8"
+                pt={IconComponent ? "12" : "8"}
             >
-                {IconComponent && (
-                    <Icon
-                        as={IconComponent}
-                        boxSize={10}
-                        color="primary.500"
-                        mb={2}
-                    />
-                )}
                 <Card.Title
                     fontFamily="Inter"
                     fontWeight="800"
