@@ -58,5 +58,22 @@ export type ContentType = {
         main_title: string;
         main_subtitle: string;
         testimonies: Array<TestimoniesType>
+    },
+    contact: {
+        main_title: string;
+        main_subtitle: string;
+        contact: {
+            address: string;
+            phone: string;
+            email: string;
+            hours: string;
+        },
+        social: {
+            linkedln: string;
+            tiktok: string;
+            facebook: string;
+            instagram: string;
+            youtube: string;
+        }
     }
 }

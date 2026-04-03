@@ -34,6 +34,7 @@ import { DotPattern } from '@/components/DotPattern';
 import { ContainerLanding } from '@/components/container';
 import { Transition } from '@/components/Transition';
 import { SparklesText } from '@/components/Sparkle';
+import { ContentType } from "@/types/ContentType";
 
 type FormValues = {
     name: string;
@@ -41,7 +42,11 @@ type FormValues = {
     message: string;
 };
 
-export default function ContactSection() {
+export default function ContactSection({
+    content
+}: {
+    content: ContentType
+}) {
     const {
         register,
         handleSubmit,
@@ -98,12 +103,11 @@ export default function ContactSection() {
                                         fontWeight="extrabold"
                                         fontSize={{ base: "28px", md: "35px", lg: "45px" }}
                                     >
-                                        Contáctanos
+                                        {content.contact.main_title}
                                     </Heading>
                                 </SparklesText>
                                 <Text fontSize="lg" color="gray.600">
-                                    ¿Tienes un proyecto en mente? Cuéntanos tu idea y te ayudaremos a
-                                    hacerla realidad.
+                                    {content.contact.main_subtitle}
                                 </Text>
 
                                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -166,19 +170,19 @@ export default function ContactSection() {
                                 <VStack align="stretch" gap={4}>
                                     <HStack gap={3}>
                                         <Icon as={FaMapMarkerAlt} color="primary.500" boxSize={5} />
-                                        <Text color="gray.700">Calle Ejemplo 123, Ciudad, País</Text>
+                                        <Text color="gray.700">{content.contact.contact.address}</Text>
                                     </HStack>
                                     <HStack gap={3}>
                                         <Icon as={FaPhoneAlt} color="primary.500" boxSize={5} />
-                                        <Text color="gray.700">+34 123 456 789</Text>
+                                        <Text color="gray.700">{content.contact.contact.phone}</Text>
                                     </HStack>
                                     <HStack gap={3}>
                                         <Icon as={FaEnvelope} color="primary.500" boxSize={5} />
-                                        <Text color="gray.700">hola@3anamarketing.com</Text>
+                                        <Text color="gray.700">{content.contact.contact.email}</Text>
                                     </HStack>
                                     <HStack gap={3}>
                                         <Icon as={FaClock} color="primary.500" boxSize={5} />
-                                        <Text color="gray.700">Lun – Vie: 9:00 – 18:00</Text>
+                                        <Text color="gray.700">{content.contact.contact.hours}</Text>
                                     </HStack>
                                 </VStack>
 
@@ -188,31 +192,31 @@ export default function ContactSection() {
                                         Síguenos en redes
                                     </Text>
                                     <HStack gap={4}>
-                                        <ChakraLink asChild>
-                                            <NextLink href="https://linkedin.com" target="_blank">
+                                        {(content.contact.social.linkedln && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                            <NextLink href={content.contact.social.linkedln} target="_blank">
                                                 <Icon as={FaLinkedin} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
                                             </NextLink>
-                                        </ChakraLink>
-                                        <ChakraLink asChild>
-                                            <NextLink href="https://tiktok.com" target="_blank">
+                                        </ChakraLink>}
+                                        {(content.contact.social.tiktok && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                            <NextLink href={content.contact.social.tiktok} target="_blank">
                                                 <Icon as={FaTiktok} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
                                             </NextLink>
-                                        </ChakraLink>
-                                        <ChakraLink asChild>
-                                            <NextLink href="https://facebook.com" target="_blank">
+                                        </ChakraLink>}
+                                        {(content.contact.social.facebook && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                            <NextLink href={content.contact.social.facebook} target="_blank">
                                                 <Icon as={FaFacebook} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
                                             </NextLink>
-                                        </ChakraLink>
-                                        <ChakraLink asChild>
-                                            <NextLink href="https://instagram.com" target="_blank">
+                                        </ChakraLink>}
+                                        {(content.contact.social.instagram && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                            <NextLink href={content.contact.social.instagram} target="_blank">
                                                 <Icon as={FaInstagram} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
                                             </NextLink>
-                                        </ChakraLink>
-                                        <ChakraLink asChild>
-                                            <NextLink href="https://youtube.com" target="_blank">
+                                        </ChakraLink>}
+                                        {(content.contact.social.youtube && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                            <NextLink href={content.contact.social.youtube} target="_blank">
                                                 <Icon as={FaYoutube} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
                                             </NextLink>
-                                        </ChakraLink>
+                                        </ChakraLink>}
                                     </HStack>
                                 </VStack>
                             </VStack>
