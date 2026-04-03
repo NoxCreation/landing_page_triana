@@ -16,9 +16,10 @@ export default function Navbar() {
   const items = [
     { url: "/", label: "Inicio" },
     { url: "/service", label: "Servicios" },
-    { url: "/process", label: "Proceso" },
+    /* { url: "/process", label: "Proceso" }, */
     { url: "/my", label: "Sobre mí" },
     { url: "/testimonies", label: "Testimonios" },
+    { url: "/contact", label: "Contacto" },
     { url: "/blog", label: "Blog" },
   ];
 
@@ -66,7 +67,7 @@ export default function Navbar() {
         top={0}
         w="100%"
         zIndex={10}
-        bg={isScrolled ? "#fceeff" : "transparent"}
+        bg={isScrolled ? "#fceeffde" : "transparent"}
         boxShadow={isScrolled ? "0px 0px 24px rgba(97,17,97,0.24)" : "none"}
         transition="background-color 0.3s ease, box-shadow 0.3s ease"
       >
