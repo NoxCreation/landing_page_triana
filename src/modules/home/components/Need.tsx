@@ -55,7 +55,7 @@ export default function Need({
                     <GridItem order={{ base: 2, md: 1 }} zIndex={2}>
                         <Transition type="left" velocity="slow" index={1}>
                             <Image
-                                src="/home/women.png"
+                                src="/home/women.webp"
                                 alt="Asesora de marketing con teléfono"
                                 objectFit="contain"
                                 maxH="500px"
