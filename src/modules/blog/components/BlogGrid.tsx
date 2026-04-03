@@ -1,13 +1,23 @@
 "use client"
+
 import { Box, Grid, Image, Heading, Text, Stack } from "@chakra-ui/react";
-import { posts } from "@/constants/blog/cardBlog"
-import CardBlog from "@/components/cards/CardBlog";
 import { Transition } from "@/components/Transition";
 import { ContainerLanding } from "@/components/container";
 import { PaginationMain } from "@/components/Pagination";
 import { SparklesText } from "@/components/Sparkle";
+import { ArticleType, PaginatedArticles } from "@/types/ArticleType";
+import CardBlog from "@/components/cards/CardBlog";
+import { useRouter } from "next/navigation";
 
-export default function BlogGrid() {
+export default function BlogGrid({
+    content,
+    pagination
+}: {
+    content: Array<ArticleType>
+    pagination: PaginatedArticles
+}) {
+    const router = useRouter()
+
     return (
         <ContainerLanding bg="gray.50">
             <Stack w="100%" py={12} gap={6}>
@@ -58,24 +68,29 @@ export default function BlogGrid() {
                 </Stack>
 
                 <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
-                    {posts.map((p, index) => (
-                        <Transition key={p.id} type="bootom" velocity="slow" index={index}>
+                    {content.map((article, index) => (
+                        <Transition key={index} type="bootom" velocity="slow" index={index}>
                             <CardBlog
-                                image={p.image}
-                                title={p.title}
-                                excerpt={p.excerpt}
-                                author={p.author}
-                                date={p.date}
-                                href="/blog/detail"
+                                image={article.thumbnail}
+                                title={article.title}
+                                excerpt={article.mini_description}
+                                author={""}
+                                date={article.createdAt.toLocaleString().split(",")[0]}
+                                href="/blog/"
                             />
                         </Transition>
                     ))}
+
                 </Grid>
 
                 <PaginationMain
-                    count={10}
-                    page={0}
-                    pageSize={5}
+                    count={pagination.total}
+                    page={pagination.page - 1}
+                    pageSize={pagination.limit}
+                    onPageSelect={page => {
+                        router.push(`/blog?page=${page+1}`)
+                        router.refresh()
+                    }}
                 />
 
             </Stack>
