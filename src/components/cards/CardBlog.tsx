@@ -36,7 +36,7 @@ export default function CardBlog({
             <Box
                 bg="white"
                 border="2px solid"
-                borderColor="#E5E7EB"
+                borderColor={'gray.100'}
                 overflow="hidden"
                 borderTopLeftRadius="3xl"
                 borderTopRightRadius="3xl"
@@ -45,8 +45,8 @@ export default function CardBlog({
                 cursor="pointer"
                 transition="all 0.3s ease"
                 _hover={{
-                    transform: "translateY(-6px)",
-                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 10px 250px rgba(0, 0, 0, 0.1)",
                 }}
                 {...props}
             >
@@ -64,7 +64,7 @@ export default function CardBlog({
                         fontSize="14px"
                         fontWeight={400}
                         lineHeight="20px"
-                        color="#949494"
+                        color={'gray.400'}
                     >
                         <Text>{author}</Text>
                         <Icon as={CalendarTodayIcon} fontSize="xs" />
@@ -73,20 +73,20 @@ export default function CardBlog({
 
                     <Heading
                         as="h3"
-                        fontSize="24px"
+                        fontSize="20px"
                         fontWeight={800}
                         fontFamily="Inter"
                         lineHeight="32px"
                         mt={1}
                         mb={2}
-                        color="#3F3F3F"
+                        color={'gray.600'}
                     >
                         {title}
                     </Heading>
 
                     <Text
-                        color="#717171"
-                        fontSize="18px"
+                        color={'gray.600'}
+                        fontSize="14px"
                         fontWeight={400}
                         lineHeight="22px"
                         mb={3}
@@ -94,16 +94,16 @@ export default function CardBlog({
                         {excerpt}
                     </Text>
 
-                    <HStack
+                    {/* <HStack
                         gap={1}
                         color="#949494"
-                        fontSize="16px"
+                        fontSize="14px"
                         fontWeight={400}
                         lineHeight="20px"
                     >
                         <Text>Leer más</Text>
                         <ArrowForwardIcon />
-                    </HStack>
+                    </HStack> */}
                 </Box>
             </Box>
         </Link>
