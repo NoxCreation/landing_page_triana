@@ -33,6 +33,7 @@ import NextLink from 'next/link';
 import { DotPattern } from '@/components/DotPattern';
 import { ContainerLanding } from '@/components/container';
 import { Transition } from '@/components/Transition';
+import { SparklesText } from '@/components/Sparkle';
 
 type FormValues = {
     name: string;
@@ -83,21 +84,23 @@ export default function ContactSection() {
                     templateColumns={{ base: '1fr', md: '1fr 1fr' }}
                     gap={{ base: 12, md: 16 }}
                     alignItems="center"
-                    py={10}
+                    py={12}
                 >
                     {/* Columna izquierda: Formulario + info contacto */}
                     <Transition type="left" velocity="slow" index={1}>
                         <GridItem order={{ base: 2, md: 1 }}>
                             <VStack align="stretch" gap={6}>
-                                <Heading
-                                    as="h2"
-                                    color="primary.500"
-                                    fontFamily="Bricolage Grotesque"
-                                    fontWeight="extrabold"
-                                    fontSize={{ base: "28px", md: "35px", lg: "45px" }}
-                                >
-                                    Contáctanos
-                                </Heading>
+                                <SparklesText sparklesCount={5}>
+                                    <Heading
+                                        as="h2"
+                                        color="primary.500"
+                                        fontFamily="Bricolage Grotesque"
+                                        fontWeight="extrabold"
+                                        fontSize={{ base: "28px", md: "35px", lg: "45px" }}
+                                    >
+                                        Contáctanos
+                                    </Heading>
+                                </SparklesText>
                                 <Text fontSize="lg" color="gray.600">
                                     ¿Tienes un proyecto en mente? Cuéntanos tu idea y te ayudaremos a
                                     hacerla realidad.
@@ -218,20 +221,31 @@ export default function ContactSection() {
 
                     {/* Columna derecha: Imagen */}
                     <Transition type="rigth" velocity="slow" index={1}>
-                        <GridItem order={{ base: 1, md: 2 }} display="flex" justifyContent="center">
+                        <GridItem order={{ base: 1, md: 2 }}
+                            display="flex" justifyItems={'end'} borderRadius={'110px'}
+                            position={'relative'}
+                            overflow={'hidden'}
+                        >
                             <Image
                                 as="img"
-                                src="/home/3443ed1b0e9be149d5cb647a24b46034-xlarge.jpg"
+                                src="/home/talking.webp"
                                 alt="Asesora de marketing hablando por teléfono"
                                 objectFit="contain"
                                 maxH="600px"
                                 w="full"
                                 transform={isMobile ? 'scaleX(-1)' : 'none'}
-                                borderRadius={'full'}
+                                zIndex={1}
+                            />
+
+                            <Image
+                                src="/home/patron.webp"
+                                w={'100%'}
+                                position={'absolute'}
+                                bottom={0}
+                                right={0}
                             />
                         </GridItem>
                     </Transition>
-
                 </Grid>
             </ContainerLanding>
         </Stack>
