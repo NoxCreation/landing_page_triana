@@ -10,8 +10,14 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import Link from "next/link";
+import { ContentType } from "@/types/ContentType";
+import { FaTiktok } from "react-icons/fa";
 
-export default function Footer() {
+export default function Footer({
+    content
+}: {
+    content: ContentType
+}) {
     return (
         <Box
             as="footer"
@@ -76,34 +82,76 @@ export default function Footer() {
                                 No solo creamos la estrategia, te ayudamos a ponerla en movimiento.
                             </Text>
                             <Flex mt={5} gap={2}>
-                                <Box
-                                    rounded="full"
-                                    bg="rgba(255, 255, 255, 0.1)"
-                                    p="1"
-                                >
-                                    <LinkedInIcon />
-                                </Box>
-                                <Box
-                                    rounded="full"
-                                    bg="rgba(255, 255, 255, 0.1)"
-                                    p="1"
-                                >
-                                    <FacebookIcon />
-                                </Box>
-                                <Box
-                                    rounded="full"
-                                    bg="rgba(255, 255, 255, 0.1)"
-                                    p="1"
-                                >
-                                    <YouTubeIcon />
-                                </Box>
-                                <Box
-                                    rounded="full"
-                                    bg="rgba(255, 255, 255, 0.1)"
-                                    p="1"
-                                >
-                                    <InstagramIcon />
-                                </Box>
+                                {(content.contact.social.linkedln && content.contact.social.linkedln != "") && (
+                                    <Link href={content.contact.social.linkedln} target="_blank">
+                                        <Box
+                                            rounded="full"
+                                            bg="rgba(255, 255, 255, 0.1)"
+                                            p="1"
+                                            _hover={{
+                                                bg: "rgba(255, 255, 255, 0.2)"
+                                            }}
+                                        >
+                                            <LinkedInIcon />
+                                        </Box>
+                                    </Link>
+                                )}
+                                {(content.contact.social.tiktok && content.contact.social.tiktok != "") && (
+                                    <Link href={content.contact.social.tiktok} target="_blank">
+                                        <Box
+                                            rounded="full"
+                                            bg="rgba(255, 255, 255, 0.1)"
+                                            p="2"
+                                            _hover={{
+                                                bg: "rgba(255, 255, 255, 0.2)"
+                                            }}
+                                        >
+                                            <FaTiktok size={'16px'} />
+                                        </Box>
+                                    </Link>
+                                )}
+                                {(content.contact.social.facebook && content.contact.social.facebook != "") && (
+                                    <Link href={content.contact.social.facebook} target="_blank">
+                                        <Box
+                                            rounded="full"
+                                            bg="rgba(255, 255, 255, 0.1)"
+                                            p="1"
+                                            _hover={{
+                                                bg: "rgba(255, 255, 255, 0.2)"
+                                            }}
+                                        >
+                                            <FacebookIcon />
+                                        </Box>
+                                    </Link>
+                                )}
+                                {(content.contact.social.youtube && content.contact.social.youtube != "") && (
+                                    <Link href={content.contact.social.youtube} target="_blank">
+                                        <Box
+                                            rounded="full"
+                                            bg="rgba(255, 255, 255, 0.1)"
+                                            p="1"
+                                            _hover={{
+                                                bg: "rgba(255, 255, 255, 0.2)"
+                                            }}
+                                        >
+                                            <YouTubeIcon />
+                                        </Box>
+                                    </Link>
+                                )}
+                                {(content.contact.social.instagram && content.contact.social.instagram != "") && (
+                                    <Link href={content.contact.social.instagram} target="_blank">
+                                        <Box
+                                            rounded="full"
+                                            bg="rgba(255, 255, 255, 0.1)"
+                                            p="1"
+                                            _hover={{
+                                                bg: "rgba(255, 255, 255, 0.2)"
+                                            }}
+                                        >
+                                            <InstagramIcon />
+                                        </Box>
+                                    </Link>
+                                )}
                             </Flex>
                         </Box>
 
@@ -120,19 +168,32 @@ export default function Footer() {
                                 Servicios
                             </Heading>
                             <Flex direction="column" alignItems={{ base: "left", md: "flex-start" }} gap={2} mx={{ base: "auto", md: "0" }}>
-                                <Link
-                                    href="#"
-                                >
-                                    <Text
-                                        fontSize="14px"
-                                        fontWeight={400}
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
+                                {content.services.services.slice(0, 4).map((service, index) => (
+                                    <Link
+                                        key={index}
+                                        href={`/service/detail/${service.id}`}
                                     >
-                                        Acompañamiento mensual
-                                    </Text>
-                                </Link>
-                                <Link
+                                        <Text
+                                            fontSize="14px"
+                                            fontWeight={400}
+                                            lineHeight="20px"
+                                            letterSpacing="0px"
+                                        >
+                                            {service.title}
+                                        </Text>
+                                    </Link>
+                                ))}
+                                <Text
+                                    fontSize="14px"
+                                    fontWeight={400}
+                                    lineHeight="20px"
+                                    letterSpacing="0px"
+                                    color={'pink.300'}
+                                >
+                                    +{content.services.services.length - 4} servicios
+                                </Text>
+
+                                {/* <Link
                                     href="#"
                                 >
                                     <Text
@@ -167,7 +228,7 @@ export default function Footer() {
                                     >
                                         Tiktok Shop
                                     </Text>
-                                </Link>
+                                </Link> */}
                             </Flex>
                         </Box>
 
@@ -249,7 +310,8 @@ export default function Footer() {
                         </Heading>
                         <Flex flexWrap="wrap" gap={4} pb={"6"}>
                             <Link
-                                href="#"
+                                href={`tel:${content.contact.contact.phone}`}
+                                target="_blank"
                             >
                                 <Flex gap={2}>
                                     <PhoneInTalkIcon />
@@ -260,13 +322,14 @@ export default function Footer() {
                                         letterSpacing="0px"
                                         fontFamily="inter"
                                     >
-                                        {process.env.NEXT_PUBLIC_PHONE_CONTACT}
+                                        {content.contact.contact.phone}
                                     </Text>
                                 </Flex>
                             </Link>
 
                             <Link
-                                href="#"
+                                href={`mailto:${content.contact.contact.email}`}
+                                target="_blank"
                             >
                                 <Flex gap={2}>
                                     <EmailIcon />
@@ -277,27 +340,23 @@ export default function Footer() {
                                         letterSpacing="0px"
                                         fontFamily="inter"
                                     >
-                                        trianamarketing@mail.com
+                                        {content.contact.contact.email}
                                     </Text>
                                 </Flex>
                             </Link>
 
-                            <Link
-                                href="#"
-                            >
-                                <Flex gap={2}>
-                                    <LocationOnIcon />
-                                    <Text
-                                        fontSize="14px"
-                                        fontWeight={400}
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                        fontFamily="inter"
-                                    >
-                                        Houston, Tx
-                                    </Text>
-                                </Flex>
-                            </Link>
+                            <Flex gap={2}>
+                                <LocationOnIcon />
+                                <Text
+                                    fontSize="14px"
+                                    fontWeight={400}
+                                    lineHeight="20px"
+                                    letterSpacing="0px"
+                                    fontFamily="inter"
+                                >
+                                    {content.contact.contact.address}
+                                </Text>
+                            </Flex>
 
                             <Flex gap={2}>
                                 <WatchLaterIcon />
@@ -308,7 +367,7 @@ export default function Footer() {
                                     letterSpacing="0px"
                                     fontFamily="inter"
                                 >
-                                    Lunes a Viernes: 10:30 am - 5:00pm
+                                    {content.contact.contact.hours}
                                 </Text>
                             </Flex>
                         </Flex>
@@ -331,30 +390,8 @@ export default function Footer() {
                             w={"100%"}
                             textAlign={"center"}
                         >
-                            © 2026 Triana Marketing & Consulting. Diseñado y creado por <a style={{ color: "#d781fc" }} href="https://noxcreation.dev/" target="_blank">NOX Creation</a>
+                            © 2026 3ana Marketing & Consulting. Diseñado y creado por <a style={{ color: "#d781fc" }} href="https://noxcreation.dev/" target="_blank">NOX Creation</a>
                         </Text>
-                        {/* <Flex gap={4}>
-                            <Link
-                                href="#"
-                                fontSize="14px"
-                                fontWeight={400}
-                                lineHeight="20px"
-                                letterSpacing="0px"
-                                color="#FFFFFF"
-                            >
-                                Política de Privacidad
-                            </Link>
-                            <Link
-                                href="#"
-                                fontSize="14px"
-                                fontWeight={400}
-                                lineHeight="20px"
-                                letterSpacing="0px"
-                                color="#FFFFFF"
-                            >
-                                Términos y Condiciones
-                            </Link>
-                        </Flex> */}
                     </Flex>
                 </Box>
             </Box>
