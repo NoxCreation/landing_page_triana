@@ -8,6 +8,8 @@ import { SparklesText } from "@/components/Sparkle";
 import { ArticleType, PaginatedArticles } from "@/types/ArticleType";
 import CardBlog from "@/components/cards/CardBlog";
 import { useRouter } from "next/navigation";
+import { BProgress } from "@bprogress/core";
+import { useEffect } from "react";
 
 export default function BlogGrid({
     content,
@@ -16,7 +18,17 @@ export default function BlogGrid({
     content: Array<ArticleType>
     pagination: PaginatedArticles
 }) {
-    const router = useRouter()
+    const router = useRouter();
+
+    const handlePageChange = async (page: number) => {
+        const newPage = page + 1;
+        BProgress.start();
+        router.push(`/blog?page=${newPage}`);
+        router.refresh();
+
+    };
+
+    useEffect(() => { BProgress.done(); }, [content])
 
     return (
         <ContainerLanding bg="gray.50">
@@ -76,7 +88,7 @@ export default function BlogGrid({
                                 excerpt={article.mini_description}
                                 author={""}
                                 date={article.createdAt.toLocaleString().split(",")[0]}
-                                href="/blog/"
+                                href={`/blog/detail/${article.id}`}
                             />
                         </Transition>
                     ))}
@@ -87,10 +99,7 @@ export default function BlogGrid({
                     count={pagination.total}
                     page={pagination.page - 1}
                     pageSize={pagination.limit}
-                    onPageSelect={page => {
-                        router.push(`/blog?page=${page+1}`)
-                        router.refresh()
-                    }}
+                    onPageSelect={handlePageChange}
                 />
 
             </Stack>
