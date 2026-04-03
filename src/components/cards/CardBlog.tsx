@@ -1,5 +1,3 @@
-// components/CardBlog.tsx
-
 import {
     Box,
     Image,
@@ -10,7 +8,6 @@ import {
     BoxProps,
 } from "@chakra-ui/react";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Link from "next/link";
 
 type CardBlogProps = {
