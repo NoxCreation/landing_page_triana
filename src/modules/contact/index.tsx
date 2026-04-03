@@ -229,10 +229,11 @@ export default function ContactSection() {
                             <Image
                                 as="img"
                                 src="/home/talking.webp"
-                                alt="Asesora de marketing hablando por teléfono"
+                                alt="Asesora de marketing (Leyanis Triana) hablando por teléfono"
                                 objectFit="contain"
-                                maxH="600px"
+                                maxH="650px"
                                 w="full"
+                                ml={{ base: 0, md: "6em" }}
                                 transform={isMobile ? 'scaleX(-1)' : 'none'}
                                 zIndex={1}
                             />
@@ -242,7 +243,7 @@ export default function ContactSection() {
                                 w={'100%'}
                                 position={'absolute'}
                                 bottom={0}
-                                right={0}
+                                right={4}
                             />
                         </GridItem>
                     </Transition>
