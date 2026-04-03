@@ -5,6 +5,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Inter, Bricolage_Grotesque } from 'next/font/google';
 import ButtonUp from "@/components/buttonUp";
+import { redirect } from 'next/navigation';
+import { getContent } from "@/lib/content";
+import { ContentType } from "@/types/ContentType";
+
+export const dynamic = 'force-dynamic';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,18 +29,21 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let content = await getContent() as ContentType
+  if (!content) redirect("/500")
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body style={{ background: "#ffffff" }} className={`${inter.variable} ${bricolage.variable}`}>
         <Provider attribute="class" defaultTheme="light">
           <Navbar />
           {children}
-          <Footer />
+          <Footer content={content} />
           <ButtonUp />
         </Provider>
       </body>
