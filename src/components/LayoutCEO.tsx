@@ -27,7 +27,7 @@ export default function LayoutCEO({
         <>
             <Head>
                 {/* Metadatos básicos */}
-                <title>{title}</title>
+                <title>{title} | {fullImageUrl}</title>
                 <meta name="description" content={description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
