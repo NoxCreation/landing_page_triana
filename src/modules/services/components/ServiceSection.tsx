@@ -13,7 +13,6 @@ export default function ServiceSection({
 }: {
     content: ContentType
 }) {
-
     const [category, setCategory] = useState("Todos");
     const [servicesFil, setServicesFil] = useState([])
 
@@ -114,7 +113,7 @@ export default function ServiceSection({
                                     price: service.price,
                                     frequency: service.type
                                 } as any}
-                                href={`/service/detail/${service.id}`}
+                                href={`/service/detail/${service.slug}`}
                             />
                         </Transition>
                     ))}
