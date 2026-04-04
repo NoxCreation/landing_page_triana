@@ -88,7 +88,7 @@ export default function BlogGrid({
                                 excerpt={article.mini_description}
                                 author={""}
                                 date={article.createdAt.toLocaleString().split(",")[0]}
-                                href={`/blog/detail/${article.id}`}
+                                href={`/blog/detail/${article.slug}`}
                             />
                         </Transition>
                     ))}

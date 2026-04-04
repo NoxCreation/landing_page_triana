@@ -1,6 +1,7 @@
 
 export type ArticleType = {
     id: string;
+    slug: string;
     title: string;
     thumbnail: string;
     mini_description: string;
