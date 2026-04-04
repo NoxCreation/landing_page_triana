@@ -45,8 +45,8 @@ export const getArticles = async (
 };
 
 export const getArticle = async (
-    id: string
+    slug: string
 ) => {
-    const query = `SELECT * FROM public.articles WHERE id=$1`;
-    return await queryDb2(query, [id])
+    const query = `SELECT * FROM public.articles WHERE slug=$1`;
+    return await queryDb2(query, [slug])
 }
