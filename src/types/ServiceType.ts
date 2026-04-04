@@ -1,5 +1,6 @@
 export type ServiceType = {
     id: string;
+    slug: string;
     title: string;
     description: string;
     tiquet: Array<{ label: string; variant: "primary" | "outline" }>;
