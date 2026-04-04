@@ -1,3 +1,4 @@
+import LayoutCEO from "@/components/LayoutCEO";
 import { getContent } from "@/lib/content";
 import HomeIndex from "@/modules/home";
 import { redirect } from 'next/navigation';
@@ -9,6 +10,13 @@ export default async function Home() {
   if(!content) redirect("/500")
 
   return (
-    <HomeIndex content={content} />
+    <LayoutCEO 
+      title="3ana Marketing & Consulting" 
+      description="Agencia de marketing digital especializada en SEO, SEM, redes sociales y diseño web. Impulsa tu negocio con estrategias personalizadas y resultados medibles." 
+      image="/social.webp"
+    >
+      <HomeIndex content={content} />
+    </LayoutCEO>
+    
   );
 }
