@@ -1221,6 +1221,18 @@
   resolved "https://registry.npmjs.org/@sindresorhus/merge-streams/-/merge-streams-2.3.0.tgz#719df7fb41766bc143369eaa0dd56d8dc87c9958"
   integrity sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==
 
+"@stripe/react-stripe-js@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/@stripe/react-stripe-js/-/react-stripe-js-6.1.0.tgz#644ff17db8de454d8746ee76f45ee727442512f4"
+  integrity sha512-LbKbRv4+wUSHLb5VNxqiYcKaqXPvTju0bJaF0RrzH0h4+aKWDXAk4RzUBcpNxxj8KtjuxICElANs1Li7aTv1IQ==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/stripe-js@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-9.1.0.tgz#58dcf5594c3ba87c55c1c59d67df500fa4ea928c"
+  integrity sha512-v51LoEfZNiNS/5DcarWPCYgn24w4dqwwALR4GTbMW/N0DDzzj4DgYNoixX6PYvpt6uIJMucGUabn/BHhylggIQ==
+
 "@swc/helpers@0.5.15":
   version "0.5.15"
   resolved "https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.15.tgz#79efab344c5819ecf83a43f3f9f811fc84b516d7"
@@ -5099,7 +5111,7 @@ prettier@3.8.1:
   resolved "https://registry.npmjs.org/prettier/-/prettier-3.8.1.tgz#edf48977cf991558f4fcbd8a3ba6015ba2a3a173"
   integrity sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==
 
-prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -5553,6 +5565,11 @@ strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+
+stripe@^22.0.0:
+  version "22.0.0"
+  resolved "https://registry.npmjs.org/stripe/-/stripe-22.0.0.tgz#3a17a626dbf0376ebb1031ffee8649c752c84870"
+  integrity sha512-q1UgXXpSfZCmkyzZEh3vFEWT7+ajuaFGqaP9Tsi2NMtwlkigIWNr+KBIUQqtNeNEsreDKgdn+BP5HRW9JDj22Q==
 
 styled-jsx@5.1.6:
   version "5.1.6"
