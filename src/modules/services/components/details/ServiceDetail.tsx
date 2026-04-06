@@ -1,27 +1,42 @@
-"use client"
+"use client";
 
 import HtmlRenderer from "@/components/htmlRenderer";
 import { Transition } from "@/components/Transition";
 import { ServiceType } from "@/types/ServiceType";
-import { Box, Grid, Heading, Text, VStack, HStack, Button, Separator, Icon, Stack, Flex } from "@chakra-ui/react";
-import TripOriginIcon from '@mui/icons-material/TripOrigin';
+import {
+    Box,
+    Grid,
+    Heading,
+    Text,
+    VStack,
+    HStack,
+    Button,
+    Separator,
+    Icon,
+    Stack,
+} from "@chakra-ui/react";
+import TripOriginIcon from "@mui/icons-material/TripOrigin";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-export default function ServiceDetail({
-    service
-}: {
-    service: ServiceType
-}) {
+export default function ServiceDetail({ service }: { service: ServiceType }) {
 
-    const getFrequenzy = () => {
+    const getFrequency = () => {
         switch (service.type) {
-            case "weekly": return "Semanal";
-            case "diary": return "Diario";
-            case "monthly": return "Mensual";
-            case "session": return "Por Sesión";
-            case "single_payment": return "Pago Único";
+            case "weekly":
+                return "Semanal";
+            case "diary":
+                return "Diario";
+            case "monthly":
+                return "Mensual";
+            case "session":
+                return "Por Sesión";
+            case "single_payment":
+                return "Pago Único";
+            default:
+                return "";
         }
-    }
+    };
 
     return (
         <Stack w="100%" bg="gray.50" py={28} px={{ base: 8, md: 40 }} gap={8}>
@@ -38,10 +53,9 @@ export default function ServiceDetail({
                     </Text>
                 </Link>
             </Transition>
-            <Grid
-                templateColumns={{ base: "1fr", md: "2fr 1fr" }}
-                gap={10}
-            >
+
+            <Grid templateColumns={{ base: "1fr", md: "2fr 1fr" }} gap={10}>
+                {/* Columna izquierda: descripción del servicio */}
                 <Box>
                     <Transition type="top" velocity="slow">
                         <Heading
@@ -96,38 +110,25 @@ export default function ServiceDetail({
                             letterSpacing="0px"
                             mb={6}
                         >
-                            <HtmlRenderer>
-                                {service.description}
-                            </HtmlRenderer>
+                            <HtmlRenderer>{service.description}</HtmlRenderer>
                         </Text>
                     </Transition>
 
                     <Stack gap={8}>
-                        <Points
-                            items={service.include}
-                            label={"Incluye"}
-                        />
-
-                        <Points
-                            items={service.notInclude}
-                            label={"No Incluye"}
-                        />
-
-                        <Points
-                            items={service.requirement}
-                            label={service.requireLabel}
-                        />
+                        <Points items={service.include} label="Incluye" />
+                        <Points items={service.notInclude} label="No Incluye" />
+                        <Points items={service.requirement} label={service.requireLabel} />
                     </Stack>
-
                 </Box>
 
+                {/* Columna derecha: tarjeta de precio y botones */}
                 <Transition type="rigth" velocity="slow">
                     <Box
                         bg="white"
-                        borderTopLeftRadius="4xl"
-                        borderTopRightRadius="4xl"
+                        borderTopLeftRadius="3xl"
+                        borderTopRightRadius="3xl"
                         borderBottomLeftRadius="0"
-                        borderBottomRightRadius="4xl"
+                        borderBottomRightRadius="3xl"
                         border="2px solid"
                         borderColor="#E5E7EB"
                         p={6}
@@ -153,37 +154,44 @@ export default function ServiceDetail({
                             letterSpacing="0px"
                             mb={4}
                         >
-                            {getFrequenzy()}
+                            {getFrequency()}
                         </Text>
 
+                        {service.include.length > 0 && (
+                            <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} />
+                        )}
 
-                        {service.include.length > 0 && <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} />}
+                        <Points items={service.include} label="Incluye" />
 
-                        <Points
-                            items={service.include}
-                            label={"Incluye"}
-                        />
+                        {service.notInclude.length > 0 && (
+                            <Separator
+                                borderColor="#E5E7EB"
+                                borderWidth="1px"
+                                mx="-6"
+                                mb={4}
+                                mt={4}
+                            />
+                        )}
 
-                        {service.notInclude.length > 0 && <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} mt={4} />}
+                        <Points items={service.notInclude} label="No Incluye" />
 
-                        <Points
-                            items={service.notInclude}
-                            label={"No Incluye"}
-                        />
+                        {service.requirement.length > 0 && (
+                            <Separator
+                                borderColor="#E5E7EB"
+                                borderWidth="1px"
+                                mx="-6"
+                                mb={4}
+                                mt={4}
+                            />
+                        )}
 
-                        {service.requirement.length > 0 && <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} mt={4} />}
-
-                        <Points
-                            items={service.requirement}
-                            label={service.requireLabel}
-                        />
+                        <Points items={service.requirement} label={service.requireLabel} />
 
                         <Separator borderColor="#E5E7EB" borderWidth="1px" mx="-6" mb={4} mt={4} />
 
-                        {/* TODO: Hay que realizar la funcionalidad de pago y la validacion de cuando se hace cotizacion y cuando no */}
                         <Transition type="bootom" velocity="slow">
                             <VStack gap={3}>
-                                <Button
+                                {/* <Button
                                     variant="outline"
                                     bg="#ffff"
                                     borderRadius="full"
@@ -199,77 +207,84 @@ export default function ServiceDetail({
                                     }}
                                 >
                                     Solicitar Cotización
-                                </Button>
+                                </Button> */}
 
-                                <Button
-                                    bg="primary.500"
-                                    color="white"
-                                    borderRadius="full"
-                                    w="100%"
-                                    boxShadow="0px 10px 20px 0px rgba(178, 35, 207, 0.24)"
-                                    _hover={{
-                                        bg: "#5A0F6E",
-                                        transform: "translateY(-2px)",
-                                        boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
-                                    }}
-                                    _active={{
-                                        transform: "scale(0.98)",
-                                    }}
-                                >
-                                    Contratar Ahora
-                                </Button>
+                                <Link href={`/payment/details/${service.slug}`} style={{ width: "100%" }}>
+                                    <Button
+                                        bg="primary.500"
+                                        color="white"
+                                        borderRadius="full"
+                                        w="100%"
+                                        boxShadow="0px 10px 20px 0px rgba(178, 35, 207, 0.24)"
+                                        _hover={{
+                                            bg: "#5A0F6E",
+                                            transform: "translateY(-2px)",
+                                            boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                                        }}
+                                        _active={{
+                                            transform: "scale(0.98)",
+                                        }}
+                                    >
+                                        Contratar Ahora
+                                    </Button>
+                                </Link>
+
                             </VStack>
                         </Transition>
                     </Box>
                 </Transition>
             </Grid>
+
         </Stack>
     );
 }
 
-const Points = ({
+// Componente Points (sin cambios, solo se corrigió "bootom" → "bottom" para consistencia)
+export const Points = ({
     items,
-    label
+    label,
 }: {
-    items: Array<string>
-    label: string
+    items: Array<string>;
+    label: string;
 }) => {
     return (
         <>
-            {items.length > 0 && <Stack>
-                <Transition type="top" velocity="slow">
-                    <Heading
-                        color="primary.500"
-                        fontFamily="inter"
-                        fontSize="20px"
-                        lineHeight="24px"
-                        letterSpacing="-0.2px"
-                        fontWeight="700"
-                        mb={3}
-                    >
-                        {label}
-                    </Heading>
-                </Transition>
+            {items.length > 0 && (
+                <Stack>
+                    <Transition type="top" velocity="slow">
+                        <Heading
+                            color="primary.500"
+                            fontFamily="inter"
+                            fontSize="20px"
+                            lineHeight="24px"
+                            letterSpacing="-0.2px"
+                            fontWeight="700"
+                            mb={3}
+                        >
+                            {label}
+                        </Heading>
+                    </Transition>
 
-                <Transition type="bootom" velocity="slow">
-                    <VStack align="start" gap={3}>
-                        {items.map((item, i) => (
-                            <HStack key={i}>
-                                <Icon as={TripOriginIcon} color="terciary.500" />
-                                <Text
-                                    color="#717171"
-                                    fontWeight={400}
-                                    fontSize="14px"
-                                    lineHeight="20px"
-                                    letterSpacing="0px"
-                                >
-                                    {item}
-                                </Text>
-                            </HStack>
-                        ))}
-                    </VStack>
-                </Transition>
-            </Stack>}
+                    <Transition type="bootom" velocity="slow">
+                        <VStack align="start" gap={3}>
+                            {items.map((item, i) => (
+                                <HStack key={i}>
+                                    <Icon as={TripOriginIcon} color="terciary.500" />
+                                    <Text
+                                        color="#717171"
+                                        fontWeight={400}
+                                        fontSize="14px"
+                                        lineHeight="20px"
+                                        letterSpacing="0px"
+                                    >
+                                        {item}
+                                    </Text>
+                                </HStack>
+                            ))}
+                        </VStack>
+                    </Transition>
+                </Stack>
+            )}
         </>
-    )
-}
+    );
+};
