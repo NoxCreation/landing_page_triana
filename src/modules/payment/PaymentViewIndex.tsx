@@ -68,7 +68,7 @@ export const PaymentViewIndex = ({ data, error }: PaymentSuccessIndexProps) => {
                 </Stack>
 
                 {/* Detalles principales */}
-                <Stack gap={6} bg="white" shadow="md" borderRadius="lg" p={6}>
+                <Stack gap={6} bg="white" border={'1px solid'} borderColor={'gray.200'} borderRadius="lg" p={6}>
 
                     <HStack justify="space-between">
                         <Text fontWeight="bold">Cliente:</Text>

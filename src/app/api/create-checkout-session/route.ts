@@ -1,3 +1,4 @@
+import { createPaymentWithHistory, registerLead } from "@/lib/payment";
 import Stripe from "stripe";
 
 export const runtime = "nodejs";
@@ -20,19 +21,27 @@ export async function POST(req: Request) {
       name,
       price,
 
+      serviceId,
       first_name,
       last_name,
       email,
       phone
     } = await req.json();
 
-    console.log({
+    console.log("Registrando lead")
+    const leadId = await registerLead(
       first_name,
       last_name,
       email,
       phone
-    })
+    )
+    console.log("Lead registrado con ID:", leadId)
 
+    // Registrando el pago
+    console.log("Registrando pago con historial")
+    const { paymentId } = await createPaymentWithHistory(leadId, undefined, price, "pending", "Pago pendiente");
+
+    console.log("Creando sesión de Stripe")
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
@@ -46,8 +55,21 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}&serviceId=4545&userId=1234`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/cancel?session_id={CHECKOUT_SESSION_ID}&serviceId=4545&userId=1234`,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}&service_id=${serviceId}&payment_id=${paymentId}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/cancel?session_id={CHECKOUT_SESSION_ID}&service_id=${serviceId}&payment_id=${paymentId}`,
+      metadata: {
+        leadId,
+        serviceId,
+        paymentId
+      },
+      payment_intent_data: {
+        metadata: {
+          leadId,
+          serviceId,
+          paymentId
+        },
+      },
+      
     });
 
     return Response.json({ url: session.url });
