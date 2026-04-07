@@ -14,6 +14,13 @@ export async function generateMetadata() {
         "consulta gratuita",
         "agencia de marketing",
         "comunicación",
+        "instagram",
+        "facebook",
+        "linkedin",
+        "twitter",
+        "estrategias de marketing",
+        "servicios de marketing",
+        "3ana marketing"
       ]
     })
 }

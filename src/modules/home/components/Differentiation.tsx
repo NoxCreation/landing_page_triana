@@ -57,7 +57,7 @@ export default function Differentiation({
                     px={{ base: 4, md: 6, lg: 8 }}
                     bg="white"
                 >
-                    <VStack gap={{ base: 10, md: 12 }} maxW="1200px" mx="auto">
+                    <VStack gap={{ base: 10, md: 12 }} mx="auto">
                         {/* Encabezado */}
                         <Transition type="bootom" velocity={animationVelocity as any} index={1}>
                             <VStack gap={0} textAlign="center">
@@ -88,9 +88,8 @@ export default function Differentiation({
 
                         {/* Grid de tarjetas */}
                         <Grid
-                            templateColumns={{ base: "1fr", md: "repeat(4, 1fr)" }}
+                            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }}
                             gap={{ base: 6, md: 8 }}
-                            w="100%"
                         >
                             {content.home.why_choose_me.map((card, index) => (
                                 <Transition
