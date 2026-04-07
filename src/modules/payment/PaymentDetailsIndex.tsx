@@ -42,6 +42,7 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                 body: JSON.stringify({
                     name: service.title,
                     price: Number(service.price),
+                    serviceId: service.id,
                     ...data
                 }),
             });

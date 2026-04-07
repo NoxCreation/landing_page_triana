@@ -10,7 +10,7 @@ if (!stripeSecretKey) {
 }
 
 const stripe = new Stripe(stripeSecretKey, {
-    apiVersion: '2026-03-25.dahlia',
+    apiVersion: process.env.NEXT_PUBLIC_API_VERSION,
 });
 
 async function fetchSessionData(sessionId: string): Promise<PaymentViewDataType> {
@@ -38,23 +38,35 @@ async function fetchSessionData(sessionId: string): Promise<PaymentViewDataType>
 export default async function PaymentSuccessPage({
     searchParams,
 }: {
-    searchParams: Promise<{ session_id?: string }>;
+    searchParams: Promise<{ session_id?: string, service_id?: string, payment_id?: string }>;
 }) {
     const params = await searchParams;
     const sessionId = params.session_id;
+    const paymentId = params.payment_id;
+    const serviceId = params.service_id;
 
     // Caso: no hay session_id
-    if (!sessionId) {
+    if (!sessionId)
         return (
             <PaymentViewIndex
                 error="No se recibió un ID de sesión válido."
             />
         );
-    }
+    else if (!paymentId)
+        return (
+            <PaymentViewIndex
+                error="No se recibió un ID de pago válido."
+            />
+        );
+    else if (!serviceId)
+        return (
+            <PaymentViewIndex
+                error="No se recibió un ID del servicio válido."
+            />
+        );
 
     try {
         const data = await fetchSessionData(sessionId);
-        console.log("data", data)
         return <PaymentViewIndex data={data} />;
     } catch (error) {
         console.error('Error al recuperar la sesión de Stripe:', error);
