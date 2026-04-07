@@ -7,6 +7,7 @@ export type ArticleType = {
     mini_description: string;
     description: string;
     createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface PaginatedArticles {

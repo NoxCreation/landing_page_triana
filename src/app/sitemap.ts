@@ -5,42 +5,46 @@ import { getArticles } from '@/lib/blog'
 export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!baseUrl) {
+    throw new Error('NEXT_PUBLIC_SITE_URL no está definida');
+  }
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
       lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/sobre-mi`,
+      url: `${baseUrl}/my`,
       lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/proceso`,
+      url: `${baseUrl}/testimonies`,
       lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/testimonio`,
-      lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contacto`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/servicios`,
+      url: `${baseUrl}/service`,
       lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.9,
     },
   ]
@@ -51,18 +55,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const [content, { data: articles }] = await Promise.all([
       getContent(),
-      getArticles(1, 1000)
+      getArticles(1, 10000) // Obtener hasta 10,000 artículos para el sitemap
     ])
 
+    const now = new Date()
     serviceRoutes = content?.services?.services?.map((service) => ({
-      url: `${baseUrl}/servicios/detalle/${service.slug}`,
-      lastModified: new Date(),
+      url: `${baseUrl}/service/detail/${service.slug}`,
+      lastModified: now,
+      changeFrequency: 'daily',
       priority: 0.8,
     })) ?? []
 
     blogRoutes = articles.map((article) => ({
-      url: `${baseUrl}/blog/detalle/${article.slug}`,
-      lastModified: new Date(article.createdAt),
+      url: `${baseUrl}/blog/detail/${article.slug}`,
+      lastModified: new Date(article.updatedAt),
+      changeFrequency: 'daily',
       priority: 0.8,
     }))
   } catch {

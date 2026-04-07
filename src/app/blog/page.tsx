@@ -14,6 +14,12 @@ export async function generateMetadata() {
         "consejos de marketing",
         "tendencias digitales",
         "artículos de negocios",
+        "estrategias de crecimiento",
+        "marketing digital",
+        "triangula tu negocio",
+        "triangula tu marca",
+        "triangula tu éxito",
+        "3ana marketing"
       ]
     })
 }
@@ -23,7 +29,6 @@ interface BlogPageProps {
 }
 
 export default async function Blog({ searchParams }: BlogPageProps) {
-    // En Next.js 15+, searchParams puede ser una Promise; si no, usarlo directamente
     const params = await searchParams;
     const pageParam = params?.page;
     const page = pageParam ? Math.max(1, parseInt(pageParam, 10)) : 1;

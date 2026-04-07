@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return getMetadata({
         title: `${data.title} - Triana Marketing`,
         description: data.mini_description,
-        keywords: [data.title, "blog de marketing", "consejos de negocio"]
+        keywords: [data.title, "blog de marketing", "consejos de negocio"],
+        image: data.image_url
     })
 }
 
