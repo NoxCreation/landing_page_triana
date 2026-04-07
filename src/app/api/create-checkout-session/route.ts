@@ -16,7 +16,22 @@ const stripe = new Stripe(key, {
 export async function POST(req: Request) {
 
   try {
-    const { name, price } = await req.json();
+    const {
+      name,
+      price,
+
+      first_name,
+      last_name,
+      email,
+      phone
+    } = await req.json();
+
+    console.log({
+      first_name,
+      last_name,
+      email,
+      phone
+    })
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],

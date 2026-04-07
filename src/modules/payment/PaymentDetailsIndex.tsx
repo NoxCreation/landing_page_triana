@@ -33,7 +33,31 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
         try {
             setSubmitError(null);
             console.log(data);
-            // Aquí integras Stripe u otro gateway
+
+            const res = await fetch("/api/create-checkout-session", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: service.title,
+                    price: Number(service.price),
+                    ...data
+                }),
+            });
+
+            if (!res.ok) {
+                const text = await res.text();
+                console.error("Backend error:", text);
+                return;
+            }
+
+            const dataResponse = await res.json();
+
+            console.log("URL de Stripe:", dataResponse.url);
+
+            window.location.href = dataResponse.url;
+
         } catch (err) {
             setSubmitError("Error al procesar el pago. Inténtalo de nuevo.");
         }
