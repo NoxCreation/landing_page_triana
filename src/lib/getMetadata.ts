@@ -4,6 +4,7 @@ export function getMetadata({
     title = "3ana Marketing & Consulting",
     description = "Agencia de marketing digital y consultoría especializada en estrategias de crecimiento para negocios. Impulsamos tu marca con soluciones innovadoras y resultados medibles.",
     image = "/social.webp",
+    keywords = [] as string[],
 }): Metadata {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://3anamarketing.com';
     const _title = `3ana Marketing & Consulting | ${title}`;
@@ -14,6 +15,7 @@ export function getMetadata({
     return {
         title: _title,
         description: _description,
+        keywords: keywords,
         openGraph: {
             title: _title,
             description: _description,

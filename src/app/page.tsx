@@ -8,7 +8,17 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata() {
     return getMetadata({
       title: "Pagina Principal - Triana Marketing",
-      description: "Triana Marketing es una agencia de marketing digital en EEUU especializada en estrategias de crecimiento para negocios. Impulsamos tu marca con soluciones innovadoras y resultados medibles."
+      description: "Triana Marketing es una agencia de marketing digital en EEUU especializada en estrategias de crecimiento para negocios. Impulsamos tu marca con soluciones innovadoras y resultados medibles.",
+      keywords: [
+        "marketing digital",
+        "agencia de marketing",
+        "marketing en EEUU",
+        "estrategias de crecimiento",
+        "consultoría de marketing",
+        "branding",
+        "publicidad digital",
+        "marketing para negocios",
+      ]
     })
 }
 

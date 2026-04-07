@@ -1,8 +1,29 @@
 import { getArticle } from "@/lib/blog";
+import { getMetadata } from "@/lib/getMetadata";
 import BlogDetail from "@/modules/blog/components/detail/BlogDetail";
 import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const { slug } = await params
+    const article = await getArticle(slug)
+
+    if (article.length === 0) {
+        return getMetadata({
+            title: "Artículo no encontrado",
+            description: "El artículo que buscas no está disponible."
+        })
+    }
+
+    const data = article[0]
+
+    return getMetadata({
+        title: `${data.title} - Triana Marketing`,
+        description: data.mini_description,
+        keywords: [data.title, "blog de marketing", "consejos de negocio"]
+    })
+}
 
 export default async function Detail({ params }: { params: { slug: string } }) {
     try {
