@@ -1,7 +1,7 @@
 'use client'
 
 import { Transition } from "@/components/Transition";
-import { Box, Heading, Text, VStack, Grid, GridItem, Button, Image, List, Stack } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, Grid, GridItem, Button, Image, List, Stack, Link } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 import { ContentType } from "@/types/ContentType";
 import { ContainerLanding } from "@/components/container";
@@ -92,22 +92,24 @@ export default function Need({
                                     ))}
                                 </List.Root>
 
-                                <Button
-                                    bg="white"
-                                    fontSize={"16px"}
-                                    color={"primary.500"}
-                                    borderTopLeftRadius="3xl"
-                                    borderTopRightRadius="3xl"
-                                    borderBottomLeftRadius="0"
-                                    borderBottomRightRadius="3xl"
-                                    p={4}
-                                    px={8}
-                                    w={{ base: '100%', md: "fit-content" }}
-                                    _hover={{ bg: "secondary.500", color: "white", transform: "translateY(-2px)" }}
-                                    transition="all 0.2s"
-                                >
-                                    Solicita una consultoría gratuita
-                                </Button>
+                                <Link href={`https://wa.me/${content.contact.contact.phone}`} target="_blank" rel="noopener noreferrer">
+                                    <Button
+                                        bg="white"
+                                        fontSize={"16px"}
+                                        color={"primary.500"}
+                                        borderTopLeftRadius="3xl"
+                                        borderTopRightRadius="3xl"
+                                        borderBottomLeftRadius="0"
+                                        borderBottomRightRadius="3xl"
+                                        p={4}
+                                        px={8}
+                                        w={{ base: '100%', md: "fit-content" }}
+                                        _hover={{ bg: "secondary.500", color: "white", transform: "translateY(-2px)" }}
+                                        transition="all 0.2s"
+                                    >
+                                        Solicita una consultoría gratuita
+                                    </Button>
+                                </Link>
                             </VStack>
                         </Transition>
                     </GridItem>

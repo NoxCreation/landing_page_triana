@@ -11,6 +11,9 @@ import { FiCheckCircle, FiShield, FiHelpCircle, FiArrowLeft } from "react-icons/
 import NextLink from "next/link";
 import { useState } from "react";
 import { Transition } from "@/components/Transition";
+import PhoneInput from 'react-phone-number-input'
+import flags from 'react-phone-number-input/flags'
+import 'react-phone-number-input/style.css'
 
 type FormValues = {
     first_name: string;
@@ -27,6 +30,7 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
+        watch
     } = useForm<FormValues>();
 
     const onSubmit = async (data: FormValues) => {
@@ -72,7 +76,7 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                     <Stack position="relative">
                         <Link
                             as={NextLink}
-                            href={`/service/detail/${service.slug}`}
+                            href={`/service`}
                             mb={2}
                         >
                             <FiArrowLeft /> Volver a servicios
@@ -165,10 +169,78 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                                     <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
                                 </Field.Root>
 
-                                <Field.Root invalid={!!errors.phone} bg="white">
+                                {/* <Field.Root invalid={!!errors.phone} bg="white">
                                     <Field.Label>Teléfono</Field.Label>
                                     <Input {...register('phone', { required: 'El campo es obligatorio' })} />
                                     <Field.ErrorText>{errors.phone?.message}</Field.ErrorText>
+                                </Field.Root> */}
+
+                                <Field.Root invalid={!!errors.phone} bg="white">
+                                    <Field.Label>Teléfono</Field.Label>
+                                    <Box
+                                        w="full"
+                                        position="relative"
+                                        border="1px solid"
+                                        borderColor={'gray.200'}
+                                        borderRadius={'4px'}
+                                        bg="white"
+                                        h="50px"
+                                        overflow="hidden"
+                                        _focusWithin={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
+                                        css={{
+                                            '& .PhoneInput': {
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                height: '100%',
+                                                padding: '0 16px',
+                                                gap: '10px',
+                                            },
+                                            '& .PhoneInputInput': {
+                                                border: 'none !important',
+                                                outline: 'none !important',
+                                                background: 'transparent !important',
+                                                backgroundColor: 'transparent !important',
+                                                flex: 1,
+                                                height: '100%',
+                                                fontSize: '16px',
+                                                padding: '0 !important',
+                                                margin: '0 !important',
+                                                boxShadow: 'none !important',
+                                            },
+                                            '& .PhoneInputCountry': {
+                                                flexShrink: 0,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '6px'
+                                            },
+
+                                            '& .PhoneInputCountryFlag': {
+                                                width: '20px',
+                                                height: '14px',
+                                                borderRadius: '2px',
+                                                overflow: 'hidden',
+                                            },
+                                            '& .PhoneInputCountrySelectArrow': {
+                                                display: 'none !important',
+                                            },
+                                            '& .PhoneInputCountrySelect': {
+                                                border: 'none !important',
+                                                outline: 'none !important',
+                                                background: 'transparent !important',
+                                                backgroundColor: 'transparent !important',
+                                            },
+                                        }}
+                                    >
+                                        <PhoneInput
+                                            placeholder="Enter phone number"
+                                            value={watch('phone')}
+                                            onChange={(e) => {
+                                                console.log(e);
+                                            }}
+                                            defaultCountry="US"
+                                            flags={flags}
+                                        />
+                                    </Box>
                                 </Field.Root>
 
                                 {/* Checkbox de términos */}

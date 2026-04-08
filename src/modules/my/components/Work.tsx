@@ -1,12 +1,17 @@
 "use client"
 
-import { Button, Heading, Icon, Stack, Text } from "@chakra-ui/react";
+import { Button, Heading, Icon, Link, Stack, Text } from "@chakra-ui/react";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Transition } from "@/components/Transition";
 import { ContainerLanding } from "@/components/container";
+import { ContentType } from "@/types/ContentType";
 
-export default function Work() {
-    
+export default function Work({
+    content
+}: {
+    content: ContentType
+}) {
+
     return (
         <ContainerLanding minH={'fit-conten'} justifyItems={'center'} py={20} bg="#F3A0FF0D">
             <Stack w={"100%"} color="black" alignItems="center" gap={4}>
@@ -37,28 +42,31 @@ export default function Work() {
                     </Text>
                 </Transition>
 
-                <Button
-                    px="24px"
-                    py="16px"
-                    gap="8px"
-                    w={'fit-content'}
-                    borderRadius="99px"
-                    bg="primary.500"
-                    color="#ffff"
-                    border="1px solid primary.500"
-                    boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
-                    _hover={{
-                        bg: "#5A0F6E",
-                        transform: "translateY(-2px)",
-                        boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
-                    }}
-                    _active={{
-                        transform: "scale(0.98)",
-                    }}
-                >
-                    <Icon as={WhatsAppIcon} />
-                    Hablame de tu proyecto
-                </Button>
+                <Link href={`https://wa.me/${content.contact.contact.phone}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`} target="_blank" rel="noopener noreferrer">
+                    <Button
+                        px="24px"
+                        py="16px"
+                        gap="8px"
+                        w={'fit-content'}
+                        borderRadius="99px"
+                        bg="primary.500"
+                        color="#ffff"
+                        border="1px solid primary.500"
+                        boxShadow="0px 10px 20px rgba(178, 35, 207, 0.24)"
+                        _hover={{
+                            bg: "#5A0F6E",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                        }}
+                        _active={{
+                            transform: "scale(0.98)",
+                        }}
+                    >
+                        <Icon as={WhatsAppIcon} />
+                        Hablame de tu proyecto
+                    </Button>
+                </Link>
+
             </Stack>
         </ContainerLanding>
     )

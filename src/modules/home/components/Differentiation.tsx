@@ -6,6 +6,7 @@ import InfoCard from "@/components/cards/InfoCard";
 import { FaArrowRight } from "react-icons/fa";
 import { ContentType } from "@/types/ContentType";
 import { ContainerLanding } from "@/components/container";
+import Link from "next/link";
 
 export default function Differentiation({
     content
@@ -109,27 +110,29 @@ export default function Differentiation({
 
                         {/* Botón CTA */}
                         <Center>
-                            <Button
-                                /* rightIcon={<FaArrowRight />} */
-                                px="24px"
-                                py="16px"
-                                borderRadius="99px"
-                                bg="primary.500"
-                                color="white"
-                                _hover={{
-                                    bg: "primary.600",
-                                    transform: "translateY(-2px)",
-                                    boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
-                                }}
-                                _active={{
-                                    transform: "scale(0.98)",
-                                }}
-                                transition="all 0.2s ease"
-                                aria-label="Comenzar ahora"
-                            >
-                                <FaArrowRight />
-                                Comenzar ahora
-                            </Button>
+                            <Link href={`/service`}>
+                                <Button
+                                    /* rightIcon={<FaArrowRight />} */
+                                    px="24px"
+                                    py="16px"
+                                    borderRadius="99px"
+                                    bg="primary.500"
+                                    color="white"
+                                    _hover={{
+                                        bg: "primary.600",
+                                        transform: "translateY(-2px)",
+                                        boxShadow: "0 10px 25px rgba(109, 40, 217, 0.3)",
+                                    }}
+                                    _active={{
+                                        transform: "scale(0.98)",
+                                    }}
+                                    transition="all 0.2s ease"
+                                    aria-label="Comenzar ahora"
+                                >
+                                    <FaArrowRight />
+                                    Comenzar ahora
+                                </Button>
+                            </Link>
                         </Center>
                     </VStack>
                 </Box>

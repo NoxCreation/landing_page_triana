@@ -2,8 +2,13 @@
 import { Box, Button, Flex, Image, Link } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { WhatsApp, ArrowUpward } from '@mui/icons-material';
+import { ContentType } from "@/types/ContentType";
 
-export default function ButtonUp() {
+export default function ButtonUp({
+    content
+}: {
+    content: ContentType
+}) {
     const [isTop, setIsTop] = useState(true)
     useEffect(() => {
         window.onscroll = function (ev) {
@@ -26,7 +31,7 @@ export default function ButtonUp() {
                 mb={20}
                 zIndex={80}
             >
-                <Link target="_blank" href={`https://api.whatsapp.com/send/?phone=${process.env.NEXT_PUBLIC_PHONE_CONTACT}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`}>
+                <Link target="_blank" href={`https://api.whatsapp.com/send/?phone=${content.contact.contact.phone}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`}>
                     <Button
                         color={'white'}
                         bg={'green.500'}

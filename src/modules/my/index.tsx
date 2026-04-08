@@ -13,7 +13,7 @@ export default function MyIndex({
         <>
             <Hero content={content} />
             <HeroIntro content={content}/>
-            <Work />
+            <Work content={content}/>
         </>
     )
 }
