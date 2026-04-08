@@ -29,7 +29,6 @@ type FormValues = {
 export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
     const [submitError, setSubmitError] = useState<string | null>(null);
 
-    // Clave única para localStorage según el servicio
     const storageKey = `payment_form_data`;
 
     // Leer datos guardados (si existen)
