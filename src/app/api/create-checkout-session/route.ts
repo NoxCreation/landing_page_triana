@@ -25,7 +25,8 @@ export async function POST(req: Request) {
       first_name,
       last_name,
       email,
-      phone
+      phone,
+      country_code
     } = await req.json();
 
     console.log("Registrando lead")
@@ -33,7 +34,8 @@ export async function POST(req: Request) {
       first_name,
       last_name,
       email,
-      phone
+      phone,
+      country_code
     )
     console.log("Lead registrado con ID:", leadId)
 
@@ -75,6 +77,6 @@ export async function POST(req: Request) {
     return Response.json({ url: session.url });
   } catch (error) {
     console.error("Stripe error:", error);
-    return new Response("Error creating session", { status: 500 });
+    return new Response(`Error creating session: ${error}`, { status: 500 });
   }
 }
