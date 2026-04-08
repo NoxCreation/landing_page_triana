@@ -44,7 +44,7 @@ export default async function RootLayout({
           <Navbar />
           {children}
           <Footer content={content} />
-          <ButtonUp />
+          <ButtonUp content={content} />
         </Provider>
       </body>
     </html>

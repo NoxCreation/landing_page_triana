@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Grid, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Grid, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import TestimonialCard from "@/components/cards/CardTestimonies";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
@@ -14,7 +14,7 @@ export default function Testimonials({
     return (
         <Box w="100%" bg="gray.50" py={32} px={4}>
             <Box maxW="1200px" mx="auto">
-                <Box textAlign="center" mb={12}>
+                <Stack textAlign="center" mb={12}>
                     <Transition type="top" velocity="slow">
                         <Box position="relative" maxW="1174px" display="inline-block">
                             <Heading
@@ -23,7 +23,7 @@ export default function Testimonials({
                                 fontFamily="Bricolage Grotesque"
                                 fontWeight="extrabold"
                                 fontSize={{ base: "40px", lg: "64px" }}
-                                lineHeight="70px"
+                                lineHeight={{ base: "40px", lg: "70px" }}
                                 letterSpacing="0px"
                             >
                                 {content.testimonies.main_title}
@@ -35,6 +35,7 @@ export default function Testimonials({
                                 h="32px"
                                 position="absolute"
                                 top="3px"
+                                display={{ base: 'none', md: 'inherit' }}
                                 right={{ base: "5px", md: "-34px", lg: "-34px" }}
                             />
                         </Box>
@@ -50,7 +51,7 @@ export default function Testimonials({
                             {content.testimonies.main_subtitle}
                         </Text>
                     </Transition>
-                </Box>
+                </Stack>
 
                 <Grid
                     templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}

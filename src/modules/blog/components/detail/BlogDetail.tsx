@@ -14,7 +14,7 @@ export default function BlogDetail({
 }) {
     return (
         <ContainerLanding zIndex={2}>
-            <Stack mt={12} gap={6}>
+            <Stack mt={{ base: 6, md: 12 }} gap={6}>
 
                 {/* <Transition type="top" velocity="slow">
                     <Link
@@ -32,7 +32,7 @@ export default function BlogDetail({
                     </Link>
                 </Transition> */}
 
-                <Box h={'400px'} overflow={'hidden'}>
+                <Box h={{ base: "initial", md: '400px' }} overflow={'hidden'}>
                     <Transition type="top" velocity="slow">
                         <Image
                             src={article.thumbnail}
