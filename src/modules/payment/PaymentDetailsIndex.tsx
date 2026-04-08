@@ -30,7 +30,7 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
     const [submitError, setSubmitError] = useState<string | null>(null);
 
     // Clave única para localStorage según el servicio
-    const storageKey = `payment_form_data_${service.id}`;
+    const storageKey = `payment_form_data`;
 
     // Leer datos guardados (si existen)
     const loadStoredData = (): Partial<FormValues> => {
