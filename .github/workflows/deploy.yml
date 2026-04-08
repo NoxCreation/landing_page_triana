@@ -1,11 +1,11 @@
-name: Deploy STG
+name: Deploy PROD
 
 on:
   push:
     branches: ['master']
 
 env:
-  EXTRA_HOSTS: 'triana.noxcreation.dev'
+  EXTRA_HOSTS: 'trianamarketing.com'
 
 jobs:
   deploy:
@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /opt/noxcreation_projects/landing_page_triana
+            cd /opt/landing_page_triana
             git pull https://NoxCreation:${{ secrets.GIT_TOKEN }}@github.com/NoxCreation/landing_page_triana.git master
             docker system prune -a -f
             docker compose up -d --build
