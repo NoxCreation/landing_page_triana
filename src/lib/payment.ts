@@ -4,20 +4,22 @@ export const registerLead = async (
     first_name: string,
     last_name: string,
     email: string,
-    phone: string
+    phone: string,
+    country_code: string
 ): Promise<string | undefined> => {
     const query = `
-        INSERT INTO public.leads (id, first_name, last_name, email, phone, "createdAt", "updatedAt")
-        VALUES (gen_random_uuid(), $1, $2, $3, $4, NOW(), NOW())
+        INSERT INTO public.leads (id, first_name, last_name, email, phone, country_code, "createdAt", "updatedAt")
+        VALUES (gen_random_uuid(), $1, $2, $3, $4, $5, NOW(), NOW())
         ON CONFLICT (phone) DO UPDATE SET
             first_name = EXCLUDED.first_name,
             last_name = EXCLUDED.last_name,
             email = EXCLUDED.email,
+            country_code = EXCLUDED.country_code,
             "updatedAt" = NOW()
         RETURNING id
     `;
     try {
-        const result = await queryDb2(query, [first_name, last_name, email, phone]);
+        const result = await queryDb2(query, [first_name, last_name, email, phone, country_code]);
         const uuid = result[0]?.id;
         return typeof uuid === 'string' ? uuid : undefined;
     } catch (err) {

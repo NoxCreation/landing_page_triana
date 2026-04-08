@@ -13,7 +13,7 @@ import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcDiscover, FaCcPaypal } from "re
 import NextLink from "next/link";
 import { useState } from "react";
 import { Transition } from "@/components/Transition";
-import PhoneInput from 'react-phone-number-input'
+import PhoneInput, { parsePhoneNumber } from 'react-phone-number-input'
 import flags from 'react-phone-number-input/flags'
 import 'react-phone-number-input/style.css'
 import { toaster, Toaster } from "@/ui/toaster";
@@ -62,12 +62,22 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
         }
     });
 
-    // Opcional: guardar automáticamente mientras el usuario escribe (puedes omitirlo)
-    // pero lo dejamos opcional. Lo importante es guardar al enviar.
-
     const onSubmit = async (data: FormValues) => {
         try {
             setSubmitError(null);
+
+            // Extraer código de país
+            let country_code = '';
+            if (data.phone) {
+                try {
+                    const phoneNumber = parsePhoneNumber(data.phone);
+                    country_code = phoneNumber.country
+                } catch (e) {
+                    console.warn('No se pudo parsear el número:', e);
+                }
+            }
+            console.log("phone", data.phone)
+            console.log("country_code", country_code)
 
             // Guardar en localStorage antes de enviar (para conservar datos aunque falle)
             const dataToStore = {
@@ -75,7 +85,7 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                 last_name: data.last_name,
                 email: data.email,
                 phone: data.phone,
-                // terms no se guarda por privacidad (opcional)
+                country_code: country_code.toString()
             };
             localStorage.setItem(storageKey, JSON.stringify(dataToStore));
 
@@ -86,7 +96,7 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                     name: service.title,
                     price: Number(service.price),
                     serviceId: service.id,
-                    ...data
+                    ...dataToStore
                 }),
             });
 
