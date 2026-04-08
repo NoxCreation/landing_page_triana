@@ -2,6 +2,7 @@
 
 import { ContainerLanding } from "@/components/container"
 import { ServiceType } from "@/types/ServiceType"
+import HtmlRenderer from "@/components/htmlRenderer";
 import {
     Button, Field, Grid, Input, Stack, VStack, Text, Box, Heading,
     HStack, Icon, Separator, Checkbox, Link, Alert
@@ -106,8 +107,9 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                             <Stack>
                                 <Heading as="h3" size="sm" color="gray.600" textTransform="uppercase">Descripción</Heading>
                                 <Text color="gray.600" fontSize="sm">
-                                    {service.description?.replace(/<[^>]*>/g, '').slice(0, 180)}
-                                    {service.description && service.description.length > 180 && "..."}
+                                    <HtmlRenderer>
+                                        {service.description}
+                                    </HtmlRenderer>
                                 </Text>
                             </Stack>
 
