@@ -171,7 +171,7 @@ export default function Footer({
                                 {content.services.services.slice(0, 4).map((service, index) => (
                                     <Link
                                         key={index}
-                                        href={`/service/detail/${service.slug}`}
+                                        href={`/payment/details/${service.slug}`}
                                     >
                                         <Text
                                             fontSize="14px"
