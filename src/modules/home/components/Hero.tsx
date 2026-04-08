@@ -128,7 +128,7 @@ export default function Hero({
                                         transform: "scale(0.98)",
                                     }}
                                     onClick={() => {
-                                        router.push(`https://api.whatsapp.com/send/?phone=${process.env.NEXT_PUBLIC_PHONE_CONTACT}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`)
+                                        router.push(`https://api.whatsapp.com/send/?phone=${content.contact.contact.phone}&text=Hola+estoy+interesado+en+sus+servicios.&type=phone_number&app_absent=0`)
                                     }}
                                 >
                                     <WhatsApp />
@@ -160,6 +160,9 @@ export default function Hero({
                                         color: "#6B21A8",
                                         transform: "translateY(-2px)",
                                         boxShadow: "0 8px 20px rgba(109, 40, 217, 0.15)",
+                                    }}
+                                    onClick={() => {
+                                        router.push(`/service`)
                                     }}
                                 >
                                     <Text
