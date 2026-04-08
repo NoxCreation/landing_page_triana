@@ -1,4 +1,4 @@
-import { createPaymentWithHistory, registerLead } from "@/lib/payment";
+import { createPaymentWithHistory, getContentLanding, registerLead } from "@/lib/payment";
 import Stripe from "stripe";
 
 export const runtime = "nodejs";
@@ -29,6 +29,11 @@ export async function POST(req: Request) {
       country_code
     } = await req.json();
 
+    const content = await getContentLanding()
+    const service =  content.services.services.find(service => service.id == serviceId)
+    if(!service)
+      return Response.json({ error: "Servicio no encontrado" }, { status: 400 });
+
     console.log("Registrando lead")
     const leadId = await registerLead(
       first_name,
@@ -41,7 +46,7 @@ export async function POST(req: Request) {
 
     // Registrando el pago
     console.log("Registrando pago con historial")
-    const { paymentId } = await createPaymentWithHistory(leadId, undefined, price, "pending", "Pago pendiente");
+    const { paymentId } = await createPaymentWithHistory(leadId, undefined, price, "pending", "Pago pendiente", service);
 
     console.log("Creando sesión de Stripe")
     const session = await stripe.checkout.sessions.create({
@@ -71,7 +76,7 @@ export async function POST(req: Request) {
           paymentId
         },
       },
-      
+
     });
 
     return Response.json({ url: session.url });

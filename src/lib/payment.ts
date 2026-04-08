@@ -1,4 +1,6 @@
+import { ContentType } from "@/types/ContentType";
 import { queryDb2 } from "./db2";
+import { ServiceType } from "@/types/ServiceType";
 
 export const registerLead = async (
     first_name: string,
@@ -45,7 +47,8 @@ export const createPaymentWithHistory = async (
     paymentId: string | undefined,
     amount: number,
     status: "pending" | "completed" | "dispute" | "refunded" | "failed",
-    description: string
+    description: string,
+    service?: ServiceType
 ): Promise<{ paymentId: string; historyId: string } | undefined> => {
     try {
         let finalPaymentId: string;
@@ -53,11 +56,11 @@ export const createPaymentWithHistory = async (
         if (!paymentId) {
             // Caso 1: Crear un nuevo pago
             const insertPaymentQuery = `
-                INSERT INTO public.payments (id, "leadId", amount, "createdAt", "updatedAt")
-                VALUES (gen_random_uuid(), $1::uuid, $2, NOW(), NOW())
+                INSERT INTO public.payments (id, "leadId", amount, service, "createdAt", "updatedAt")
+                VALUES (gen_random_uuid(), $1::uuid, $2, $3, NOW(), NOW())
                 RETURNING id
             `;
-            const paymentResult = await queryDb2(insertPaymentQuery, [leadId, amount]);
+            const paymentResult = await queryDb2(insertPaymentQuery, [leadId, amount, service]);
             if (!paymentResult || !paymentResult[0]?.id) {
                 throw new Error("No se pudo crear el pago");
             }
@@ -123,5 +126,18 @@ export const getMessageRefund = (decline_code: string, last_payment_code: string
                 default:
                     return `❌ Pago fallido causa desconocida`;
             }
+    }
+}
+
+export const getContentLanding = async (): Promise<ContentType> => {
+    const query = `
+        SELECT * FROM public.landing
+    `;
+    try {
+        const result = await queryDb2(query, []);
+        return result[0]?.content;
+    } catch (err) {
+        console.error("Error en registerLead:", err);
+        return undefined;
     }
 }
