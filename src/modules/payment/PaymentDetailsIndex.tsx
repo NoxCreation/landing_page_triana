@@ -7,14 +7,16 @@ import {
     Button, Field, Grid, Input, Stack, VStack, Text, Box, Heading,
     HStack, Icon, Separator, Checkbox, Link, Alert
 } from "@chakra-ui/react"
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { FiCheckCircle, FiShield, FiHelpCircle, FiArrowLeft } from "react-icons/fi";
+import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcDiscover, FaCcPaypal } from "react-icons/fa";
 import NextLink from "next/link";
 import { useState } from "react";
 import { Transition } from "@/components/Transition";
 import PhoneInput from 'react-phone-number-input'
 import flags from 'react-phone-number-input/flags'
 import 'react-phone-number-input/style.css'
+import { toaster, Toaster } from "@/ui/toaster";
 
 type FormValues = {
     first_name: string;
@@ -27,23 +29,59 @@ type FormValues = {
 export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
     const [submitError, setSubmitError] = useState<string | null>(null);
 
+    // Clave única para localStorage según el servicio
+    const storageKey = `payment_form_data_${service.id}`;
+
+    // Leer datos guardados (si existen)
+    const loadStoredData = (): Partial<FormValues> => {
+        try {
+            const stored = localStorage.getItem(storageKey);
+            if (stored) {
+                return JSON.parse(stored);
+            }
+        } catch (error) {
+            console.error("Error al leer localStorage:", error);
+        }
+        return {};
+    };
+
     const {
+        control,
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-        watch
-    } = useForm<FormValues>();
+        reset
+    } = useForm<FormValues>({
+        defaultValues: {
+            first_name: "",
+            last_name: "",
+            email: "",
+            phone: "",
+            terms: false,
+            ...loadStoredData()
+        }
+    });
+
+    // Opcional: guardar automáticamente mientras el usuario escribe (puedes omitirlo)
+    // pero lo dejamos opcional. Lo importante es guardar al enviar.
 
     const onSubmit = async (data: FormValues) => {
         try {
             setSubmitError(null);
-            console.log(data);
+
+            // Guardar en localStorage antes de enviar (para conservar datos aunque falle)
+            const dataToStore = {
+                first_name: data.first_name,
+                last_name: data.last_name,
+                email: data.email,
+                phone: data.phone,
+                // terms no se guarda por privacidad (opcional)
+            };
+            localStorage.setItem(storageKey, JSON.stringify(dataToStore));
 
             const res = await fetch("/api/create-checkout-session", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     name: service.title,
                     price: Number(service.price),
@@ -55,31 +93,41 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
             if (!res.ok) {
                 const text = await res.text();
                 console.error("Backend error:", text);
+                toaster.create({
+                    title: "Error al crear la sesión de pago",
+                    description: "No se pudo iniciar el pago. Por favor, intenta de nuevo más tarde.",
+                    type: "error",
+                    duration: 5000
+                });
                 return;
             }
 
             const dataResponse = await res.json();
-
             console.log("URL de Stripe:", dataResponse.url);
 
+            // Si todo es exitoso, redirigir
             window.location.href = dataResponse.url;
 
         } catch (err) {
+            console.error(err);
             setSubmitError("Error al procesar el pago. Inténtalo de nuevo.");
+            toaster.create({
+                title: "Error de conexión",
+                description: "Hubo un problema al comunicarse con el servidor. Revisa tu conexión.",
+                type: "error",
+                duration: 5000
+            });
         }
     };
 
     return (
         <ContainerLanding>
+            <Toaster />
             <Grid templateColumns={{ base: "1fr", md: "2fr 1fr" }} gap={10} w="100%" mt={12}>
                 {/* Columna izquierda - Resumen del servicio */}
                 <Transition type="left" velocity="slow">
                     <Stack position="relative">
-                        <Link
-                            as={NextLink}
-                            href={`/service`}
-                            mb={2}
-                        >
+                        <Link as={NextLink} href={`/service`} mb={2}>
                             <FiArrowLeft /> Volver a servicios
                         </Link>
 
@@ -107,16 +155,12 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                             <Stack>
                                 <Heading as="h3" size="sm" color="gray.600" textTransform="uppercase">Descripción</Heading>
                                 <Text color="gray.600" fontSize="sm">
-                                    <HtmlRenderer>
-                                        {service.description}
-                                    </HtmlRenderer>
+                                    <HtmlRenderer>{service.description}</HtmlRenderer>
                                 </Text>
                             </Stack>
 
                             <Points items={service.include} label="Incluye" />
-
                             <Points items={service.notInclude} label="No Incluye" />
-
                             <Points items={service.requirement} label={service.requireLabel} />
 
                             <HStack gap={2} bg="gray.50" p={3} borderRadius="lg">
@@ -146,19 +190,20 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                             <VStack gap={4} align="stretch" mt={4}>
                                 <Field.Root invalid={!!errors.first_name} bg="white">
                                     <Field.Label>Nombre</Field.Label>
-                                    <Input {...register('first_name', { required: 'El campo es obligatorio' })} />
+                                    <Input px={4} {...register('first_name', { required: 'El campo es obligatorio' })} />
                                     <Field.ErrorText>{errors.first_name?.message}</Field.ErrorText>
                                 </Field.Root>
 
                                 <Field.Root invalid={!!errors.last_name} bg="white">
                                     <Field.Label>Apellido</Field.Label>
-                                    <Input {...register('last_name', { required: 'El campo es obligatorio' })} />
+                                    <Input px={4} {...register('last_name', { required: 'El campo es obligatorio' })} />
                                     <Field.ErrorText>{errors.last_name?.message}</Field.ErrorText>
                                 </Field.Root>
 
                                 <Field.Root invalid={!!errors.email} bg="white">
                                     <Field.Label>Correo electrónico</Field.Label>
                                     <Input
+                                        px={4}
                                         type="email"
                                         {...register('email', {
                                             required: 'El correo es obligatorio',
@@ -171,78 +216,76 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                                     <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
                                 </Field.Root>
 
-                                {/* <Field.Root invalid={!!errors.phone} bg="white">
-                                    <Field.Label>Teléfono</Field.Label>
-                                    <Input {...register('phone', { required: 'El campo es obligatorio' })} />
-                                    <Field.ErrorText>{errors.phone?.message}</Field.ErrorText>
-                                </Field.Root> */}
-
                                 <Field.Root invalid={!!errors.phone} bg="white">
                                     <Field.Label>Teléfono</Field.Label>
-                                    <Box
-                                        w="full"
-                                        position="relative"
-                                        border="1px solid"
-                                        borderColor={'gray.200'}
-                                        borderRadius={'4px'}
-                                        bg="white"
-                                        h="50px"
-                                        overflow="hidden"
-                                        _focusWithin={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
-                                        css={{
-                                            '& .PhoneInput': {
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                height: '100%',
-                                                padding: '0 16px',
-                                                gap: '10px',
-                                            },
-                                            '& .PhoneInputInput': {
-                                                border: 'none !important',
-                                                outline: 'none !important',
-                                                background: 'transparent !important',
-                                                backgroundColor: 'transparent !important',
-                                                flex: 1,
-                                                height: '100%',
-                                                fontSize: '16px',
-                                                padding: '0 !important',
-                                                margin: '0 !important',
-                                                boxShadow: 'none !important',
-                                            },
-                                            '& .PhoneInputCountry': {
-                                                flexShrink: 0,
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: '6px'
-                                            },
-
-                                            '& .PhoneInputCountryFlag': {
-                                                width: '20px',
-                                                height: '14px',
-                                                borderRadius: '2px',
-                                                overflow: 'hidden',
-                                            },
-                                            '& .PhoneInputCountrySelectArrow': {
-                                                display: 'none !important',
-                                            },
-                                            '& .PhoneInputCountrySelect': {
-                                                border: 'none !important',
-                                                outline: 'none !important',
-                                                background: 'transparent !important',
-                                                backgroundColor: 'transparent !important',
-                                            },
-                                        }}
-                                    >
-                                        <PhoneInput
-                                            placeholder="Enter phone number"
-                                            value={watch('phone')}
-                                            onChange={(e) => {
-                                                console.log(e);
-                                            }}
-                                            defaultCountry="US"
-                                            flags={flags}
-                                        />
-                                    </Box>
+                                    <Controller
+                                        name="phone"
+                                        control={control}
+                                        rules={{ required: 'El teléfono es obligatorio' }}
+                                        render={({ field }) => (
+                                            <Box
+                                                w="full"
+                                                position="relative"
+                                                border="1px solid"
+                                                borderColor={errors.phone ? 'red.500' : 'gray.200'}
+                                                borderRadius="md"
+                                                bg="white"
+                                                h="50px"
+                                                overflow="hidden"
+                                                _focusWithin={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
+                                                css={{
+                                                    '& .PhoneInput': {
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        height: '100%',
+                                                        padding: '0 16px',
+                                                        gap: '10px',
+                                                    },
+                                                    '& .PhoneInputInput': {
+                                                        border: 'none !important',
+                                                        outline: 'none !important',
+                                                        background: 'transparent !important',
+                                                        flex: 1,
+                                                        height: '100%',
+                                                        fontSize: '16px',
+                                                        padding: '0 !important',
+                                                        margin: '0 !important',
+                                                        boxShadow: 'none !important',
+                                                    },
+                                                    '& .PhoneInputCountry': {
+                                                        flexShrink: 0,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '6px'
+                                                    },
+                                                    '& .PhoneInputCountryFlag': {
+                                                        width: '20px',
+                                                        height: '14px',
+                                                        borderRadius: '2px',
+                                                        overflow: 'hidden',
+                                                    },
+                                                    '& .PhoneInputCountrySelectArrow': {
+                                                        display: 'none !important',
+                                                    },
+                                                    '& .PhoneInputCountrySelect': {
+                                                        border: 'none !important',
+                                                        outline: 'none !important',
+                                                        background: 'transparent !important',
+                                                    },
+                                                }}
+                                            >
+                                                <PhoneInput
+                                                    placeholder="Número de teléfono"
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    onBlur={field.onBlur}
+                                                    defaultCountry="US"
+                                                    flags={flags}
+                                                />
+                                            </Box>
+                                        )}
+                                    />
+                                    <Field.ErrorText>{errors.phone?.message}</Field.ErrorText>
                                 </Field.Root>
 
                                 {/* Checkbox de términos */}
@@ -254,6 +297,11 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                                         <Link as={NextLink} href="/privacidad" color="primary.500">Política de Privacidad</Link>.
                                     </Checkbox.Label>
                                 </Checkbox.Root>
+                                {errors.terms && (
+                                    <Text color="red.500" fontSize="sm" mt={-2}>
+                                        Debes aceptar los términos y condiciones
+                                    </Text>
+                                )}
 
                                 {/* Total a pagar + botón */}
                                 <HStack justify="space-between" mt={2}>
@@ -275,6 +323,22 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                                     Realizar el Pago
                                 </Button>
 
+                                {/* Tarjetas aceptadas y Stripe */}
+                                <Stack align="center" gap={2} mt={2}>
+                                    <HStack gap={3} wrap="wrap" justify="center">
+                                        <Icon as={FaCcVisa} boxSize="32px" color="gray.600" />
+                                        <Icon as={FaCcMastercard} boxSize="32px" color="gray.600" />
+                                        <Icon as={FaCcAmex} boxSize="32px" color="gray.600" />
+                                        <Icon as={FaCcDiscover} boxSize="32px" color="gray.600" />
+                                        {/* Opcional: PayPal */}
+                                        {/* <Icon as={FaCcPaypal} boxSize="32px" color="gray.600" /> */}
+                                    </HStack>
+                                    <HStack gap={1} justify="center">
+                                        <Text fontSize="xs" color="gray.500">Pagos 100% seguros con</Text>
+                                        <Text as="span" fontWeight="bold" fontSize="xs" color="purple.600">Stripe</Text>
+                                    </HStack>
+                                </Stack>
+
                                 <HStack justify="center" mt={2}>
                                     <Icon as={FiHelpCircle} color="gray.400" />
                                     <Text fontSize="xs" color="gray.500">
@@ -288,22 +352,15 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                         </form>
                     </Stack>
                 </Transition>
-
             </Grid>
         </ContainerLanding>
     );
 };
 
-export const Points = ({
-    items,
-    label,
-}: {
-    items: Array<string>;
-    label: string;
-}) => {
+export const Points = ({ items, label }: { items: Array<string>; label: string }) => {
     return (
         <>
-            {items.length != 0 && (
+            {items.length !== 0 && (
                 <Stack>
                     <Heading as="h3" size="sm" color="gray.600" textTransform="uppercase">{label}</Heading>
                     <VStack align="stretch" gap={2}>
