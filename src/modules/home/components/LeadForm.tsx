@@ -13,6 +13,14 @@ export default function LeadForm() {
 
     const [phone, setPhone] = useState<string>()
 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+        reset,
+    } = useForm<FormValues>();
+
+
     return (
         <Transition type="top" velocity="slow">
             <Box w="100%" bg="gray.100" py={16} px={4}>

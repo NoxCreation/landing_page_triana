@@ -302,8 +302,8 @@ export const PaymentDetailsIndex = ({ service }: { service: ServiceType }) => {
                                     <Checkbox.HiddenInput {...register('terms', { required: true })} />
                                     <Checkbox.Control />
                                     <Checkbox.Label fontSize="xs" color="gray.500">
-                                        Acepto los <Link as={NextLink} href="/terminos" color="primary.500">Términos y Condiciones</Link> y la{" "}
-                                        <Link as={NextLink} href="/privacidad" color="primary.500">Política de Privacidad</Link>.
+                                        Acepto las
+                                        <Link as={NextLink} href="/privacy-policy" color="primary.500">Política de Privacidad</Link>.
                                     </Checkbox.Label>
                                 </Checkbox.Root>
                                 {errors.terms && (
