@@ -13,12 +13,12 @@ export default function LeadForm() {
 
     const [phone, setPhone] = useState<string>()
 
-    const {
+    /* const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
         reset,
-    } = useForm<FormValues>();
+    } = useForm<FormValues>(); */
 
 
     return (
