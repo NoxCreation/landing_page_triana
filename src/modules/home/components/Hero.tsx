@@ -43,7 +43,9 @@ export default function Hero({
             <ContainerLanding zIndex={2}>
                 <Flex
                     gap={20}
-                    flexDirection={{ base: "column", lg: "row" }} align={"center"}>
+                    flexDirection={{ base: "column-reverse", lg: "row" }} align={"center"}>
+                    
+                    {/* Izquierda - Títulos, descripción, botones y estadísticas */}
                     <Box flex={1} textAlign={{ base: "center", md: "left" }}>
                         <Flex
                             direction="column"
@@ -198,6 +200,7 @@ export default function Hero({
                         </Transition>
                     </Box>
 
+                    {/* Derecha - Imagen con órbitas y iconos */}
                     <Box
                         flex={1}
                         borderRadius="99px"
