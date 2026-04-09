@@ -132,7 +132,7 @@ ${helpNeeded || "No especificado"}
                             <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                                 <Field.Root invalid={!!errors.first_name}>
                                     <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
-                                        Nombre Completo*
+                                        Nombre*
                                     </Field.Label>
                                     <Input
                                         placeholder="Juan"
@@ -150,7 +150,9 @@ ${helpNeeded || "No especificado"}
                                 </Field.Root>
 
                                 <Field.Root invalid={!!errors.last_name}>
-                                    <Field.Label visibility="hidden">Apellido*</Field.Label>
+                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                        Apellidos*
+                                    </Field.Label>
                                     <Input
                                         placeholder="Pérez"
                                         border="1px solid"
