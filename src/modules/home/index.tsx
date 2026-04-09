@@ -21,7 +21,7 @@ export default async function HomeIndex({
             <Service content={content}/>
             <HowWeWork content={content}/>
             <Testimonials content={content}/>
-            <LeadForm />
+            <LeadForm content={content}/>
         </div>
     );
 }
