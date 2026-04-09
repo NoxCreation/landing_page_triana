@@ -49,7 +49,7 @@ export default function Service({
                                     price: service.price,
                                     frequency: service.type
                                 } as any}
-                                href={"/service/detail"}
+                                href={`/payment/details/${service.slug}`}
                             />
                         </Transition>
                     ))}
