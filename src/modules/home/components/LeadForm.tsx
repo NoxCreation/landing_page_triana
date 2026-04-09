@@ -1,25 +1,107 @@
-"use client"
+"use client";
 
-import { Box, Flex, Grid, Heading, Text, Input, Textarea, Field } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, Input, Textarea, Field, Select, Portal, createListCollection } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import PhoneInput from 'react-phone-number-input'
-import flags from 'react-phone-number-input/flags'
-import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input';
+import flags from 'react-phone-number-input/flags';
+import 'react-phone-number-input/style.css';
 import { useState } from "react";
 import { Transition } from "@/components/Transition";
 
 export default function LeadForm() {
 
-    const [phone, setPhone] = useState<string>()
+    // Estados del formulario
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState<string | undefined>("");
+    const [businessType, setBusinessType] = useState("");
+    const [serviceInterest, setServiceInterest] = useState<string>("");
+    const [description, setDescription] = useState("");
+    const [helpNeeded, setHelpNeeded] = useState("");
 
-    /* const {
-        register,
-        handleSubmit,
-        formState: { errors, isSubmitting },
-        reset,
-    } = useForm<FormValues>(); */
+    const isValidPhone = (phone?: string) => {
+        return phone && phone.length >= 8;
+    };
 
+    const handleSubmit = () => {
+        // Validaciones básicas
+        if (!firstName.trim()) {
+            /* toast({ title: "Campo requerido", description: "Por favor ingresa tu nombre.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+        if (!lastName.trim()) {
+            /* toast({ title: "Campo requerido", description: "Por favor ingresa tu apellido.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+        if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            /* toast({ title: "Email inválido", description: "Ingresa un correo electrónico válido.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+        if (!isValidPhone(phone)) {
+            /* toast({ title: "Teléfono inválido", description: "Ingresa un número de teléfono válido con código de país.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+        if (!businessType.trim()) {
+            /* toast({ title: "Campo requerido", description: "Indica el tipo de negocio.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+        if (!serviceInterest) {
+            /* toast({ title: "Campo requerido", description: "Selecciona un servicio de interés.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+        if (!description.trim()) {
+            /* toast({ title: "Campo requerido", description: "Describe brevemente tu negocio.", status: "warning", duration: 3000, isClosable: true }); */
+            return;
+        }
+
+        // Construir mensaje bonito
+        const message = `
+🌟 *NUEVO LEAD - TRIANA MARKETING* 🌟
+
+👤 *Nombre:* ${firstName} ${lastName}
+📧 *Email:* ${email}
+📞 *Teléfono:* ${phone}
+🏢 *Tipo de negocio:* ${businessType}
+🎯 *Servicio de interés:* ${serviceInterest}
+
+📝 *Descripción del negocio:*
+${description}
+
+💡 *¿En qué podemos ayudarte?*
+${helpNeeded || "No especificado"}
+
+---
+*Enviado desde el formulario web*
+    `.trim();
+
+        // Codificar para URL
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phone}&text=${encodedMessage}&type=phone_number&app_absent=0`;
+
+        // Abrir WhatsApp
+        window.open(whatsappUrl, "_blank");
+
+        // Opcional: limpiar formulario o mostrar éxito
+        /* toast({
+            title: "¡Mensaje enviado!",
+            description: "Serás redirigido a WhatsApp para enviar la propuesta.",
+            status: "success",
+            duration: 4000,
+            isClosable: true,
+        }); */
+    };
+
+    const serviceCollection = createListCollection({
+        items: [
+            { label: "Asesoría estratégica", value: "asesoria_estrategica" },
+            { label: "Gestión de redes sociales", value: "gestion_redes" },
+            { label: "Creación de contenido", value: "creacion_contenido" },
+            { label: "Tienda en línea", value: "tienda_online" },
+            { label: "Otro", value: "otro" },
+        ],
+    });
 
     return (
         <Transition type="top" velocity="slow">
@@ -49,30 +131,16 @@ export default function LeadForm() {
                         </Text>
                     </Box>
 
-                    <Box
-                        p={{ base: 6, md: 10 }}
-                        maxW="900px"
-                        mx="auto"
-                    >
-                        <Grid
-                            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-                            gap={4}
-                            mb={4}
-                        >
+                    <Box p={{ base: 6, md: 10 }} maxW="900px" mx="auto">
+                        <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                             <Field.Root>
-                                <Field.Label
-                                    fontWeight="600"
-                                    fontFamily="inter"
-                                    fontSize="18px"
-                                    lineHeight="22px"
-                                    letterSpacing="0px"
-                                    color="#3F3F3F"
-                                >
+                                <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                     Nombre Completo*
                                 </Field.Label>
-
                                 <Input
                                     placeholder="Juan"
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
                                     border="1px solid"
                                     borderColor="#E5E7EB"
                                     borderTopLeftRadius="3xl"
@@ -85,12 +153,11 @@ export default function LeadForm() {
                             </Field.Root>
 
                             <Field.Root>
-                                <Field.Label visibility="hidden">
-                                    Apellido*
-                                </Field.Label>
-
+                                <Field.Label visibility="hidden">Apellido*</Field.Label>
                                 <Input
                                     placeholder="Pérez"
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
                                     border="1px solid"
                                     borderColor="#E5E7EB"
                                     borderTopLeftRadius="3xl"
@@ -105,19 +172,14 @@ export default function LeadForm() {
 
                         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                             <Field.Root>
-                                <Field.Label
-                                    fontWeight="600"
-                                    fontFamily="inter"
-                                    fontSize="18px"
-                                    lineHeight="22px"
-                                    letterSpacing="0px"
-                                    color="#3F3F3F"
-                                >
+                                <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                     Correo electrónico*
                                 </Field.Label>
                                 <Input
                                     type="email"
                                     placeholder="juan@ejemplo.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     border="1px solid"
                                     borderColor="#E5E7EB"
                                     borderTopLeftRadius="3xl"
@@ -131,14 +193,7 @@ export default function LeadForm() {
                             </Field.Root>
 
                             <Field.Root>
-                                <Field.Label
-                                    fontWeight="600"
-                                    fontFamily="inter"
-                                    fontSize="18px"
-                                    lineHeight="22px"
-                                    letterSpacing="0px"
-                                    color="#3F3F3F"
-                                >
+                                <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                     Número de teléfono*
                                 </Field.Label>
                                 <Box
@@ -180,7 +235,6 @@ export default function LeadForm() {
                                             alignItems: 'center',
                                             gap: '6px',
                                         },
-
                                         '& .PhoneInputCountryFlag': {
                                             width: '20px',
                                             height: '14px',
@@ -199,7 +253,7 @@ export default function LeadForm() {
                                     }}
                                 >
                                     <PhoneInput
-                                        placeholder="Enter phone number"
+                                        placeholder="Número telefónico"
                                         value={phone}
                                         onChange={setPhone}
                                         defaultCountry="US"
@@ -211,18 +265,13 @@ export default function LeadForm() {
 
                         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                             <Field.Root>
-                                <Field.Label
-                                    fontWeight="600"
-                                    fontFamily="inter"
-                                    fontSize="18px"
-                                    lineHeight="22px"
-                                    letterSpacing="0px"
-                                    color="#3F3F3F"
-                                >
+                                <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                     Tipo de Negocio*
                                 </Field.Label>
                                 <Input
                                     placeholder="Escribe tu tipo de negocio"
+                                    value={businessType}
+                                    onChange={(e) => setBusinessType(e.target.value)}
                                     border="1px solid"
                                     borderColor="#E5E7EB"
                                     borderTopLeftRadius="3xl"
@@ -235,51 +284,64 @@ export default function LeadForm() {
                                 />
                             </Field.Root>
                             <Field.Root>
-                                <Field.Label
-                                    fontWeight="600"
-                                    fontFamily="inter"
-                                    fontSize="18px"
-                                    lineHeight="22px"
-                                    letterSpacing="0px"
-                                    color="#3F3F3F"
-                                >
-                                    Servicios de interés*
-                                </Field.Label>
-                                <Box
-                                    as="select"
-                                    border="1px solid"
-                                    borderColor="#E5E7EB"
-                                    borderTopLeftRadius="3xl"
-                                    borderTopRightRadius="3xl"
-                                    borderBottomLeftRadius="0"
-                                    borderBottomRightRadius="3xl" _focus={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
-                                    h="50px"
-                                    bg="transparent"
-                                    cursor="pointer"
-                                    w="100%"
-                                    p="3"
-                                >
-                                    <option value="">Selecciona una opción</option>
-                                    <option value="asesoria">Asesoría estratégica</option>
-                                    <option value="redes">Gestión de redes sociales</option>
-                                    <option value="contenido">Creación de contenido</option>
-                                    <option value="tienda">Tienda en línea</option>
-                                    <option value="otro">Otro</option>
-                                </Box>
+                                <Field.Root>
+                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                        Servicios de interés*
+                                    </Field.Label>
+                                    <Select.Root
+                                        collection={serviceCollection}
+                                        value={[serviceInterest]} // Select.Root espera array internamente
+                                        onValueChange={(e) => setServiceInterest(e.value[0])} // Extrae el primer valor
+                                    >
+                                        <Select.HiddenSelect />
+                                        <Select.Control
+                                            border="1px solid"
+                                            borderColor="#E5E7EB"
+                                            borderTopLeftRadius="3xl"
+                                            borderTopRightRadius="3xl"
+                                            borderBottomLeftRadius="0"
+                                            borderBottomRightRadius="3xl"
+                                            _focus={{ borderColor: "#8B5CF6", boxShadow: "0 0 0 1px #8B5CF6" }}
+                                            h="50px"
+                                            bg="transparent"
+                                            cursor="pointer"
+                                            w="100%"
+                                            px={4}
+                                            display="flex"
+                                            alignItems="center"
+                                        >
+                                            <Select.Trigger border="none">
+                                                <Select.ValueText placeholder="Selecciona una opción" />
+                                            </Select.Trigger>
+                                            <Select.IndicatorGroup>
+                                                <Select.Indicator />
+                                            </Select.IndicatorGroup>
+                                        </Select.Control>
+                                        <Portal>
+                                            <Select.Positioner>
+                                                <Select.Content>
+                                                    {serviceCollection.items.map((item) => (
+                                                        <Select.Item item={item} key={item.value}>
+                                                            {item.label}
+                                                            <Select.ItemIndicator />
+                                                        </Select.Item>
+                                                    ))}
+                                                </Select.Content>
+                                            </Select.Positioner>
+                                        </Portal>
+                                    </Select.Root>
+                                </Field.Root>
+
                             </Field.Root>
                         </Grid>
 
                         <Box mb={6}>
-                            <Text fontWeight="600"
-                                fontFamily="inter"
-                                fontSize="18px"
-                                lineHeight="22px"
-                                letterSpacing="0px"
-                                color="#3F3F3F"
-                            >
-                                Descipción de tu negocio*
+                            <Text fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                Descripción de tu negocio*
                             </Text>
                             <Textarea
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                                 border="1px solid"
                                 borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
@@ -294,16 +356,12 @@ export default function LeadForm() {
                         </Box>
 
                         <Box mb={6}>
-                            <Text fontWeight="600"
-                                fontFamily="inter"
-                                fontSize="18px"
-                                lineHeight="22px"
-                                letterSpacing="0px"
-                                color="#3F3F3F"
-                            >
+                            <Text fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                 ¿En qué podemos ayudarte?
                             </Text>
                             <Textarea
+                                value={helpNeeded}
+                                onChange={(e) => setHelpNeeded(e.target.value)}
                                 border="1px solid"
                                 borderColor="#E5E7EB"
                                 borderTopLeftRadius="3xl"
@@ -332,15 +390,14 @@ export default function LeadForm() {
                                 _active={{
                                     transform: "scale(0.98)",
                                 }}
+                                onClick={handleSubmit}
                             >
-                                <Text>
-                                    Enviar propuesta por WhatsApp
-                                </Text>
+                                <Text>Enviar propuesta por WhatsApp</Text>
                             </ButtonUi>
                         </Flex>
                     </Box>
                 </Box>
-            </Box >
+            </Box>
         </Transition>
     );
 }
