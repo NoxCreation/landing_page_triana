@@ -22,7 +22,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#F3A0FF',
+  themeColor: '#fceeffde',
   // Opcional: Si necesitas el color para la Tile de Windows,
   // puedes definirlo aquí. El campo 'themeColor' es el estándar.
   // La propiedad 'msapplication-TileColor' ya no es necesaria.
