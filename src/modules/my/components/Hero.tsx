@@ -17,7 +17,7 @@ export default function Hero({
     content: ContentType
 }) {
     return (
-        <Stack position={'relative'} bg="#F3A0FF0D">
+        <Stack position={'relative'} bg="rgb(254, 251, 255)">
             {/* <Stack
                 position={"absolute"}
                 top={0}
@@ -136,27 +136,28 @@ export default function Hero({
                             </Transition>
                         </Box>
                         <Transition type="rigth" velocity="slow">
-                            <Box
+                            <Flex
                                 flex={1}
                                 w={{ base: "300px", lg: "540px" }}
-                                h={{ base: "350px", md: "380px" }}
-                                borderRadius="140px"
+                                h={{ base: "350px", md: "300px" }}
+                                borderRadius="80px"
                                 background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
                                 position="relative"
+                                align={'center'}
+                                boxShadowColor={'red.50'}
+                                boxShadow={'2px 2px 150px #f9d0ff'}
+                                overflow={{ base: 'hidden', md: 'visible' }}
                             >
                                 <Image
                                     src="/my/heroMy.webp"
                                     alt="Foto derecha"
-
-                                    h="105%"
+                                    w={{ base: "auto", md: "100%" }}
+                                    h={{ base: "130%", md: "auto" }}
                                     objectFit="cover"
                                     objectPosition={{ base: "center top", md: "center top", lg: "center" }}
-                                    position="absolute"
-                                    bottom="0"
-                                    left="0"
                                     zIndex="1"
                                 />
-                            </Box>
+                            </Flex>
                         </Transition>
                     </Flex>
                 </Box>
