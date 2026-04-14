@@ -40,10 +40,10 @@ export default function Hero({
                 />
             </Stack> */}
 
-            <ContainerLanding zIndex={2}>
+            <ContainerLanding zIndex={2} position={'relative'}>
                 <Flex
                     gap={{ base: 6, md: 20 }}
-                    flexDirection={{ base: "column-reverse", lg: "row" }} align={"center"}>
+                    flexDirection={{ base: "column-reverse", lg: "row" }} align={"center"} position={'initial'}>
 
                     {/* Izquierda - Títulos, descripción, botones y estadísticas */}
                     <Box flex={1} textAlign={{ base: "center", md: "left" }}>
@@ -51,7 +51,7 @@ export default function Hero({
                             direction="column"
                             gap="8px"
                         >
-                            <Transition type="top" velocity="slow">
+                            <Transition type="top" velocity="fast">
                                 <Flex justifyContent={{ base: "center", md: "flex-start" }}>
                                     <SparklesText sparklesCount={5}>
                                         <Heading
@@ -73,10 +73,10 @@ export default function Hero({
                                     />
                                 </Flex>
                             </Transition>
-                            <Transition type="bootom" velocity="slow" index={1}>
+                            <Transition type="bootom" velocity="fast" index={1}>
                                 <Heading
                                     as={"h2"}
-                                    maxW="545px"
+                                    maxW={{base:"100vw", md: "40vw"}}
                                     w="100%"
                                     color="#3F3F3F"
                                     fontSize={{ base: "22px", md: "28px", lg: "32px" }}
@@ -87,9 +87,9 @@ export default function Hero({
                                 >{content.home.main_subtitle}</Heading>
                             </Transition>
 
-                            <Transition type="left" velocity="slow" index={1}>
+                            <Transition type="left" velocity="fast" index={1}>
                                 <Text
-                                    maxW="551px"
+                                    maxW={{base:"100vw", md: "40vw"}}
                                     w="100%"
                                     fontFamily="inter"
                                     fontWeight="400"
@@ -104,7 +104,7 @@ export default function Hero({
                             </Transition>
 
                         </Flex>
-                        <Transition type="bootom" velocity="slow" index={1}>
+                        <Transition type="bootom" velocity="fast" index={1}>
                             <Flex
                                 gap={4}
                                 maxW="517px"
@@ -178,7 +178,7 @@ export default function Hero({
                                 </ButtonUi>
                             </Flex>
                         </Transition>
-                        <Transition type="top" velocity="slow" index={1}>
+                        <Transition type="top" velocity="fast" index={1}>
                             <Flex maxW="576px" w="100%" h={{ base: "auto", lg: "96px" }} bg="transparent" pt={{ base: 10, lg: 20 }} align="center" gap={8} flexWrap={{ base: "wrap", lg: "nowrap" }} justify={{ base: "center", lg: "flex-start" }}>
 
                                 <StatAnimate
@@ -200,78 +200,57 @@ export default function Hero({
                         </Transition>
                     </Box>
 
-                    {/* Derecha - Imagen con órbitas y iconos */}
+                    {/* Derecha - Imagen con máscara (responsive) */}
                     <Box
-                        flex={1}
-                        borderRadius="99px"
-                        px={{ base: "0", md: '90px' }}
-                        zIndex={2}
-                        position={'relative'}
-                        overflow={'hidden'}
-
+                        display={{ base: 'block', md: 'none' }}
+                        h={'400px'} //150
+                    />
+                    <Box
+                        position={{ /* base: "relative", */ lg: "absolute" }}
+                        top={{ lg: 0 }}
+                        right={{ lg: 0 }}
+                        w={{ base: "100%", lg: "120%" }}
+                        h={{ base: "auto", lg: "100vh" }}
+                        display="flex"
+                        justifyContent="flex-end"
+                        mt={{ /* base: 8, */ lg: 0 }}
+                        id="a"
                     >
-                        <Stack position="absolute"
-                            top={'calc((100% / 2) - 200px )'}
-                            left={'calc((100% / 2) - 200px )'}
-                            alignItems="center" justifyContent="center">
-                            <Box position="relative" width="400px" height="400px" mx="auto" >
-                                {/* --- ÓRBITA EXTERNA (Grande, lenta, sentido horario) --- */}
-                                <OrbitingCircles
-                                    radius={200}
-                                    duration={25}
-                                    speed={1}
-                                    reverse={false}
-                                    path={true}
-                                    iconSize={50}
-                                >
-                                    {/* Iconos de estrategia, marketing y datos */}
-                                    <Icon as={FaChartLine} boxSize={7} color="purple.500" />
-                                    <Icon as={FaBullhorn} boxSize={7} color="blue.500" />
-                                    <Icon as={FaLightbulb} boxSize={7} color="yellow.500" />
-                                    <Icon as={FaUsers} boxSize={7} color="green.500" />
-                                    <Icon as={FaSearch} boxSize={7} color="red.400" />
-                                    <Icon as={FaHandshake} boxSize={7} color="orange.500" />
-                                    <Icon as={FaGlobe} boxSize={7} color="teal.500" />
-                                    <Icon as={FaMegaport} boxSize={7} color="pink.500" />
-                                </OrbitingCircles>
+                        <Box
+                            position="absolute"
+                            top={0}
+                            right={{ base: '60px', md: '0' }}
+                            w="110%"
+                            h="100%"
+                            bgImage="url('/home/mask-color.webp')"
+                            bgSize="contain"
+                            bgRepeat="no-repeat"
+                            bgPos="right top"
+                            display={{ base: "none", lg: "block" }}
+                        />
 
-                                {/* --- ÓRBITA INTERNA (Pequeña, rápida, sentido antihorario) --- */}
-                                <OrbitingCircles
-                                    radius={140}
-                                    duration={12}
-                                    speed={1}
-                                    reverse={true}
-                                    path={true}
-                                    iconSize={45}
-                                    position={"absolute"}
-                                    top={0}
-                                >
-                                    {/* Iconos de innovación, crecimiento y soluciones */}
-                                    <Icon as={FaRocket} boxSize={6} color="orange.500" />
-                                    <Icon as={FaArrowUp} boxSize={6} color="green.600" />
-                                    <Icon as={FaBrain} boxSize={6} color="purple.600" />
-                                    <Icon as={FaCogs} boxSize={6} color="gray.600" />
-                                    <Icon as={FaChartPie} boxSize={6} color="blue.600" />
-                                    <Icon as={FaChartLine} boxSize={6} color="red.500" />
-                                </OrbitingCircles>
+                        <Box
+                            position="absolute"
+                            top={0}
+                            right={0}
+                            w={{ base: "160%", md: "50%" }}
+                            h={{ base: "540px", lg: "100vh" }}
+                            style={{
+                                backgroundImage: "url('/home/hero.webp')",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                maskImage: "url('/home/mask-black.webp')",
+                                WebkitMaskImage: "url('/home/mask-black.webp')",
+                                maskSize: "contain",
+                                WebkitMaskRepeat: "no-repeat",
+                                maskRepeat: "no-repeat",
+                                maskPosition: "right top",
+                                WebkitMaskPosition: "right top",
+                            }}
+                        />
 
-                            </Box>
-                        </Stack>
-
-                        <Transition type="rigth" velocity="slow" index={1}>
-                            <Stack zIndex={5} >
-                                <Image
-                                    zIndex={5}
-                                    src="/home/Hero.webp"
-                                    alt="mujer sonriente"
-                                    w="100%"
-                                    h="100%"
-                                    borderRadius="full"
-                                    objectFit="cover"
-                                />
-                            </Stack>
-                        </Transition>
                     </Box>
+
                 </Flex >
             </ContainerLanding>
         </Stack>
