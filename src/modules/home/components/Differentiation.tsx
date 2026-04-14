@@ -7,6 +7,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { ContentType } from "@/types/ContentType";
 import { ContainerLanding } from "@/components/container";
 import Link from "next/link";
+import Carousel from "@/components/Carrusel";
 
 export default function Differentiation({
     content
@@ -16,7 +17,7 @@ export default function Differentiation({
     const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
 
     return (
-        <Stack gap={0} minH={"100vh"} position={'relative'}>
+        <Stack gap={0} minH={{ base: 0, md: "100vh" }} position={'relative'}>
             <Transition type="top" velocity="slow" index={1}>
                 <Flex
                     w="100%"
@@ -58,7 +59,7 @@ export default function Differentiation({
                     px={{ base: 4, md: 6, lg: 8 }}
                     bg="white"
                 >
-                    <VStack gap={{ base: 10, md: 12 }} mx="auto">
+                    <Stack gap={{ base: 10, md: 12 }} >
                         {/* Encabezado */}
                         <Transition type="bootom" velocity={animationVelocity as any} index={1}>
                             <VStack gap={0} textAlign="center">
@@ -87,26 +88,55 @@ export default function Differentiation({
                             </VStack>
                         </Transition>
 
-                        {/* Grid de tarjetas */}
-                        <Grid
-                            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }}
-                            gap={{ base: 6, md: 8 }}
-                        >
-                            {content.home.why_choose_me.map((card, index) => (
-                                <Transition
-                                    key={index}
-                                    type="bootom"
-                                    velocity={animationVelocity as any}
-                                    index={index * 2}
-                                >
-                                    <InfoCard
-                                        title={card.title}
-                                        description={card.description}
-                                        icon={card.icon}
-                                    />
-                                </Transition>
-                            ))}
-                        </Grid>
+                        <Box display={{ base: 'initial', md: 'none' }}>
+                            <Transition
+                                type="bootom"
+                                velocity={animationVelocity as any}
+                            >
+                                <Carousel >
+                                    {content.home.why_choose_me.map((card, index) => (
+                                        <Box
+                                            key={index}
+                                            flex={{
+                                                base: "0 0 100%",
+                                                md: "0 0 50%",
+                                                lg: "0 0 33.33%",
+                                            }}
+                                            px={{ base: 2, md: 4 }}
+                                        >
+
+                                            <InfoCard
+                                                title={card.title}
+                                                description={card.description}
+                                                icon={card.icon}
+                                            />
+                                        </Box>
+                                    ))}
+                                </Carousel>
+                            </Transition>
+                        </Box>
+
+                        <Box display={{ base: 'none', md: 'initial' }}>
+                            <Grid
+                                templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }}
+                                gap={{ base: 6, md: 8 }}
+                            >
+                                {content.home.why_choose_me.map((card, index) => (
+                                    <Transition
+                                        key={index}
+                                        type="bootom"
+                                        velocity={animationVelocity as any}
+                                        index={index * 2}
+                                    >
+                                        <InfoCard
+                                            title={card.title}
+                                            description={card.description}
+                                            icon={card.icon}
+                                        />
+                                    </Transition>
+                                ))}
+                            </Grid>
+                        </Box>
 
                         {/* Botón CTA */}
                         <Center>
@@ -134,7 +164,7 @@ export default function Differentiation({
                                 </Button>
                             </Link>
                         </Center>
-                    </VStack>
+                    </Stack>
                 </Box>
             </ContainerLanding>
         </Stack>

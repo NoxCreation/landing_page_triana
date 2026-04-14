@@ -1,11 +1,9 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
-import { Box, Flex, IconButton } from "@chakra-ui/react";
-import { useCallback } from "react";
-import TestimonialCard from "@/components/cards/CardTestimonies";
-import { TestimoniesType } from "@/types/TestimoniesType";
+import { Box, ConditionalValue, Flex, IconButton } from "@chakra-ui/react";
+import { ReactNode, useCallback } from "react";
 
-export default function TestimonialsCarousel({ testimonials }: { testimonials: Array<TestimoniesType> }) {
+export default function Carousel({ children, displayButtons }: { children: ReactNode, displayButtons?: ConditionalValue<any> }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         align: "start",
@@ -21,30 +19,13 @@ export default function TestimonialsCarousel({ testimonials }: { testimonials: A
 
     return (
         <>
-            <Box overflow="hidden" ref={emblaRef}>
+            <Box /* overflow="hidden" */ ref={emblaRef}>
                 <Flex>
-                    {testimonials.map((testimonial, index) => (
-                        <Box
-                            key={index}
-                            flex={{
-                                base: "0 0 100%",
-                                md: "0 0 50%",
-                                lg: "0 0 33.33%",
-                            }}
-                            px={4}
-                        >
-                            <TestimonialCard                                
-                                name={testimonial.name}
-                                role={testimonial.position}
-                                text={testimonial.comment}
-                                image={"/avatar.svg"}
-                            />
-                        </Box>
-                    ))}
+                    {children}
                 </Flex>
             </Box>
 
-            <Flex justify="center" mt={8} gap={4}>
+            <Flex justify="center" mt={8} gap={4} display={displayButtons}>
                 <IconButton
                     aria-label="prev"
                     onClick={scrollPrev}

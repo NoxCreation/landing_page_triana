@@ -6,6 +6,7 @@ import { Transition } from "@/components/Transition";
 import { CardService } from "@/components/cards/CardService";
 import { ContentType } from "@/types/ContentType";
 import { ContainerLanding } from "@/components/container";
+import Carousel from "@/components/Carrusel";
 
 export default function Service({
     content
@@ -30,7 +31,38 @@ export default function Service({
                     </Box>
                 </Transition>
 
-                <Grid
+                <Transition type="left" velocity="slow">
+                    <Carousel displayButtons={{ base: 'flex', md: 'none' }}>
+                        {content.services.services.slice(0, 3).map((service, index) => (
+                            <Box
+                                key={index}
+                                flex={{
+                                    base: "0 0 100%",
+                                    md: "0 0 50%",
+                                    lg: "0 0 33.33%",
+                                }}
+                                px={{ base: 0, md: 4 }}
+                            >
+                                <CardService
+                                    title={service.title}
+                                    tiquets={service.tiquet as any}
+                                    require={service.requireLabel}
+                                    requirements={service.requirement}
+                                    includes={service.include}
+                                    notIncludes={service.notInclude}
+                                    payment={{
+                                        label: "",
+                                        price: service.price,
+                                        frequency: service.type
+                                    } as any}
+                                    href={`/payment/details/${service.slug}`}
+                                />
+                            </Box>
+                        ))}
+                    </Carousel>
+                </Transition>
+
+                {/* <Grid
                     templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }}
                     gap={6}
                     mb={10}
@@ -53,7 +85,7 @@ export default function Service({
                             />
                         </Transition>
                     ))}
-                </Grid>
+                </Grid> */}
 
                 <Link
                     href="/service"

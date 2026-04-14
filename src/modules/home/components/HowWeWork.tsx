@@ -13,14 +13,13 @@ export default function HowWeWork({
 }) {
     return (
         <ContainerLanding bg="white">
-            <Flex align="center" flexDirection={{ base: "column", lg: "row" }} gap={{ base: 8, lg: 0 }}>
+            <Flex align="center" flexDirection={{ base: "column", lg: "row" }}>
                 <Transition type="left" velocity="slow">
-                    <Box flex="1" alignItems="start">
+                    <Stack flex="1" alignItems="start" gap={6}>
                         <Heading
                             as="h1"
                             fontFamily="Bricolage Grotesque"
                             color="#3F3F3F"
-                            mb={4}
                             fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
                             fontWeight={800}
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
@@ -40,13 +39,14 @@ export default function HowWeWork({
                                 />
                             ))}
                         </List.Root>
-                    </Box>
+                    </Stack>
                 </Transition>
 
                 <Stack
                     flex={1}
                     w={'100%'}
                     alignItems={'end'}
+                    display={{ base: 'none', md: 'flex' }}
                 >
                     <Transition type="rigth" velocity="slow">
                         <Image

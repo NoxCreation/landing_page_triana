@@ -1,20 +1,37 @@
 'use client'
 
-import { Box, Heading, Text } from "@chakra-ui/react";
-import TestimonialsCarousel from "@/components/Carrusel";
+import { Box, Flex, Heading, IconButton, Stack, Text } from "@chakra-ui/react";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback } from "react";
+import TestimonialCard from "@/components/cards/CardTestimonies";
+import { ContainerLanding } from "@/components/container";
+import Carousel from "@/components/Carrusel";
 
 export default function Testimonials({
     content
 }: {
     content: ContentType
 }) {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: "start",
+    });
+
+    const scrollPrev = useCallback(() => {
+        emblaApi?.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        emblaApi?.scrollNext();
+    }, [emblaApi]);
+
     return (
-        <Box w="100%" bg="gray.50" py={16} px={4}>
-            <Box maxW="1440px" mx="auto">
+        <ContainerLanding >
+            <Stack gap={12}>
                 <Transition type="top" velocity="slow">
-                    <Box textAlign="center" mb={12}>
+                    <Stack textAlign="center" gap={2}>
                         <Heading
                             as="h1"
                             color="#3F3F3F"
@@ -23,7 +40,6 @@ export default function Testimonials({
                             fontFamily="Bricolage Grotesque"
                             lineHeight={{ base: "1.3", md: "70px" }}
                             letterSpacing="0px"
-                            mb={4}
                         >
                             Lo que dicen nuestros clientes
                         </Heading>
@@ -36,17 +52,34 @@ export default function Testimonials({
                         >
                             Testimonios de clientes que hablan por nuestro trabajo
                         </Text>
-                    </Box>
+                    </Stack>
                 </Transition>
 
-                <Box maxW="1120px" m="auto" >
+                <Box>
                     <Transition type="rigth" velocity="slow" >
-                        <TestimonialsCarousel
-                            testimonials={content.testimonies.testimonies}
-                        />
+                        <Carousel>
+                            {content.testimonies.testimonies.map((testimonial, index) => (
+                                <Box
+                                    key={index}
+                                    flex={{
+                                        base: "0 0 100%",
+                                        md: "0 0 50%",
+                                        lg: "0 0 33.33%",
+                                    }}
+                                    px={{ base: 0, md: 4 }}
+                                >
+                                    <TestimonialCard
+                                        name={testimonial.name}
+                                        role={testimonial.position}
+                                        text={testimonial.comment}
+                                        image={"/avatar.svg"}
+                                    />
+                                </Box>
+                            ))}
+                        </Carousel>
                     </Transition>
                 </Box>
-            </Box>
-        </Box>
+            </Stack>
+        </ContainerLanding>
     );
 }
