@@ -42,9 +42,9 @@ export default function Hero({
 
             <ContainerLanding zIndex={2}>
                 <Flex
-                    gap={20}
+                    gap={{ base: 6, md: 20 }}
                     flexDirection={{ base: "column-reverse", lg: "row" }} align={"center"}>
-                    
+
                     {/* Izquierda - Títulos, descripción, botones y estadísticas */}
                     <Box flex={1} textAlign={{ base: "center", md: "left" }}>
                         <Flex
@@ -59,7 +59,7 @@ export default function Hero({
                                             color="primary.500"
                                             fontFamily="Bricolage Grotesque"
                                             fontWeight="extrabold"
-                                            fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                            fontSize={{ base: "34px", md: "40px", lg: "54px" }}
                                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                                         >
                                             {content.home.main_title}
@@ -208,6 +208,7 @@ export default function Hero({
                         zIndex={2}
                         position={'relative'}
                         overflow={'hidden'}
+
                     >
                         <Stack position="absolute"
                             top={'calc((100% / 2) - 200px )'}
@@ -258,7 +259,7 @@ export default function Hero({
                         </Stack>
 
                         <Transition type="rigth" velocity="slow" index={1}>
-                            <Stack zIndex={5} p={4}>
+                            <Stack zIndex={5} >
                                 <Image
                                     zIndex={5}
                                     src="/home/Hero.webp"
