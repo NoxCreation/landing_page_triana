@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Provider } from "@/ui/provider";
 import Navbar from "@/components/Navbar";
@@ -20,6 +20,13 @@ const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage',
 });
+
+export const viewport: Viewport = {
+  themeColor: '#F3A0FF',
+  // Opcional: Si necesitas el color para la Tile de Windows,
+  // puedes definirlo aquí. El campo 'themeColor' es el estándar.
+  // La propiedad 'msapplication-TileColor' ya no es necesaria.
+}
 
 export const metadata: Metadata = {
   title: "Triana Marketing & Consulting",
