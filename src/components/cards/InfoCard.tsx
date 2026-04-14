@@ -33,6 +33,8 @@ export default function InfoCard({
             borderBottomLeftRadius="0"
             borderBottomRightRadius="3xl"
             overflow="visible"
+            display="flex"
+            flexDirection="column"
             {...props}
         >
             {IconComponent && (
