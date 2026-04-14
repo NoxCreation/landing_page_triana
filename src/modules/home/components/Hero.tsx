@@ -5,7 +5,7 @@ import ButtonUi from "@/components/Button";
 import { WhatsApp } from '@mui/icons-material';
 import { useRouter } from "next/navigation";
 import { FaArrowUp, FaBrain, FaBullhorn, FaChartLine, FaChartPie, FaCogs, FaGlobe, FaHandshake, FaLightbulb, FaMegaport, FaRocket, FaSearch, FaUsers } from "react-icons/fa";
-import { DotPattern } from "@/components/DotPattern";
+/* import { DotPattern } from "@/components/DotPattern"; */
 import { OrbitingCircles } from "@/components/OrbitingCircle";
 import { SparklesText } from "@/components/Sparkle";
 import { StatAnimate } from "@/components/StatAnimate";
@@ -21,7 +21,7 @@ export default function Hero({
     const router = useRouter()
     return (
         <Stack position={'relative'} bg="gray.50">
-            <Stack
+            {/* <Stack
                 position={"absolute"}
                 top={0}
                 left={0}
@@ -38,7 +38,7 @@ export default function Hero({
                     color="gray.400"
                     opacity={0.2}
                 />
-            </Stack>
+            </Stack> */}
 
             <ContainerLanding zIndex={2}>
                 <Flex
