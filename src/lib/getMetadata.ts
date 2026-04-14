@@ -28,10 +28,6 @@ export function getMetadata({
             title: _title,
             description: _description,
             images: [fullImageUrl],
-        },
-        themeColor: '#F3A0FF',
-        other: {
-            'msapplication-TileColor': '#F3A0FF',
-        },
+        }
     };
 }
