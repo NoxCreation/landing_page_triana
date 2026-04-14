@@ -65,7 +65,7 @@ export default function ContactSection({
 
     return (
         <Stack position={'relative'} bg="white">
-            <Stack
+            {/* <Stack
                 position={"absolute"}
                 top={0}
                 left={0}
@@ -82,7 +82,7 @@ export default function ContactSection({
                     color="gray.400"
                     opacity={0.2}
                 />
-            </Stack>
+            </Stack> */}
 
             <ContainerLanding zIndex={2}>
                 <Grid

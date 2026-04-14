@@ -18,7 +18,7 @@ export default function Hero({
 }) {
     return (
         <Stack position={'relative'} bg="#F3A0FF0D">
-            <Stack
+            {/* <Stack
                 position={"absolute"}
                 top={0}
                 left={0}
@@ -35,7 +35,7 @@ export default function Hero({
                     color="gray.400"
                     opacity={0.2}
                 />
-            </Stack>
+            </Stack> */}
             <ContainerLanding>
                 <Box as="section" position="relative" >
 
