@@ -236,7 +236,7 @@ export default function Hero({
                             w={{ base: "160%", md: "50%" }}
                             h={{ base: "540px", lg: "100vh" }}
                             style={{
-                                backgroundImage: "url('/home/hero.webp')",
+                                backgroundImage: "url('/home/hero_image.webp')",
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 maskImage: "url('/home/mask-black.webp')",
