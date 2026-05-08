@@ -20,7 +20,7 @@ export default function Hero({
 }) {
     const router = useRouter()
     return (
-        <Stack position={'relative'} bg="gray.50">
+        <Stack position={'relative'} bgGradient="linear(to-r, #D7D5D8, #D7D5D8, #D9D4D0)">
             {/* <Stack
                 position={"absolute"}
                 top={0}
@@ -45,7 +45,20 @@ export default function Hero({
                     gap={{ base: 6, md: 20 }}
                     flexDirection={{ base: "column-reverse", lg: "row" }} align={"center"} position={'initial'}>
 
-                    {/* Izquierda - Títulos, descripción, botones y estadísticas */}
+                    {/* centro - Títulos, descripción, botones y estadísticas */}
+                    <Flex >
+                        <Image
+                            src="/home/home-1.png"
+                        />
+                        <Image
+                            src="/home/home-2.png"
+                        />
+                        <Image
+                            src="/home/home-3.png"
+                        />
+                    </Flex>
+
+                    {/* centro - Títulos, descripción, botones y estadísticas */}
                     <Box flex={1} textAlign={{ base: "center", md: "left" }}>
                         <Flex
                             direction="column"
@@ -76,7 +89,7 @@ export default function Hero({
                             <Transition type="bootom" velocity="fast" index={1}>
                                 <Heading
                                     as={"h2"}
-                                    maxW={{base:"100vw", md: "40vw"}}
+                                    maxW={{ base: "100vw", md: "40vw" }}
                                     w="100%"
                                     color="#3F3F3F"
                                     fontSize={{ base: "22px", md: "28px", lg: "32px" }}
@@ -89,7 +102,7 @@ export default function Hero({
 
                             <Transition type="left" velocity="fast" index={1}>
                                 <Text
-                                    maxW={{base:"100vw", md: "40vw"}}
+                                    maxW={{ base: "100vw", md: "40vw" }}
                                     w="100%"
                                     fontFamily="inter"
                                     fontWeight="400"
@@ -200,56 +213,11 @@ export default function Hero({
                         </Transition>
                     </Box>
 
-                    {/* Derecha - Imagen con máscara (responsive) */}
-                    <Box
-                        display={{ base: 'block', md: 'none' }}
-                        h={'400px'} //150
+                    {/* Derecha - Imagen Grande */}
+                    <Image
+                        src="/home/triana-home.png"
                     />
-                    <Box
-                        position={{ /* base: "relative", */ lg: "absolute" }}
-                        top={{ lg: 0 }}
-                        right={{ lg: 0 }}
-                        w={{ base: "100%", lg: "120%" }}
-                        h={{ base: "auto", lg: "100vh" }}
-                        display="flex"
-                        justifyContent="flex-end"
-                        mt={{ /* base: 8, */ lg: 0 }}
-                        id="a"
-                    >
-                        <Box
-                            position="absolute"
-                            top={0}
-                            right={{ base: '60px', md: '0' }}
-                            w="110%"
-                            h="100%"
-                            bgImage="url('/home/mask-color.webp')"
-                            bgSize="contain"
-                            bgRepeat="no-repeat"
-                            bgPos="right top"
-                            display={{ base: "none", lg: "block" }}
-                        />
 
-                        <Box
-                            position="absolute"
-                            top={0}
-                            right={0}
-                            w={{ base: "160%", md: "50%" }}
-                            h={{ base: "540px", lg: "100vh" }}
-                            style={{
-                                backgroundImage: "url('/home/hero_image.webp')",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                maskImage: "url('/home/mask-black.webp')",
-                                WebkitMaskImage: "url('/home/mask-black.webp')",
-                                maskSize: "contain",
-                                WebkitMaskRepeat: "no-repeat",
-                                maskRepeat: "no-repeat",
-                                maskPosition: "right top",
-                                WebkitMaskPosition: "right top",
-                            }}
-                        />
-
-                    </Box>
 
                 </Flex >
             </ContainerLanding>

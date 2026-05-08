@@ -12,14 +12,25 @@ export default function HowWeWork({
     content: ContentType
 }) {
     return (
-        <ContainerLanding bg="white">
+        <ContainerLanding
+            bgGradient={{ lg: "linear-gradient(to right, #EDEDED, #E3E0E0, #E7E5E6, #DFDBDA)" }}
+            bgImage={{ base: "url('/home/bg-proces.png')", lg: "none" }}
+            bgSize={{ base: "contain", lg: "cover" }}
+            backgroundPosition="center 80%"
+            bgRepeat="no-repeat"
+            pt={{ base: 6, lg: 0 }}
+            pb={{ base: "420px", lg: 0 }}
+            minH={{ base: "100vh", lg: "auto" }}
+            overflow="hidden"
+            alignItems="flex-start"
+        >
             <Flex align="center" flexDirection={{ base: "column", lg: "row" }}>
                 <Transition type="left" velocity="slow">
                     <Stack flex="1" alignItems="start" gap={6}>
                         <Heading
                             as="h1"
                             fontFamily="Bricolage Grotesque"
-                            color="#3F3F3F"
+                            color="primary.500"
                             fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
                             fontWeight={800}
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
@@ -50,13 +61,8 @@ export default function HowWeWork({
                 >
                     <Transition type="rigth" velocity="slow">
                         <Image
-                            src="/home/proces.webp"
+                            src="/home/proces.png"
                             alt="Foto derecha"
-                            maxW="420px"
-                            w="100%"
-                            borderRadius="2xl"
-                            bottom="0"
-                            zIndex="1"
                         />
                     </Transition>
                 </Stack>

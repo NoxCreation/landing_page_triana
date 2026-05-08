@@ -17,7 +17,18 @@ export default function Hero({
     content: ContentType
 }) {
     return (
-        <Stack position={'relative'} bg="rgb(254, 251, 255)">
+        <Stack
+            position="relative"
+            bgImage={{ base: "url('/my/bg-my.png')", lg: "url('/my/my-bg.png')" }}
+            bgSize={{ base: "contain", lg: "cover" }}
+            backgroundPosition="center 80%"
+            bgRepeat="no-repeat"
+            pt={{ base: 6, lg: 0 }}
+            pb={{ base: "420px", lg: 0 }}
+            minH={{ base: "100vh", lg: "auto" }}
+            overflow="hidden"
+            alignItems="flex-start"
+        >
             {/* <Stack
                 position={"absolute"}
                 top={0}
@@ -36,130 +47,126 @@ export default function Hero({
                     opacity={0.2}
                 />
             </Stack> */}
+            {/* Vista desktop */}
+            {/* Círculo grande */}
+            <Box
+                position="absolute"
+                left="-238px"
+                w="921px"
+                h="883px"
+                borderRadius="50%"
+                border="3px solid rgba(97, 17, 97, 0.08)"
+                zIndex={0}
+                display={{ base: "none", lg: "block" }}
+            />
+
+            {/* Círculo pequeño */}
+            <Box
+                position="absolute"
+                top="256px"
+                left="-131px"
+                w="612px"
+                h="587px"
+                borderRadius="50%"
+                border="3px solid rgba(97, 17, 97, 0.3)"
+                opacity={0.35}
+                zIndex={0}
+                display={{ base: "none", lg: "block" }}
+            />
+
             <ContainerLanding>
-                <Box as="section" position="relative" >
+                <Box as="section" position="relative" textAlign="left" maxW="500px" >
 
-                    <Flex
-                        direction={{ base: "column", lg: "row" }}
-                        gap={12}
-                        alignItems={"center"}
-                        alignContent={'center'}
-                    >
-                        <Box flex={1} textAlign={{ base: "center", lg: "left" }}>
-                            <Stack
-                                w="100%"
-                                gap={6}
-                                alignItems={{ base: "center", lg: "start" }}
-                            >
-                                <Transition type="top" velocity="slow">
+                    <Box flex={1} textAlign={{ base: "center", lg: "left" }}>
+                        <Stack
+                            w="100%"
+                            gap={6}
+                            alignItems={{ base: "center", lg: "start" }}
+                        >
+                            <Transition type="top" velocity="slow">
 
-                                    <Text
-                                        maxW="249px"
-                                        px={4}
-                                        py={2}
-                                        borderRadius="full"
-                                        fontSize="14px"
-                                        fontWeight="400"
-                                        lineHeight="20px"
-                                        letterSpacing="0px"
-                                        bg="#F5F3FF"
-                                        color="primary.500"
-                                        border="1px solid"
-                                        borderColor="primary.500"
-                                        textAlign="center"
-                                        whiteSpace="nowrap"
-                                    >
-                                        {content.my.label}
-                                    </Text>
-                                </Transition>
-                                <Transition type="top" velocity="slow">
-                                    <Flex gap={2} justifyContent={{ base: "center", lg: "flex-start" }} alignItems="center">
-                                        <SparklesText>
-                                            <Heading
-                                                as="h1"
-                                                color="primary.500"
-                                                fontWeight="800"
-                                                fontSize={{ base: "28px", md: "40px", lg: "54px" }}
-                                                fontFamily="Bricolage Grotesque"
-                                                lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                                            >
-                                                {content.my.fullname}
-                                            </Heading>
-                                        </SparklesText>
+                                <Text
+                                    maxW="249px"
+                                    px={4}
+                                    py={2}
+                                    borderRadius="full"
+                                    fontSize="14px"
+                                    fontWeight="400"
+                                    lineHeight="20px"
+                                    letterSpacing="0px"
+                                    bg="#F5F3FF"
+                                    color="primary.500"
+                                    border="1px solid"
+                                    borderColor="primary.500"
+                                    textAlign="center"
+                                    whiteSpace="nowrap"
+                                >
+                                    {content.my.label}
+                                </Text>
+                            </Transition>
+                            <Transition type="top" velocity="slow">
+                                <Flex gap={2} justifyContent={{ base: "center", lg: "flex-start" }} alignItems="center">
+                                    <SparklesText>
+                                        <Heading
+                                            as="h1"
+                                            color="primary.500"
+                                            fontWeight="800"
+                                            fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                            fontFamily="Bricolage Grotesque"
+                                            lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                                        >
+                                            {content.my.fullname}
+                                        </Heading>
+                                    </SparklesText>
 
-                                        <Image
-                                            src="/home/Vector.ico"
-                                            w={{ base: "24px", lg: "32px" }}
-                                            h={{ base: "24px", lg: "32px" }}
-                                        />
-                                    </Flex>
-                                </Transition>
-                                <Transition type="left" velocity="slow">
-                                    <Text
-                                        w="100%"
-                                        fontFamily="inter"
-                                        fontWeight="400"
-                                        fontSize={{ base: "18px", md: "16px", lg: "18px" }}
-                                        lineHeight="22px"
-                                        letterSpacing="0px"
-                                        color="#717171"
-                                        mb={8}
-                                    >
-                                        {content.my.mini_description}
-                                    </Text>
-                                </Transition>
-                            </Stack>
-                            <Transition type="bootom" velocity="slow">
-                                <Flex flexDir={{ base: 'column', md: 'row' }} gap={4}>
-                                    <Link target="_blank" href={content.my.contact.linkedln} flex={1}>
-                                        <ButtonSocial
-                                            icon={LinkedInIcon}
-                                            label="LinkedIn"
-                                        />
-                                    </Link>
-
-                                    <Link target="_blank" href={content.my.contact.tittok} flex={1}>
-                                        <ButtonSocial
-                                            icon={FaTiktok}
-                                            label="TikTok"
-                                        />
-                                    </Link>
-
-                                    <Link target="_blank" href={`mailto:${content.my.contact.email}`} flex={1}>
-                                        <ButtonSocial
-                                            icon={EmailIcon}
-                                            label="Contacto"
-                                        />
-                                    </Link>
-
+                                    <Image
+                                        src="/home/Vector.ico"
+                                        w={{ base: "24px", lg: "32px" }}
+                                        h={{ base: "24px", lg: "32px" }}
+                                    />
                                 </Flex>
                             </Transition>
-                        </Box>
-                        <Transition type="rigth" velocity="slow">
-                            <Flex
-                                flex={1}
-                                w={{ base: "300px", lg: "540px" }}
-                                h={{ base: "350px", md: "300px" }}
-                                borderRadius="80px"
-                                background="radial-gradient(circle at center, #FFFFFF 0%, #F9D0FF 100%)"
-                                position="relative"
-                                align={'center'}
-                                boxShadowColor={'red.50'}
-                                boxShadow={'2px 2px 150px #f9d0ff'}
-                                overflow={{ base: 'hidden', md: 'visible' }}
-                            >
-                                <Image
-                                    src="/my/heroMy.webp"
-                                    alt="Foto derecha"
-                                    w={{ base: "auto", md: "100%" }}
-                                    h={{ base: "130%", md: "auto" }}
-                                    objectFit="cover"
-                                    objectPosition={{ base: "center top", md: "center top", lg: "center" }}
-                                    zIndex="1"
-                                />
+                            <Transition type="left" velocity="slow">
+                                <Text
+                                    w="100%"
+                                    fontFamily="inter"
+                                    fontWeight="400"
+                                    fontSize={{ base: "18px", md: "16px", lg: "18px" }}
+                                    lineHeight="22px"
+                                    letterSpacing="0px"
+                                    color="#717171"
+                                    mb={8}
+                                >
+                                    {content.my.mini_description}
+                                </Text>
+                            </Transition>
+                        </Stack>
+                        <Transition type="bootom" velocity="slow">
+                            <Flex flexDir={{ base: 'column', md: 'row' }} gap={4}>
+                                <Link target="_blank" href={content.my.contact.linkedln} flex={1}>
+                                    <ButtonSocial
+                                        icon={LinkedInIcon}
+                                        label="LinkedIn"
+                                    />
+                                </Link>
+
+                                <Link target="_blank" href={content.my.contact.tittok} flex={1}>
+                                    <ButtonSocial
+                                        icon={FaTiktok}
+                                        label="TikTok"
+                                    />
+                                </Link>
+
+                                <Link target="_blank" href={`mailto:${content.my.contact.email}`} flex={1}>
+                                    <ButtonSocial
+                                        icon={EmailIcon}
+                                        label="Contacto"
+                                    />
+                                </Link>
+
                             </Flex>
                         </Transition>
-                    </Flex>
+                    </Box>
                 </Box>
             </ContainerLanding>
         </Stack>
