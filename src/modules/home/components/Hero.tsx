@@ -2,7 +2,7 @@
 
 import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
 import ButtonUi from "@/components/Button";
-import { WhatsApp } from '@mui/icons-material';
+import { Block, WhatsApp } from '@mui/icons-material';
 import { useRouter } from "next/navigation";
 import { FaArrowUp, FaBrain, FaBullhorn, FaChartLine, FaChartPie, FaCogs, FaGlobe, FaHandshake, FaLightbulb, FaMegaport, FaRocket, FaSearch, FaUsers } from "react-icons/fa";
 /* import { DotPattern } from "@/components/DotPattern"; */
@@ -12,6 +12,7 @@ import { StatAnimate } from "@/components/StatAnimate";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
 import { ContainerLanding } from "@/components/container";
+import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 export default function Hero({
     content
@@ -20,7 +21,10 @@ export default function Hero({
 }) {
     const router = useRouter()
     return (
-        <Stack position={'relative'} bgGradient="linear(to-r, #D7D5D8, #D7D5D8, #D9D4D0)">
+        <Stack
+            position={'relative'}
+            bgGradient="linear(to right, #D7D5D8, #D7D5D8, #D9D4D0)"
+        >
             {/* <Stack
                 position={"absolute"}
                 top={0}
@@ -40,26 +44,64 @@ export default function Hero({
                 />
             </Stack> */}
 
-            <ContainerLanding zIndex={2} position={'relative'}>
+            <ContainerLanding
+                zIndex={2}
+                position={'relative'}
+            >
                 <Flex
-                    gap={{ base: 6, md: 20 }}
-                    flexDirection={{ base: "column-reverse", lg: "row" }} align={"center"} position={'initial'}>
+                    flexDirection={{ base: "column-reverse", lg: "row" }}
+                    align={"center"}
+                    position={'initial'}
+                >
+
+                    {/* fotos izquierda */}
+                    <Box>
+                        <Box
+                            display={{ base: "none", lg: "block" }}
+                            w={{ lg: "20%", xl: "25%" }}
+                            minW="180px"
+                            position="relative"
+                            h="500px"
+                        >
+                            {/* Imagen 1 */}
+                            <Image
+                                src="/home/home-1.png"
+                                position="absolute"
+                                top="0px"
+                                left="-40px"
+                                maxW="180px"
+                                transform="rotate(-10deg)"
+                            />
+
+                            {/* Imagen 2 (la del medio, más protagonista) */}
+                            <Image
+                                src="/home/home-2.png"
+                                position="absolute"
+                                top="40px"
+                                left="-160px"
+                                maxW="200px"
+                                transform="rotate(1deg)"
+                                zIndex={2}
+                            />
+
+                            {/* Imagen 3 */}
+                            <Image
+                                src="/home/home-3.png"
+                                position="absolute"
+                                top="250px"
+                                left="-40px"
+                                maxW="180px"
+                                transform="rotate(-2deg)"
+                                zIndex={3}
+                            />
+                        </Box>
+                    </Box>
 
                     {/* centro - Títulos, descripción, botones y estadísticas */}
-                    <Flex >
-                        <Image
-                            src="/home/home-1.png"
-                        />
-                        <Image
-                            src="/home/home-2.png"
-                        />
-                        <Image
-                            src="/home/home-3.png"
-                        />
-                    </Flex>
-
-                    {/* centro - Títulos, descripción, botones y estadísticas */}
-                    <Box flex={1} textAlign={{ base: "center", md: "left" }}>
+                    <Box
+                        flex={1}
+                        textAlign={{ base: "center", md: "left" }}
+                    >
                         <Flex
                             direction="column"
                             gap="8px"
