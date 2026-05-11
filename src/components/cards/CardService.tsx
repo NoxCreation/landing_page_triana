@@ -65,7 +65,7 @@ export const CardService = ({
                             as="h3"
                             color="#3F3F3F"
                             fontSize="20px"
-                            fontFamily="inter"
+                            fontFamily="Bricolage Grotesque"
                             lineHeight="32px"
                             letterSpacing="0px"
                             fontWeight="800"
@@ -95,6 +95,7 @@ export const CardService = ({
                                     borderColor="primary.500"
                                     textAlign="center"
                                     whiteSpace="nowrap"
+                                    fontFamily="Bricolage Grotesque"
                                 >
                                     {tag.label}
                                 </Text>
@@ -107,7 +108,7 @@ export const CardService = ({
                         {require && (
                             <Text
                                 fontSize="18px"
-                                fontFamily="inter"
+                                fontFamily="Bricolage Grotesque"
                                 fontWeight={600}
                                 color="#3F3F3F"
                                 lineHeight="22px"
@@ -131,7 +132,7 @@ export const CardService = ({
                                         />
                                         <Text
                                             fontSize="14px"
-                                            fontFamily="inter"
+                                            fontFamily="Bricolage Grotesque"
                                             fontWeight={400}
                                             color="#717171"
                                             lineHeight="20px"
@@ -146,7 +147,7 @@ export const CardService = ({
 
                         {includes && <Text
                             fontSize="18px"
-                            fontFamily="inter"
+                            fontFamily="Bricolage Grotesque"
                             fontWeight={600}
                             color="#3F3F3F"
                             lineHeight="22px"
@@ -169,7 +170,7 @@ export const CardService = ({
                                         />
                                         <Text
                                             fontSize="14px"
-                                            fontFamily="inter"
+                                            fontFamily="Bricolage Grotesque"
                                             fontWeight={400}
                                             color="#717171"
                                             lineHeight="20px"
@@ -186,7 +187,7 @@ export const CardService = ({
                             <>
                                 <Text
                                     fontSize="18px"
-                                    fontFamily="inter"
+                                    fontFamily="Bricolage Grotesque"
                                     fontWeight={600}
                                     color="#3F3F3F"
                                     lineHeight="22px"
@@ -207,7 +208,7 @@ export const CardService = ({
                                             />
                                             <Text
                                                 fontSize="14px"
-                                                fontFamily="inter"
+                                                fontFamily="Bricolage Grotesque"
                                                 fontWeight={400}
                                                 color="#717171"
                                                 lineHeight="20px"
@@ -234,7 +235,7 @@ export const CardService = ({
                             fontSize="20px"
                             color="gray.400"
                             fontWeight={800}
-                            fontFamily="inter"
+                            fontFamily="Bricolage Grotesque"
                             lineHeight="32px"
                             letterSpacing="0px"
                             mb={1}
@@ -249,6 +250,7 @@ export const CardService = ({
                                 color="black"
                                 lineHeight="40px"
                                 letterSpacing="0px"
+                                fontFamily="Bricolage Grotesque"
                             >
                                 {payment.price}
                             </Text>
@@ -259,7 +261,7 @@ export const CardService = ({
                                     fontSize="20px"
                                     color="gray.400"
                                     fontWeight={800}
-                                    fontFamily="inter"
+                                    fontFamily="Bricolage Grotesque"
                                     lineHeight="32px"
                                     letterSpacing="0px"
                                 >

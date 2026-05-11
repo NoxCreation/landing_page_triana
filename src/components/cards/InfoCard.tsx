@@ -60,7 +60,7 @@ export default function InfoCard({
                 pt={IconComponent ? "12" : "8"}
             >
                 <Card.Title
-                    fontFamily="Inter"
+                    fontFamily="Bricolage Grotesque"
                     fontWeight="800"
                     fontSize="20px"
                     lineHeight="24px"
@@ -71,7 +71,7 @@ export default function InfoCard({
                     {title}
                 </Card.Title>
                 <Card.Description
-                    fontFamily="Inter"
+                    fontFamily="Bricolage Grotesque"
                     fontWeight="400"
                     fontSize="14px"
                     lineHeight="20px"

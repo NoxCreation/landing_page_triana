@@ -45,7 +45,7 @@ export default function Need({
                     {/* Columna izquierda: Imagen */}
                     <GridItem order={{ base: 2, md: 1 }} zIndex={2} h="400px" >
                         <Image
-                            src="/home/women.png"
+                            src="/home/women.webp"
                             position={'absolute'}
                             alt="Asesora de marketing con teléfono"
                             objectFit="contain"

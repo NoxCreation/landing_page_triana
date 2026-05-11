@@ -74,7 +74,7 @@ export default function Differentiation({
                                 </Heading>
                                 <Text
                                     as="h3"
-                                    fontFamily="Inter"
+                                    fontFamily="Bricolage Grotesque"
                                     fontWeight="400"
                                     fontSize={{ base: "14px", md: "16px", lg: "18px" }}
                                     lineHeight="1.5"
