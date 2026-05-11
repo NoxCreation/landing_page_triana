@@ -62,6 +62,7 @@ export default function CardBlog({
                         fontWeight={400}
                         lineHeight="20px"
                         color={'gray.400'}
+                        fontFamily="Bricolage Grotesque"
                     >
                         <Text>{author}</Text>
                         <Icon as={CalendarTodayIcon} fontSize="xs" />
@@ -70,10 +71,10 @@ export default function CardBlog({
 
                     <Heading
                         as="h3"
-                        fontSize="20px"
+                        fontSize="18px"
                         fontWeight={800}
-                        fontFamily="Inter"
-                        lineHeight="32px"
+                        fontFamily="Bricolage Grotesque"
+                        lineHeight="24px"
                         mt={1}
                         mb={2}
                         color={'gray.600'}
@@ -86,6 +87,7 @@ export default function CardBlog({
                         fontSize="14px"
                         fontWeight={400}
                         lineHeight="22px"
+                        fontFamily="Bricolage Grotesque"
                         mb={3}
                     >
                         {excerpt}

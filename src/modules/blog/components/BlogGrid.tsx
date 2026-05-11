@@ -66,7 +66,7 @@ export default function BlogGrid({
                             color={'gray.400'}
                             fontWeight={400}
                             fontSize="18px"
-                            fontFamily="inter"
+                            fontFamily="Bricolage Grotesque"
                             lineHeight="22px"
                             letterSpacing="0px"
                         >

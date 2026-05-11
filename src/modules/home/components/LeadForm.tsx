@@ -122,6 +122,7 @@ ${helpNeeded || "No especificado"}
                             lineHeight="22px"
                             letterSpacing="0px"
                             fontWeight={400}
+                            fontFamily="Bricolage Grotesque"
                         >
                             Completa el formulario y recibe una respuesta personalizada en menos de 24 horas
                         </Text>
@@ -131,7 +132,7 @@ ${helpNeeded || "No especificado"}
                         <Box p={{ base: 6, md: 10 }} maxW="900px" mx="auto">
                             <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                                 <Field.Root invalid={!!errors.first_name}>
-                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                    <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                         Nombre*
                                     </Field.Label>
                                     <Input
@@ -150,7 +151,7 @@ ${helpNeeded || "No especificado"}
                                 </Field.Root>
 
                                 <Field.Root invalid={!!errors.last_name}>
-                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                    <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                         Apellidos*
                                     </Field.Label>
                                     <Input
@@ -171,7 +172,7 @@ ${helpNeeded || "No especificado"}
 
                             <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                                 <Field.Root invalid={!!errors.email}>
-                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                    <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                         Correo electrónico*
                                     </Field.Label>
                                     <Input
@@ -192,7 +193,7 @@ ${helpNeeded || "No especificado"}
                                 </Field.Root>
 
                                 <Field.Root invalid={!!errors.phone}>
-                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                    <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                         Teléfono*
                                     </Field.Label>
                                     <Controller
@@ -270,7 +271,7 @@ ${helpNeeded || "No especificado"}
 
                             <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={4} mb={4}>
                                 <Field.Root invalid={!!errors.businessType}>
-                                    <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                    <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                         Tipo de Negocio*
                                     </Field.Label>
                                     <Input
@@ -290,7 +291,7 @@ ${helpNeeded || "No especificado"}
                                 </Field.Root>
                                 <Field.Root>
                                     <Field.Root invalid={!!errors.serviceInterest}>
-                                        <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                        <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                             Servicios de interés*
                                         </Field.Label>
                                         <Select.Root
@@ -340,7 +341,7 @@ ${helpNeeded || "No especificado"}
                             </Grid>
 
                             <Field.Root invalid={!!errors.description}>
-                                <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                     Descripción de tu negocio*
                                 </Field.Label>
                                 <Textarea
@@ -360,7 +361,7 @@ ${helpNeeded || "No especificado"}
                             </Field.Root>
 
                             <Field.Root invalid={!!errors.helpNeeded} mt={4}>
-                                <Field.Label fontWeight="600" fontFamily="inter" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
+                                <Field.Label fontWeight="600" fontFamily="Bricolage Grotesque" fontSize="18px" lineHeight="22px" letterSpacing="0px" color="#3F3F3F">
                                     ¿En qué podemos ayudarte?
                                 </Field.Label>
                                 <Textarea

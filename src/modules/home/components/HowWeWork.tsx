@@ -75,7 +75,7 @@ export default function HowWeWork({
                 >
                     <Transition type="rigth" velocity="slow">
                         <Image
-                            src="/home/proces.png"
+                            src="/home/proces.webp"
                             alt="Foto derecha"
                         />
                     </Transition>
@@ -150,7 +150,7 @@ const Point = ({
                 <Text
                     as="h3"
                     fontWeight={800}
-                    fontFamily="inter"
+                    fontFamily="Bricolage Grotesque"
                     color="#3F3F3F"
                     mb={1}
                     fontSize={{ base: "18px", lg: "26px" }}
@@ -163,7 +163,7 @@ const Point = ({
                     color="#717171"
                     fontSize="14px"
                     fontWeight={400}
-                    fontFamily="inter"
+                    fontFamily="Bricolage Grotesque"
                 >
                     {description}
                 </Text>
