@@ -5,7 +5,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import { ElementType } from "react";
 import { FaTiktok } from "react-icons/fa";
-import { DotPattern } from "@/components/DotPattern";
 import { SparklesText } from "@/components/Sparkle";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
@@ -29,52 +28,27 @@ export default function Hero({
             overflow="hidden"
             alignItems="flex-start"
         >
-            {/* <Stack
-                position={"absolute"}
+            <Box 
+                position="absolute"
                 top={0}
                 left={0}
-                w={'100vw'}
-                h={'100vh'}
-                zIndex={0}
-            >
-                <DotPattern
-                    width={20}
-                    height={20}
-                    cx={2}
-                    cy={2}
-                    cr={1.5}
-                    color="gray.400"
-                    opacity={0.2}
-                />
-            </Stack> */}
+                w={'100%'}
+                h={'100%'}
+                bg="linear-gradient(90deg, #ffffff62, transparent)"
+                zIndex={1}
+            />
+
             {/* Vista desktop */}
-            {/* Círculo grande */}
-            <Box
+            <Image
+                zIndex={1}
+                src="/visual_support.png"
                 position="absolute"
-                left="-238px"
-                w="921px"
-                h="883px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.08)"
-                zIndex={0}
-                display={{ base: "none", lg: "block" }}
+                bottom={0}
+                left={{ base: "-250px", md: "0", lg: "0" }}
+                minW={{ base: "calc(100vw + 400px)", md: "calc(100% - 400px)", lg: "calc(100vw / 2 )" }}
             />
 
-            {/* Círculo pequeño */}
-            <Box
-                position="absolute"
-                top="256px"
-                left="-131px"
-                w="612px"
-                h="587px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.3)"
-                opacity={0.35}
-                zIndex={0}
-                display={{ base: "none", lg: "block" }}
-            />
-
-            <ContainerLanding>
+            <ContainerLanding zIndex={2}>
                 <Box as="section" position="relative" textAlign="left" maxW="500px" >
 
                     <Box flex={1} textAlign={{ base: "center", lg: "left" }}>
@@ -86,7 +60,6 @@ export default function Hero({
                             <Transition type="top" velocity="slow">
 
                                 <Text
-                                    maxW="249px"
                                     px={4}
                                     py={2}
                                     borderRadius="full"
@@ -111,7 +84,7 @@ export default function Hero({
                                             as="h1"
                                             color="primary.500"
                                             fontWeight="800"
-                                            fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                            fontSize={{ base: "28px", md: "40px", lg: "42px" }}
                                             fontFamily="Bricolage Grotesque"
                                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                                         >
@@ -121,8 +94,8 @@ export default function Hero({
 
                                     <Image
                                         src="/home/Vector.ico"
-                                        w={{ base: "24px", lg: "32px" }}
-                                        h={{ base: "24px", lg: "32px" }}
+                                        w={{ base: "24px", lg: "26px" }}
+                                        h={{ base: "24px", lg: "26px" }}
                                     />
                                 </Flex>
                             </Transition>
@@ -187,7 +160,7 @@ const ButtonSocial = ({
         justifyContent={'center'}
         w="100%"
         h={{ base: "auto", lg: "48px" }}
-        bg="#F9D0FF"
+        bg="#F6F2FF"
         borderRadius="30px"
         py={{ base: 3, lg: "16px" }}
         px="24px"
@@ -195,7 +168,8 @@ const ButtonSocial = ({
         color="terciary.500"
         cursor={'pointer'}
         _hover={{
-            bg: "#f5c1fc"
+            bg: "#ece6fa",
+            textDecoration: 'none',
         }}
     >
         <Icon as={icon} />
@@ -207,6 +181,7 @@ const ButtonSocial = ({
             lineHeight="22px"
             letterSpacing="0"
             textAlign="center"
+            color={"B223CF"}
         >{label}</Text>
     </Flex>
 )

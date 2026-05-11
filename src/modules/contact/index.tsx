@@ -70,51 +70,13 @@ export default function ContactSection({
             bg="linear-gradient(to bottom, #FFFFFF, #DDDCD9)"
             overflow="hidden"
         >
-            {/* <Stack
-                position={"absolute"}
-                top={0}
-                left={0}
-                w={'100vw'}
-                h={'100%'}
+            <Image
                 zIndex={1}
-            >
-                <DotPattern
-                    width={20}
-                    height={20}
-                    cx={2}
-                    cy={2}
-                    cr={1.5}
-                    color="gray.400"
-                    opacity={0.2}
-                />
-            </Stack> */}
-
-            {/* Círculo pequeño */}
-            <Box
+                src="/visual_support.png"
                 position="absolute"
-                left="151px"
-                w="1331px"
-                h="1277px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.08)"
-                transform="rotate(-180deg)"
-                zIndex={0}
-                display={{ base: "none", lg: "block" }}
-            />
-
-            {/* Círculo pequeño */}
-            <Box
-                position="absolute"
-                top="371px"
-                left="443px"
-                w="886px"
-                h="850px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.3)"
-                opacity={0.35}
-                transform="rotate(-180deg)"
-                zIndex={0}
-                display={{ base: "none", lg: "block" }}
+                bottom={0}
+                left={{ base: "-250px", md: "0", lg: "0" }}
+                minW={{ base: "calc(100vw + 400px)", md: "calc(100% - 400px)", lg: "calc(100vw / 2 )" }}
             />
 
             <ContainerLanding zIndex={2}>
@@ -150,15 +112,15 @@ export default function ContactSection({
                                             <Field.Label>Nombre completo</Field.Label>
                                             <Input
                                                 px={2}
-                                                border="1px solid #717171"
+                                                border="1px solid #b8b8b8"
                                                 bg="#FFFFFF"
                                                 color="#717171"
                                                 placeholder='Nombre'
                                                 {...register('name', { required: 'El nombre es obligatorio' })}
-                                                borderTopLeftRadius="3xl"
-                                                borderTopRightRadius="3xl"
+                                                borderTopLeftRadius="2xl"
+                                                borderTopRightRadius="2xl"
                                                 borderBottomLeftRadius="0"
-                                                borderBottomRightRadius="3xl"
+                                                borderBottomRightRadius="2xl"
                                             />
                                             <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
                                         </Field.Root>
@@ -168,7 +130,7 @@ export default function ContactSection({
                                             <Field.Label>Correo electrónico</Field.Label>
                                             <Input
                                                 px={2}
-                                                border="1px solid #717171"
+                                                border="1px solid #b8b8b8"
                                                 bg="#FFFFFF"
                                                 color="#717171"
                                                 placeholder='ejemplo@meil.com'
@@ -180,10 +142,10 @@ export default function ContactSection({
                                                         message: 'Correo inválido',
                                                     },
                                                 })}
-                                                borderTopLeftRadius="3xl"
-                                                borderTopRightRadius="3xl"
+                                                borderTopLeftRadius="2xl"
+                                                borderTopRightRadius="2xl"
                                                 borderBottomLeftRadius="0"
-                                                borderBottomRightRadius="3xl"
+                                                borderBottomRightRadius="2xl"
                                             />
                                             <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
                                         </Field.Root>
@@ -194,16 +156,16 @@ export default function ContactSection({
                                             <Textarea
                                                 px={2}
                                                 py={2}
-                                                border="1px solid #717171"
+                                                border="1px solid #b8b8b8"
                                                 bg="#FFFFFF"
                                                 color="#717171"
                                                 placeholder='Dejanos un mensaje'
                                                 rows={5}
                                                 {...register('message', { required: 'El mensaje es obligatorio' })}
-                                                borderTopLeftRadius="3xl"
-                                                borderTopRightRadius="3xl"
+                                                borderTopLeftRadius="2xl"
+                                                borderTopRightRadius="2xl"
                                                 borderBottomLeftRadius="0"
-                                                borderBottomRightRadius="3xl"
+                                                borderBottomRightRadius="2xl"
                                             />
                                             <Field.ErrorText>{errors.message?.message}</Field.ErrorText>
                                         </Field.Root>
@@ -249,30 +211,75 @@ export default function ContactSection({
                                     <Text fontWeight="bold" color="gray.800">
                                         Síguenos en redes
                                     </Text>
-                                    <HStack gap={4}>
+                                    <HStack gap={2}>
                                         {(content.contact.social.linkedln && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.linkedln} target="_blank">
-                                                <Icon as={FaLinkedin} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaLinkedin} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
                                         {(content.contact.social.tiktok && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.tiktok} target="_blank">
-                                                <Icon as={FaTiktok} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaTiktok} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
                                         {(content.contact.social.facebook && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.facebook} target="_blank">
-                                                <Icon as={FaFacebook} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaFacebook} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
                                         {(content.contact.social.instagram && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.instagram} target="_blank">
-                                                <Icon as={FaInstagram} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaInstagram} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
                                         {(content.contact.social.youtube && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.youtube} target="_blank">
-                                                <Icon as={FaYoutube} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaYoutube} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
                                     </HStack>
@@ -288,8 +295,8 @@ export default function ContactSection({
                                 as="img"
                                 src="/home/contact.png"
                                 alt="Asesora de marketing (Leyanis Triana) centada al lado de una silla"
+                                minW={'120%'}
                                 w="100%"
-                                maxW="500px"
                             />
                         </Transition>
                     </GridItem>

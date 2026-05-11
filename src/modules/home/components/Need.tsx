@@ -18,64 +18,42 @@ export default function Need({
             overflow={"hidden"}
             bg="linear-gradient(to right, #EDEDED, #E3E0E0, #E7E5E6, #DFDBDA)"
         >
-            {/* Círculo grande */}
             <Box
                 position="absolute"
-                left="-257px"
-                w="996px"
-                h="955px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.08)"
-                zIndex={0}
-                display={{ base: "none", md: "block" }}
+                top={0}
+                left={0}
+                w={'100%'}
+                bg="linear-gradient(180deg, #ffffff, transparent)"
+                h={'60px'}
             />
-
-            {/* Círculo mediano */}
-            <Box
+            <Image
+                zIndex={1}
+                src="/visual_support.png"
                 position="absolute"
-                top="277px"
-                left="-142px"
-                w="662px"
-                h="635px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.3)"
-                opacity={0.35}
-                zIndex={0}
-                display={{ base: "none", md: "block" }}
+                bottom={0}
+                left={{ base: "-250px", md: "0", lg: "0" }}
+                minW={{ base: "calc(100vw + 400px)", md: "calc(100% - 400px)", lg: "calc(100% - 1000px)" }}
             />
 
-            {/* Círculo pequeño */}
-            <Box
-                position="absolute"
-                left="-40px"
-                bottom="-120px"
-                w="350px"
-                h="330px"
-                borderRadius="50%"
-                border="3px solid rgba(97, 17, 97, 0.3)"
-                zIndex={0}
-                display={{ base: "none", md: "block" }}
-            />
-
-            <ContainerLanding py={{ base: 0, md: 6 }}>
+            <ContainerLanding py={{ base: 0, md: 6 }} >
                 <Grid
-                    maxW="1200px"
-                    mx="auto"
                     templateColumns={{ base: "1fr", md: "1fr 1fr" }}
                     gap={{ base: 12, md: 16 }}
                     alignItems="center"
+
                 >
                     {/* Columna izquierda: Imagen */}
-                    <GridItem order={{ base: 2, md: 1 }} zIndex={2} ml={{ md: "-300px" }}>
-                        <Transition type="left" velocity="slow" index={1}>
-                            <Image
-                                src="/home/women.png"
-                                alt="Asesora de marketing con teléfono"
-                                objectFit="contain"
-                                maxH="500px"
-                                w="full"
-                            />
-                        </Transition>
+                    <GridItem order={{ base: 2, md: 1 }} zIndex={2} h="400px" >
+                        <Image
+                            src="/home/women.png"
+                            position={'absolute'}
+                            alt="Asesora de marketing con teléfono"
+                            objectFit="contain"
+                            bottom={0}
+                            left={0}
+                            maxW={"calc(100vh - 100px)"}
+                            w="full"
+                        />
                     </GridItem>
 
                     {/* Columna derecha: Contenido informativo */}
@@ -84,11 +62,12 @@ export default function Need({
                             <VStack align="flex-start" gap={6} color="white">
                                 <Heading
                                     as="h2"
-                                    fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+                                    fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
                                     fontWeight="extrabold"
                                     fontFamily="Bricolage Grotesque"
                                     lineHeight="1.2"
                                     color="primary.500"
+                                    textAlign={{ base: 'center', md: "start" }}
                                 >
                                     {content.home.strategic_section.title}
                                 </Heading>
@@ -97,6 +76,7 @@ export default function Need({
                                     fontSize={{ base: "md", md: "lg" }}
                                     opacity={0.9} fontFamily="Bricolage Grotesque"
                                     color="#3F3F3F"
+
                                 >
                                     {content.home.strategic_section.description}
                                 </Text>
@@ -146,6 +126,14 @@ export default function Need({
                 </Grid>
             </ContainerLanding>
 
+            <Box
+                position="absolute"
+                bottom={0}
+                left={0}
+                w={'100%'}
+                bg="linear-gradient(0deg, #fafafa, transparent)"
+                h={'60px'}
+            />
         </Stack>
     );
 }

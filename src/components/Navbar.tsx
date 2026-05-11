@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import { ContainerLanding } from "./container";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -67,63 +68,63 @@ export default function Navbar() {
         top={0}
         w="100%"
         zIndex={10}
-        bg={isScrolled ? "#fceeffde" : "transparent"}
+        bg={isScrolled ? "#f8dbffb2" : "transparent"}
         boxShadow={isScrolled ? "0px 0px 24px rgba(97,17,97,0.24)" : "none"}
         transition="background-color 0.3s ease, box-shadow 0.3s ease"
       >
-        <Flex
-          alignItems="center"
-          h="80px"
-          w="100%"
-          justify="space-between"
-          mx="auto"
-          px={{ base: "24px", lg: "160px" }}
-        >
-          <Box flex={1}>
-            <Link href="/">
-              <Image
-                src="/home/LOGO_PRINCIPAL.svg"
-                alt="Logo"
-                width="96px"
-                height="48px"
-                objectFit="contain"
-              />
-            </Link>
-          </Box>
-
-          {/* Menú desktop */}
-          <HStack as="nav" gap="24px" display={{ base: "none", md: "flex" }}>
-            {items.map((item) => (
-              <Link key={item.label} href={item.url}>
-                <Text
-                  fontWeight="600"
-                  fontFamily="Roboto"
-                  fontSize="14px"
-                  lineHeight="22px"
-                  letterSpacing="0"
-                  color={isActive(item.url) ? "primary.500" : "gray.700"}
-                  borderBottom={isActive(item.url) ? "2px solid" : "none"}
-                  borderColor="primary.500"
-                  _hover={{ color: "primary.400", textDecoration: "none" }}
-                  cursor="pointer"
-                >
-                  {item.label}
-                </Text>
-              </Link>
-            ))}
-          </HStack>
-
-          {/* Botón hamburguesa */}
-          <IconButton
-            aria-label="Abrir menú"
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((s) => !s)}
-            display={{ base: "flex", md: "none" }}
-            variant="ghost"
+        <ContainerLanding minH="80px" p={"0 !important"} bg={'transparent'}>
+          <Flex
+            alignItems="center"
+            h="80px"
+            w="100%"
           >
-            <span>☰</span>
-          </IconButton>
-        </Flex>
+            <Box flex={1}>
+              <Link href="/">
+                <Image
+                  src="/home/LOGO_PRINCIPAL.svg"
+                  alt="Logo"
+                  width="96px"
+                  height="48px"
+                  objectFit="contain"
+                />
+              </Link>
+            </Box>
+
+            {/* Menú desktop */}
+            <HStack as="nav" gap="24px" display={{ base: "none", md: "flex" }}>
+              {items.map((item) => (
+                <Link key={item.label} href={item.url}>
+                  <Text
+                    fontWeight="600"
+                    fontFamily="Roboto"
+                    fontSize="14px"
+                    lineHeight="22px"
+                    letterSpacing="0"
+                    color={isActive(item.url) ? "primary.500" : "gray.700"}
+                    borderBottom={isActive(item.url) ? "2px solid" : "none"}
+                    borderColor="primary.500"
+                    _hover={{ color: "primary.400", textDecoration: "none" }}
+                    cursor="pointer"
+                  >
+                    {item.label}
+                  </Text>
+                </Link>
+              ))}
+            </HStack>
+
+            {/* Botón hamburguesa */}
+            <IconButton
+              aria-label="Abrir menú"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((s) => !s)}
+              display={{ base: "flex", md: "none" }}
+              variant="ghost"
+            >
+              <span>☰</span>
+            </IconButton>
+          </Flex>
+        </ContainerLanding>
+
       </Box>
 
       {/* Menú móvil con animaciones */}

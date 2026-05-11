@@ -324,8 +324,8 @@ ${helpNeeded || "No especificado"}
                                             <Portal>
                                                 <Select.Positioner>
                                                     <Select.Content>
-                                                        {serviceCollection.items.map((item) => (
-                                                            <Select.Item item={item} key={item.value} p={2}>
+                                                        {serviceCollection.items.map((item, index) => (
+                                                            <Select.Item item={item} key={`service-${index}-${item.value}`} p={2}>
                                                                 {item.label}
                                                                 <Select.ItemIndicator />
                                                             </Select.Item>

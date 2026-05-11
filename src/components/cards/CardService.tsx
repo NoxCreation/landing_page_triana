@@ -52,7 +52,7 @@ export const CardService = ({
                 borderTopRightRadius="3xl"
                 borderBottomLeftRadius="0"
                 borderBottomRightRadius="3xl"
-                border="2px solid"
+                border="1px solid"
                 borderColor="gray.100"
                 overflow="hidden"
                 display="flex"
@@ -79,9 +79,9 @@ export const CardService = ({
                             mb={5}
                             justifyContent={{ base: "center", md: "start" }}
                         >
-                            {tiquets.map((tag) => (
+                            {tiquets.map((tag, index) => (
                                 <Text
-                                    key={tag.value}
+                                    key={`tag-${index}`}
                                     px={4}
                                     py={2}
                                     borderRadius="full"
@@ -122,7 +122,7 @@ export const CardService = ({
                         {requirements && requirements.length > 0 && (
                             <Box as="ul" listStyleType="none" pl={0} mb={4}>
                                 {requirements.map((require, i) => (
-                                    <Flex key={i} align="center" mb={2}>
+                                    <Flex key={`requirement-${i}`} align="center" mb={2}>
                                         <Icon
                                             w={"10"}
                                             as={TripOriginIcon}
@@ -160,7 +160,7 @@ export const CardService = ({
                         {includes && includes.length > 0 && (
                             <Box as="ul" listStyleType="none" pl={0} mb={4}>
                                 {includes.map((include, i) => (
-                                    <Flex key={i} align="center" mb={2}>
+                                    <Flex key={`include-${i}`} align="center" mb={2}>
                                         <Icon
                                             w={"10"}
                                             as={TaskAltIcon}
@@ -198,7 +198,7 @@ export const CardService = ({
                                 </Text>
                                 <Box as="ul" listStyleType="none" pl={0} mb={4}>
                                     {notIncludes.map((notinclude, i) => (
-                                        <Flex key={i} align="center" mb={2}>
+                                        <Flex key={`notinclude-${i}`} align="center" mb={2}>
                                             <Icon
                                                 w="10"
                                                 as={HighlightOffIcon}

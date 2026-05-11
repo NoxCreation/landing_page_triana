@@ -56,10 +56,9 @@ export default function Differentiation({
             <ContainerLanding bg="white" color="black" py={20}>
                 <Box
                     as="section"
-                    px={{ base: 4, md: 6, lg: 8 }}
                     bg="white"
                 >
-                    <Stack gap={{ base: 10, md: 12 }} >
+                    <Stack gap={{ base: 10, md: 14 }}>
                         {/* Encabezado */}
                         <Transition type="bootom" velocity={animationVelocity as any} index={1}>
                             <VStack gap={0} textAlign="center">
@@ -88,7 +87,7 @@ export default function Differentiation({
                             </VStack>
                         </Transition>
 
-                        <Box display={{ base: 'initial', md: 'none' }}>
+                        <Box display={{ base: 'initial', md: 'none' }} >
                             <Transition
                                 type="bootom"
                                 velocity={animationVelocity as any}
@@ -139,10 +138,9 @@ export default function Differentiation({
                         </Box>
 
                         {/* Botón CTA */}
-                        <Center>
+                        {/* <Center>
                             <Link href={`/service`}>
                                 <Button
-                                    /* rightIcon={<FaArrowRight />} */
                                     px="24px"
                                     py="16px"
                                     borderRadius="99px"
@@ -163,7 +161,7 @@ export default function Differentiation({
                                     Comenzar ahora
                                 </Button>
                             </Link>
-                        </Center>
+                        </Center> */}
                     </Stack>
                 </Box>
             </ContainerLanding>
