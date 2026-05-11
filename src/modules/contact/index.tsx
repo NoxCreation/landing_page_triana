@@ -16,6 +16,7 @@ import {
     Field,
     useBreakpointValue,
     Stack,
+    Box,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import {
@@ -64,25 +65,19 @@ export default function ContactSection({
     const isMobile = useBreakpointValue({ base: true, md: false });
 
     return (
-        <Stack position={'relative'} bg="white">
-            {/* <Stack
-                position={"absolute"}
-                top={0}
-                left={0}
-                w={'100vw'}
-                h={'100%'}
+        <Stack
+            position={'relative'}
+            bg="linear-gradient(to bottom, #FFFFFF, #DDDCD9)"
+            overflow="hidden"
+        >
+            <Image
                 zIndex={1}
-            >
-                <DotPattern
-                    width={20}
-                    height={20}
-                    cx={2}
-                    cy={2}
-                    cr={1.5}
-                    color="gray.400"
-                    opacity={0.2}
-                />
-            </Stack> */}
+                src="/visual_support.png"
+                position="absolute"
+                bottom={0}
+                left={{ base: "-250px", md: "0", lg: "0" }}
+                minW={{ base: "calc(100vw + 400px)", md: "calc(100% - 400px)", lg: "calc(100vw / 2 )" }}
+            />
 
             <ContainerLanding zIndex={2}>
                 <Grid
@@ -113,20 +108,32 @@ export default function ContactSection({
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <VStack gap={4} align="stretch">
                                         {/* Campo Nombre */}
-                                        <Field.Root invalid={!!errors.name} bg={'white'}>
+                                        <Field.Root invalid={!!errors.name}>
                                             <Field.Label>Nombre completo</Field.Label>
                                             <Input
                                                 px={2}
+                                                border="1px solid #b8b8b8"
+                                                bg="#FFFFFF"
+                                                color="#717171"
+                                                placeholder='Nombre'
                                                 {...register('name', { required: 'El nombre es obligatorio' })}
+                                                borderTopLeftRadius="2xl"
+                                                borderTopRightRadius="2xl"
+                                                borderBottomLeftRadius="0"
+                                                borderBottomRightRadius="2xl"
                                             />
                                             <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
                                         </Field.Root>
 
                                         {/* Campo Email */}
-                                        <Field.Root invalid={!!errors.email} bg={'white'}>
+                                        <Field.Root invalid={!!errors.email}>
                                             <Field.Label>Correo electrónico</Field.Label>
                                             <Input
                                                 px={2}
+                                                border="1px solid #b8b8b8"
+                                                bg="#FFFFFF"
+                                                color="#717171"
+                                                placeholder='ejemplo@meil.com'
                                                 type="email"
                                                 {...register('email', {
                                                     required: 'El correo es obligatorio',
@@ -135,17 +142,30 @@ export default function ContactSection({
                                                         message: 'Correo inválido',
                                                     },
                                                 })}
+                                                borderTopLeftRadius="2xl"
+                                                borderTopRightRadius="2xl"
+                                                borderBottomLeftRadius="0"
+                                                borderBottomRightRadius="2xl"
                                             />
                                             <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
                                         </Field.Root>
 
                                         {/* Campo Mensaje */}
-                                        <Field.Root invalid={!!errors.message} bg={'white'}>
+                                        <Field.Root invalid={!!errors.message}>
                                             <Field.Label>Mensaje</Field.Label>
                                             <Textarea
-                                                px={2} py={2}
+                                                px={2}
+                                                py={2}
+                                                border="1px solid #b8b8b8"
+                                                bg="#FFFFFF"
+                                                color="#717171"
+                                                placeholder='Dejanos un mensaje'
                                                 rows={5}
                                                 {...register('message', { required: 'El mensaje es obligatorio' })}
+                                                borderTopLeftRadius="2xl"
+                                                borderTopRightRadius="2xl"
+                                                borderBottomLeftRadius="0"
+                                                borderBottomRightRadius="2xl"
                                             />
                                             <Field.ErrorText>{errors.message?.message}</Field.ErrorText>
                                         </Field.Root>
@@ -191,30 +211,75 @@ export default function ContactSection({
                                     <Text fontWeight="bold" color="gray.800">
                                         Síguenos en redes
                                     </Text>
-                                    <HStack gap={4}>
-                                        {(content.contact.social.linkedln && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                    <HStack gap={2}>
+                                        {(content.contact.social.linkedln && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.linkedln} target="_blank">
-                                                <Icon as={FaLinkedin} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaLinkedin} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
-                                        {(content.contact.social.tiktok && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                        {(content.contact.social.tiktok && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.tiktok} target="_blank">
-                                                <Icon as={FaTiktok} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaTiktok} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
-                                        {(content.contact.social.facebook && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                        {(content.contact.social.facebook && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.facebook} target="_blank">
-                                                <Icon as={FaFacebook} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaFacebook} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
-                                        {(content.contact.social.instagram && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                        {(content.contact.social.instagram && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.instagram} target="_blank">
-                                                <Icon as={FaInstagram} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaInstagram} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
-                                        {(content.contact.social.youtube && content.contact.social.linkedln!="") && <ChakraLink asChild>
+                                        {(content.contact.social.youtube && content.contact.social.linkedln != "") && <ChakraLink asChild>
                                             <NextLink href={content.contact.social.youtube} target="_blank">
-                                                <Icon as={FaYoutube} boxSize={6} color="gray.600" _hover={{ color: 'primary.500' }} />
+                                                <Box
+                                                    bg={'#F6F1FF'}
+                                                    w={'40px'}
+                                                    h={'40px'}
+                                                    alignContent={'center'}
+                                                    textAlign={'center'}
+                                                    borderRadius={'full'}
+                                                >
+                                                    <Icon as={FaYoutube} boxSize={5} color="#B223CF87" _hover={{ color: 'primary.500' }} />
+                                                </Box>
                                             </NextLink>
                                         </ChakraLink>}
                                     </HStack>
@@ -224,33 +289,17 @@ export default function ContactSection({
                     </Transition>
 
                     {/* Columna derecha: Imagen */}
-                    <Transition type="rigth" velocity="slow" index={1}>
-                        <GridItem order={{ base: 1, md: 2 }}
-                            display="flex" justifyItems={'end'} borderRadius={'110px'}
-                            position={'relative'}
-                            overflow={'hidden'}
-                        >
+                    <GridItem order={{ base: 1, md: 2 }}>
+                        <Transition type="rigth" velocity="slow" index={1}>
                             <Image
                                 as="img"
-                                src="/home/talking.webp"
-                                alt="Asesora de marketing (Leyanis Triana) hablando por teléfono"
-                                objectFit="contain"
-                                maxH="650px"
-                                w="full"
-                                ml={{ base: 0, md: "6em" }}
-                                transform={isMobile ? 'scaleX(-1)' : 'none'}
-                                zIndex={1}
+                                src="/home/contact.png"
+                                alt="Asesora de marketing (Leyanis Triana) centada al lado de una silla"
+                                minW={'120%'}
+                                w="100%"
                             />
-
-                            <Image
-                                src="/home/patron.webp"
-                                w={'100%'}
-                                position={'absolute'}
-                                bottom={0}
-                                right={4}
-                            />
-                        </GridItem>
-                    </Transition>
+                        </Transition>
+                    </GridItem>
                 </Grid>
             </ContainerLanding>
         </Stack>

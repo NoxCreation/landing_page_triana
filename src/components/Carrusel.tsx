@@ -20,7 +20,7 @@ export default function Carousel({ children, displayButtons }: { children: React
     return (
         <>
             <Box /* overflow="hidden" */ ref={emblaRef}>
-                <Flex>
+                <Flex gap={4}>
                     {children}
                 </Flex>
             </Box>

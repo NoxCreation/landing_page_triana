@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Grid, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { Transition } from "@/components/Transition";
 import { CardService } from "@/components/cards/CardService";
@@ -32,16 +32,15 @@ export default function Service({
                 </Transition>
 
                 <Transition type="left" velocity="slow">
-                    <Carousel displayButtons={{ base: 'flex', md: 'none' }}>
+                    <Carousel displayButtons={{ base: 'flex', md: 'none' }} >
                         {content.services.services.slice(0, 3).map((service, index) => (
                             <Box
-                                key={index}
+                                key={`service-${index}`}
                                 flex={{
                                     base: "0 0 100%",
                                     md: "0 0 50%",
                                     lg: "0 0 33.33%",
                                 }}
-                                px={{ base: 0, md: 4 }}
                             >
                                 <CardService
                                     title={service.title}

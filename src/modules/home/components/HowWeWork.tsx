@@ -12,14 +12,38 @@ export default function HowWeWork({
     content: ContentType
 }) {
     return (
-        <ContainerLanding bg="white">
-            <Flex align="center" flexDirection={{ base: "column", lg: "row" }}>
+        <ContainerLanding
+            bg={"linear-gradient(to right, #EDEDED, #E3E0E0, #E7E5E6, #DFDBDA)"}
+            pt={{ base: 6, lg: 0 }}
+            pb={{ base: "0", lg: 0 }}
+            overflow="hidden"
+            position={'relative'}
+        >
+            <Box
+                position="absolute"
+                top={0}
+                left={0}
+                w={'100%'}
+                bg="linear-gradient(180deg, #fafafa, transparent)"
+                h={'60px'}
+            />
+
+            <Image
+                zIndex={1}
+                src="/visual_support.png"
+                position="absolute"
+                bottom={0}
+                left={{ base: "-250px", md: "0", lg: "0" }}
+                minW={{ base: "calc(100vw + 400px)", md: "calc(100% - 400px)", lg: "calc(100vw / 2 )" }}
+            />
+
+            <Flex gap={12} align="center" flexDirection={{ base: "column", lg: "row" }} >
                 <Transition type="left" velocity="slow">
                     <Stack flex="1" alignItems="start" gap={6}>
                         <Heading
                             as="h1"
                             fontFamily="Bricolage Grotesque"
-                            color="#3F3F3F"
+                            color="primary.500"
                             fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
                             fontWeight={800}
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
@@ -29,7 +53,7 @@ export default function HowWeWork({
                             Cómo trabajamos juntos
                         </Heading>
 
-                        <List.Root gap={6}>
+                        <List.Root gap={6} zIndex={2}>
                             {content.home.how_we_work.map((it, index) => (
                                 <Point
                                     key={index}
@@ -43,25 +67,30 @@ export default function HowWeWork({
                 </Transition>
 
                 <Stack
+                    id="ddd"
                     flex={1}
                     w={'100%'}
+                    zIndex={2}
                     alignItems={'end'}
-                    display={{ base: 'none', md: 'flex' }}
                 >
                     <Transition type="rigth" velocity="slow">
                         <Image
-                            src="/home/proces.webp"
+                            src="/home/proces.png"
                             alt="Foto derecha"
-                            maxW="420px"
-                            w="100%"
-                            borderRadius="2xl"
-                            bottom="0"
-                            zIndex="1"
                         />
                     </Transition>
                 </Stack>
 
             </Flex>
+
+            <Box
+                position="absolute"
+                bottom={0}
+                left={0}
+                w={'100%'}
+                bg="linear-gradient(0deg, #F3A0FF0D, transparent)"
+                h={'60px'}
+            />
         </ContainerLanding>
     );
 }

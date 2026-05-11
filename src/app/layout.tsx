@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
 import { Provider } from "@/ui/provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,11 +10,6 @@ import { ContentType } from "@/types/ContentType";
 
 export const dynamic = 'force-dynamic';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
-
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage',
@@ -23,9 +17,7 @@ const bricolage = Bricolage_Grotesque({
 
 export const viewport: Viewport = {
   themeColor: '#d107ff',
-  // Opcional: Si necesitas el color para la Tile de Windows,
-  // puedes definirlo aquí. El campo 'themeColor' es el estándar.
-  // La propiedad 'msapplication-TileColor' ya no es necesaria.
+  colorScheme: 'light',
 }
 
 export const metadata: Metadata = {
@@ -45,8 +37,8 @@ export default async function RootLayout({
   if (!content) redirect("/500")
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body style={{ background: "#ffffff" }} className={`${inter.variable} ${bricolage.variable}`}>
+    <html lang="es" suppressHydrationWarning>
+      <body style={{ background: "#ffffff" }} className={`${bricolage.variable}`}>
         <Provider attribute="class" defaultTheme="light">
           <Navbar />
           {children}

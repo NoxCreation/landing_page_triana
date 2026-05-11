@@ -27,7 +27,7 @@ export default function InfoCard({
             position="relative"
             bg="white"
             border="2px solid"
-            borderColor="gray.100"
+            borderColor="gray.50"
             borderTopLeftRadius="3xl"
             borderTopRightRadius="3xl"
             borderBottomLeftRadius="0"
@@ -44,7 +44,7 @@ export default function InfoCard({
                     left="50%"
                     transform="translateX(-50%)"
                     size="50px"
-                    bg={randomColor}
+                    bg={'hsl(308, 82%, 48%)'}
                     color="white"
                     zIndex={1}
                 >
@@ -62,8 +62,8 @@ export default function InfoCard({
                 <Card.Title
                     fontFamily="Inter"
                     fontWeight="800"
-                    fontSize="22px"
-                    lineHeight="32px"
+                    fontSize="20px"
+                    lineHeight="24px"
                     letterSpacing="0%"
                     textAlign="center"
                     color="#3F3F3F"
@@ -73,8 +73,8 @@ export default function InfoCard({
                 <Card.Description
                     fontFamily="Inter"
                     fontWeight="400"
-                    fontSize="18px"
-                    lineHeight="22px"
+                    fontSize="14px"
+                    lineHeight="20px"
                     letterSpacing="0px"
                     textAlign="center"
                     color="#717171"
