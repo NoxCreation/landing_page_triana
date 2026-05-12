@@ -1,7 +1,6 @@
 'use client'
 
 import { Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
-import { SparklesText } from "@/components/Sparkle";
 import { StatAnimate } from "@/components/StatAnimate";
 import { Transition } from "@/components/Transition";
 import { ContentType } from "@/types/ContentType";
@@ -60,18 +59,16 @@ export default function Hero({
                     </Transition>
 
                     <Transition type="top" velocity="slow" index={1}>
-                        <SparklesText sparklesCount={5}>
-                            <Heading
-                                as="h1"
-                                color="primary.500"
-                                fontFamily="Bricolage Grotesque"
-                                fontWeight="extrabold"
-                                fontSize={{ base: "38px", md: "38px", lg: "80px", "2xl": "100px" }}
-                                lineHeight={{ base: "36px", md: "50px", lg: "80px" }}
-                            >
-                                {content.home.main_title}
-                            </Heading>
-                        </SparklesText>
+                        <Heading
+                            as="h1"
+                            color="primary.500"
+                            fontFamily="Bricolage Grotesque"
+                            fontWeight="extrabold"
+                            fontSize={{ base: "38px", md: "38px", lg: "80px", "2xl": "100px" }}
+                            lineHeight={{ base: "36px", md: "50px", lg: "80px" }}
+                        >
+                            {content.home.main_title}
+                        </Heading>
                     </Transition>
 
                     <Transition type="bootom" velocity="slow" index={1}>
