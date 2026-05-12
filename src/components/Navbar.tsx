@@ -119,6 +119,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen((s) => !s)}
               display={{ base: "flex", md: "none" }}
               variant="ghost"
+              fontSize={"20px"}
             >
               <span>☰</span>
             </IconButton>

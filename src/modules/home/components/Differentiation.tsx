@@ -17,7 +17,7 @@ export default function Differentiation({
     const animationVelocity = useBreakpointValue({ base: "fast", md: "slow" });
 
     return (
-        <Stack gap={0} minH={{ base: 0, md: "100vh" }} position={'relative'}>
+        <Stack gap={0}>
             <Transition type="top" velocity="slow" index={1}>
                 <Flex
                     w="100%"
@@ -53,92 +53,95 @@ export default function Differentiation({
                 </Flex>
             </Transition>
 
-            <ContainerLanding bg="white" color="black" py={20}>
-                <Box
-                    as="section"
-                    bg="white"
-                >
-                    <Stack gap={{ base: 10, md: 14 }}>
-                        {/* Encabezado */}
-                        <Transition type="bootom" velocity={animationVelocity as any} index={1}>
-                            <VStack gap={0} textAlign="center">
-                                <Heading
-                                    as="h2"
-                                    color="primary.500"
-                                    fontFamily="Bricolage Grotesque"
-                                    fontWeight="extrabold"
-                                    fontSize={{ base: "28px", md: "40px", lg: "54px" }}
-                                    lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
-                                >
-                                    ¿Por qué elegir 3ana Marqueting?
-                                </Heading>
-                                <Text
-                                    as="h3"
-                                    fontFamily="Bricolage Grotesque"
-                                    fontWeight="400"
-                                    fontSize={{ base: "14px", md: "16px", lg: "18px" }}
-                                    lineHeight="1.5"
-                                    color="gray.400"
-                                    maxW="600px"
-                                    mx="auto"
-                                >
-                                    Te adelantamos algunos de los servicios que podemos ofrecerte
-                                </Text>
-                            </VStack>
-                        </Transition>
+            <Stack gap={0} minH={{ base: "100vh", md: "100vh" }} position={'relative'} justifyContent={'center'}>
 
-                        <Box display={{ base: 'initial', md: 'none' }} >
-                            <Transition
-                                type="bootom"
-                                velocity={animationVelocity as any}
-                            >
-                                <Carousel >
+
+                <ContainerLanding bg="white" color="black" py={20}>
+                    <Box
+                        as="section"
+                        bg="white"
+                    >
+                        <Stack gap={{ base: 10, md: 14 }}>
+                            {/* Encabezado */}
+                            <Transition type="bootom" velocity={animationVelocity as any} index={1}>
+                                <VStack gap={4} textAlign="center">
+                                    <Heading
+                                        as="h2"
+                                        color="primary.500"
+                                        fontFamily="Bricolage Grotesque"
+                                        fontWeight="extrabold"
+                                        fontSize={{ base: "28px", md: "40px", lg: "54px" }}
+                                        lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
+                                    >
+                                        ¿Por qué elegir 3ana Marqueting?
+                                    </Heading>
+                                    <Text
+                                        as="h3"
+                                        fontFamily="Bricolage Grotesque"
+                                        fontWeight="400"
+                                        fontSize={{ base: "14px", md: "16px", lg: "18px" }}
+                                        lineHeight="1.5"
+                                        color="gray.400"
+                                        maxW="600px"
+                                        mx="auto"
+                                    >
+                                        Te adelantamos algunos de los servicios que podemos ofrecerte
+                                    </Text>
+                                </VStack>
+                            </Transition>
+
+                            <Box display={{ base: 'initial', md: 'none' }} >
+                                <Transition
+                                    type="bootom"
+                                    velocity={animationVelocity as any}
+                                >
+                                    <Carousel >
+                                        {content.home.why_choose_me.map((card, index) => (
+                                            <Box
+                                                key={index}
+                                                flex={{
+                                                    base: "0 0 100%",
+                                                    md: "0 0 50%",
+                                                    lg: "0 0 33.33%",
+                                                }}
+                                                px={{ base: 2, md: 4 }}
+                                            >
+
+                                                <InfoCard
+                                                    title={card.title}
+                                                    description={card.description}
+                                                    icon={card.icon}
+                                                />
+                                            </Box>
+                                        ))}
+                                    </Carousel>
+                                </Transition>
+                            </Box>
+
+                            <Box display={{ base: 'none', md: 'initial' }}>
+                                <Grid
+                                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }}
+                                    gap={{ base: 6, md: 8 }}
+                                >
                                     {content.home.why_choose_me.map((card, index) => (
-                                        <Box
+                                        <Transition
                                             key={index}
-                                            flex={{
-                                                base: "0 0 100%",
-                                                md: "0 0 50%",
-                                                lg: "0 0 33.33%",
-                                            }}
-                                            px={{ base: 2, md: 4 }}
+                                            type="bootom"
+                                            velocity={animationVelocity as any}
+                                            index={index * 2}
                                         >
-
                                             <InfoCard
                                                 title={card.title}
                                                 description={card.description}
                                                 icon={card.icon}
                                             />
-                                        </Box>
+                                        </Transition>
                                     ))}
-                                </Carousel>
-                            </Transition>
-                        </Box>
+                                </Grid>
+                            </Box>
 
-                        <Box display={{ base: 'none', md: 'initial' }}>
-                            <Grid
-                                templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }}
-                                gap={{ base: 6, md: 8 }}
-                            >
-                                {content.home.why_choose_me.map((card, index) => (
-                                    <Transition
-                                        key={index}
-                                        type="bootom"
-                                        velocity={animationVelocity as any}
-                                        index={index * 2}
-                                    >
-                                        <InfoCard
-                                            title={card.title}
-                                            description={card.description}
-                                            icon={card.icon}
-                                        />
-                                    </Transition>
-                                ))}
-                            </Grid>
-                        </Box>
-
-                        {/* Botón CTA */}
-                        {/* <Center>
+                            {/* Botón CTA */}
+                            {/* <Center>
                             <Link href={`/service`}>
                                 <Button
                                     px="24px"
@@ -162,9 +165,10 @@ export default function Differentiation({
                                 </Button>
                             </Link>
                         </Center> */}
-                    </Stack>
-                </Box>
-            </ContainerLanding>
+                        </Stack>
+                    </Box>
+                </ContainerLanding>
+            </Stack>
         </Stack>
     )
 }
