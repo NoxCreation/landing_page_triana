@@ -26,9 +26,9 @@ export default function Hero({
                         zIndex={2}
                         src="/home/composition.webp"
                         position="absolute"
-                        top={{ base: "-50px", md: "-100px", lg: "60px" }}
+                        top={{ base: "-50px", md: "-100px", lg: "100px", xl: "60px" }}
                         left={{ base: "-50px", md: "-100px", lg: "0" }}
-                        w={{ base: "200px", md: "300px", lg: "480px", "2xl": "600px" }}
+                        w={{ base: "200px", md: "300px", lg: "380px", xl: '480px', "2xl": "600px" }}
                     />
 
                     <Transition type="bootom" velocity="fast" index={1}>
@@ -64,8 +64,8 @@ export default function Hero({
                             color="primary.500"
                             fontFamily="Bricolage Grotesque"
                             fontWeight="extrabold"
-                            fontSize={{ base: "38px", md: "38px", lg: "80px", "2xl": "100px" }}
-                            lineHeight={{ base: "36px", md: "50px", lg: "80px" }}
+                            fontSize={{ base: "38px", md: "38px", lg: "60px", xl: "80px", "2xl": "100px" }}
+                            lineHeight={{ base: "36px", md: "50px", lg: "60px", xl: "80px", "2xl": "90px" }}
                         >
                             {content.home.main_title}
                         </Heading>
@@ -115,9 +115,9 @@ export default function Hero({
                     <Image
                         src="/home/triana-home.webp"
                         position={"absolute"}
-                        top={{ base: "0px", md: "-100px", lg: "90px" }}
-                        right={{ base: "0px", md: "-100px", lg: "-20px" }}
-                        w={{ base: "100%", md: "300px", lg: "520px", "2xl": "600px" }}
+                        top={{ base: "0px", md: "-100px", lg: "120px", xl: '90px' }}
+                        right={{ base: "0px", md: "-100px", lg: "-20px", xl: '-20px' }}
+                        w={{ base: "100%", md: "300px", lg: "420px", xl: "520px", "2xl": "600px" }}
                     />
                 </Stack>
 
