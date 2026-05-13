@@ -4,20 +4,18 @@ export const HtmlRenderer = ({ children }) => {
     return (
         <Box
             css={{
-                // Alineación a la izquierda (flotante)
+                // Estilos para escritorio (por defecto)
                 '& .image-style-align-left': {
                     float: 'left',
                     marginRight: '1.5em',
                     marginBottom: '0.5em',
                     maxWidth: '50%',
                 },
-                // Alineación a la derecha (flotante)
                 '& .image-style-side, & .image-style-align-right': {
                     float: 'right',
                     marginLeft: '1.5em',
                     marginBottom: '0.5em',
                 },
-                // Centrado (importante!)
                 '& .image-style-align-center': {
                     display: 'block',
                     marginLeft: 'auto',
@@ -25,11 +23,9 @@ export const HtmlRenderer = ({ children }) => {
                     textAlign: 'center',
                     clear: 'both',
                 },
-                // Asegura que la figura no sea inline-block (interfiere con margin auto)
                 '& .image-style-align-center.image': {
                     display: 'block',
                 },
-                // Reglas generales para cualquier imagen
                 '& .image': {
                     position: 'relative',
                     display: 'inline-block',
@@ -38,12 +34,33 @@ export const HtmlRenderer = ({ children }) => {
                     maxWidth: '100%',
                     height: 'auto',
                 },
-                // Limpiar floats después del contenido
                 '&::after': {
                     content: '""',
                     display: 'table',
                     clear: 'both',
-                }
+                },
+
+                // 📱 Estilos para móviles (pantallas de hasta 768px)
+                '@media (max-width: 768px)': {
+                    '& .image, & .image-style-align-left, & .image-style-side, & .image-style-align-right, & .image-style-align-center': {
+                        float: 'none',              // Eliminar flotación
+                        marginLeft: '0',
+                        marginRight: '0',
+                        maxWidth: '100%',           // Ocupa todo el ancho
+                        width: '100% !important',
+                        display: 'block',
+                        textAlign: 'center',
+                    },
+                    '& .image img': {
+                        width: '100%',              // La imagen ocupa el 100% del contenedor
+                        maxWidth: '100%',
+                        height: 'auto',
+                    },
+                    '& .image-style-align-center, & .image-style-align-center.image': {
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                    },
+                },
             }}
             dangerouslySetInnerHTML={{ __html: children }}
         />
