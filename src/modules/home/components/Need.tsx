@@ -59,13 +59,13 @@ export default function Need({
                     {/* Columna derecha: Contenido informativo */}
                     <GridItem order={{ base: 1, md: 2 }} zIndex={2}>
                         <Transition type="rigth" velocity="slow" index={1}>
-                            <VStack align="flex-start" gap={6} color="white">
+                            <VStack align="flex-start" gap={4} color="white">
                                 <Heading
                                     as="h2"
                                     fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
                                     fontWeight="extrabold"
                                     fontFamily="Bricolage Grotesque"
-                                    lineHeight="1.2"
+                                    lineHeight="1"
                                     color="primary.500"
                                     textAlign={{ base: 'center', md: "start" }}
                                 >
@@ -76,12 +76,12 @@ export default function Need({
                                     fontSize={{ base: "md", md: "lg" }}
                                     opacity={0.9} fontFamily="Bricolage Grotesque"
                                     color="#3F3F3F"
-
+                                    lineHeight="16px"
                                 >
                                     {content.home.strategic_section.description}
                                 </Text>
 
-                                <List.Root gap={3} fontSize={{ base: "sm", md: "md" }}>
+                                <List.Root gap={1} fontSize={{ base: "sm", md: "md" }}>
                                     {content.home.strategic_section.items.map((item, index) => (
                                         <List.Item
                                             display="flex"
