@@ -14,7 +14,7 @@ export default function BlogDetail({
 }) {
     return (
         <ContainerLanding zIndex={2}>
-            <Flex gap={8} py={14} flexDir={{base: 'column', md: 'row'}}>
+            <Flex gap={8} py={{ base: 4, md: 14 }} flexDir={{ base: 'column', md: 'row' }}>
                 <Stack /* mt={{ base: 6, md: 12 }} */ gap={6} flex={1}>
 
                     <Box /* h={{ base: "initial", md: '400px' }} */ overflow={'hidden'}>
