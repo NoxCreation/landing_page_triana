@@ -2,11 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Provider } from "@/ui/provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Inter, Bricolage_Grotesque } from 'next/font/google';
+import { Bricolage_Grotesque } from 'next/font/google';
 import ButtonUp from "@/components/buttonUp";
 import { redirect } from 'next/navigation';
 import { getContent } from "@/lib/content";
 import { ContentType } from "@/types/ContentType";
+import "./globals.css";
 
 export const dynamic = 'force-dynamic';
 
