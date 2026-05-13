@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Heading, Text, Image, Icon, Stack } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Icon, Stack, Flex } from "@chakra-ui/react";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { Transition } from "@/components/Transition";
 import { ArticleType } from "@/types/ArticleType";
@@ -14,51 +14,33 @@ export default function BlogDetail({
 }) {
     return (
         <ContainerLanding zIndex={2}>
-            <Stack mt={{ base: 6, md: 12 }} gap={6}>
+            <Flex gap={8} py={14} flexDir={{base: 'column', md: 'row'}}>
+                <Stack /* mt={{ base: 6, md: 12 }} */ gap={6} flex={1}>
 
-                {/* <Transition type="top" velocity="slow">
-                    <Link
-                        href="/blog"
-                    >
-                        <Text
-                            color={'gray.600'}
-                            fontWeight={600}
-                            fontSize="18px"
-                            lineHeight="22px"
-                            letterSpacing="0px"
-                        >
-                            ← Volver a Blog
-                        </Text>
-                    </Link>
-                </Transition> */}
-
-                <Box h={{ base: "initial", md: '400px' }} overflow={'hidden'}>
-                    <Transition type="top" velocity="slow">
+                    <Box /* h={{ base: "initial", md: '400px' }} */ overflow={'hidden'}>
                         <Image
                             src={article.thumbnail}
                             alt="Nos expandimos a Instagram"
                             w="100%"
                             objectFit="cover"
+                            borderRadius={'12px'}
                         />
-                    </Transition>
-                </Box>
+                    </Box>
 
-                <Box>
-                    <Transition type="top" velocity="slow">
+                    <Box>
                         <Heading
                             as="h1"
-                            fontSize={{ base: "2xl", md: "36px" }}
+                            fontSize={{ base: "2xl", md: "26px" }}
                             fontWeight="800"
                             fontFamily="Bricolage Grotesque"
-                            lineHeight="40px"
+                            lineHeight="34px"
                             letterSpacing="0px"
                             color="primary.500"
                             mb={4}
                         >
                             {article.title}
                         </Heading>
-                    </Transition>
-                    <Transition type="left" velocity="slow">
+
                         <Text
                             fontWeight={400}
                             fontSize="14px"
@@ -67,25 +49,27 @@ export default function BlogDetail({
                         >
                             <Icon as={CalendarTodayIcon} /> {article.createdAt.toLocaleString()}
                         </Text>
-                    </Transition>
-                </Box>
+                    </Box>
 
-                <Transition type="left" velocity="slow">
-                    <Stack
-                        color={'gray.600'}
-                        fontWeight={400}
-                        fontSize="18px"
-                        lineHeight="22px"
-                        letterSpacing="0px"
-                        mb={4}
-                    >
-                        <HtmlRenderer>
-                            {article.description}
-                        </HtmlRenderer>
-                    </Stack>
-                </Transition>
+                </Stack>
 
-            </Stack>
+                {/* <Transition type="left" velocity="slow"> */}
+                <Stack
+                    flex={2}
+                    color={'gray.600'}
+                    fontWeight={400}
+                    fontSize="18px"
+                    lineHeight="22px"
+                    letterSpacing="0px"
+                    mb={4}
+                >
+                    <HtmlRenderer>
+                        {article.description}
+                    </HtmlRenderer>
+                </Stack>
+                {/* </Transition> */}
+            </Flex>
+
         </ContainerLanding>
     );
 }
