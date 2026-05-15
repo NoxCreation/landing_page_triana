@@ -1,3 +1,4 @@
+import { Tracker } from "@/components/Tracker";
 import { getContent } from "@/lib/content";
 import { getMetadata } from "@/lib/getMetadata";
 import HomeIndex from "@/modules/home";
@@ -6,20 +7,20 @@ import { redirect } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata() {
-    return getMetadata({
-      title: "Pagina Principal - Triana Marketing",
-      description: "Triana Marketing es una agencia de marketing digital en EEUU especializada en estrategias de crecimiento para negocios. Impulsamos tu marca con soluciones innovadoras y resultados medibles.",
-      keywords: [
-        "marketing digital",
-        "agencia de marketing",
-        "marketing en EEUU",
-        "estrategias de crecimiento",
-        "consultoría de marketing",
-        "branding",
-        "publicidad digital",
-        "marketing para negocios",
-      ]
-    })
+  return getMetadata({
+    title: "Pagina Principal - Triana Marketing",
+    description: "Triana Marketing es una agencia de marketing digital en EEUU especializada en estrategias de crecimiento para negocios. Impulsamos tu marca con soluciones innovadoras y resultados medibles.",
+    keywords: [
+      "marketing digital",
+      "agencia de marketing",
+      "marketing en EEUU",
+      "estrategias de crecimiento",
+      "consultoría de marketing",
+      "branding",
+      "publicidad digital",
+      "marketing para negocios",
+    ]
+  })
 }
 
 export default async function Home() {
@@ -27,6 +28,9 @@ export default async function Home() {
   if (!content) redirect("/500")
 
   return (
-    <HomeIndex content={content} />
+    <>
+      <Tracker />
+      <HomeIndex content={content} />
+    </>
   );
 }
