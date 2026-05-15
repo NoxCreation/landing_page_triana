@@ -1,3 +1,4 @@
+import { Tracker } from "@/components/Tracker";
 import { getContent } from "@/lib/content";
 import { getMetadata } from "@/lib/getMetadata";
 import ServiceDetail from "@/modules/services/components/details/ServiceDetail";
@@ -31,6 +32,9 @@ export default async function ServiceDetails({ params }: { params: { slug: strin
 
     const service = content.services.services.find(service => service.slug == slug)
     return (
-        <ServiceDetail service={service}/>
+        <>
+            <Tracker />
+            <ServiceDetail service={service} />
+        </>
     )
 }

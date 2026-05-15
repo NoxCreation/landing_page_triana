@@ -1,3 +1,4 @@
+import { Tracker } from '@/components/Tracker';
 import { getContent } from '@/lib/content';
 import { PaymentDetailsIndex } from '@/modules/payment/PaymentDetailsIndex';
 import { redirect } from 'next/navigation';
@@ -12,6 +13,9 @@ export default async function PaymentDetails({ params }: { params: { slug: strin
     const service = content.services.services.find(service => service.slug == slug)
 
     return (
-        <PaymentDetailsIndex service={service}/>
+        <>
+            <Tracker />
+            <PaymentDetailsIndex service={service} />
+        </>
     );
 }

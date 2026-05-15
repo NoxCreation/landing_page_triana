@@ -1,3 +1,4 @@
+import { Tracker } from "@/components/Tracker";
 import { getPrivacyPolicyContent } from "@/lib/content";
 import { getMetadata } from "@/lib/getMetadata";
 import PrivacyPolicyIndex from "@/modules/privacy-policy";
@@ -25,6 +26,9 @@ export default async function Home() {
     if (!content) redirect("/500")
 
     return (
-        <PrivacyPolicyIndex content={content}/>
+        <>
+            <Tracker />
+            <PrivacyPolicyIndex content={content} />
+        </>
     );
 }
