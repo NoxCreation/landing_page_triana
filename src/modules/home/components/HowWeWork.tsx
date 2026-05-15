@@ -14,7 +14,7 @@ export default function HowWeWork({
     return (
         <ContainerLanding
             bg={"linear-gradient(to right, #EDEDED, #E3E0E0, #E7E5E6, #DFDBDA)"}
-            pt={{ base: 6, lg: 0 }}
+            pt={{ base: 14, lg: 0 }}
             pb={{ base: "0", lg: 0 }}
             overflow="hidden"
             position={'relative'}
@@ -37,23 +37,24 @@ export default function HowWeWork({
                 minW={{ base: "calc(100vw + 400px)", md: "calc(100% - 400px)", lg: "calc(100vw / 2 )" }}
             />
 
-            <Flex gap={12} align="center" flexDirection={{ base: "column", lg: "row" }} >
+            <Flex gap={2} align="center" flexDirection={{ base: "column", sm: 'column', lg: "row" }} h={'fit-content'}>
                 <Transition type="left" velocity="slow">
                     <Stack flex="1" alignItems="start" gap={6}>
                         <Heading
                             as="h1"
                             fontFamily="Bricolage Grotesque"
                             color="primary.500"
-                            fontSize={{ base: "28px", md: "40px", lg: "5xl" }}
+                            fontSize={{ base: "24px", md: "40px", lg: "5xl" }}
                             fontWeight={800}
                             lineHeight={{ base: "36px", md: "50px", lg: "70px" }}
                             letterSpacing="0px"
                             textAlign={'center'}
+                            w={'100%'}
                         >
                             Cómo trabajamos juntos
                         </Heading>
 
-                        <List.Root gap={6} zIndex={2}>
+                        <List.Root gap={4} zIndex={2}>
                             {content.home.how_we_work.map((it, index) => (
                                 <Point
                                     key={index}
@@ -67,18 +68,19 @@ export default function HowWeWork({
                 </Transition>
 
                 <Stack
-                    id="ddd"
                     flex={1}
                     w={'100%'}
                     zIndex={2}
-                    alignItems={'end'}
                 >
-                    <Transition type="rigth" velocity="slow">
-                        <Image
-                            src="/home/proces.webp"
-                            alt="Foto derecha"
-                        />
-                    </Transition>
+                    <Box h={'400px'}></Box>
+                    <Image
+                        src="/home/trianamobile.png"
+                        alt="Triana mirando un mobil sonriendo"
+                        maxH={{ base: "400px", sm: '400px', md: "400px", lg: "700px", "2xl": "800px" }}
+                        position={'absolute'}
+                        bottom={0}
+                        right={{ base: 'calc((100vw / 2) - 40%)', sm: "calc((100vw / 2) - 34%)", md: 'calc((100vw / 2) - 20%)', lg: '14%' }}
+                    />
                 </Stack>
 
             </Flex>
@@ -108,11 +110,10 @@ const Point = ({
     return (
         <ListItem direction="row"
             w="100%"
-            py={3}
             borderRadius="48px"
             gap="16px"
             display="flex"
-            alignItems="flex-start"
+            alignItems="center"
             _hover={{
                 bg: '#b223cf13'
             }}
@@ -120,8 +121,8 @@ const Point = ({
             cursor={'pointer'}
         >
             <Box
-                w={{ base: "50px", lg: "80px" }}
-                h={{ base: "50px", lg: "80px" }}
+                w={{ base: "60px", lg: "70px" }}
+                h={{ base: "60px", lg: "70px" }}
                 p="3px"
                 borderRadius="full"
                 background="linear-gradient(to bottom, #E63CFF, #611161)"
@@ -146,15 +147,14 @@ const Point = ({
                     </Flex>
                 )}
             </Box>
-            <Box maxW="420px" w="100%" gap="8px">
+            <Stack maxW={{ base: "inherit", md: "420px" }} w="100%" gap="10px">
                 <Text
                     as="h3"
                     fontWeight={800}
                     fontFamily="Bricolage Grotesque"
                     color="#3F3F3F"
-                    mb={1}
                     fontSize={{ base: "18px", lg: "26px" }}
-                    lineHeight={{ base: "24px", lg: "32px" }}
+                    lineHeight={{ base: "4px", lg: "32px" }}
                     letterSpacing="0px"
                 >
                     {title}
@@ -162,12 +162,13 @@ const Point = ({
                 <Text
                     color="#717171"
                     fontSize="14px"
-                    fontWeight={400}
+                    fontWeight={4}
+                    lineHeight={{ base: "14px", lg: "22px" }}
                     fontFamily="Bricolage Grotesque"
                 >
                     {description}
                 </Text>
-            </Box>
+            </Stack>
         </ListItem>
     )
 }

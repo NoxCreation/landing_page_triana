@@ -3,7 +3,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { ColorModeProvider, type ColorModeProviderProps } from "./color-mode";
 import system from "./theme";
-import { AppProgressProvider as ProgressProvider } from '@bprogress/next'; // <-- Importación correcta
+import { AppProgressProvider as ProgressProvider } from '@bprogress/next';
 
 export function Provider(props: ColorModeProviderProps) {
   return (
