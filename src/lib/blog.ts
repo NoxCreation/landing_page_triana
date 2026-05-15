@@ -9,7 +9,11 @@ export const getArticles = async (
     pagination: PaginatedArticles
 }> => {
     const offset = (page - 1) * limit;
-    const query = `SELECT * FROM public.articles ORDER BY id LIMIT $1 OFFSET $2`;
+    const query = `SELECT *
+FROM public.articles
+ORDER BY "createdAt" DESC
+LIMIT $1 OFFSET $2;
+`;
     const countQuery = `SELECT COUNT(*) as count FROM public.articles`;
 
     try {
